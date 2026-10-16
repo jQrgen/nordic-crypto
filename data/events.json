@@ -972,6 +972,261 @@
    "ongoing": false
   },
   {
+   "title": "Pengar i Palestina",
+   "start": "2026-08-10T15:00:00+02:00",
+   "end": "2026-08-10T16:00:00+02:00",
+   "place": "SpareBank 1 Sør-Norge, Torvet 10",
+   "city": "Arendal",
+   "country": "NO",
+   "online": false,
+   "organiser": "Bitcoinpolitisk Institutt Norge",
+   "url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+   "source": "backfill",
+   "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+   "found": "2026-10-16T09:45:00+00:00",
+   "event_type": "seminar",
+   "language": null,
+   "status": "published",
+   "backfill": true,
+   "attendees": null,
+   "speakers_count": null,
+   "videos_url": null,
+   "credits": {
+    "title": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "start": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "end": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "place": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "city": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "country": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "organiser": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "url": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "event_type": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    }
+   },
+   "id": "643088f29d66",
+   "place_source": {
+    "name": "Bitcoinpolitisk Institutt Norge",
+    "url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+    "retrieved": "2026-10-16T09:45:00+00:00"
+   },
+   "description": {
+    "text": "Rett etter Iran-debatten spør vi om bitcoin er mulig som alternativ valuta i Gaza og på Vestbredden. Parisprotokollen fra Osloprosessen gjør israelske shekel til tvungent betalingsmiddel i de palestinske områdene.",
+    "lang": "nb",
+    "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "retrieved": "2026-10-16T09:45:00+00:00",
+    "i18n": {}
+   },
+   "past": true
+  },
+  {
+   "title": "Er bitcoin vinnaren av krigen mot Iran?",
+   "start": "2026-08-10T14:00:00+02:00",
+   "end": "2026-08-10T15:00:00+02:00",
+   "place": "SpareBank 1 Sør-Norge, Torvet 10",
+   "city": "Arendal",
+   "country": "NO",
+   "online": false,
+   "organiser": "Bitcoinpolitisk Institutt Norge",
+   "url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+   "source": "backfill",
+   "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+   "found": "2026-10-16T09:45:00+00:00",
+   "event_type": "seminar",
+   "language": null,
+   "status": "published",
+   "backfill": true,
+   "attendees": null,
+   "speakers_count": null,
+   "videos_url": null,
+   "credits": {
+    "title": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "start": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "end": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "place": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "city": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "country": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "organiser": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "url": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "event_type": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    }
+   },
+   "id": "9177a9451730",
+   "place_source": {
+    "name": "Bitcoinpolitisk Institutt Norge",
+    "url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+    "retrieved": "2026-10-16T09:45:00+00:00"
+   },
+   "description": {
+    "text": "Krigen mot Iran har tydeliggjort at landet kontrollerer Hormuzstredet. Nå signaliserer regimet at tankskip kan bli avkrevd toll, og at tollen skal kunne betales i bitcoin. Trolig for å omgå amerikanske sanksjoner.",
+    "lang": "nb",
+    "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "retrieved": "2026-10-16T09:45:00+00:00",
+    "i18n": {}
+   },
+   "talk_ids": [
+    "yt-iT2iG3o4qJM"
+   ],
+   "past": true
+  },
+  {
+   "title": "Satoshi Nakamoto-årstalen",
+   "start": "2026-02-11T18:00:00+01:00",
+   "end": "2026-02-11T23:59:00+01:00",
+   "place": "Målstova, Nasjonalbiblioteket, Henrik Ibsens gate 110",
+   "city": "Oslo",
+   "country": "NO",
+   "online": false,
+   "organiser": "Bitcoinpolitisk Institutt Norge",
+   "url": "https://bpinorge.no/blog/satoshi-nakamoto-arstalen/",
+   "source": "backfill",
+   "source_url": "https://bpinorge.no/blog/satoshi-nakamoto-arstalen/",
+   "found": "2026-10-16T09:45:00+00:00",
+   "event_type": "seminar",
+   "language": null,
+   "status": "published",
+   "backfill": true,
+   "attendees": null,
+   "speakers_count": null,
+   "videos_url": null,
+   "credits": {
+    "title": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/satoshi-nakamoto-arstalen/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "start": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/satoshi-nakamoto-arstalen/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "end": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/satoshi-nakamoto-arstalen/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "place": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/satoshi-nakamoto-arstalen/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "city": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/satoshi-nakamoto-arstalen/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "country": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/satoshi-nakamoto-arstalen/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "organiser": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/satoshi-nakamoto-arstalen/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "url": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/satoshi-nakamoto-arstalen/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "event_type": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/satoshi-nakamoto-arstalen/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    }
+   },
+   "id": "9e5346069673",
+   "place_source": {
+    "name": "Bitcoinpolitisk Institutt Norge",
+    "url": "https://bpinorge.no/blog/satoshi-nakamoto-arstalen/",
+    "retrieved": "2026-10-16T09:45:00+00:00"
+   },
+   "description": {
+    "text": "Dagen før sentralbanksjef Ida Wolden Bache holder den tradisjonelle årstalen på Bankplassen, arrangerer Bitcoinpolitisk institutt Norge (BPI) tidenes første Satoshi Nakamoto-årstale. Velkommen til en alternativ og fremtidsrettet tale om bitcoin og penger i vid forstand.",
+    "lang": "nb",
+    "source_url": "https://bpinorge.no/blog/satoshi-nakamoto-arstalen/",
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "retrieved": "2026-10-16T09:45:00+00:00",
+    "i18n": {}
+   },
+   "talk_ids": [
+    "yt-0q2kmQuA5PE"
+   ],
+   "past": true
+  },
+  {
    "id": "4a60aa9b39c4",
    "title": "Satoshi Nakamoto-årstalen",
    "title_orig": null,
@@ -1100,6 +1355,92 @@
      "is": "15.–16. ágúst 2025 safnast bitcoin-samfélagið saman í Helsinki á BTCHEL, fyrstu stóru bitcoin-ráðstefnunni sem haldin er í Finnlandi."
     }
    },
+   "past": true
+  },
+  {
+   "title": "Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+   "start": "2025-08-12T18:00:00+02:00",
+   "end": "2025-08-12T19:00:00+02:00",
+   "place": "Bakgården Utendørs scene",
+   "city": "Arendal",
+   "country": "NO",
+   "online": false,
+   "organiser": "Bitcoinpolitisk Institutt Norge",
+   "url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+   "source": "backfill",
+   "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+   "found": "2026-10-16T09:45:00+00:00",
+   "event_type": "seminar",
+   "language": null,
+   "status": "published",
+   "backfill": true,
+   "attendees": null,
+   "speakers_count": null,
+   "videos_url": null,
+   "credits": {
+    "title": {
+     "source_name": "Høyskolen Kristiania",
+     "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "start": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/nyhetsbrev-arkiv/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "end": {
+     "source_name": "Høyskolen Kristiania",
+     "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "place": {
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "source_url": "https://bpinorge.no/blog/nyhetsbrev-arkiv/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "city": {
+     "source_name": "Høyskolen Kristiania",
+     "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "country": {
+     "source_name": "Høyskolen Kristiania",
+     "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "organiser": {
+     "source_name": "Høyskolen Kristiania",
+     "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "url": {
+     "source_name": "Høyskolen Kristiania",
+     "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "event_type": {
+     "source_name": "Høyskolen Kristiania",
+     "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    }
+   },
+   "id": "0af4e2d6e963",
+   "place_source": {
+    "name": "Bitcoinpolitisk Institutt Norge",
+    "url": "https://bpinorge.no/blog/nyhetsbrev-arkiv/",
+    "retrieved": "2026-10-16T09:45:00+00:00"
+   },
+   "description": {
+    "text": "Bitcoin-mining har blitt et hett tema i norsk energidebatt. Hva skjer når en digital valuta møter en strømkrise og klimamål? I 2024 vedtok et flertall på Stortinget å tvinge regjeringen til å utrede et mulig forbud mot kryptovalutautvinning.",
+    "lang": "nb",
+    "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+    "source_name": "Høyskolen Kristiania",
+    "retrieved": "2026-10-16T09:45:00+00:00",
+    "i18n": {}
+   },
+   "talk_ids": [
+    "yt-7TLMmGGSIOA"
+   ],
    "past": true
   },
   {
@@ -1798,9 +2139,6 @@
    "attendees": null,
    "speakers_count": null,
    "videos_url": null,
-   "talk_ids": [
-    "yt-eo-0BgrKxiI"
-   ],
    "credits": {
     "title": {
      "source_name": "aantonop",
@@ -1844,6 +2182,9 @@
     }
    },
    "id": "30569783bb01",
+   "talk_ids": [
+    "yt-eo-0BgrKxiI"
+   ],
    "past": true,
    "description": null
   },
@@ -1867,9 +2208,6 @@
    "attendees": null,
    "speakers_count": null,
    "videos_url": null,
-   "talk_ids": [
-    "yt-ibI_S_RcxZQ"
-   ],
    "credits": {
     "title": {
      "source_name": "Jørgen Svennevik Notland",
@@ -1913,6 +2251,9 @@
     }
    },
    "id": "afc88c305513",
+   "talk_ids": [
+    "yt-ibI_S_RcxZQ"
+   ],
    "past": true,
    "description": null
   },
@@ -1936,9 +2277,6 @@
    "attendees": null,
    "speakers_count": null,
    "videos_url": null,
-   "talk_ids": [
-    "yt-zi2JsPOm5HE"
-   ],
    "credits": {
     "title": {
      "source_name": "Ethereum Helsinki",
@@ -1982,6 +2320,9 @@
     }
    },
    "id": "c9903961cd24",
+   "talk_ids": [
+    "yt-zi2JsPOm5HE"
+   ],
    "past": true,
    "description": null
   },
@@ -2005,32 +2346,6 @@
    "attendees": null,
    "speakers_count": null,
    "videos_url": null,
-   "talk_ids": [
-    "yt-0iXX02OYI5s",
-    "yt-3YQ3KPcwY80",
-    "yt-40-zccLg7rw",
-    "yt-5Nt0v-_PA04",
-    "yt-5jGIiwLS4yc",
-    "yt-5qOqPd5KcxQ",
-    "yt-6sN36dNYwq8",
-    "yt-H0ksQfF52bc",
-    "yt-MvNDt8cYBnU",
-    "yt-Os_XNjqLw8A",
-    "yt-V5t-uKsNYJI",
-    "yt-ZOMpmc-lrNA",
-    "yt-ZipWu7rqxeo",
-    "yt-_OWFROsjBVI",
-    "yt-brHf3DTIsig",
-    "yt-bwXhIPL_bHA",
-    "yt-i87UEsneU9c",
-    "yt-jxRBL4iY0bM",
-    "yt-k0mr4Q0U_oM",
-    "yt-lRKRitXY76A",
-    "yt-oOCdi5c-xvc",
-    "yt-oWjsqKmIPLo",
-    "yt-rf9C6qr7ew0",
-    "yt-wogzCQdqoUA"
-   ],
    "credits": {
     "title": {
      "source_name": "Blockchangers",
@@ -2074,8 +2389,112 @@
     }
    },
    "id": "92041cfcb99c",
+   "talk_ids": [
+    "yt-0iXX02OYI5s",
+    "yt-3YQ3KPcwY80",
+    "yt-40-zccLg7rw",
+    "yt-5Nt0v-_PA04",
+    "yt-5jGIiwLS4yc",
+    "yt-5qOqPd5KcxQ",
+    "yt-6sN36dNYwq8",
+    "yt-H0ksQfF52bc",
+    "yt-MvNDt8cYBnU",
+    "yt-Os_XNjqLw8A",
+    "yt-V5t-uKsNYJI",
+    "yt-ZOMpmc-lrNA",
+    "yt-ZipWu7rqxeo",
+    "yt-_OWFROsjBVI",
+    "yt-brHf3DTIsig",
+    "yt-bwXhIPL_bHA",
+    "yt-i87UEsneU9c",
+    "yt-jxRBL4iY0bM",
+    "yt-k0mr4Q0U_oM",
+    "yt-lRKRitXY76A",
+    "yt-oOCdi5c-xvc",
+    "yt-oWjsqKmIPLo",
+    "yt-rf9C6qr7ew0",
+    "yt-wogzCQdqoUA"
+   ],
    "past": true,
    "description": null
+  },
+  {
+   "title": "Bitcoin – Breaking new ground in the world of money",
+   "start": "2014-11-24T11:40:00+01:00",
+   "end": null,
+   "place": "Bar5",
+   "city": "Stockholm",
+   "country": "SE",
+   "online": false,
+   "organiser": ".SE – Stiftelsen för internetinfrastruktur",
+   "url": "https://arkiv.internetdagarna.se/2014/talare/staffan-helgesson/",
+   "source": "backfill",
+   "source_url": "https://arkiv.internetdagarna.se/2014/talare/staffan-helgesson/",
+   "found": "2026-10-16T09:45:00+00:00",
+   "event_type": "seminar",
+   "language": null,
+   "status": "published",
+   "backfill": true,
+   "attendees": null,
+   "speakers_count": null,
+   "videos_url": null,
+   "credits": {
+    "title": {
+     "source_name": ".SE – Stiftelsen för internetinfrastruktur",
+     "source_url": "https://arkiv.internetdagarna.se/2014/talare/staffan-helgesson/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "start": {
+     "source_name": ".SE – Stiftelsen för internetinfrastruktur",
+     "source_url": "https://arkiv.internetdagarna.se/2014/talare/staffan-helgesson/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "place": {
+     "source_name": ".SE – Stiftelsen för internetinfrastruktur",
+     "source_url": "https://arkiv.internetdagarna.se/2014/talare/staffan-helgesson/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "city": {
+     "source_name": "Open Knowledge Sweden",
+     "source_url": "https://okfn.se/2014/11/okfse-ind14/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "country": {
+     "source_name": ".SE – Stiftelsen för internetinfrastruktur",
+     "source_url": "https://arkiv.internetdagarna.se/2014/talare/staffan-helgesson/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "organiser": {
+     "source_name": ".SE – Stiftelsen för internetinfrastruktur",
+     "source_url": "https://arkiv.internetdagarna.se/2014/talare/staffan-helgesson/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "url": {
+     "source_name": ".SE – Stiftelsen för internetinfrastruktur",
+     "source_url": "https://arkiv.internetdagarna.se/2014/talare/staffan-helgesson/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    },
+    "event_type": {
+     "source_name": ".SE – Stiftelsen för internetinfrastruktur",
+     "source_url": "https://arkiv.internetdagarna.se/2014/talare/staffan-helgesson/",
+     "retrieved_at": "2026-10-16T09:45:00+00:00"
+    }
+   },
+   "id": "f079c7652ed9",
+   "place_source": {
+    "name": ".SE – Stiftelsen för internetinfrastruktur",
+    "url": "https://arkiv.internetdagarna.se/2014/talare/staffan-helgesson/",
+    "retrieved": "2026-10-16T09:45:00+00:00"
+   },
+   "description": {
+    "text": "With millions upon millions invested by Silicon Valley investors, an industry is appearing that few understand, yet many have opinions on. Did the nerds really manage to reinvent something as basic as money? What opportunities and challenges does that bring? This panel deep from the trenches of this nascent industry will share their insights on where things are going, opportunities and pitfalls for aspiring entrepreneurs in the highly disruptive world of digital currency.",
+    "lang": "en",
+    "source_url": "https://www.youtube.com/watch?v=rRYsfIAOpow&hl=en",
+    "source_name": "Internetstiftelsen",
+    "retrieved": "2026-10-16T09:45:00+00:00",
+    "i18n": {}
+   },
+   "past": true
   },
   {
    "title": "Information Propagation in the Bitcoin Network",

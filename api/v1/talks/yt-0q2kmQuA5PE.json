@@ -1,0 +1,37 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-0q2kmQuA5PE",
+  "video_url": "https://www.youtube.com/watch?v=0q2kmQuA5PE",
+  "platform": "youtube",
+  "title": "The Satoshi Nakamoto Annual Speech",
+  "speakers": [
+   "Thomas Eichenberger"
+  ],
+  "event_name": "Satoshi Nakamoto-årstalen",
+  "event_url": "https://bpinorge.no/blog/satoshi-nakamoto-arstalen/",
+  "calendar_event_id": "9e5346069673",
+  "event_id": "9e5346069673",
+  "unlink_reason": null,
+  "speaker_ids": [
+   "spk-thomas-eichenberger"
+  ],
+  "city": "Oslo",
+  "country": "NO",
+  "date": "2026-02-11",
+  "published": "2026-02-13",
+  "duration": "PT46M5S",
+  "language": null,
+  "channel": "Bitcoinpolitisk Institutt Norge",
+  "description": "Thomas Eichenberger gives the first Satoshi Nakamoto annual speech, hosted by Bitcoinpolitisk Institutt Norge at the National Library in Oslo.",
+  "source_url": "https://www.youtube.com/watch?v=0q2kmQuA5PE&hl=en",
+  "retrieved_at": "2026-10-16T09:45:00Z",
+  "added_at": "2026-10-16T09:45:00Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-0q2kmQuA5PE",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-0q2kmQuA5PE.json"
+ }
+}

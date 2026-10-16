@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-sergej-kotliar",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-sergej-kotliar.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-sergej-kotliar",
+  "name": "Sergej Kotliar",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=c1YQ0Lm-TG4&hl=en",
+    "title": "Bitcoin: Sergej Kotliar - Internetdagarna 2014",
+    "source_name": "Internetstiftelsen",
+    "date": "2026-10-16"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-c1YQ0Lm-TG4"
+  ],
+  "talks": [
+   {
+    "id": "yt-c1YQ0Lm-TG4",
+    "title": "Bitcoin: Sergej Kotliar - Internetdagarna 2014",
+    "video_url": "https://www.youtube.com/watch?v=c1YQ0Lm-TG4"
+   }
+  ]
+ }
+}

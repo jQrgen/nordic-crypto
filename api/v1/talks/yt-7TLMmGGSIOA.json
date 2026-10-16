@@ -1,0 +1,47 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-7TLMmGGSIOA",
+  "video_url": "https://www.youtube.com/watch?v=7TLMmGGSIOA",
+  "platform": "youtube",
+  "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+  "speakers": [
+   "Torbjørn Bull Jenssen",
+   "Silvija Seres",
+   "Sturle Sunde",
+   "Anne Sagstuen Nysæther",
+   "Ingvild Kjerkol",
+   "Anders Lie Brenna"
+  ],
+  "event_name": "Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+  "event_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+  "calendar_event_id": "0af4e2d6e963",
+  "event_id": "0af4e2d6e963",
+  "unlink_reason": null,
+  "speaker_ids": [
+   "torbjorn-bull-jenssen",
+   "spk-silvija-seres",
+   "spk-sturle-sunde",
+   "spk-anne-sagstuen-nysaether",
+   "spk-ingvild-kjerkol",
+   "spk-anders-lie-brenna"
+  ],
+  "city": "Arendal",
+  "country": "NO",
+  "date": "2025-08-12",
+  "published": "2025-08-12",
+  "duration": "PT59M56S",
+  "language": null,
+  "channel": "Bitcoinpolitisk Institutt Norge",
+  "description": "Bitcoinpolitisk Institutt Norge streams its Arendalsuka panel on bitcoin mining in Norway, with speakers from K33, LØRN, Bitmynt, Elvia, the Storting and EnergiWatch.",
+  "source_url": "https://www.youtube.com/watch?v=7TLMmGGSIOA&hl=en",
+  "retrieved_at": "2026-10-16T09:45:00Z",
+  "added_at": "2026-10-16T09:45:00Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-7TLMmGGSIOA",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-7TLMmGGSIOA.json"
+ }
+}

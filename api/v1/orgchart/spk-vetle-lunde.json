@@ -1,0 +1,48 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-vetle-lunde",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-vetle-lunde.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-vetle-lunde",
+  "name": "Vetle Lunde",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=iT2iG3o4qJM&hl=en",
+    "title": "Er bitcoin vinnaren av krigen mot Iran? Fra Arendalsuka",
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "date": "2026-10-16"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-iT2iG3o4qJM"
+  ],
+  "event_ids": [
+   "9177a9451730"
+  ],
+  "talks": [
+   {
+    "id": "yt-iT2iG3o4qJM",
+    "title": "Er bitcoin vinnaren av krigen mot Iran? Fra Arendalsuka",
+    "video_url": "https://www.youtube.com/watch?v=iT2iG3o4qJM",
+    "event_id": "9177a9451730",
+    "date": "2026-08-10"
+   }
+  ]
+ }
+}

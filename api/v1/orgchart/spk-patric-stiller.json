@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-patric-stiller",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-patric-stiller.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-patric-stiller",
+  "name": "Patric Stiller",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=rRYsfIAOpow&hl=en",
+    "title": "Bitcoin:  Breaking new ground in the world of money - Internetdagarna 2014",
+    "source_name": "Internetstiftelsen",
+    "date": "2026-10-16"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-rRYsfIAOpow"
+  ],
+  "talks": [
+   {
+    "id": "yt-rRYsfIAOpow",
+    "title": "Bitcoin:  Breaking new ground in the world of money - Internetdagarna 2014",
+    "video_url": "https://www.youtube.com/watch?v=rRYsfIAOpow"
+   }
+  ]
+ }
+}

@@ -1,0 +1,55 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-stephan-nilsson",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-stephan-nilsson.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-stephan-nilsson",
+  "name": "Stephan Nilsson",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y&hl=en",
+    "title": "Bitcoin & Blockchain in Norway - Interview with Andreas M. Antonopoulos",
+    "source_name": "aantonop",
+    "date": "2026-10-16"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-5ODDCx6VL2Y"
+  ],
+  "talks": [
+   {
+    "id": "yt-5ODDCx6VL2Y",
+    "title": "Bitcoin & Blockchain in Norway - Interview with Andreas M. Antonopoulos",
+    "video_url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y",
+    "date": "2017-04-27"
+   }
+  ],
+  "affiliations": [
+   {
+    "talk_id": "yt-5ODDCx6VL2Y",
+    "organisation": "Norway Bitcoin and Blockchain Association",
+    "source_url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y&hl=en",
+    "source_name": "aantonop",
+    "retrieved_at": "2026-10-16T08:56:33+00:00",
+    "role": "founder",
+    "date": "2017-04-27"
+   }
+  ]
+ }
+}

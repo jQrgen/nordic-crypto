@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-pontus-lindblom",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-pontus-lindblom.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-pontus-lindblom",
+  "name": "Pontus Lindblom",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=4A-whJseWvI&hl=en",
+    "title": "Bitcoin som pengar｜ Internetdagarna 2016",
+    "source_name": "Pontus Lindblom",
+    "date": "2026-10-16"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-4A-whJseWvI"
+  ],
+  "talks": [
+   {
+    "id": "yt-4A-whJseWvI",
+    "title": "Bitcoin som pengar｜ Internetdagarna 2016",
+    "video_url": "https://www.youtube.com/watch?v=4A-whJseWvI"
+   }
+  ]
+ }
+}

@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-K4t3AGZaUQg",
+  "video_url": "https://www.youtube.com/watch?v=K4t3AGZaUQg",
+  "platform": "youtube",
+  "title": "Bitcoin på Løvebakken? (Satoshi-samtale nr. 2)",
+  "speakers": [
+   "Morten Søberg",
+   "Ivar Vigdenes"
+  ],
+  "event_name": "Satoshi-samtale",
+  "event_url": null,
+  "calendar_event_id": null,
+  "event_id": null,
+  "unlink_reason": "the video page did not state the day",
+  "speaker_ids": [
+   "spk-morten-soberg",
+   "spk-ivar-vigdenes"
+  ],
+  "city": null,
+  "country": "NO",
+  "date": null,
+  "published": "2025-09-28",
+  "duration": "PT58M26S",
+  "language": null,
+  "channel": "Bitcoinpolitisk Institutt Norge",
+  "description": "Morten Søberg chairs a Satoshi conversation for Bitcoinpolitisk Institutt Norge with Ivar Vigdenes on the Storting and bitcoin.",
+  "source_url": "https://www.youtube.com/watch?v=K4t3AGZaUQg&hl=en",
+  "retrieved_at": "2026-10-16T09:45:00Z",
+  "added_at": "2026-10-16T09:45:00Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-K4t3AGZaUQg",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-K4t3AGZaUQg.json"
+ }
+}

@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-heming-h-gujord",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-heming-h-gujord.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-heming-h-gujord",
+  "name": "Heming H. Gujord",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=NrF-rcWIpsU&hl=en",
+    "title": "Fløgstad + bitcoin = sant? (Satoshi-samtale nr. 1)",
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "date": "2026-10-16"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-NrF-rcWIpsU"
+  ],
+  "talks": [
+   {
+    "id": "yt-NrF-rcWIpsU",
+    "title": "Fløgstad + bitcoin = sant? (Satoshi-samtale nr. 1)",
+    "video_url": "https://www.youtube.com/watch?v=NrF-rcWIpsU"
+   }
+  ]
+ }
+}

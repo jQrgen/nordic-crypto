@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T07:30:59+00:00",
+ "generated_at": "2026-10-16T09:03:48+00:00",
  "preview": false,
  "item": {
   "id": "spk-elizabeth-stark",
@@ -24,12 +24,19 @@
     "title": "Elizabeth Stark & Ben Perrin | How Bitcoin and AI Expand Freedom Worldwide | Fireside Chat",
     "source_name": "Oslo Freedom Forum",
     "date": "2026-10-07"
+   },
+   {
+    "url": "https://www.youtube.com/watch?v=4lJCE0dzoRs&hl=en",
+    "title": "Less Trust Is More  Bitcoin, Blockchains, and the Future of Decentralized Technology",
+    "source_name": "Slush",
+    "date": "2026-10-16"
    }
   ],
   "logo": null,
   "image": null,
   "profiles": [],
   "talk_ids": [
+   "yt-4lJCE0dzoRs",
    "yt-aYlA0ADZbQc"
   ],
   "talks": [
@@ -37,6 +44,11 @@
     "id": "yt-aYlA0ADZbQc",
     "title": "Elizabeth Stark & Ben Perrin | How Bitcoin and AI Expand Freedom Worldwide | Fireside Chat",
     "video_url": "https://www.youtube.com/watch?v=aYlA0ADZbQc"
+   },
+   {
+    "id": "yt-4lJCE0dzoRs",
+    "title": "Less Trust Is More  Bitcoin, Blockchains, and the Future of Decentralized Technology",
+    "video_url": "https://www.youtube.com/watch?v=4lJCE0dzoRs"
    }
   ],
   "affiliations": [
@@ -47,6 +59,14 @@
     "source_name": "Oslo Freedom Forum",
     "retrieved_at": "2026-10-07T23:30:36+00:00",
     "role": "CEO"
+   },
+   {
+    "talk_id": "yt-4lJCE0dzoRs",
+    "organisation": "Lightning",
+    "source_url": "https://www.youtube.com/watch?v=4lJCE0dzoRs&hl=en",
+    "source_name": "Slush",
+    "retrieved_at": "2026-10-16T08:56:33+00:00",
+    "role": "Co-founder and CEO"
    }
   ]
  }

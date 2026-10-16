@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-torstein-thinn",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-torstein-thinn.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-torstein-thinn",
+  "name": "Torstein Thinn",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=cL9Uk67wzd8&hl=en",
+    "title": "Torstein Thinn from Skatteetaten - \"Invisibility in the Crypto Space\"",
+    "source_name": "BitSpace",
+    "date": "2026-10-16"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-cL9Uk67wzd8"
+  ],
+  "talks": [
+   {
+    "id": "yt-cL9Uk67wzd8",
+    "title": "Torstein Thinn from Skatteetaten - \"Invisibility in the Crypto Space\"",
+    "video_url": "https://www.youtube.com/watch?v=cL9Uk67wzd8"
+   }
+  ]
+ }
+}

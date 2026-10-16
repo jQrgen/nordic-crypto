@@ -1,0 +1,37 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-cL9Uk67wzd8",
+  "video_url": "https://www.youtube.com/watch?v=cL9Uk67wzd8",
+  "platform": "youtube",
+  "title": "Torstein Thinn from Skatteetaten - \"Invisibility in the Crypto Space\"",
+  "speakers": [
+   "Torstein Thinn"
+  ],
+  "event_name": "Oslo Big Data Day 2019",
+  "event_url": null,
+  "calendar_event_id": null,
+  "event_id": null,
+  "unlink_reason": "the video page did not state the day",
+  "speaker_ids": [
+   "spk-torstein-thinn"
+  ],
+  "city": "Oslo",
+  "country": "NO",
+  "date": null,
+  "published": "2019-04-11",
+  "duration": "PT9M48S",
+  "language": null,
+  "channel": "BitSpace",
+  "description": "Torstein Thinn of the Norwegian Tax Administration speaks about tax and cryptocurrency at Oslo Big Data Day 2019.",
+  "source_url": "https://www.youtube.com/watch?v=cL9Uk67wzd8&hl=en",
+  "retrieved_at": "2026-10-16T09:45:00Z",
+  "added_at": "2026-10-16T09:45:00Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-cL9Uk67wzd8",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-cL9Uk67wzd8.json"
+ }
+}

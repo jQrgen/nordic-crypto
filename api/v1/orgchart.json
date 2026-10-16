@@ -1,10 +1,10 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T07:30:59+00:00",
+ "generated_at": "2026-10-16T09:03:48+00:00",
  "preview": false,
  "updated": "2026-10-03",
- "count": 378,
+ "count": 404,
  "entities": [
   {
    "id": "stortinget-finanskomiteen",
@@ -1938,14 +1938,24 @@
      "title": "What gives cryptocurrencies value?",
      "source_name": "Rethinking Economics Norge",
      "date": "2026-10-07"
+    },
+    {
+     "url": "https://www.youtube.com/watch?v=7TLMmGGSIOA&hl=en",
+     "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
     }
    ],
    "logo": null,
    "image": null,
    "profiles": [],
    "talk_ids": [
+    "yt-7TLMmGGSIOA",
     "yt-JaxgfxpmUmk",
     "yt-hINk3yZvDdY"
+   ],
+   "event_ids": [
+    "0af4e2d6e963"
    ],
    "talks": [
     {
@@ -1957,6 +1967,13 @@
      "id": "yt-JaxgfxpmUmk",
      "title": "What gives cryptocurrencies value?",
      "video_url": "https://www.youtube.com/watch?v=JaxgfxpmUmk"
+    },
+    {
+     "id": "yt-7TLMmGGSIOA",
+     "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+     "video_url": "https://www.youtube.com/watch?v=7TLMmGGSIOA",
+     "event_id": "0af4e2d6e963",
+     "date": "2025-08-12"
     }
    ],
    "affiliations": [
@@ -6670,19 +6687,31 @@
      "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Closing Sessions)",
      "source_name": "Nordic Blockchain Association",
      "date": "2026-10-07"
+    },
+    {
+     "url": "https://www.youtube.com/watch?v=vefoJLmk88g&hl=en",
+     "title": "Escaping war zones with a Bitcoin brain wallet | Frank Schuil | TEDxStockholm",
+     "source_name": "TEDx Talks",
+     "date": "2026-10-16"
     }
    ],
    "logo": null,
    "image": null,
    "profiles": [],
    "talk_ids": [
-    "yt-sDb2GJTIpPo"
+    "yt-sDb2GJTIpPo",
+    "yt-vefoJLmk88g"
    ],
    "talks": [
     {
      "id": "yt-sDb2GJTIpPo",
      "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Closing Sessions)",
      "video_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo"
+    },
+    {
+     "id": "yt-vefoJLmk88g",
+     "title": "Escaping war zones with a Bitcoin brain wallet | Frank Schuil | TEDxStockholm",
+     "video_url": "https://www.youtube.com/watch?v=vefoJLmk88g"
     }
    ],
    "affiliations": [
@@ -12351,19 +12380,36 @@
      "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Part 1)",
      "source_name": "Nordic Blockchain Association",
      "date": "2026-10-07"
+    },
+    {
+     "url": "https://www.youtube.com/watch?v=0q2kmQuA5PE&hl=en",
+     "title": "The Satoshi Nakamoto Annual Speech",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
     }
    ],
    "logo": null,
    "image": null,
    "profiles": [],
    "talk_ids": [
-    "yt--4I2b_hFG0A"
+    "yt--4I2b_hFG0A",
+    "yt-0q2kmQuA5PE"
+   ],
+   "event_ids": [
+    "9e5346069673"
    ],
    "talks": [
     {
      "id": "yt--4I2b_hFG0A",
      "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Part 1)",
      "video_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A"
+    },
+    {
+     "id": "yt-0q2kmQuA5PE",
+     "title": "The Satoshi Nakamoto Annual Speech",
+     "video_url": "https://www.youtube.com/watch?v=0q2kmQuA5PE",
+     "event_id": "9e5346069673",
+     "date": "2026-02-11"
     }
    ],
    "affiliations": [
@@ -12638,12 +12684,19 @@
      "title": "Elizabeth Stark & Ben Perrin | How Bitcoin and AI Expand Freedom Worldwide | Fireside Chat",
      "source_name": "Oslo Freedom Forum",
      "date": "2026-10-07"
+    },
+    {
+     "url": "https://www.youtube.com/watch?v=4lJCE0dzoRs&hl=en",
+     "title": "Less Trust Is More  Bitcoin, Blockchains, and the Future of Decentralized Technology",
+     "source_name": "Slush",
+     "date": "2026-10-16"
     }
    ],
    "logo": null,
    "image": null,
    "profiles": [],
    "talk_ids": [
+    "yt-4lJCE0dzoRs",
     "yt-aYlA0ADZbQc"
    ],
    "talks": [
@@ -12651,6 +12704,11 @@
      "id": "yt-aYlA0ADZbQc",
      "title": "Elizabeth Stark & Ben Perrin | How Bitcoin and AI Expand Freedom Worldwide | Fireside Chat",
      "video_url": "https://www.youtube.com/watch?v=aYlA0ADZbQc"
+    },
+    {
+     "id": "yt-4lJCE0dzoRs",
+     "title": "Less Trust Is More  Bitcoin, Blockchains, and the Future of Decentralized Technology",
+     "video_url": "https://www.youtube.com/watch?v=4lJCE0dzoRs"
     }
    ],
    "affiliations": [
@@ -12661,6 +12719,14 @@
      "source_name": "Oslo Freedom Forum",
      "retrieved_at": "2026-10-07T23:30:36+00:00",
      "role": "CEO"
+    },
+    {
+     "talk_id": "yt-4lJCE0dzoRs",
+     "organisation": "Lightning",
+     "source_url": "https://www.youtube.com/watch?v=4lJCE0dzoRs&hl=en",
+     "source_name": "Slush",
+     "retrieved_at": "2026-10-16T08:56:33+00:00",
+     "role": "Co-founder and CEO"
     }
    ]
   },
@@ -12975,19 +13041,60 @@
      "title": "Hvorfor og når får vi digitale sentralbankpenger og kryptovaluta?",
      "source_name": "Polyteknisk Forening",
      "date": "2026-10-07"
+    },
+    {
+     "url": "https://www.youtube.com/watch?v=iT2iG3o4qJM&hl=en",
+     "title": "Er bitcoin vinnaren av krigen mot Iran? Fra Arendalsuka",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
+    },
+    {
+     "url": "https://www.youtube.com/watch?v=K4t3AGZaUQg&hl=en",
+     "title": "Bitcoin på Løvebakken? (Satoshi-samtale nr. 2)",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
+    },
+    {
+     "url": "https://www.youtube.com/watch?v=NrF-rcWIpsU&hl=en",
+     "title": "Fløgstad + bitcoin = sant? (Satoshi-samtale nr. 1)",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
     }
    ],
    "logo": null,
    "image": null,
    "profiles": [],
    "talk_ids": [
-    "yt-gn50NxhPk-0"
+    "yt-K4t3AGZaUQg",
+    "yt-NrF-rcWIpsU",
+    "yt-gn50NxhPk-0",
+    "yt-iT2iG3o4qJM"
+   ],
+   "event_ids": [
+    "9177a9451730"
    ],
    "talks": [
     {
      "id": "yt-gn50NxhPk-0",
      "title": "Hvorfor og når får vi digitale sentralbankpenger og kryptovaluta?",
      "video_url": "https://www.youtube.com/watch?v=gn50NxhPk-0"
+    },
+    {
+     "id": "yt-iT2iG3o4qJM",
+     "title": "Er bitcoin vinnaren av krigen mot Iran? Fra Arendalsuka",
+     "video_url": "https://www.youtube.com/watch?v=iT2iG3o4qJM",
+     "event_id": "9177a9451730",
+     "date": "2026-08-10"
+    },
+    {
+     "id": "yt-NrF-rcWIpsU",
+     "title": "Fløgstad + bitcoin = sant? (Satoshi-samtale nr. 1)",
+     "video_url": "https://www.youtube.com/watch?v=NrF-rcWIpsU"
+    },
+    {
+     "id": "yt-K4t3AGZaUQg",
+     "title": "Bitcoin på Løvebakken? (Satoshi-samtale nr. 2)",
+     "video_url": "https://www.youtube.com/watch?v=K4t3AGZaUQg"
     }
    ]
   },
@@ -14171,12 +14278,19 @@
      "title": "Open Blockchains for Cashless Developed Economies",
      "source_name": "aantonop",
      "date": "2026-10-07"
+    },
+    {
+     "url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y&hl=en",
+     "title": "Bitcoin & Blockchain in Norway - Interview with Andreas M. Antonopoulos",
+     "source_name": "aantonop",
+     "date": "2026-10-16"
     }
    ],
    "logo": null,
    "image": null,
    "profiles": [],
    "talk_ids": [
+    "yt-5ODDCx6VL2Y",
     "yt-eo-0BgrKxiI"
    ],
    "event_ids": [
@@ -14189,6 +14303,12 @@
      "video_url": "https://www.youtube.com/watch?v=eo-0BgrKxiI",
      "event_id": "30569783bb01",
      "date": "2017-04-25"
+    },
+    {
+     "id": "yt-5ODDCx6VL2Y",
+     "title": "Bitcoin & Blockchain in Norway - Interview with Andreas M. Antonopoulos",
+     "video_url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y",
+     "date": "2017-04-27"
     }
    ]
   },
@@ -15443,6 +15563,1038 @@
      "video_url": "https://www.youtube.com/watch?v=0iXX02OYI5s",
      "event_id": "92041cfcb99c",
      "date": "2016-04-19"
+    }
+   ]
+  },
+  {
+   "id": "spk-nanok-bie",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-nanok-bie.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-nanok-bie",
+   "name": "Nanok Bie",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=rRYsfIAOpow&hl=en",
+     "title": "Bitcoin:  Breaking new ground in the world of money - Internetdagarna 2014",
+     "source_name": "Internetstiftelsen",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-rRYsfIAOpow"
+   ],
+   "talks": [
+    {
+     "id": "yt-rRYsfIAOpow",
+     "title": "Bitcoin:  Breaking new ground in the world of money - Internetdagarna 2014",
+     "video_url": "https://www.youtube.com/watch?v=rRYsfIAOpow"
+    }
+   ]
+  },
+  {
+   "id": "spk-patric-stiller",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-patric-stiller.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-patric-stiller",
+   "name": "Patric Stiller",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=rRYsfIAOpow&hl=en",
+     "title": "Bitcoin:  Breaking new ground in the world of money - Internetdagarna 2014",
+     "source_name": "Internetstiftelsen",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-rRYsfIAOpow"
+   ],
+   "talks": [
+    {
+     "id": "yt-rRYsfIAOpow",
+     "title": "Bitcoin:  Breaking new ground in the world of money - Internetdagarna 2014",
+     "video_url": "https://www.youtube.com/watch?v=rRYsfIAOpow"
+    }
+   ]
+  },
+  {
+   "id": "spk-staffan-helgesson",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-staffan-helgesson.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-staffan-helgesson",
+   "name": "Staffan Helgesson",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=rRYsfIAOpow&hl=en",
+     "title": "Bitcoin:  Breaking new ground in the world of money - Internetdagarna 2014",
+     "source_name": "Internetstiftelsen",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-rRYsfIAOpow"
+   ],
+   "talks": [
+    {
+     "id": "yt-rRYsfIAOpow",
+     "title": "Bitcoin:  Breaking new ground in the world of money - Internetdagarna 2014",
+     "video_url": "https://www.youtube.com/watch?v=rRYsfIAOpow"
+    }
+   ]
+  },
+  {
+   "id": "spk-ludvig-oberg",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-ludvig-oberg.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-ludvig-oberg",
+   "name": "Ludvig Öberg",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=rRYsfIAOpow&hl=en",
+     "title": "Bitcoin:  Breaking new ground in the world of money - Internetdagarna 2014",
+     "source_name": "Internetstiftelsen",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-rRYsfIAOpow"
+   ],
+   "talks": [
+    {
+     "id": "yt-rRYsfIAOpow",
+     "title": "Bitcoin:  Breaking new ground in the world of money - Internetdagarna 2014",
+     "video_url": "https://www.youtube.com/watch?v=rRYsfIAOpow"
+    }
+   ]
+  },
+  {
+   "id": "spk-sergej-kotliar",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-sergej-kotliar.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-sergej-kotliar",
+   "name": "Sergej Kotliar",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=c1YQ0Lm-TG4&hl=en",
+     "title": "Bitcoin: Sergej Kotliar - Internetdagarna 2014",
+     "source_name": "Internetstiftelsen",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-c1YQ0Lm-TG4"
+   ],
+   "talks": [
+    {
+     "id": "yt-c1YQ0Lm-TG4",
+     "title": "Bitcoin: Sergej Kotliar - Internetdagarna 2014",
+     "video_url": "https://www.youtube.com/watch?v=c1YQ0Lm-TG4"
+    }
+   ]
+  },
+  {
+   "id": "spk-primavera-de-filippi",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-primavera-de-filippi.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-primavera-de-filippi",
+   "name": "Primavera de Filippi",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=8CScNyu35ME&hl=en",
+     "title": "Possibilities of cryptocurrency beyond speculation | Primavera de Filippi | Internetdagarna 2017",
+     "source_name": "Internetstiftelsen",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-8CScNyu35ME"
+   ],
+   "talks": [
+    {
+     "id": "yt-8CScNyu35ME",
+     "title": "Possibilities of cryptocurrency beyond speculation | Primavera de Filippi | Internetdagarna 2017",
+     "video_url": "https://www.youtube.com/watch?v=8CScNyu35ME"
+    }
+   ]
+  },
+  {
+   "id": "spk-pontus-lindblom",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-pontus-lindblom.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-pontus-lindblom",
+   "name": "Pontus Lindblom",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=4A-whJseWvI&hl=en",
+     "title": "Bitcoin som pengar｜ Internetdagarna 2016",
+     "source_name": "Pontus Lindblom",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-4A-whJseWvI"
+   ],
+   "talks": [
+    {
+     "id": "yt-4A-whJseWvI",
+     "title": "Bitcoin som pengar｜ Internetdagarna 2016",
+     "video_url": "https://www.youtube.com/watch?v=4A-whJseWvI"
+    }
+   ]
+  },
+  {
+   "id": "spk-jan-moller",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-jan-moller.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-jan-moller",
+   "name": "Jan Møller",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=GiU4b7ldKMs&hl=en",
+     "title": "How the Bitcoin Protocol Actually Works • Jan Møller • GOTO 2014",
+     "source_name": "GOTO Conferences",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-GiU4b7ldKMs"
+   ],
+   "talks": [
+    {
+     "id": "yt-GiU4b7ldKMs",
+     "title": "How the Bitcoin Protocol Actually Works • Jan Møller • GOTO 2014",
+     "video_url": "https://www.youtube.com/watch?v=GiU4b7ldKMs"
+    }
+   ]
+  },
+  {
+   "id": "spk-martti-malmi",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-martti-malmi.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-martti-malmi",
+   "name": "Martti Malmi",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=JLQtEJ-80_c&hl=en",
+     "title": "Thoughts about the Future Of Bitcoins by Bitcoin Developer, Martti Malmi",
+     "source_name": "Slush",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-JLQtEJ-80_c"
+   ],
+   "talks": [
+    {
+     "id": "yt-JLQtEJ-80_c",
+     "title": "Thoughts about the Future Of Bitcoins by Bitcoin Developer, Martti Malmi",
+     "video_url": "https://www.youtube.com/watch?v=JLQtEJ-80_c"
+    }
+   ],
+   "affiliations": [
+    {
+     "talk_id": "yt-JLQtEJ-80_c",
+     "organisation": "Bitcoin developer",
+     "source_url": "https://www.youtube.com/watch?v=JLQtEJ-80_c&hl=en",
+     "source_name": "Slush",
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
+    }
+   ]
+  },
+  {
+   "id": "spk-rachel-geyer",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-rachel-geyer.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-rachel-geyer",
+   "name": "Rachel Geyer",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=QPXOVJ2cUNc&hl=en",
+     "title": "Mine or Decline: Europe's Energy Reality | Rachel Geyer, EBEA",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-QPXOVJ2cUNc"
+   ],
+   "talks": [
+    {
+     "id": "yt-QPXOVJ2cUNc",
+     "title": "Mine or Decline: Europe's Energy Reality | Rachel Geyer, EBEA",
+     "video_url": "https://www.youtube.com/watch?v=QPXOVJ2cUNc"
+    }
+   ]
+  },
+  {
+   "id": "spk-alexander-neumuller",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-alexander-neumuller.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-alexander-neumuller",
+   "name": "Alexander Neumüller",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=rqS9YdAm-lM&hl=en",
+     "title": "Unpublished Cambridge Data: Bitcoin's Emissions Are Falling | Alexander Neumüller, CCAF",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-rqS9YdAm-lM"
+   ],
+   "talks": [
+    {
+     "id": "yt-rqS9YdAm-lM",
+     "title": "Unpublished Cambridge Data: Bitcoin's Emissions Are Falling | Alexander Neumüller, CCAF",
+     "video_url": "https://www.youtube.com/watch?v=rqS9YdAm-lM"
+    }
+   ]
+  },
+  {
+   "id": "spk-gunnar-garfors",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-gunnar-garfors.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-gunnar-garfors",
+   "name": "Gunnar Garfors",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=iT2iG3o4qJM&hl=en",
+     "title": "Er bitcoin vinnaren av krigen mot Iran? Fra Arendalsuka",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-iT2iG3o4qJM"
+   ],
+   "event_ids": [
+    "9177a9451730"
+   ],
+   "talks": [
+    {
+     "id": "yt-iT2iG3o4qJM",
+     "title": "Er bitcoin vinnaren av krigen mot Iran? Fra Arendalsuka",
+     "video_url": "https://www.youtube.com/watch?v=iT2iG3o4qJM",
+     "event_id": "9177a9451730",
+     "date": "2026-08-10"
+    }
+   ]
+  },
+  {
+   "id": "spk-vetle-lunde",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-vetle-lunde.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-vetle-lunde",
+   "name": "Vetle Lunde",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=iT2iG3o4qJM&hl=en",
+     "title": "Er bitcoin vinnaren av krigen mot Iran? Fra Arendalsuka",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-iT2iG3o4qJM"
+   ],
+   "event_ids": [
+    "9177a9451730"
+   ],
+   "talks": [
+    {
+     "id": "yt-iT2iG3o4qJM",
+     "title": "Er bitcoin vinnaren av krigen mot Iran? Fra Arendalsuka",
+     "video_url": "https://www.youtube.com/watch?v=iT2iG3o4qJM",
+     "event_id": "9177a9451730",
+     "date": "2026-08-10"
+    }
+   ]
+  },
+  {
+   "id": "spk-iver-b-neumann",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-iver-b-neumann.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-iver-b-neumann",
+   "name": "Iver B. Neumann",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=iT2iG3o4qJM&hl=en",
+     "title": "Er bitcoin vinnaren av krigen mot Iran? Fra Arendalsuka",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-iT2iG3o4qJM"
+   ],
+   "event_ids": [
+    "9177a9451730"
+   ],
+   "talks": [
+    {
+     "id": "yt-iT2iG3o4qJM",
+     "title": "Er bitcoin vinnaren av krigen mot Iran? Fra Arendalsuka",
+     "video_url": "https://www.youtube.com/watch?v=iT2iG3o4qJM",
+     "event_id": "9177a9451730",
+     "date": "2026-08-10"
+    }
+   ]
+  },
+  {
+   "id": "spk-silvija-seres",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-silvija-seres.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-silvija-seres",
+   "name": "Silvija Seres",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=7TLMmGGSIOA&hl=en",
+     "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-7TLMmGGSIOA"
+   ],
+   "event_ids": [
+    "0af4e2d6e963"
+   ],
+   "talks": [
+    {
+     "id": "yt-7TLMmGGSIOA",
+     "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+     "video_url": "https://www.youtube.com/watch?v=7TLMmGGSIOA",
+     "event_id": "0af4e2d6e963",
+     "date": "2025-08-12"
+    }
+   ]
+  },
+  {
+   "id": "spk-sturle-sunde",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-sturle-sunde.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-sturle-sunde",
+   "name": "Sturle Sunde",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=7TLMmGGSIOA&hl=en",
+     "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-7TLMmGGSIOA"
+   ],
+   "event_ids": [
+    "0af4e2d6e963"
+   ],
+   "talks": [
+    {
+     "id": "yt-7TLMmGGSIOA",
+     "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+     "video_url": "https://www.youtube.com/watch?v=7TLMmGGSIOA",
+     "event_id": "0af4e2d6e963",
+     "date": "2025-08-12"
+    }
+   ]
+  },
+  {
+   "id": "spk-anne-sagstuen-nysaether",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-anne-sagstuen-nysaether.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-anne-sagstuen-nysaether",
+   "name": "Anne Sagstuen Nysæther",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=7TLMmGGSIOA&hl=en",
+     "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-7TLMmGGSIOA"
+   ],
+   "event_ids": [
+    "0af4e2d6e963"
+   ],
+   "talks": [
+    {
+     "id": "yt-7TLMmGGSIOA",
+     "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+     "video_url": "https://www.youtube.com/watch?v=7TLMmGGSIOA",
+     "event_id": "0af4e2d6e963",
+     "date": "2025-08-12"
+    }
+   ]
+  },
+  {
+   "id": "spk-ingvild-kjerkol",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-ingvild-kjerkol.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-ingvild-kjerkol",
+   "name": "Ingvild Kjerkol",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=7TLMmGGSIOA&hl=en",
+     "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-7TLMmGGSIOA"
+   ],
+   "event_ids": [
+    "0af4e2d6e963"
+   ],
+   "talks": [
+    {
+     "id": "yt-7TLMmGGSIOA",
+     "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+     "video_url": "https://www.youtube.com/watch?v=7TLMmGGSIOA",
+     "event_id": "0af4e2d6e963",
+     "date": "2025-08-12"
+    }
+   ]
+  },
+  {
+   "id": "spk-anders-lie-brenna",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-anders-lie-brenna.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-anders-lie-brenna",
+   "name": "Anders Lie Brenna",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=7TLMmGGSIOA&hl=en",
+     "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-7TLMmGGSIOA"
+   ],
+   "event_ids": [
+    "0af4e2d6e963"
+   ],
+   "talks": [
+    {
+     "id": "yt-7TLMmGGSIOA",
+     "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+     "video_url": "https://www.youtube.com/watch?v=7TLMmGGSIOA",
+     "event_id": "0af4e2d6e963",
+     "date": "2025-08-12"
+    }
+   ]
+  },
+  {
+   "id": "spk-ivar-vigdenes",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-ivar-vigdenes.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-ivar-vigdenes",
+   "name": "Ivar Vigdenes",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=K4t3AGZaUQg&hl=en",
+     "title": "Bitcoin på Løvebakken? (Satoshi-samtale nr. 2)",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-K4t3AGZaUQg"
+   ],
+   "talks": [
+    {
+     "id": "yt-K4t3AGZaUQg",
+     "title": "Bitcoin på Løvebakken? (Satoshi-samtale nr. 2)",
+     "video_url": "https://www.youtube.com/watch?v=K4t3AGZaUQg"
+    }
+   ],
+   "affiliations": [
+    {
+     "talk_id": "yt-K4t3AGZaUQg",
+     "organisation": "First House",
+     "source_url": "https://www.youtube.com/watch?v=K4t3AGZaUQg&hl=en",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "retrieved_at": "2026-10-16T08:56:33+00:00"
+    }
+   ]
+  },
+  {
+   "id": "spk-kjartan-flogstad",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-kjartan-flogstad.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-kjartan-flogstad",
+   "name": "Kjartan Fløgstad",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=NrF-rcWIpsU&hl=en",
+     "title": "Fløgstad + bitcoin = sant? (Satoshi-samtale nr. 1)",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-NrF-rcWIpsU"
+   ],
+   "talks": [
+    {
+     "id": "yt-NrF-rcWIpsU",
+     "title": "Fløgstad + bitcoin = sant? (Satoshi-samtale nr. 1)",
+     "video_url": "https://www.youtube.com/watch?v=NrF-rcWIpsU"
+    }
+   ]
+  },
+  {
+   "id": "spk-heming-h-gujord",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-heming-h-gujord.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-heming-h-gujord",
+   "name": "Heming H. Gujord",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=NrF-rcWIpsU&hl=en",
+     "title": "Fløgstad + bitcoin = sant? (Satoshi-samtale nr. 1)",
+     "source_name": "Bitcoinpolitisk Institutt Norge",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-NrF-rcWIpsU"
+   ],
+   "talks": [
+    {
+     "id": "yt-NrF-rcWIpsU",
+     "title": "Fløgstad + bitcoin = sant? (Satoshi-samtale nr. 1)",
+     "video_url": "https://www.youtube.com/watch?v=NrF-rcWIpsU"
+    }
+   ]
+  },
+  {
+   "id": "spk-stephan-nilsson",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-stephan-nilsson.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-stephan-nilsson",
+   "name": "Stephan Nilsson",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y&hl=en",
+     "title": "Bitcoin & Blockchain in Norway - Interview with Andreas M. Antonopoulos",
+     "source_name": "aantonop",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-5ODDCx6VL2Y"
+   ],
+   "talks": [
+    {
+     "id": "yt-5ODDCx6VL2Y",
+     "title": "Bitcoin & Blockchain in Norway - Interview with Andreas M. Antonopoulos",
+     "video_url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y",
+     "date": "2017-04-27"
+    }
+   ],
+   "affiliations": [
+    {
+     "talk_id": "yt-5ODDCx6VL2Y",
+     "organisation": "Norway Bitcoin and Blockchain Association",
+     "source_url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y&hl=en",
+     "source_name": "aantonop",
+     "retrieved_at": "2026-10-16T08:56:33+00:00",
+     "role": "founder",
+     "date": "2017-04-27"
+    }
+   ]
+  },
+  {
+   "id": "spk-hampus-jakobsson",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-hampus-jakobsson.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-hampus-jakobsson",
+   "name": "Hampus Jakobsson",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=iPnfu4okwr0&hl=en",
+     "title": "Blockchain, ICOs and bitcoins - what are they and why should we care?",
+     "source_name": "Minc Malmö",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-iPnfu4okwr0"
+   ],
+   "talks": [
+    {
+     "id": "yt-iPnfu4okwr0",
+     "title": "Blockchain, ICOs and bitcoins - what are they and why should we care?",
+     "video_url": "https://www.youtube.com/watch?v=iPnfu4okwr0"
+    }
+   ]
+  },
+  {
+   "id": "spk-mohammad-hamdaqa",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-mohammad-hamdaqa.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-mohammad-hamdaqa",
+   "name": "Mohammad Hamdaqa",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=yGmVQIgxSD8&hl=en",
+     "title": "Towards Safe and Secure Smart Contracts - Bálkakeðjur á miðvikudögum",
+     "source_name": "Icelandic Blockchain Foundation",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-yGmVQIgxSD8"
+   ],
+   "talks": [
+    {
+     "id": "yt-yGmVQIgxSD8",
+     "title": "Towards Safe and Secure Smart Contracts - Bálkakeðjur á miðvikudögum",
+     "video_url": "https://www.youtube.com/watch?v=yGmVQIgxSD8"
+    }
+   ]
+  },
+  {
+   "id": "spk-torstein-thinn",
+   "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-torstein-thinn.json",
+   "html_url": "https://nordiccrypto.no/org-chart/#spk-torstein-thinn",
+   "name": "Torstein Thinn",
+   "type": "person",
+   "sector": "private",
+   "country": null,
+   "description": null,
+   "role": null,
+   "org": null,
+   "group": null,
+   "profile_url": null,
+   "provenance": "Talks archive",
+   "caveat": false,
+   "sources": [
+    {
+     "url": "https://www.youtube.com/watch?v=cL9Uk67wzd8&hl=en",
+     "title": "Torstein Thinn from Skatteetaten - \"Invisibility in the Crypto Space\"",
+     "source_name": "BitSpace",
+     "date": "2026-10-16"
+    }
+   ],
+   "logo": null,
+   "image": null,
+   "profiles": [],
+   "talk_ids": [
+    "yt-cL9Uk67wzd8"
+   ],
+   "talks": [
+    {
+     "id": "yt-cL9Uk67wzd8",
+     "title": "Torstein Thinn from Skatteetaten - \"Invisibility in the Crypto Space\"",
+     "video_url": "https://www.youtube.com/watch?v=cL9Uk67wzd8"
     }
    ]
   }

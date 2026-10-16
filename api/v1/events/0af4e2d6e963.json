@@ -1,0 +1,120 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "0af4e2d6e963",
+  "title": "Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+  "title_original": null,
+  "start": "2025-08-12T18:00:00+02:00",
+  "end": "2025-08-12T19:00:00+02:00",
+  "place": "Bakgården Utendørs scene",
+  "city": "Arendal",
+  "country": "NO",
+  "online": false,
+  "organiser": "Bitcoinpolitisk Institutt Norge",
+  "url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+  "source": "backfill",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "description": {
+   "text": "Bitcoin-mining har blitt et hett tema i norsk energidebatt. Hva skjer når en digital valuta møter en strømkrise og klimamål? I 2024 vedtok et flertall på Stortinget å tvinge regjeringen til å utrede et mulig forbud mot kryptovalutautvinning.",
+   "lang": "nb",
+   "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+   "source_name": "Høyskolen Kristiania",
+   "retrieved": "2026-10-16T09:45:00+00:00",
+   "i18n": {}
+  },
+  "past": true,
+  "ongoing": false,
+  "phase": "past",
+  "phase_end": "2025-08-12T19:00:00+02:00",
+  "html_url": "https://nordiccrypto.no/calendar/0af4e2d6e963/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/0af4e2d6e963/",
+   "nn": "https://nordiccrypto.no/nn/calendar/0af4e2d6e963/",
+   "nb": "https://nordiccrypto.no/nb/calendar/0af4e2d6e963/",
+   "sv": "https://nordiccrypto.no/sv/calendar/0af4e2d6e963/",
+   "da": "https://nordiccrypto.no/da/calendar/0af4e2d6e963/",
+   "fi": "https://nordiccrypto.no/fi/calendar/0af4e2d6e963/",
+   "is": "https://nordiccrypto.no/is/calendar/0af4e2d6e963/",
+   "zh": "https://nordiccrypto.no/zh/calendar/0af4e2d6e963/",
+   "hi": "https://nordiccrypto.no/hi/calendar/0af4e2d6e963/",
+   "es": "https://nordiccrypto.no/es/calendar/0af4e2d6e963/",
+   "fr": "https://nordiccrypto.no/fr/calendar/0af4e2d6e963/",
+   "ar": "https://nordiccrypto.no/ar/calendar/0af4e2d6e963/",
+   "bn": "https://nordiccrypto.no/bn/calendar/0af4e2d6e963/",
+   "pt": "https://nordiccrypto.no/pt/calendar/0af4e2d6e963/",
+   "ru": "https://nordiccrypto.no/ru/calendar/0af4e2d6e963/",
+   "ur": "https://nordiccrypto.no/ur/calendar/0af4e2d6e963/",
+   "id": "https://nordiccrypto.no/id/calendar/0af4e2d6e963/",
+   "de": "https://nordiccrypto.no/de/calendar/0af4e2d6e963/",
+   "ja": "https://nordiccrypto.no/ja/calendar/0af4e2d6e963/",
+   "sw": "https://nordiccrypto.no/sw/calendar/0af4e2d6e963/",
+   "mr": "https://nordiccrypto.no/mr/calendar/0af4e2d6e963/",
+   "fa": "https://nordiccrypto.no/fa/calendar/0af4e2d6e963/",
+   "uk": "https://nordiccrypto.no/uk/calendar/0af4e2d6e963/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/0af4e2d6e963.json",
+  "backfill": true,
+  "event_type": "seminar",
+  "credits": {
+   "title": {
+    "source_name": "Høyskolen Kristiania",
+    "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "start": {
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "source_url": "https://bpinorge.no/blog/nyhetsbrev-arkiv/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "end": {
+    "source_name": "Høyskolen Kristiania",
+    "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "place": {
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "source_url": "https://bpinorge.no/blog/nyhetsbrev-arkiv/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "city": {
+    "source_name": "Høyskolen Kristiania",
+    "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "country": {
+    "source_name": "Høyskolen Kristiania",
+    "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "organiser": {
+    "source_name": "Høyskolen Kristiania",
+    "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "url": {
+    "source_name": "Høyskolen Kristiania",
+    "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "event_type": {
+    "source_name": "Høyskolen Kristiania",
+    "source_url": "https://www.kristiania.no/aktuelt/2025/06/kjor-debatt---arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   }
+  },
+  "place_source": {
+   "name": "Bitcoinpolitisk Institutt Norge",
+   "url": "https://bpinorge.no/blog/nyhetsbrev-arkiv/",
+   "retrieved": "2026-10-16T09:45:00+00:00"
+  },
+  "talk_ids": [
+   "yt-7TLMmGGSIOA"
+  ]
+ }
+}

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T07:30:59+00:00",
+ "generated_at": "2026-10-16T09:03:48+00:00",
  "preview": false,
  "item": {
   "id": "torbjorn-bull-jenssen",
@@ -36,14 +36,24 @@
     "title": "What gives cryptocurrencies value?",
     "source_name": "Rethinking Economics Norge",
     "date": "2026-10-07"
+   },
+   {
+    "url": "https://www.youtube.com/watch?v=7TLMmGGSIOA&hl=en",
+    "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "date": "2026-10-16"
    }
   ],
   "logo": null,
   "image": null,
   "profiles": [],
   "talk_ids": [
+   "yt-7TLMmGGSIOA",
    "yt-JaxgfxpmUmk",
    "yt-hINk3yZvDdY"
+  ],
+  "event_ids": [
+   "0af4e2d6e963"
   ],
   "talks": [
    {
@@ -55,6 +65,13 @@
     "id": "yt-JaxgfxpmUmk",
     "title": "What gives cryptocurrencies value?",
     "video_url": "https://www.youtube.com/watch?v=JaxgfxpmUmk"
+   },
+   {
+    "id": "yt-7TLMmGGSIOA",
+    "title": "Arendalsuka: Bitcoin-mining i Norge. For vanskelig å forstå, for lett å forby?",
+    "video_url": "https://www.youtube.com/watch?v=7TLMmGGSIOA",
+    "event_id": "0af4e2d6e963",
+    "date": "2025-08-12"
    }
   ],
   "affiliations": [

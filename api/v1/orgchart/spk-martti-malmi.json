@@ -1,0 +1,52 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-martti-malmi",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-martti-malmi.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-martti-malmi",
+  "name": "Martti Malmi",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=JLQtEJ-80_c&hl=en",
+    "title": "Thoughts about the Future Of Bitcoins by Bitcoin Developer, Martti Malmi",
+    "source_name": "Slush",
+    "date": "2026-10-16"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-JLQtEJ-80_c"
+  ],
+  "talks": [
+   {
+    "id": "yt-JLQtEJ-80_c",
+    "title": "Thoughts about the Future Of Bitcoins by Bitcoin Developer, Martti Malmi",
+    "video_url": "https://www.youtube.com/watch?v=JLQtEJ-80_c"
+   }
+  ],
+  "affiliations": [
+   {
+    "talk_id": "yt-JLQtEJ-80_c",
+    "organisation": "Bitcoin developer",
+    "source_url": "https://www.youtube.com/watch?v=JLQtEJ-80_c&hl=en",
+    "source_name": "Slush",
+    "retrieved_at": "2026-10-16T08:56:33+00:00"
+   }
+  ]
+ }
+}

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T07:30:59+00:00",
+ "generated_at": "2026-10-16T09:03:48+00:00",
  "preview": false,
  "item": {
   "id": "spk-frank-schuil",
@@ -24,19 +24,31 @@
     "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Closing Sessions)",
     "source_name": "Nordic Blockchain Association",
     "date": "2026-10-07"
+   },
+   {
+    "url": "https://www.youtube.com/watch?v=vefoJLmk88g&hl=en",
+    "title": "Escaping war zones with a Bitcoin brain wallet | Frank Schuil | TEDxStockholm",
+    "source_name": "TEDx Talks",
+    "date": "2026-10-16"
    }
   ],
   "logo": null,
   "image": null,
   "profiles": [],
   "talk_ids": [
-   "yt-sDb2GJTIpPo"
+   "yt-sDb2GJTIpPo",
+   "yt-vefoJLmk88g"
   ],
   "talks": [
    {
     "id": "yt-sDb2GJTIpPo",
     "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Closing Sessions)",
     "video_url": "https://www.youtube.com/watch?v=sDb2GJTIpPo"
+   },
+   {
+    "id": "yt-vefoJLmk88g",
+    "title": "Escaping war zones with a Bitcoin brain wallet | Frank Schuil | TEDxStockholm",
+    "video_url": "https://www.youtube.com/watch?v=vefoJLmk88g"
    }
   ],
   "affiliations": [

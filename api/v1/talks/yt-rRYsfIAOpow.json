@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-rRYsfIAOpow",
+  "video_url": "https://www.youtube.com/watch?v=rRYsfIAOpow",
+  "platform": "youtube",
+  "title": "Bitcoin:  Breaking new ground in the world of money - Internetdagarna 2014",
+  "speakers": [
+   "Nanok Bie",
+   "Patric Stiller",
+   "Staffan Helgesson",
+   "Ludvig Öberg"
+  ],
+  "event_name": "Internetdagarna 2014",
+  "event_url": "https://internetdagarna.se/",
+  "calendar_event_id": null,
+  "event_id": null,
+  "unlink_reason": "the video page did not state the day",
+  "speaker_ids": [
+   "spk-nanok-bie",
+   "spk-patric-stiller",
+   "spk-staffan-helgesson",
+   "spk-ludvig-oberg"
+  ],
+  "city": null,
+  "country": "SE",
+  "date": null,
+  "published": "2014-11-24",
+  "duration": "PT26M22S",
+  "language": null,
+  "channel": "Internetstiftelsen",
+  "description": "Internetstiftelsen publishes the Internetdagarna 2014 panel on digital currency, with Nanok Bie, Patric Stiller, Staffan Helgesson and Ludvig Öberg.",
+  "source_url": "https://www.youtube.com/watch?v=rRYsfIAOpow&hl=en",
+  "retrieved_at": "2026-10-16T09:45:00Z",
+  "added_at": "2026-10-16T09:45:00Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-rRYsfIAOpow",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-rRYsfIAOpow.json"
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-rqS9YdAm-lM",
+  "video_url": "https://www.youtube.com/watch?v=rqS9YdAm-lM",
+  "platform": "youtube",
+  "title": "Unpublished Cambridge Data: Bitcoin's Emissions Are Falling | Alexander Neumüller, CCAF",
+  "speakers": [
+   "Alexander Neumüller"
+  ],
+  "event_name": null,
+  "event_url": null,
+  "calendar_event_id": null,
+  "event_id": null,
+  "unlink_reason": "the video page did not state the day",
+  "speaker_ids": [
+   "spk-alexander-neumuller"
+  ],
+  "city": "Oslo",
+  "country": "NO",
+  "date": null,
+  "published": "2026-09-18",
+  "duration": "PT49M57S",
+  "language": null,
+  "channel": "Bitcoinpolitisk Institutt Norge",
+  "description": "Alexander Neumüller of the Cambridge Centre for Alternative Finance speaks in Oslo for Bitcoinpolitisk Institutt Norge about bitcoin's electricity mix.",
+  "source_url": "https://www.youtube.com/watch?v=rqS9YdAm-lM&hl=en",
+  "retrieved_at": "2026-10-16T09:45:00Z",
+  "added_at": "2026-10-16T09:45:00Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-rqS9YdAm-lM",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-rqS9YdAm-lM.json"
+ }
+}

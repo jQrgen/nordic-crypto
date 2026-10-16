@@ -1,0 +1,33 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-eoGLp7nO1Bo",
+  "video_url": "https://www.youtube.com/watch?v=eoGLp7nO1Bo",
+  "platform": "youtube",
+  "title": "Bitcoin Investors Fireside Chat",
+  "speakers": [],
+  "event_name": "Slush 2014",
+  "event_url": "http://www.slush.org/",
+  "calendar_event_id": null,
+  "event_id": null,
+  "unlink_reason": "the video page did not state the day",
+  "speaker_ids": [],
+  "city": null,
+  "country": null,
+  "date": null,
+  "published": "2015-02-12",
+  "duration": "PT29M6S",
+  "language": null,
+  "channel": "Slush",
+  "description": "A bitcoin investors fireside chat at Slush 2014, published by Slush. The upload does not name the city.",
+  "source_url": "https://www.youtube.com/watch?v=eoGLp7nO1Bo&hl=en",
+  "retrieved_at": "2026-10-16T09:45:00Z",
+  "added_at": "2026-10-16T09:45:00Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-eoGLp7nO1Bo",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-eoGLp7nO1Bo.json"
+ }
+}

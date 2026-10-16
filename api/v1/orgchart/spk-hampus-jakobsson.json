@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "spk-hampus-jakobsson",
+  "api_url": "https://nordiccrypto.no/api/v1/orgchart/spk-hampus-jakobsson.json",
+  "html_url": "https://nordiccrypto.no/org-chart/#spk-hampus-jakobsson",
+  "name": "Hampus Jakobsson",
+  "type": "person",
+  "sector": "private",
+  "country": null,
+  "description": null,
+  "role": null,
+  "org": null,
+  "group": null,
+  "profile_url": null,
+  "provenance": "Talks archive",
+  "caveat": false,
+  "sources": [
+   {
+    "url": "https://www.youtube.com/watch?v=iPnfu4okwr0&hl=en",
+    "title": "Blockchain, ICOs and bitcoins - what are they and why should we care?",
+    "source_name": "Minc Malmö",
+    "date": "2026-10-16"
+   }
+  ],
+  "logo": null,
+  "image": null,
+  "profiles": [],
+  "talk_ids": [
+   "yt-iPnfu4okwr0"
+  ],
+  "talks": [
+   {
+    "id": "yt-iPnfu4okwr0",
+    "title": "Blockchain, ICOs and bitcoins - what are they and why should we care?",
+    "video_url": "https://www.youtube.com/watch?v=iPnfu4okwr0"
+   }
+  ]
+ }
+}

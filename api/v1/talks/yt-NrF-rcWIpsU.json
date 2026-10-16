@@ -1,0 +1,41 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-NrF-rcWIpsU",
+  "video_url": "https://www.youtube.com/watch?v=NrF-rcWIpsU",
+  "platform": "youtube",
+  "title": "Fløgstad + bitcoin = sant? (Satoshi-samtale nr. 1)",
+  "speakers": [
+   "Kjartan Fløgstad",
+   "Heming H. Gujord",
+   "Morten Søberg"
+  ],
+  "event_name": "Satoshi-samtale",
+  "event_url": null,
+  "calendar_event_id": null,
+  "event_id": null,
+  "unlink_reason": "the video page did not state the day",
+  "speaker_ids": [
+   "spk-kjartan-flogstad",
+   "spk-heming-h-gujord",
+   "spk-morten-soberg"
+  ],
+  "city": null,
+  "country": "NO",
+  "date": null,
+  "published": "2025-09-04",
+  "duration": "PT52M16S",
+  "language": null,
+  "channel": "Bitcoinpolitisk Institutt Norge",
+  "description": "Kjartan Fløgstad and Heming H. Gujord discuss mining and bitcoin with Morten Søberg in the first Satoshi conversation from Bitcoinpolitisk Institutt Norge.",
+  "source_url": "https://www.youtube.com/watch?v=NrF-rcWIpsU&hl=en",
+  "retrieved_at": "2026-10-16T09:45:00Z",
+  "added_at": "2026-10-16T09:45:00Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-NrF-rcWIpsU",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-NrF-rcWIpsU.json"
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-QPXOVJ2cUNc",
+  "video_url": "https://www.youtube.com/watch?v=QPXOVJ2cUNc",
+  "platform": "youtube",
+  "title": "Mine or Decline: Europe's Energy Reality | Rachel Geyer, EBEA",
+  "speakers": [
+   "Rachel Geyer"
+  ],
+  "event_name": null,
+  "event_url": null,
+  "calendar_event_id": null,
+  "event_id": null,
+  "unlink_reason": "the video page did not state the day",
+  "speaker_ids": [
+   "spk-rachel-geyer"
+  ],
+  "city": "Oslo",
+  "country": "NO",
+  "date": null,
+  "published": "2026-09-17",
+  "duration": "PT52M33S",
+  "language": null,
+  "channel": "Bitcoinpolitisk Institutt Norge",
+  "description": "Rachel Geyer speaks in Oslo for Bitcoinpolitisk Institutt Norge about Europe's power system and a proposed Norwegian ban on bitcoin mining.",
+  "source_url": "https://www.youtube.com/watch?v=QPXOVJ2cUNc&hl=en",
+  "retrieved_at": "2026-10-16T09:45:00Z",
+  "added_at": "2026-10-16T09:45:00Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-QPXOVJ2cUNc",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-QPXOVJ2cUNc.json"
+ }
+}

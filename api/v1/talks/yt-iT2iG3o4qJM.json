@@ -1,0 +1,43 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-iT2iG3o4qJM",
+  "video_url": "https://www.youtube.com/watch?v=iT2iG3o4qJM",
+  "platform": "youtube",
+  "title": "Er bitcoin vinnaren av krigen mot Iran? Fra Arendalsuka",
+  "speakers": [
+   "Morten Søberg",
+   "Gunnar Garfors",
+   "Vetle Lunde",
+   "Iver B. Neumann"
+  ],
+  "event_name": "Er bitcoin vinnaren av krigen mot Iran?",
+  "event_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+  "calendar_event_id": "9177a9451730",
+  "event_id": "9177a9451730",
+  "unlink_reason": null,
+  "speaker_ids": [
+   "spk-morten-soberg",
+   "spk-gunnar-garfors",
+   "spk-vetle-lunde",
+   "spk-iver-b-neumann"
+  ],
+  "city": "Arendal",
+  "country": "NO",
+  "date": "2026-08-10",
+  "published": "2026-09-03",
+  "duration": "PT44M18S",
+  "language": null,
+  "channel": "Bitcoinpolitisk Institutt Norge",
+  "description": "A panel at Arendalsuka on 10 August 2026, hosted by Bitcoinpolitisk Institutt Norge at SpareBank 1 Sør-Norge, on bitcoin and the war against Iran.",
+  "source_url": "https://www.youtube.com/watch?v=iT2iG3o4qJM&hl=en",
+  "retrieved_at": "2026-10-16T09:45:00Z",
+  "added_at": "2026-10-16T09:45:00Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-iT2iG3o4qJM",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-iT2iG3o4qJM.json"
+ }
+}

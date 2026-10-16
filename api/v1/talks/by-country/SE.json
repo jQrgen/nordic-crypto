@@ -1,11 +1,42 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T07:30:59+00:00",
+ "generated_at": "2026-10-16T09:03:48+00:00",
  "preview": false,
  "country": "SE",
- "count": 4,
+ "count": 10,
  "talks": [
+  {
+   "id": "yt-4A-whJseWvI",
+   "video_url": "https://www.youtube.com/watch?v=4A-whJseWvI",
+   "platform": "youtube",
+   "title": "Bitcoin som pengar｜ Internetdagarna 2016",
+   "speakers": [
+    "Pontus Lindblom"
+   ],
+   "event_name": "Internetdagarna 2016",
+   "event_url": null,
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-pontus-lindblom"
+   ],
+   "city": "Stockholm",
+   "country": "SE",
+   "date": null,
+   "published": "2026-08-03",
+   "duration": "PT30M28S",
+   "language": null,
+   "channel": "Pontus Lindblom",
+   "description": "Pontus Lindblom's own recording of his Internetdagarna 2016 lecture in Stockholm on bitcoin as money, organised by Internetstiftelsen and Svenska Bitcoinföreningen.",
+   "source_url": "https://www.youtube.com/watch?v=4A-whJseWvI&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "html_url": "https://nordiccrypto.no/talks/#yt-4A-whJseWvI",
+   "api_url": "https://nordiccrypto.no/api/v1/talks/yt-4A-whJseWvI.json"
+  },
   {
    "id": "yt-8UUXKBprVE4",
    "video_url": "https://www.youtube.com/watch?v=8UUXKBprVE4",
@@ -129,6 +160,167 @@
    "embed": true,
    "html_url": "https://nordiccrypto.no/talks/#yt-h1ZaK2i9LBI",
    "api_url": "https://nordiccrypto.no/api/v1/talks/yt-h1ZaK2i9LBI.json"
+  },
+  {
+   "id": "yt-8CScNyu35ME",
+   "video_url": "https://www.youtube.com/watch?v=8CScNyu35ME",
+   "platform": "youtube",
+   "title": "Possibilities of cryptocurrency beyond speculation | Primavera de Filippi | Internetdagarna 2017",
+   "speakers": [
+    "Primavera de Filippi"
+   ],
+   "event_name": "Internetdagarna 2017",
+   "event_url": null,
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-primavera-de-filippi"
+   ],
+   "city": null,
+   "country": "SE",
+   "date": null,
+   "published": "2017-11-21",
+   "duration": "PT23M55S",
+   "language": null,
+   "channel": "Internetstiftelsen",
+   "description": "Primavera de Filippi gives a keynote at Internetdagarna 2017 on cryptocurrency beyond speculation. Internetstiftelsen published the recording.",
+   "source_url": "https://www.youtube.com/watch?v=8CScNyu35ME&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "html_url": "https://nordiccrypto.no/talks/#yt-8CScNyu35ME",
+   "api_url": "https://nordiccrypto.no/api/v1/talks/yt-8CScNyu35ME.json"
+  },
+  {
+   "id": "yt-iPnfu4okwr0",
+   "video_url": "https://www.youtube.com/watch?v=iPnfu4okwr0",
+   "platform": "youtube",
+   "title": "Blockchain, ICOs and bitcoins - what are they and why should we care?",
+   "speakers": [
+    "Hampus Jakobsson"
+   ],
+   "event_name": null,
+   "event_url": null,
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-hampus-jakobsson"
+   ],
+   "city": "Malmö",
+   "country": "SE",
+   "date": null,
+   "published": "2017-11-13",
+   "duration": "PT1H22M37S",
+   "language": null,
+   "channel": "Minc Malmö",
+   "description": "Hampus Jakobsson introduces blockchain, bitcoin and ICOs. Minc Malmö published the recording.",
+   "source_url": "https://www.youtube.com/watch?v=iPnfu4okwr0&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "html_url": "https://nordiccrypto.no/talks/#yt-iPnfu4okwr0",
+   "api_url": "https://nordiccrypto.no/api/v1/talks/yt-iPnfu4okwr0.json"
+  },
+  {
+   "id": "yt-vefoJLmk88g",
+   "video_url": "https://www.youtube.com/watch?v=vefoJLmk88g",
+   "platform": "youtube",
+   "title": "Escaping war zones with a Bitcoin brain wallet | Frank Schuil | TEDxStockholm",
+   "speakers": [
+    "Frank Schuil"
+   ],
+   "event_name": "TEDxStockholm",
+   "event_url": "http://ted.com/tedx",
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-frank-schuil"
+   ],
+   "city": "Stockholm",
+   "country": "SE",
+   "date": null,
+   "published": "2015-03-11",
+   "duration": "PT8M59S",
+   "language": null,
+   "channel": "TEDx Talks",
+   "description": "Frank Schuil speaks at TEDxStockholm about using a bitcoin brain wallet to carry money out of a war zone.",
+   "source_url": "https://www.youtube.com/watch?v=vefoJLmk88g&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "html_url": "https://nordiccrypto.no/talks/#yt-vefoJLmk88g",
+   "api_url": "https://nordiccrypto.no/api/v1/talks/yt-vefoJLmk88g.json"
+  },
+  {
+   "id": "yt-rRYsfIAOpow",
+   "video_url": "https://www.youtube.com/watch?v=rRYsfIAOpow",
+   "platform": "youtube",
+   "title": "Bitcoin:  Breaking new ground in the world of money - Internetdagarna 2014",
+   "speakers": [
+    "Nanok Bie",
+    "Patric Stiller",
+    "Staffan Helgesson",
+    "Ludvig Öberg"
+   ],
+   "event_name": "Internetdagarna 2014",
+   "event_url": "https://internetdagarna.se/",
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-nanok-bie",
+    "spk-patric-stiller",
+    "spk-staffan-helgesson",
+    "spk-ludvig-oberg"
+   ],
+   "city": null,
+   "country": "SE",
+   "date": null,
+   "published": "2014-11-24",
+   "duration": "PT26M22S",
+   "language": null,
+   "channel": "Internetstiftelsen",
+   "description": "Internetstiftelsen publishes the Internetdagarna 2014 panel on digital currency, with Nanok Bie, Patric Stiller, Staffan Helgesson and Ludvig Öberg.",
+   "source_url": "https://www.youtube.com/watch?v=rRYsfIAOpow&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "html_url": "https://nordiccrypto.no/talks/#yt-rRYsfIAOpow",
+   "api_url": "https://nordiccrypto.no/api/v1/talks/yt-rRYsfIAOpow.json"
+  },
+  {
+   "id": "yt-c1YQ0Lm-TG4",
+   "video_url": "https://www.youtube.com/watch?v=c1YQ0Lm-TG4",
+   "platform": "youtube",
+   "title": "Bitcoin: Sergej Kotliar - Internetdagarna 2014",
+   "speakers": [
+    "Sergej Kotliar"
+   ],
+   "event_name": "Internetdagarna 2014",
+   "event_url": "https://internetdagarna.se/",
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-sergej-kotliar"
+   ],
+   "city": null,
+   "country": "SE",
+   "date": null,
+   "published": "2014-11-24",
+   "duration": "PT19M20S",
+   "language": null,
+   "channel": "Internetstiftelsen",
+   "description": "Sergej Kotliar in the Internetdagarna 2014 session on bitcoin, published by Internetstiftelsen.",
+   "source_url": "https://www.youtube.com/watch?v=c1YQ0Lm-TG4&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "html_url": "https://nordiccrypto.no/talks/#yt-c1YQ0Lm-TG4",
+   "api_url": "https://nordiccrypto.no/api/v1/talks/yt-c1YQ0Lm-TG4.json"
   }
  ]
 }

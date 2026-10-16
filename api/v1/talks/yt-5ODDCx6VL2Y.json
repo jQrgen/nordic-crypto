@@ -1,0 +1,39 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-5ODDCx6VL2Y",
+  "video_url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y",
+  "platform": "youtube",
+  "title": "Bitcoin & Blockchain in Norway - Interview with Andreas M. Antonopoulos",
+  "speakers": [
+   "Andreas M. Antonopoulos",
+   "Stephan Nilsson"
+  ],
+  "event_name": null,
+  "event_url": "https://norgesbitcoinforening.no/intervju-andreas-m-antonopoulos-oslo/",
+  "calendar_event_id": null,
+  "event_id": null,
+  "unlink_reason": "the video page did not name the event",
+  "speaker_ids": [
+   "spk-andreas-m-antonopoulos",
+   "spk-stephan-nilsson"
+  ],
+  "city": "Oslo",
+  "country": "NO",
+  "date": "2017-04-27",
+  "published": "2017-06-03",
+  "duration": "PT46M31S",
+  "language": null,
+  "channel": "aantonop",
+  "description": "Stephan Nilsson interviews Andreas M. Antonopoulos about bitcoin and blockchain at Kasbah Hub in Oslo on 27 April 2017.",
+  "source_url": "https://www.youtube.com/watch?v=5ODDCx6VL2Y&hl=en",
+  "retrieved_at": "2026-10-16T09:45:00Z",
+  "added_at": "2026-10-16T09:45:00Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-5ODDCx6VL2Y",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-5ODDCx6VL2Y.json"
+ }
+}

@@ -1,0 +1,117 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "643088f29d66",
+  "title": "Pengar i Palestina",
+  "title_original": null,
+  "start": "2026-08-10T15:00:00+02:00",
+  "end": "2026-08-10T16:00:00+02:00",
+  "place": "SpareBank 1 Sør-Norge, Torvet 10",
+  "city": "Arendal",
+  "country": "NO",
+  "online": false,
+  "organiser": "Bitcoinpolitisk Institutt Norge",
+  "url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+  "source": "backfill",
+  "paid": null,
+  "sponsored": null,
+  "note": null,
+  "note_i18n": {},
+  "description": {
+   "text": "Rett etter Iran-debatten spør vi om bitcoin er mulig som alternativ valuta i Gaza og på Vestbredden. Parisprotokollen fra Osloprosessen gjør israelske shekel til tvungent betalingsmiddel i de palestinske områdene.",
+   "lang": "nb",
+   "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+   "source_name": "Bitcoinpolitisk Institutt Norge",
+   "retrieved": "2026-10-16T09:45:00+00:00",
+   "i18n": {}
+  },
+  "past": true,
+  "ongoing": false,
+  "phase": "past",
+  "phase_end": "2026-08-10T16:00:00+02:00",
+  "html_url": "https://nordiccrypto.no/calendar/643088f29d66/",
+  "html_urls": {
+   "en": "https://nordiccrypto.no/calendar/643088f29d66/",
+   "nn": "https://nordiccrypto.no/nn/calendar/643088f29d66/",
+   "nb": "https://nordiccrypto.no/nb/calendar/643088f29d66/",
+   "sv": "https://nordiccrypto.no/sv/calendar/643088f29d66/",
+   "da": "https://nordiccrypto.no/da/calendar/643088f29d66/",
+   "fi": "https://nordiccrypto.no/fi/calendar/643088f29d66/",
+   "is": "https://nordiccrypto.no/is/calendar/643088f29d66/",
+   "zh": "https://nordiccrypto.no/zh/calendar/643088f29d66/",
+   "hi": "https://nordiccrypto.no/hi/calendar/643088f29d66/",
+   "es": "https://nordiccrypto.no/es/calendar/643088f29d66/",
+   "fr": "https://nordiccrypto.no/fr/calendar/643088f29d66/",
+   "ar": "https://nordiccrypto.no/ar/calendar/643088f29d66/",
+   "bn": "https://nordiccrypto.no/bn/calendar/643088f29d66/",
+   "pt": "https://nordiccrypto.no/pt/calendar/643088f29d66/",
+   "ru": "https://nordiccrypto.no/ru/calendar/643088f29d66/",
+   "ur": "https://nordiccrypto.no/ur/calendar/643088f29d66/",
+   "id": "https://nordiccrypto.no/id/calendar/643088f29d66/",
+   "de": "https://nordiccrypto.no/de/calendar/643088f29d66/",
+   "ja": "https://nordiccrypto.no/ja/calendar/643088f29d66/",
+   "sw": "https://nordiccrypto.no/sw/calendar/643088f29d66/",
+   "mr": "https://nordiccrypto.no/mr/calendar/643088f29d66/",
+   "fa": "https://nordiccrypto.no/fa/calendar/643088f29d66/",
+   "uk": "https://nordiccrypto.no/uk/calendar/643088f29d66/"
+  },
+  "api_url": "https://nordiccrypto.no/api/v1/events/643088f29d66.json",
+  "backfill": true,
+  "event_type": "seminar",
+  "credits": {
+   "title": {
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "start": {
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "end": {
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "place": {
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "city": {
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "country": {
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "organiser": {
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "url": {
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   },
+   "event_type": {
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "source_url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+    "retrieved_at": "2026-10-16T09:45:00+00:00"
+   }
+  },
+  "place_source": {
+   "name": "Bitcoinpolitisk Institutt Norge",
+   "url": "https://bpinorge.no/blog/mot-bpi-under-arendalsuka/",
+   "retrieved": "2026-10-16T09:45:00+00:00"
+  }
+ }
+}

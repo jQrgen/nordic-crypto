@@ -1,0 +1,37 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-16T09:03:48+00:00",
+ "preview": false,
+ "item": {
+  "id": "yt-4lJCE0dzoRs",
+  "video_url": "https://www.youtube.com/watch?v=4lJCE0dzoRs",
+  "platform": "youtube",
+  "title": "Less Trust Is More  Bitcoin, Blockchains, and the Future of Decentralized Technology",
+  "speakers": [
+   "Elizabeth Stark"
+  ],
+  "event_name": "Slush 2016",
+  "event_url": "http://www.slush.org/",
+  "calendar_event_id": null,
+  "event_id": null,
+  "unlink_reason": "the video page did not state the day",
+  "speaker_ids": [
+   "spk-elizabeth-stark"
+  ],
+  "city": "Helsinki",
+  "country": "FI",
+  "date": null,
+  "published": "2016-12-02",
+  "duration": "PT16M29S",
+  "language": null,
+  "channel": "Slush",
+  "description": "Elizabeth Stark speaks at Slush 2016 in Helsinki about bitcoin, blockchains and decentralised technology.",
+  "source_url": "https://www.youtube.com/watch?v=4lJCE0dzoRs&hl=en",
+  "retrieved_at": "2026-10-16T09:45:00Z",
+  "added_at": "2026-10-16T09:45:00Z",
+  "embed": true,
+  "html_url": "https://nordiccrypto.no/talks/#yt-4lJCE0dzoRs",
+  "api_url": "https://nordiccrypto.no/api/v1/talks/yt-4lJCE0dzoRs.json"
+ }
+}

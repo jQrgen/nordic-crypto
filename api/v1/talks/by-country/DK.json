@@ -1,10 +1,10 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T07:30:59+00:00",
+ "generated_at": "2026-10-16T09:03:48+00:00",
  "preview": false,
  "country": "DK",
- "count": 4,
+ "count": 5,
  "talks": [
   {
    "id": "yt-CV0WndNSP5Q",
@@ -129,6 +129,37 @@
    "embed": true,
    "html_url": "https://nordiccrypto.no/talks/#yt-McCMg7UVCIk",
    "api_url": "https://nordiccrypto.no/api/v1/talks/yt-McCMg7UVCIk.json"
+  },
+  {
+   "id": "yt-GiU4b7ldKMs",
+   "video_url": "https://www.youtube.com/watch?v=GiU4b7ldKMs",
+   "platform": "youtube",
+   "title": "How the Bitcoin Protocol Actually Works • Jan Møller • GOTO 2014",
+   "speakers": [
+    "Jan Møller"
+   ],
+   "event_name": "GOTO Aarhus 2014",
+   "event_url": "http://gotocon.com/aarhus-2014/presentation/How%20the%20Bitcoin%20Protocol%20Actually%20Works",
+   "calendar_event_id": null,
+   "event_id": null,
+   "unlink_reason": "the video page did not state the day",
+   "speaker_ids": [
+    "spk-jan-moller"
+   ],
+   "city": "Aarhus",
+   "country": "DK",
+   "date": null,
+   "published": "2015-01-27",
+   "duration": "PT51M31S",
+   "language": null,
+   "channel": "GOTO Conferences",
+   "description": "Jan Møller explains the bitcoin protocol at GOTO Aarhus 2014. GOTO Conferences published the recording.",
+   "source_url": "https://www.youtube.com/watch?v=GiU4b7ldKMs&hl=en",
+   "retrieved_at": "2026-10-16T09:45:00Z",
+   "added_at": "2026-10-16T09:45:00Z",
+   "embed": true,
+   "html_url": "https://nordiccrypto.no/talks/#yt-GiU4b7ldKMs",
+   "api_url": "https://nordiccrypto.no/api/v1/talks/yt-GiU4b7ldKMs.json"
   }
  ]
 }

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T07:30:59+00:00",
+ "generated_at": "2026-10-16T09:03:48+00:00",
  "preview": false,
  "item": {
   "id": "spk-thomas-eichenberger",
@@ -24,19 +24,36 @@
     "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Part 1)",
     "source_name": "Nordic Blockchain Association",
     "date": "2026-10-07"
+   },
+   {
+    "url": "https://www.youtube.com/watch?v=0q2kmQuA5PE&hl=en",
+    "title": "The Satoshi Nakamoto Annual Speech",
+    "source_name": "Bitcoinpolitisk Institutt Norge",
+    "date": "2026-10-16"
    }
   ],
   "logo": null,
   "image": null,
   "profiles": [],
   "talk_ids": [
-   "yt--4I2b_hFG0A"
+   "yt--4I2b_hFG0A",
+   "yt-0q2kmQuA5PE"
+  ],
+  "event_ids": [
+   "9e5346069673"
   ],
   "talks": [
    {
     "id": "yt--4I2b_hFG0A",
     "title": "Nordic Blockchain Conference 2026 - Day 1 - Stage 1 (Part 1)",
     "video_url": "https://www.youtube.com/watch?v=-4I2b_hFG0A"
+   },
+   {
+    "id": "yt-0q2kmQuA5PE",
+    "title": "The Satoshi Nakamoto Annual Speech",
+    "video_url": "https://www.youtube.com/watch?v=0q2kmQuA5PE",
+    "event_id": "9e5346069673",
+    "date": "2026-02-11"
    }
   ],
   "affiliations": [
