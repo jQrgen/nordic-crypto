@@ -146,6 +146,70 @@
    }
   },
   {
+   "id": "72073b91c0ef",
+   "title": "Barnas KÅKÅnomics: Hvordan investere ukelønna?",
+   "start": "2026-10-24T12:30:00+02:00",
+   "end": "2026-10-24T13:00:00+02:00",
+   "place": "Vingtor",
+   "city": "Stavanger",
+   "country": "NO",
+   "online": false,
+   "organiser": "KÅKÅ",
+   "url": "https://www.kaakaa.no/program/barnas-kknomics-hvordan-investere-ukelonna",
+   "source": "KÅKÅ",
+   "source_url": "https://www.kaakaa.no/program/barnas-kknomics-hvordan-investere-ukelonna",
+   "paid": null,
+   "sponsored": null,
+   "trusted_source": false,
+   "found": "2026-10-16T10:56:23+00:00",
+   "status": "pending",
+   "note": null,
+   "place_source": {
+    "name": "KÅKÅ",
+    "url": "https://www.kaakaa.no/program/barnas-kknomics-hvordan-investere-ukelonna",
+    "retrieved": "2026-10-16T10:56:23+00:00"
+   },
+   "description": {
+    "text": "Ta med hele familien og bli litt klokere på økonomi! Kyrre M. Knutsen med flere Når du har fått litt penger mellom hendene, er det ikke alltid så lett å vite hvordan pengene bør spares - eller investeres, som det heter på økonomispråket. Går du for sparegrisen eller banken, aksjer eller krypto? Hva er det smarteste? Vi stiller også spørsmålet: Lærer egentlig barna nok om økonomi og investeringer på skolen? Bli med på: Den store Flaxlodd-testen Hør om hvorfor Albert Einstein kalte rentesrente-effekten for verdens åttende underverk! Ta med hele familien og bli litt klokere på økonomi!",
+    "lang": "nb",
+    "source_url": "https://www.kaakaa.no/program/barnas-kknomics-hvordan-investere-ukelonna",
+    "source_name": "KÅKÅ",
+    "retrieved": "2026-10-16T10:56:23+00:00"
+   }
+  },
+  {
+   "id": "dde3d01aa7af",
+   "title": "Har bankene kuppet kryptorevolusjonen?",
+   "start": "2026-10-24T18:30:00+02:00",
+   "end": "2026-10-24T19:15:00+02:00",
+   "place": "Vingtor",
+   "city": "Stavanger",
+   "country": "NO",
+   "online": false,
+   "organiser": "KÅKÅ",
+   "url": "https://www.kaakaa.no/program/har-bankene-kuppet-kryptorevolusjonen",
+   "source": "KÅKÅ",
+   "source_url": "https://www.kaakaa.no/program/har-bankene-kuppet-kryptorevolusjonen",
+   "paid": null,
+   "sponsored": null,
+   "trusted_source": false,
+   "found": "2026-10-16T10:56:23+00:00",
+   "status": "pending",
+   "note": null,
+   "place_source": {
+    "name": "KÅKÅ",
+    "url": "https://www.kaakaa.no/program/har-bankene-kuppet-kryptorevolusjonen",
+    "retrieved": "2026-10-16T10:56:23+00:00"
+   },
+   "description": {
+    "text": "Når bankene omfavner kryptovaluta, hvem får makten over framtidens penger? Morten Søberg, Peder Østbye og Kyrre Martinius Knudsen Bitcoin og kryptovaluta ble født ut av en mistillit til bankene, sentralbankene og det etablerte pengesystemet. Nå er utviklingen i ferd med å ta en merkelig vending. Verdens største banker begynner å lage sine egne kryptobaserte penger, mens stablecoins, tokenisering og blokkjedeteknologi flytter stadig lenger inn i den tradisjonelle finansverdenen. Har bankene kuppet kryptorevolusjonen, eller er dette tvert imot beviset på at kryptorevolusjonen har vunnet?",
+    "lang": "nb",
+    "source_url": "https://www.kaakaa.no/program/har-bankene-kuppet-kryptorevolusjonen",
+    "source_name": "KÅKÅ",
+    "retrieved": "2026-10-16T10:56:23+00:00"
+   }
+  },
+  {
    "id": "a1ea7afabcb0",
    "title": "Oslo Blockchain Meetup - Nexa",
    "start": "2026-10-28T17:00:00+01:00",
@@ -458,5 +522,5 @@
    }
   }
  ],
- "updated": "2026-10-16T02:14:28+00:00"
+ "updated": "2026-10-16T10:56:23+00:00"
 }

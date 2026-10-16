@@ -337,6 +337,10 @@ These programmes are mostly literature. `"keyword_profile": "crypto-money"` keep
 | Litteraturhuset i Bergen | The programme page (`litthusbergen.no/program`, Webflow). No iCal, JSON-LD or public API. A keyword hit is opened for the organiser line. | Crescat room calendar, TicketCo, pages that do not match |
 | Litteraturhuset Fredrikstad | The upcoming programme page, then WordPress `/wp-json/wp/v2/event?slug=` for a keyword hit (price and excerpt). | The full event archive (about two thousand past events), TicketCo |
 
+### KÅKÅ
+
+KÅKÅ (`kaakaa.no`, Stavanger, home of the KÅKÅnomics economics festival) runs on Squarespace. There is no iCal, RSS or programme feed, and the sitemap has no dates. Each event page has schema.org `Event` JSON-LD, and the `/program` events collection has the standard public `?format=json` view (title, start and end as epoch milliseconds, room, text). The intake (`"type": "squarespace-events"`) reads that one JSON view; event pages and images are not opened. The festival is full of money talk, so the source uses the site-wide crypto filter (bitcoin, krypto, blockchain), not the broader `crypto-money` profile. There is no price field; tickets are sold per event or with a festival pass, so `paid` stays unknown unless a price line is in the text.
+
 ### Nasjonalbiblioteket
 
 `https://www.nb.no/hva-skjer/` is the upcoming programme. There is no calendar-wide iCal. Each event page has schema.org `Event` JSON-LD (the description there is empty) and a per-event “add to calendar” link, which is not a feed. The same events are the WordPress type `event` (`/wp-json/wp/v2/event`), including `meta.event_start_datetime`, `meta.event_end_datetime` and the price line. That collection is about 1,400 past events and cannot be ordered by the event date, so the past archive is not paged.
