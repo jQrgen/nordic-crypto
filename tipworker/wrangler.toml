@@ -17,6 +17,11 @@ enabled = false
 #   wrangler secret put TIP_WEBHOOK_URL / TIP_WEBHOOK_BEARER   (optional, https only)
 #   wrangler secret put ONION_INGEST_TOKEN          (Tor forwarder in onion/; must differ from the read token)
 
+# Newsletter mail ON (jQrgen, 2026-10-16). Sender MAIL_FROM_NORDIC_CRYPTO is a wrangler secret.
+[vars]
+MAIL_PROVIDER = "resend"
+MAIL_SEND_ENABLED = "1"
+
 [[d1_databases]]
 binding = "DB"
 database_name = "nordic-crypto-tips"
