@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T05:28:55+00:00",
+ "generated_at": "2026-10-16T05:31:31+00:00",
  "preview": false,
  "item": {
   "id": "019f42a4506c",
@@ -20,12 +20,12 @@
   "sponsored": null,
   "note": "Paid entry (NOK 239 for non-members). Held in cooperation with Bitcoinpolitisk Institutt Norge.",
   "note_i18n": {
-   "nn": "Betalt inngang (239 kroner for ikkje-medlemer). Held i samarbeid med Bitcoinpolitisk Institutt Norge.",
-   "nb": "Betalt inngang (239 kroner for ikke-medlemmer). Holdes i samarbeid med Bitcoinpolitisk Institutt Norge.",
-   "sv": "Avgift (239 norska kronor för icke-medlemmar). Hålls i samarbete med Bitcoinpolitisk Institutt Norge.",
    "da": "Betalt adgang (239 norske kroner for ikke-medlemmer). Afholdes i samarbejde med Bitcoinpolitisk Institutt Norge.",
    "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille). Järjestetään yhteistyössä Bitcoinpolitisk Institutt Norgen kanssa.",
-   "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn). Haldið í samstarfi við Bitcoinpolitisk Institutt Norge."
+   "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn). Haldið í samstarfi við Bitcoinpolitisk Institutt Norge.",
+   "nb": "Betalt inngang (239 kroner for ikke-medlemmer). Holdes i samarbeid med Bitcoinpolitisk Institutt Norge.",
+   "nn": "Betalt inngang (239 kroner for ikkje-medlemer). Held i samarbeid med Bitcoinpolitisk Institutt Norge.",
+   "sv": "Avgift (239 norska kronor för icke-medlemmar). Hålls i samarbete med Bitcoinpolitisk Institutt Norge."
   },
   "description": {
    "text": "I kjølvannet av bitcoin har vi fått en rekke apper som endrer samtiden vår og utvider finanssektoren. Stikkord er fremtidsmarkeder som «Polymarket», kryptobanken «Aave», nyvinninger innen forsikring, stablecoins og nye former for statlige penger. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appene som bitcoin har ført med seg, i tillegg til bitcoin selv.",

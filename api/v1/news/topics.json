@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T05:28:55+00:00",
+ "generated_at": "2026-10-16T05:31:31+00:00",
  "preview": false,
  "topics": [
   {
@@ -18,6 +18,11 @@
    "id": "bitcoin",
    "count": 4,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/bitcoin.json"
+  },
+  {
+   "id": "blockchain",
+   "count": 1,
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/blockchain.json"
   },
   {
    "id": "business",
@@ -38,6 +43,11 @@
    "id": "crime",
    "count": 7,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/crime.json"
+  },
+  {
+   "id": "crypto",
+   "count": 1,
+   "url": "https://nordiccrypto.no/api/v1/news/by-topic/crypto.json"
   },
   {
    "id": "defi",
