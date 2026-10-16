@@ -697,3 +697,4 @@ S.update({
 "dev_nav": "Pengembang",
 "dev_org_link": "Pengembang sumber terbuka",
 })
+S.update({"contact_us": "Hubungi kami", "contact_publisher": "Penerbit", "contact_orgnr": "No. organisasi", "contact_place": "Oslo, Norwegia", "contact_email": "Email"})  # Contact us block (contact page, footer)

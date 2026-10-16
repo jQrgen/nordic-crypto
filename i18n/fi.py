@@ -503,3 +503,4 @@ S.update({
 "dev_nav": "Kehittäjät",
 "dev_org_link": "Avoimen lähdekoodin kehittäjät"
 })
+S.update({"contact_us": "Ota yhteyttä", "contact_publisher": "Julkaisija", "contact_orgnr": "Org.nro", "contact_place": "Oslo, Norja", "contact_email": "Sähköposti"})  # Contact us block (contact page, footer)

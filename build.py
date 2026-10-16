@@ -675,6 +675,7 @@ def site_footer(rel, root, slug=""):
             f'<nav class="foot-col" aria-labelledby="ft-site"><h2 id="ft-site">{E(t("foot_site"))}</h2><ul>{site}</ul></nav>'
             f'<div class="foot-col"><h2>{E(t("foot_follow"))}</h2><ul>{follow}</ul></div></div>'
             f'{nlfoot}{pushfoot}<p class="colophon">{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"), contributors=contributors_link())}</p>'
+            f'<p class="colophon">{E(t("contact_us"))}: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></p>'
             f'{source_footer_line()}</div></footer>')
 def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="", hero="", og=None, share_text=None):
     """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root).
@@ -1375,9 +1376,17 @@ def write_crowdfunding_api():
     os.makedirs(os.path.join(SITE, "api", "v1"), exist_ok=True)
     json.dump(out, open(os.path.join(SITE, "api", "v1", "crowdfunding.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 
+CONTACT_EMAIL = "jqrgen@nordiccrypto.no"
+def contact_us_block():
+    """The 'Contact us' section (Google Play News policy): site name, publisher with org. number, place, email."""
+    m = f'<a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>'
+    return (f'<section class="contact-us" aria-labelledby="contact-us"><h2 id="contact-us">{E(t("contact_us"))}</h2>'
+            f'<p><b>Nordic Crypto</b><br>{E(t("contact_publisher"))}: jQrgenCorp ({E(t("contact_orgnr"))} 919 057 343)<br>'
+            f'{E(t("contact_place"))}<br>{E(t("contact_email"))}: {m}</p></section>\n')
 def build_contact():
     """Contact: the editor's email address."""
-    body = text_page(lang_template("contact"), toc=False, attrs=template_attrs("contact"))
+    html = lang_template("contact").replace('<div class="prose">', '<div class="prose">\n' + contact_us_block(), 1)
+    body = text_page(html, toc=False, attrs=template_attrs("contact"))
     page("contact", t("contact_title"), "contact", body, t("contact_desc"))
 
 def build_ethics():

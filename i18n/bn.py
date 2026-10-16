@@ -697,3 +697,4 @@ S.update({
 "dev_nav": "ডেভেলপার",
 "dev_org_link": "ওপেন-সোর্স ডেভেলপার",
 })
+S.update({"contact_us": "যোগাযোগ করুন", "contact_publisher": "প্রকাশক", "contact_orgnr": "প্রতিষ্ঠান নম্বর", "contact_place": "অসলো, নরওয়ে", "contact_email": "ইমেল"})  # Contact us block (contact page, footer)

@@ -697,3 +697,4 @@ S.update({
 "dev_nav": "डेव्हलपर",
 "dev_org_link": "ओपन-सोर्स डेव्हलपर",
 })
+S.update({"contact_us": "संपर्क करा", "contact_publisher": "प्रकाशक", "contact_orgnr": "संस्था क्रमांक", "contact_place": "ओस्लो, नॉर्वे", "contact_email": "ईमेल"})  # Contact us block (contact page, footer)

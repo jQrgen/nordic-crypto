@@ -697,3 +697,4 @@ S.update({
 "dev_nav": "المطورون",
 "dev_org_link": "مطورو البرمجيات مفتوحة المصدر",
 })
+S.update({"contact_us": "اتصل بنا", "contact_publisher": "الناشر", "contact_orgnr": "رقم المنظمة", "contact_place": "أوسلو، النرويج", "contact_email": "البريد الإلكتروني"})  # Contact us block (contact page, footer)

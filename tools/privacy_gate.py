@@ -19,6 +19,8 @@ RULES = {
 # Mangler fila, feiler grinda (fail closed).
 PRIV = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "state", "private_terms.json")
 ALLOW_EMAIL = re.compile(r"^jqrgen@nordiccrypto\.no$", re.I)  # bare redaksjonens offentlige kontaktadresse (/contact/) slipper gjennom
+# Utgiverlinja i «Kontakt oss» (Google Play News-krav): nøyaktig «jQrgenCorp (<org.nr.-etikett> 919 057 343)», ikke noe annet.
+ALLOW_PUBLISHER = re.compile(r"jQrgenCorp \([^()<>]{1,30} 919 057 343\)")
 URL = re.compile(r"https?://[^\s\"'<>]+")  # URL-er (artikkel-id-er) er ikke persondata
 
 def main(argv):
@@ -33,7 +35,7 @@ def main(argv):
                 n += 1; p = os.path.join(dp, f)
                 for i, raw in enumerate(open(p, encoding="utf-8", errors="replace"), 1):
                     if raw in clean: continue
-                    line = URL.sub(" ", raw); before = hits
+                    line = ALLOW_PUBLISHER.sub(" ", URL.sub(" ", raw)); before = hits
                     for name, rx in RULES.items():
                         for m in rx.finditer(line):
                             s = m.group(0)
