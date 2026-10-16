@@ -2,10 +2,11 @@
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "https://nordiccrypto.no/api/v1/schema/event-redirects.schema.json",
  "title": "Event redirects",
- "description": "Merged duplicate events in data/event_redirects.json. Each key is a removed id and each value is the id that was kept. The old calendar URL refreshes to the kept event.",
+ "description": "Merged duplicate events, stored in the event_redirects table in Cloudflare D1 (snapshot: data/event_redirects.json). Each key is a removed id and each value is the id that was kept. The old calendar URL refreshes to the kept event.",
  "x-nordic": {
   "id": "event-redirects",
   "order": 230,
+  "store": "Cloudflare D1: event_redirects",
   "files": [
    "data/event_redirects.json"
   ],

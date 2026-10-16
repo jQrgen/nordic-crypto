@@ -10,6 +10,8 @@ The default reads and writes the remote database with wrangler d1 execute.
   python3 tools/d1_review.py reject --id STORY --reason "Not about crypto in the Nordics."
   python3 tools/d1_review.py approve-event --id EVENT --note "Paid entry."
   python3 tools/d1_review.py reject-event --id EVENT --reason "No Nordic link."
+  python3 tools/d1_review.py add-event --json event.json --approve
+  python3 tools/d1_review.py update-event --id EVENT --set start=2026-10-24T18:30:00+02:00 --set paid=false
 """
 import argparse
 import json
@@ -113,6 +115,33 @@ def _note_i18n(raw):
     return data
 
 
+def _event_fields(args):
+    fields = {}
+    if args.json:
+        raw = args.json
+        if raw == "-":
+            raw = sys.stdin.read()
+        elif os.path.exists(raw):
+            raw = open(raw, encoding="utf-8").read()
+        try:
+            fields = json.loads(raw)
+        except json.JSONDecodeError:
+            raise d1_store.D1Error("--json must be a JSON object") from None
+        if not isinstance(fields, dict):
+            raise d1_store.D1Error("--json must be a JSON object")
+    for item in args.set:
+        key, sep, value = item.partition("=")
+        if not sep or not key:
+            raise d1_store.D1Error("--set needs FIELD=VALUE")
+        try:
+            fields[key] = json.loads(value)
+        except json.JSONDecodeError:
+            fields[key] = value
+    if "status" in fields or "review_status" in fields:
+        raise d1_store.D1Error("status is set with --approve, approve-event or reject-event")
+    return fields
+
+
 def _load_story(store, story_id):
     if store is not None:
         row = d1_store.one(store, "SELECT * FROM stories WHERE id = ?", (story_id,))
@@ -137,7 +166,7 @@ def _load_event(store, event_id):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description="Review a Nordic Crypto story or event in D1")
-    parser.add_argument("command", choices=("pending", "approve", "reject", "approve-event", "reject-event"))
+    parser.add_argument("command", choices=("pending", "approve", "reject", "approve-event", "reject-event", "add-event", "update-event"))
     parser.add_argument("--id", help="story id or event id")
     parser.add_argument("--summary", help="English summary, own words (required to approve a story)")
     parser.add_argument("--reason", help="why it was rejected")
@@ -145,6 +174,9 @@ def main(argv=None):
     parser.add_argument("--note", help="editor note stored on an event")
     parser.add_argument("--note-i18n", help="JSON object of language code to note text")
     parser.add_argument("--title-en", help="English headline when the source headline is in another language")
+    parser.add_argument("--json", help="event fields as a JSON object, a file path or - for stdin")
+    parser.add_argument("--set", action="append", default=[], metavar="FIELD=VALUE", help="one event field; VALUE is JSON or plain text")
+    parser.add_argument("--approve", action="store_true", help="publish the added or updated event")
     parser.add_argument("--sqlite", help="apply to this SQLite file instead of wrangler")
     parser.add_argument("--api", action="store_true", help="use the Cloudflare HTTP API instead of wrangler")
     parser.add_argument("--print-sql", action="store_true", help="print the SQL and do not run the write")
@@ -167,6 +199,34 @@ def main(argv=None):
             "ORDER BY start_at;\n"
         )
         _print_pending(stories, events)
+        return 0
+
+    if args.command in ("add-event", "update-event"):
+        if args.command == "update-event" and not args.id:
+            print("d1 review: --id is required", file=sys.stderr)
+            return 2
+        fields = _event_fields(args)
+        row = None
+        if args.command == "update-event":
+            row = _load_event(store, args.id)
+        elif fields.get("id") or args.id:
+            fields.setdefault("id", args.id)
+            try:
+                _load_event(store, fields["id"])
+                raise d1_store.D1Error("event " + fields["id"] + " exists; use update-event")
+            except d1_store.D1Error as ex:
+                if not str(ex).startswith("no event"):
+                    raise
+        at = d1_store.now_iso()
+        plan = d1_store.plan_event_edit(row, fields, actor, at, approve=args.approve)
+        if args.print_sql:
+            print(d1_store.event_edit_sql(plan, actor))
+            return 0
+        if store is not None:
+            d1_store.apply_event_edit(store, plan, actor, at)
+        else:
+            run_wrangler(d1_store.event_edit_sql(plan, actor))
+        print(f"d1 review: event {plan['id']} {'added' if plan['insert'] else 'updated'} ({plan['review_status']})")
         return 0
 
     if not args.id:

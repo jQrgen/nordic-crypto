@@ -2,10 +2,11 @@
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "https://nordiccrypto.no/api/v1/schema/events.schema.json",
  "title": "Events",
- "description": "Calendar events. data/events.json is the working list, archive/events.json is what the public calendar keeps, and data/events_backfill.json is the previous-events backfill. sponsored is null, false, true, or the sponsor's name, and is never Kaupr. The calendar status upcoming, ongoing or past is computed from start and end and is not stored.",
+ "description": "Calendar events. Stored in the events table in Cloudflare D1, one row per event: the nightly fetch and editor additions write there, and the build reads approved rows from it. data/events.json and archive/events.json are the JSON snapshot of that table, and data/events_backfill.json is the previous-events backfill. sponsored is null, false, true, or the sponsor's name, and is never Kaupr. The calendar status upcoming, ongoing or past is computed from start and end and is not stored.",
  "x-nordic": {
   "id": "events",
   "order": 20,
+  "store": "Cloudflare D1: events",
   "files": [
    "data/events.json",
    "archive/events.json",

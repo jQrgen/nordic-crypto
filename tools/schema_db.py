@@ -613,6 +613,8 @@ def _collection_html(lang, t, filename, schema):
     cid = meta["id"]
     files = meta.get("files") or []
     file_html = ", ".join(f"<code>{_esc(rel)}</code>" for rel in files) or _esc(t("db_none"))
+    if meta.get("store"):
+        file_html = f"<code>{_esc(meta['store'])}</code>" + (", " + file_html if files else "")
     apis = []
     for ep in meta.get("api") or []:
         path = ep.get("path") or ""
@@ -723,6 +725,7 @@ def catalog(base, generated_at=None):
             "title": schema.get("title"),
             "description": schema.get("description"),
             "files": meta.get("files") or [],
+            "store": meta.get("store"),
             "pages": meta.get("pages") or [],
             "api": meta.get("api") or [],
             "relations": meta.get("relations") or [],

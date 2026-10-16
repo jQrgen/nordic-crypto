@@ -251,7 +251,11 @@ python3 tools/d1_review.py approve --id STORY_ID --summary "…" --by "Nordic Cr
 python3 tools/d1_review.py reject --id STORY_ID --reason "…"
 python3 tools/d1_review.py approve-event --id EVENT_ID --note "…"
 python3 tools/d1_review.py reject-event --id EVENT_ID --reason "…"
+python3 tools/d1_review.py add-event --json event.json --approve      # title, start, organiser, place or online
+python3 tools/d1_review.py update-event --id EVENT_ID --set end=2026-10-24T19:15:00+02:00
 ```
+
+Events live in D1. Adding or changing one is a D1 write, not a pull request; the next `d1-publish` run (or `workflow_dispatch`) puts it on the site. `data/events.json` and `archive/events.json` in git are a snapshot: the import only adds ids D1 lacks and never overwrites an event row, and the nightly restore takes the D1 version of each event.
 
 Optional, after the Worker is deployed:
 
