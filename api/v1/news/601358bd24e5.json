@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T09:06:31+00:00",
+ "generated_at": "2026-10-16T09:12:35+00:00",
  "preview": false,
  "item": {
   "id": "601358bd24e5",
@@ -34,12 +34,12 @@
   ],
   "summary": "Realtid reports, citing Euronews and Journal du Coin, that the French National Assembly's finance committee voted to extend the country's exit tax to crypto assets above EUR 800,000 from 2027, and backed fines of up to EUR 10,000 for undeclared self-custody wallets worth EUR 100,000 or more. The proposals are not yet law and may still fall.",
   "summary_i18n": {
-   "nn": "Realtid melder, med tilvising til Euronews og Journal du Coin, at finanskomiteen i nasjonalforsamlinga i Frankrike røysta for å utvide utflyttingsskatten til kryptoeigedelar over 800 000 euro frå 2027, og støtta bøter på opptil 10 000 euro for ikkje-deklarerte eigne lommebøker verde minst 100 000 euro. Forslaga er ikkje vedtekne og kan framleis falle.",
-   "nb": "Realtid melder, med henvisning til Euronews og Journal du Coin, at finanskomiteen i Frankrikes nasjonalforsamling stemte for å utvide utflyttingsskatten til kryptoaktiva over 800 000 euro fra 2027, og støttet bøter på opptil 10 000 euro for ikke-deklarerte egne lommebøker verdt minst 100 000 euro. Forslagene er ikke vedtatt og kan fortsatt falle.",
-   "sv": "Realtid rapporterar, med hänvisning till Euronews och Journal du Coin, att franska nationalförsamlingens finansutskott röstade för att utvidga exitskatten till kryptotillgångar över 800 000 euro från 2027, och ställde sig bakom böter på upp till 10 000 euro för odeklarerade egna plånböcker värda minst 100 000 euro. Förslagen är inte antagna och kan fortfarande falla.",
    "da": "Realtid skriver med henvisning til Euronews og Journal du Coin, at finansudvalget i Frankrigs nationalforsamling stemte for at udvide fraflytningsskatten til kryptoaktiver over 800.000 euro fra 2027 og bakkede op om bøder på op til 10.000 euro for ikke-oplyste egne tegnebøger til en værdi af mindst 100.000 euro. Forslagene er ikke vedtaget og kan stadig falde.",
    "fi": "Realtid kertoo Euronewsiin ja Journal du Coiniin viitaten, että Ranskan kansalliskokouksen valtiovarainvaliokunta äänesti maastamuuttoveron laajentamisesta yli 800 000 euron kryptovaroihin vuodesta 2027 alkaen ja kannatti enintään 10 000 euron sakkoja ilmoittamatta jätetyistä, vähintään 100 000 euron arvoisista omista lompakoista. Ehdotuksia ei ole hyväksytty, ja ne voivat vielä kaatua.",
-   "is": "Realtid greinir frá því, með vísan til Euronews og Journal du Coin, að fjárlaganefnd franska þjóðþingsins hafi greitt atkvæði með því að útvíkka brottflutningsskatt til rafmyntaeigna yfir 800.000 evrum frá 2027 og stutt sektir allt að 10.000 evrum fyrir ótilgreind eigin veski að verðmæti minnst 100.000 evrur. Tillögurnar eru ekki orðnar að lögum og gætu enn fallið."
+   "is": "Realtid greinir frá því, með vísan til Euronews og Journal du Coin, að fjárlaganefnd franska þjóðþingsins hafi greitt atkvæði með því að útvíkka brottflutningsskatt til rafmyntaeigna yfir 800.000 evrum frá 2027 og stutt sektir allt að 10.000 evrum fyrir ótilgreind eigin veski að verðmæti minnst 100.000 evrur. Tillögurnar eru ekki orðnar að lögum og gætu enn fallið.",
+   "nb": "Realtid melder, med henvisning til Euronews og Journal du Coin, at finanskomiteen i Frankrikes nasjonalforsamling stemte for å utvide utflyttingsskatten til kryptoaktiva over 800 000 euro fra 2027, og støttet bøter på opptil 10 000 euro for ikke-deklarerte egne lommebøker verdt minst 100 000 euro. Forslagene er ikke vedtatt og kan fortsatt falle.",
+   "nn": "Realtid melder, med tilvising til Euronews og Journal du Coin, at finanskomiteen i nasjonalforsamlinga i Frankrike røysta for å utvide utflyttingsskatten til kryptoeigedelar over 800 000 euro frå 2027, og støtta bøter på opptil 10 000 euro for ikkje-deklarerte eigne lommebøker verde minst 100 000 euro. Forslaga er ikkje vedtekne og kan framleis falle.",
+   "sv": "Realtid rapporterar, med hänvisning till Euronews och Journal du Coin, att franska nationalförsamlingens finansutskott röstade för att utvidga exitskatten till kryptotillgångar över 800 000 euro från 2027, och ställde sig bakom böter på upp till 10 000 euro för odeklarerade egna plånböcker värda minst 100 000 euro. Förslagen är inte antagna och kan fortfarande falla."
   },
   "paywall": false,
   "links": [],
