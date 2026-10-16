@@ -21,6 +21,7 @@ enabled = false
 [vars]
 MAIL_PROVIDER = "resend"
 MAIL_SEND_ENABLED = "1"
+COLUMNIST_TO = "jqrgen@nordiccrypto.no"   # private columnist applications are forwarded here (Reply-To = applicant)
 
 [[d1_databases]]
 binding = "DB"

@@ -19,6 +19,7 @@
 // GET/POST /api/shouts/admin – see src/shouts.js (migrations/0004_shouts.sql).
 // Private tip inbox (the /tip/ form, free text, Turnstile): POST /api/private-tip, newsroom GET /api/private-tips and
 // POST /api/private-tips/:id (bearer) – see src/private_tips.js (migrations/0005_private_tips.sql).
+import { postColumnist } from "./columnist.js";
 import { subscribe, confirm, unsubscribe } from "./newsletter.js";
 import { shouts } from "./shouts.js";
 import { postPrivateTip, listPrivateTips, markPrivateTip } from "./private_tips.js";
@@ -34,7 +35,7 @@ const MAX_BODY = 4096, MAX_NOTE = 1000, MAX_NAME = 100, MAX_URL = 2000;
 const COUNTRIES = new Set(["NO", "SE", "DK", "FI", "IS", "UNSURE"]);
 const RATE_N = 5, RATE_WINDOW = 600;   // max 5 tips per IP per 10 minutes, per scope
 const RATE_GLOBAL_N = 200;             // and max 200 per 10 minutes in total, per scope (spam flood guard)
-const RATE_SCOPES = new Set(["tip", "private", "subscribe"]);  // separate buckets: a flood of one endpoint can't lock the others
+const RATE_SCOPES = new Set(["tip", "private", "subscribe", "columnist"]);  // separate buckets: a flood of one endpoint can't lock the others
 
 const clen = (s) => [...s].length;     // code points, like Python len()
 const ctrl = (s) => s.replace(/[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]/g, "");
@@ -161,7 +162,7 @@ export default {
     const path = new URL(req.url).pathname;
     if (req.method === "OPTIONS") {
       const o = req.headers.get("Origin");
-      const preflight = ["/api/tip", "/api/private-tip", "/api/subscribe", "/api/shouts", "/api/shouts/report"];
+      const preflight = ["/api/tip", "/api/private-tip", "/api/columnist", "/api/subscribe", "/api/shouts", "/api/shouts/report"];
       if (!preflight.includes(path) || (o !== null && !ORIGINS.has(o))) return send(req, 403, { ok: false });
       const methods = path === "/api/shouts" ? "GET, POST, OPTIONS" : "POST, OPTIONS";
       return new Response(null, { status: 204, headers: headers(req, {
@@ -184,6 +185,7 @@ export default {
       if (path === "/api/shouts" || path === "/api/shouts/report" || path === "/api/shouts/admin") return shouts(req, env, H);
       if (path === "/api/subscribe") return subscribe(req, env, H);
       if (path === "/api/private-tip") return postPrivateTip(req, env, H);
+      if (path === "/api/columnist") return postColumnist(req, env, H);
       const pm = path.match(/^\/api\/private-tips\/(\d{1,12})$/);
       if (pm) return markPrivateTip(req, env, H, Number(pm[1]));
       if (path === "/api/unsubscribe") return unsubscribe(req, env, H);

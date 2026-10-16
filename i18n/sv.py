@@ -257,11 +257,7 @@ S.update({
 "col_title": "Ansök som krönikör",
 "col_desc": "Ansök om att skriva en krönika för Nordic Crypto om krypto, bitcoin eller blockkedjor i Norden.",
 "col_lead": "Vill du skriva för Nordic Crypto? Skicka en kort ansökan. Vår redaktör läser varenda en.",
-"col_p": "Redaktören läser varje ansökan mot det Nordic Crypto bevakar: krypto, bitcoin eller blockkedjor i Norden. <b>En ansökan är ingen garanti för publicering.</b> En krönika är journalistik, inte investeringsrådgivning. Du behöver ett gratis GitHub-konto. Ärendet är öppet medan redaktören bestämmer sig.",
-"col_priv": "<b>Integritet:</b> ansökningarna är <b>offentliga</b> på GitHub, tillsammans med ditt GitHub-användarnamn. Dela bara ett namn och ett kontaktsätt som du kan ha offentligt. Ta inte med hälsoinformation, privata ekonomiska uppgifter eller andra känsliga uppgifter om dig själv eller någon annan. Inget sparas på den här webbplatsen.",
 "col_name": "Ditt namn", "col_name_opt": "(valfritt)",
-"col_contact": "Mejl eller annan kontakt",
-"col_contact_help": "Ett kontaktsätt du kan ha offentligt. Vi publicerar det inte på den här webbplatsen.",
 "col_langs": "Språk du kan skriva på",
 "col_langs_help": "Till exempel engelska, norska (nynorska eller bokmål), svenska, danska, finska eller isländska.",
 "col_pitch": "Idé / ämne",
@@ -269,9 +265,6 @@ S.update({
 "col_sample": "Länk till en text", "col_sample_opt": "(valfritt)",
 "col_why": "Varför Nordic Crypto",
 "col_why_help": "Varför du vill skriva här.",
-"col_btn": "Fortsätt på GitHub →",
-"col_meta": "Det här öppnar formuläret på GitHub med dina svar ifyllda; inget skickas förrän du skickar in det där. Inga uppgifter sparas på den här webbplatsen.",
-"col_direct": "Eller öppna <a href=\"{gh}\" rel=\"noopener\">krönikörsformuläret på GitHub</a> direkt.",
 "ios_link": "Hämta iOS-appen (TestFlight)",
 "ios_note": "Offentlig TestFlight-inbjudan. Det finns ingen App Store-sida.",
 "ios_tv": "Stöder särskilt Apple TV.",
@@ -504,3 +497,16 @@ S.update({
 "dev_org_link": "Utvecklare med öppen källkod"
 })
 S.update({"contact_us": "Kontakta oss", "contact_publisher": "Utgivare", "contact_orgnr": "Org.nr", "contact_place": "Oslo, Norge", "contact_email": "E-post"})  # Contact us block (contact page, footer)
+S.update({'col_p2': 'Redaktören läser varje ansökan utifrån vad Nordic Crypto bevakar: krypto, bitcoin eller blockkedjor i Norden. <b>En ansökan är ingen garanti för publicering.</b> En krönika är journalistik, inte investeringsråd.',
+ 'col_priv2': '<b>Privat:</b> din ansökan går bara till Nordic Cryptos redaktör. Den publiceras aldrig, och din e-postadress används bara för att svara dig. Ta inte med hälsouppgifter eller andra känsliga personuppgifter.',
+ 'col_email': 'Din e-postadress',
+ 'col_email_help': 'Vi svarar till den här adressen. Den publiceras aldrig.',
+ 'col_send': 'Skicka ansökan',
+ 'col_thanks': 'Tack! Din ansökan har skickats till redaktören.',
+ 'col_fail': 'Något gick fel. Kontrollera fälten och försök igen.',
+ 'col_off': 'Formuläret är inte tillgängligt just nu. Försök igen senare.',
+ 'col_rate': 'För många ansökningar från dig på kort tid. Försök igen senare.',
+ 'col_bad_email': 'Ange en giltig e-postadress.',
+ 'col_turnstile': 'Spamkontrollen misslyckades. Försök igen.',
+ 'col_closed': 'Privata ansökningar öppnar snart. Titta gärna in senare.',
+ 'col_need_js': 'Formuläret behöver JavaScript för spamkontrollen.'})  # private columnist form (tipworker /api/columnist)

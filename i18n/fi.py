@@ -257,11 +257,7 @@ S.update({
 "col_title": "Hae kolumnistiksi",
 "col_desc": "Hae kirjoittamaan kolumnia Nordic Cryptolle kryptosta, bitcoinista tai lohkoketjuista Pohjoismaissa.",
 "col_lead": "Haluatko kirjoittaa Nordic Cryptolle? Lähetä lyhyt ehdotus. Toimittajamme lukee jokaisen.",
-"col_p": "Toimittaja lukee jokaisen ehdotuksen sen mukaan, mitä Nordic Crypto seuraa: krypto, bitcoin tai lohkoketjut Pohjoismaissa. <b>Ehdotus ei takaa julkaisua.</b> Kolumni on journalismia, ei sijoitusneuvontaa. Tarvitset ilmaisen GitHub-tilin. Tiketti pysyy avoimena, kunnes toimittaja on päättänyt.",
-"col_priv": "<b>Tietosuoja:</b> hakemukset ovat <b>julkisia</b> GitHubissa yhdessä GitHub-käyttäjänimesi kanssa. Jaa vain nimi ja yhteystapa, jonka haluat julkiseksi. Älä lisää terveystietoja, yksityisiä taloustietoja tai muita arkaluonteisia tietoja itsestäsi tai muista. Tälle sivustolle ei tallenneta mitään.",
 "col_name": "Nimesi", "col_name_opt": "(vapaaehtoinen)",
-"col_contact": "Sähköposti tai muu yhteystapa",
-"col_contact_help": "Yhteystapa, jonka haluat julkiseksi. Emme julkaise sitä tällä sivustolla.",
 "col_langs": "Kielet, joilla voit kirjoittaa",
 "col_langs_help": "Esimerkiksi englanti, norja (nynorsk tai bokmål), ruotsi, tanska, suomi tai islanti.",
 "col_pitch": "Idea / aihe",
@@ -269,9 +265,6 @@ S.update({
 "col_sample": "Linkki näytetekstiin", "col_sample_opt": "(vapaaehtoinen)",
 "col_why": "Miksi Nordic Crypto",
 "col_why_help": "Miksi haluat kirjoittaa tänne.",
-"col_btn": "Jatka GitHubissa →",
-"col_meta": "Tämä avaa GitHubin lomakkeen vastauksesi valmiiksi täytettyinä; mitään ei lähetetä ennen kuin lähetät lomakkeen siellä. Tälle sivustolle ei tallenneta tietoja.",
-"col_direct": "Tai avaa <a href=\"{gh}\" rel=\"noopener\">kolumnistilomake GitHubissa</a> suoraan.",
 "ios_link": "Hae iOS-sovellus (TestFlight)",
 "ios_note": "Julkinen TestFlight-kutsu. App Store -sivua ei ole.",
 "ios_tv": "Tukee erityisesti Apple TV:tä.",
@@ -504,3 +497,16 @@ S.update({
 "dev_org_link": "Avoimen lähdekoodin kehittäjät"
 })
 S.update({"contact_us": "Ota yhteyttä", "contact_publisher": "Julkaisija", "contact_orgnr": "Org.nro", "contact_place": "Oslo, Norja", "contact_email": "Sähköposti"})  # Contact us block (contact page, footer)
+S.update({'col_p2': 'Toimittaja lukee jokaisen hakemuksen sen mukaan, mitä Nordic Crypto käsittelee: kryptoa, bitcoinia tai lohkoketjuja Pohjoismaissa. <b>Hakemus ei takaa julkaisua.</b> Kolumni on journalismia, ei sijoitusneuvontaa.',
+ 'col_priv2': '<b>Yksityinen:</b> hakemuksesi menee vain Nordic Cryptan toimittajalle. Sitä ei koskaan julkaista, ja sähköpostiosoitettasi käytetään vain sinulle vastaamiseen. Älä kerro terveystietoja tai muita arkaluonteisia henkilötietoja.',
+ 'col_email': 'Sähköpostiosoitteesi',
+ 'col_email_help': 'Vastaamme tähän osoitteeseen. Sitä ei koskaan julkaista.',
+ 'col_send': 'Lähetä hakemus',
+ 'col_thanks': 'Kiitos! Hakemuksesi on lähetetty toimittajalle.',
+ 'col_fail': 'Jokin meni vikaan. Tarkista kentät ja yritä uudelleen.',
+ 'col_off': 'Lomake ei ole juuri nyt käytettävissä. Yritä myöhemmin uudelleen.',
+ 'col_rate': 'Liian monta hakemusta lyhyessä ajassa. Yritä myöhemmin uudelleen.',
+ 'col_bad_email': 'Anna kelvollinen sähköpostiosoite.',
+ 'col_turnstile': 'Roskapostitarkistus epäonnistui. Yritä uudelleen.',
+ 'col_closed': 'Yksityiset hakemukset avautuvat pian. Palaa myöhemmin.',
+ 'col_need_js': 'Lomake tarvitsee JavaScriptin roskapostitarkistusta varten.'})  # private columnist form (tipworker /api/columnist)

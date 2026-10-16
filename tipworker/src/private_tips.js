@@ -89,7 +89,7 @@ function safeEqual(a, b) {
   return d === 0;
 }
 
-async function turnstile(env, token) {
+export async function turnstile(env, token) {
   if (env.TIP_TEST === "1") return token === "test-pass" ? "ok" : "bad";
   const secret = env.TURNSTILE_SECRET || "";
   if (!secret) return "unconfigured";
@@ -138,7 +138,7 @@ async function notify(env, tip) {
   } catch { /* the tip is already stored */ } finally { clearTimeout(timer); }
 }
 
-async function readFields(req, H) {
+export async function readFields(req, H) {
   const ctype = (req.headers.get("Content-Type") || "").split(";")[0].trim().toLowerCase();
   const cl = req.headers.get("Content-Length");
   if (cl !== null && !(Number(cl) <= PLIMITS.maxBody)) return { error: "too_long" };
