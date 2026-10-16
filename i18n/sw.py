@@ -659,6 +659,7 @@ S.update({
 "mk_about_h": "Kuhusu takwimu hizi",
 "nl_next_h": "Pata toleo lijalo",
 "nl_rss": "Mlisho wa RSS",
+"nl_rss_issues": "RSS ya jarida",
 "toc_h": "Kwenye ukurasa huu",
 "more_news_h": "Habari zaidi",
 "all_news": "Habari zote",

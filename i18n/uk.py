@@ -471,6 +471,7 @@ S.update({
 "mk_about_h": "Про ці цифри",
 "nl_next_h": "Отримуйте наступний випуск",
 "nl_rss": "RSS-стрічка",
+"nl_rss_issues": "RSS розсилки",
 })
 
 # Story and text pages: jump list, more news under a story

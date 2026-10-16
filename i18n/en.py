@@ -453,6 +453,7 @@ S.update({
 "mk_about_h": "About these figures",
 "nl_next_h": "Get the next issue",
 "nl_rss": "RSS feed",
+"nl_rss_issues": "Newsletter RSS",
 })
 
 # Story and text pages: jump list, more news under a story

@@ -659,6 +659,7 @@ S.update({
 "mk_about_h": "これらの数値について",
 "nl_next_h": "次の号を受け取る",
 "nl_rss": "RSSフィード",
+"nl_rss_issues": "ニュースレターのRSS",
 "toc_h": "このページの内容",
 "more_news_h": "その他のニュース",
 "all_news": "すべてのニュース",

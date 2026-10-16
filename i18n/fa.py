@@ -631,6 +631,7 @@ S.update({
 "mk_about_h": "دربارهٔ این ارقام",
 "nl_next_h": "دریافت شمارهٔ بعدی",
 "nl_rss": "فید RSS",
+"nl_rss_issues": "RSS خبرنامه",
 "toc_h": "در این صفحه",
 "more_news_h": "اخبار بیشتر",
 "all_news": "همهٔ اخبار",

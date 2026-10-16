@@ -659,6 +659,7 @@ S.update({
 "mk_about_h": "Sobre estas cifras",
 "nl_next_h": "Recibe la próxima edición",
 "nl_rss": "Feed RSS",
+"nl_rss_issues": "RSS del boletín",
 "toc_h": "En esta página",
 "more_news_h": "Más noticias",
 "all_news": "Todas las noticias",

@@ -659,6 +659,7 @@ S.update({
 "mk_about_h": "关于这些数据",
 "nl_next_h": "接收下一期",
 "nl_rss": "RSS 订阅源",
+"nl_rss_issues": "通讯 RSS",
 "toc_h": "本页内容",
 "more_news_h": "更多新闻",
 "all_news": "全部新闻",

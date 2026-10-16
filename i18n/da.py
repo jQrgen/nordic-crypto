@@ -434,6 +434,7 @@ S.update({
 "mk_about_h": "Om tallene",
 "nl_next_h": "Få næste udgave",
 "nl_rss": "RSS-feed",
+"nl_rss_issues": "Nyhedsbrevets RSS",
 })
 
 # Story and text pages: jump list, more news under a story

@@ -434,6 +434,7 @@ S.update({
 "mk_about_h": "Um tölurnar",
 "nl_next_h": "Fáðu næsta tölublað",
 "nl_rss": "RSS-straumur",
+"nl_rss_issues": "RSS fréttabréfsins",
 })
 
 # Story and text pages: jump list, more news under a story

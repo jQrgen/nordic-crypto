@@ -659,6 +659,7 @@ S.update({
 "mk_about_h": "Tentang angka-angka ini",
 "nl_next_h": "Terima edisi berikutnya",
 "nl_rss": "Feed RSS",
+"nl_rss_issues": "RSS buletin",
 "toc_h": "Di halaman ini",
 "more_news_h": "Berita lainnya",
 "all_news": "Semua berita",
