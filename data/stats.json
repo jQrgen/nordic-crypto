@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T00:34:27Z",
+ "generated_at": "2026-10-16T08:19:12Z",
  "preview": false,
  "source": "Cloudflare Web Analytics",
  "status": "ok",
@@ -10,7 +10,7 @@
  "schema": 1,
  "first_date": "2026-10-16",
  "last_date": "2026-10-16",
- "updated_at": "2026-10-16T00:34:27Z",
+ "updated_at": "2026-10-16T08:19:12Z",
  "daily": [
   {
    "date": "2026-10-16",
