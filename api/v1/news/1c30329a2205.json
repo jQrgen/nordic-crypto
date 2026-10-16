@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T09:12:35+00:00",
+ "generated_at": "2026-10-16T10:01:51+00:00",
  "preview": false,
  "item": {
   "id": "1c30329a2205",
@@ -34,12 +34,12 @@
   ],
   "summary": "Børsen reports that a broad working group of authorities, business and the crypto industry agreed on a new crypto tax model more than a year ago, but the proposal has since been shelved. The government is now signalling new rules.",
   "summary_i18n": {
+   "nn": "Børsen melder at ei brei arbeidsgruppe med styresmakter, næringsliv og kryptobransjen vart samde om ein ny modell for kryptoskatt for over eit år sidan, men at forslaget sidan har vorte liggjande. No varslar regjeringa nye reglar.",
+   "nb": "Børsen melder at en bred arbeidsgruppe med myndigheter, næringsliv og kryptobransjen ble enige om en ny modell for kryptoskatt for over et år siden, men at forslaget siden har blitt liggende. Nå varsler regjeringen nye regler.",
+   "sv": "Børsen rapporterar att en bred arbetsgrupp med myndigheter, näringsliv och kryptobranschen enades om en ny modell för kryptoskatt för över ett år sedan, men att förslaget sedan dess har legat orört. Nu aviserar regeringen nya regler.",
    "da": "Børsen skriver, at en bred arbejdsgruppe med myndigheder, erhvervsliv og kryptobranchen for over et år siden blev enige om en ny model for kryptobeskatning, men at forslaget siden har ligget stille. Nu varsler regeringen nye regler.",
    "fi": "Børsen kertoo, että viranomaisista, elinkeinoelämästä ja kryptoalasta koostunut laaja työryhmä sopi uudesta kryptoverotuksen mallista yli vuosi sitten, mutta ehdotus on sittemmin jäänyt pöytälaatikkoon. Nyt hallitus ennakoi uusia sääntöjä.",
-   "is": "Børsen greinir frá því að breiður starfshópur yfirvalda, atvinnulífs og rafmyntageirans hafi fyrir meira en ári komið sér saman um nýtt líkan fyrir skattlagningu rafmynta, en tillagan hafi síðan legið óhreyfð. Nú boðar ríkisstjórnin nýjar reglur.",
-   "nb": "Børsen melder at en bred arbeidsgruppe med myndigheter, næringsliv og kryptobransjen ble enige om en ny modell for kryptoskatt for over et år siden, men at forslaget siden har blitt liggende. Nå varsler regjeringen nye regler.",
-   "nn": "Børsen melder at ei brei arbeidsgruppe med styresmakter, næringsliv og kryptobransjen vart samde om ein ny modell for kryptoskatt for over eit år sidan, men at forslaget sidan har vorte liggjande. No varslar regjeringa nye reglar.",
-   "sv": "Børsen rapporterar att en bred arbetsgrupp med myndigheter, näringsliv och kryptobranschen enades om en ny modell för kryptoskatt för över ett år sedan, men att förslaget sedan dess har legat orört. Nu aviserar regeringen nya regler."
+   "is": "Børsen greinir frá því að breiður starfshópur yfirvalda, atvinnulífs og rafmyntageirans hafi fyrir meira en ári komið sér saman um nýtt líkan fyrir skattlagningu rafmynta, en tillagan hafi síðan legið óhreyfð. Nú boðar ríkisstjórnin nýjar reglur."
   },
   "paywall": true,
   "links": [],

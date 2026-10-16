@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T09:12:35+00:00",
+ "generated_at": "2026-10-16T10:01:51+00:00",
  "preview": false,
  "item": {
   "id": "188b5b8ed9fb",
@@ -40,12 +40,12 @@
   ],
   "summary": "An answer from Danish tax and growth minister Jakob Engel-Schmidt to a question shows that 325 Danes have paid tax on crypto trading even though they lost money overall, Berlingske reports. The minister called the figure 'actually pretty wild' and wants to change the century-old rule behind it.",
   "summary_i18n": {
+   "nn": "Eit svar frå den danske skatte- og vekstministeren Jakob Engel-Schmidt på eit spørsmål viser at 325 danskar har betalt skatt på kryptohandel sjølv om dei samla sett har tapt pengar, melder Berlingske. Ministeren kalla talet «faktisk ganske vilt» og vil endre den hundre år gamle regelen bak.",
+   "nb": "Et svar fra den danske skatte- og vekstministeren Jakob Engel-Schmidt på et spørsmål viser at 325 dansker har betalt skatt på kryptohandel selv om de samlet sett har tapt penger, melder Berlingske. Ministeren kalte tallet «faktisk ganske vilt» og vil endre den hundre år gamle regelen bak.",
+   "sv": "Ett svar från den danske skatte- och tillväxtministern Jakob Engel-Schmidt på en fråga visar att 325 danskar har betalat skatt på kryptohandel trots att de totalt sett har förlorat pengar, rapporterar Berlingske. Ministern kallade siffran ”faktiskt ganska vild” och vill ändra den hundra år gamla regeln bakom.",
    "da": "Et svar fra skatte- og vækstminister Jakob Engel-Schmidt på et spørgsmål viser, at 325 danskere har betalt skat af kryptohandel, selv om de samlet set har tabt penge, skriver Berlingske. Ministeren kaldte tallet »faktisk ret vildt« og vil ændre den 100 år gamle regel bag.",
    "fi": "Tanskan vero- ja kasvuministeri Jakob Engel-Schmidtin vastaus kysymykseen osoittaa, että 325 tanskalaista on maksanut veroa kryptokaupasta, vaikka he ovat kokonaisuudessaan hävinneet rahaa, kertoo Berlingske. Ministeri kutsui lukua ”itse asiassa aika hurjaksi” ja haluaa muuttaa sen taustalla olevaa sata vuotta vanhaa sääntöä.",
-   "is": "Svar Jakob Engel-Schmidt, skatta- og hagvaxtarráðherra Danmerkur, við fyrirspurn sýnir að 325 Danir hafa greitt skatt af rafmyntaviðskiptum þótt þeir hafi í heild tapað fé, segir Berlingske. Ráðherrann kallaði töluna „í raun ansi villta“ og vill breyta hundrað ára gömlu reglunni sem liggur að baki.",
-   "nb": "Et svar fra den danske skatte- og vekstministeren Jakob Engel-Schmidt på et spørsmål viser at 325 dansker har betalt skatt på kryptohandel selv om de samlet sett har tapt penger, melder Berlingske. Ministeren kalte tallet «faktisk ganske vilt» og vil endre den hundre år gamle regelen bak.",
-   "nn": "Eit svar frå den danske skatte- og vekstministeren Jakob Engel-Schmidt på eit spørsmål viser at 325 danskar har betalt skatt på kryptohandel sjølv om dei samla sett har tapt pengar, melder Berlingske. Ministeren kalla talet «faktisk ganske vilt» og vil endre den hundre år gamle regelen bak.",
-   "sv": "Ett svar från den danske skatte- och tillväxtministern Jakob Engel-Schmidt på en fråga visar att 325 danskar har betalat skatt på kryptohandel trots att de totalt sett har förlorat pengar, rapporterar Berlingske. Ministern kallade siffran ”faktiskt ganska vild” och vill ändra den hundra år gamla regeln bakom."
+   "is": "Svar Jakob Engel-Schmidt, skatta- og hagvaxtarráðherra Danmerkur, við fyrirspurn sýnir að 325 Danir hafa greitt skatt af rafmyntaviðskiptum þótt þeir hafi í heild tapað fé, segir Berlingske. Ráðherrann kallaði töluna „í raun ansi villta“ og vill breyta hundrað ára gömlu reglunni sem liggur að baki."
   },
   "paywall": false,
   "links": [],

@@ -1,9 +1,9 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T09:12:35+00:00",
+ "generated_at": "2026-10-16T10:01:51+00:00",
  "preview": false,
- "count": 28,
+ "count": 26,
  "events": [
   {
    "id": "c4a53ca9bd26",
@@ -91,12 +91,12 @@
    "sponsored": null,
    "note": "Paid entry (NOK 239 for non-members). Held in cooperation with Bitcoinpolitisk Institutt Norge.",
    "note_i18n": {
+    "nn": "Betalt inngang (239 kroner for ikkje-medlemer). Held i samarbeid med Bitcoinpolitisk Institutt Norge.",
+    "nb": "Betalt inngang (239 kroner for ikke-medlemmer). Holdes i samarbeid med Bitcoinpolitisk Institutt Norge.",
+    "sv": "Avgift (239 norska kronor för icke-medlemmar). Hålls i samarbete med Bitcoinpolitisk Institutt Norge.",
     "da": "Betalt adgang (239 norske kroner for ikke-medlemmer). Afholdes i samarbejde med Bitcoinpolitisk Institutt Norge.",
     "fi": "Maksullinen (239 Norjan kruunua muille kuin jäsenille). Järjestetään yhteistyössä Bitcoinpolitisk Institutt Norgen kanssa.",
-    "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn). Haldið í samstarfi við Bitcoinpolitisk Institutt Norge.",
-    "nb": "Betalt inngang (239 kroner for ikke-medlemmer). Holdes i samarbeid med Bitcoinpolitisk Institutt Norge.",
-    "nn": "Betalt inngang (239 kroner for ikkje-medlemer). Held i samarbeid med Bitcoinpolitisk Institutt Norge.",
-    "sv": "Avgift (239 norska kronor för icke-medlemmar). Hålls i samarbete med Bitcoinpolitisk Institutt Norge."
+    "is": "Aðgangseyrir (239 norskar krónur fyrir utanfélagsmenn). Haldið í samstarfi við Bitcoinpolitisk Institutt Norge."
    },
    "description": {
     "text": "I kjølvannet av bitcoin har vi fått en rekke apper som endrer samtiden vår og utvider finanssektoren. Stikkord er fremtidsmarkeder som «Polymarket», kryptobanken «Aave», nyvinninger innen forsikring, stablecoins og nye former for statlige penger. I samarbeid med Bitcoinpolitisk Institutt Norge presenterer Polyteknisk Forening appene som bitcoin har ført med seg, i tillegg til bitcoin selv.",
@@ -580,74 +580,6 @@
    }
   },
   {
-   "id": "71149f675741",
-   "title": "Arne Ryde Conference on Crypto, Fintech and Payments",
-   "title_original": null,
-   "start": "2026-08-25T08:30:00+02:00",
-   "end": "2026-08-26T12:30:00+02:00",
-   "place": "Grand Hotel, Bantorget 1, Lund",
-   "city": "Lund",
-   "country": "SE",
-   "online": false,
-   "organiser": "Knut Wicksell Centre for Financial Studies, Lund University School of Economics and Management",
-   "url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments",
-   "source": "Lund University School of Economics and Management (lusem.lu.se)",
-   "paid": null,
-   "sponsored": null,
-   "note": null,
-   "note_i18n": {},
-   "description": {
-    "text": "Keynote lectures: Christine Parlour, UC Berkeley Haas, and Tobias Berg, Goethe University.",
-    "lang": "en",
-    "source_url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments",
-    "source_name": "Lund University School of Economics and Management (lusem.lu.se)",
-    "retrieved": "2026-10-07T23:50:00+00:00",
-    "i18n": {
-     "nn": "Hovudføredrag: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-universitetet.",
-     "nb": "Hovedforedrag: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-universitetet.",
-     "sv": "Huvudföredrag: Christine Parlour, UC Berkeley Haas, och Tobias Berg, Goethe-universitetet.",
-     "da": "Hovedforedrag: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-universitetet.",
-     "fi": "Pääesitelmät: Christine Parlour, UC Berkeley Haas, ja Tobias Berg, Goethen yliopisto.",
-     "is": "Aðalfyrirlestrar: Christine Parlour, UC Berkeley Haas, og Tobias Berg, Goethe-háskóli."
-    }
-   },
-   "past": true,
-   "ongoing": false,
-   "phase": "past",
-   "phase_end": "2026-08-26T12:30:00+02:00",
-   "html_url": "https://nordiccrypto.no/calendar/71149f675741/",
-   "html_urls": {
-    "en": "https://nordiccrypto.no/calendar/71149f675741/",
-    "nn": "https://nordiccrypto.no/nn/calendar/71149f675741/",
-    "nb": "https://nordiccrypto.no/nb/calendar/71149f675741/",
-    "sv": "https://nordiccrypto.no/sv/calendar/71149f675741/",
-    "da": "https://nordiccrypto.no/da/calendar/71149f675741/",
-    "fi": "https://nordiccrypto.no/fi/calendar/71149f675741/",
-    "is": "https://nordiccrypto.no/is/calendar/71149f675741/",
-    "zh": "https://nordiccrypto.no/zh/calendar/71149f675741/",
-    "hi": "https://nordiccrypto.no/hi/calendar/71149f675741/",
-    "es": "https://nordiccrypto.no/es/calendar/71149f675741/",
-    "fr": "https://nordiccrypto.no/fr/calendar/71149f675741/",
-    "ar": "https://nordiccrypto.no/ar/calendar/71149f675741/",
-    "bn": "https://nordiccrypto.no/bn/calendar/71149f675741/",
-    "pt": "https://nordiccrypto.no/pt/calendar/71149f675741/",
-    "ru": "https://nordiccrypto.no/ru/calendar/71149f675741/",
-    "ur": "https://nordiccrypto.no/ur/calendar/71149f675741/",
-    "id": "https://nordiccrypto.no/id/calendar/71149f675741/",
-    "de": "https://nordiccrypto.no/de/calendar/71149f675741/",
-    "ja": "https://nordiccrypto.no/ja/calendar/71149f675741/",
-    "sw": "https://nordiccrypto.no/sw/calendar/71149f675741/",
-    "mr": "https://nordiccrypto.no/mr/calendar/71149f675741/",
-    "fa": "https://nordiccrypto.no/fa/calendar/71149f675741/",
-    "uk": "https://nordiccrypto.no/uk/calendar/71149f675741/"
-   },
-   "api_url": "https://nordiccrypto.no/api/v1/events/71149f675741.json",
-   "place_source": {
-    "name": "Lund University School of Economics and Management (lusem.lu.se)",
-    "url": "https://www.lusem.lu.se/calendar/arne-ryde-conference-crypto-fintech-and-payments"
-   }
-  },
-  {
    "id": "643088f29d66",
    "title": "Pengar i Palestina",
    "title_original": null,
@@ -985,75 +917,6 @@
    "talk_ids": [
     "yt-0q2kmQuA5PE"
    ]
-  },
-  {
-   "id": "4a60aa9b39c4",
-   "title": "Satoshi Nakamoto-årstalen",
-   "title_original": null,
-   "start": "2026-02-11T18:00:00+01:00",
-   "end": "2026-02-11T20:00:00+01:00",
-   "place": "Målstova, Nasjonalbiblioteket, Henrik Ibsens gate 110",
-   "city": "Oslo",
-   "country": "NO",
-   "online": false,
-   "organiser": "Bitcoinpolitisk institutt Norge",
-   "url": "https://www.nb.no/hva-skjer/satoshi-nakamoto-arstalen/",
-   "source": "Nasjonalbiblioteket",
-   "paid": false,
-   "sponsored": null,
-   "note": null,
-   "note_i18n": {},
-   "description": {
-    "text": "En alternativ forelesning om penger, teknologi og samfunn. Dagen før sentralbanksjef Ida Wolden Bache holder den tradisjonelle årstalen på Bankplassen, arrangerer Bitcoinpolitisk institutt Norge (BPI) tidenes første Satoshi Nakamoto-årstale. Velkommen til en alternativ og fremtidsrettet tale om bitcoin og penger i vid forstand. Mens sentralbankens årstale har vært en tradisjon for ulike eliter i over hundre år, ønsker vi å åpne dørene. Arrangementet vårt er gratis og åpent for alle. Thomas Eichenberger holder tidenes første Satoshi Nakamoto-årstale.",
-    "lang": "nb",
-    "source_url": "https://www.nb.no/hva-skjer/satoshi-nakamoto-arstalen/",
-    "source_name": "Nasjonalbiblioteket",
-    "retrieved": "2026-10-14T16:50:00+00:00",
-    "i18n": {
-     "en": "An alternative lecture on money, technology and society. The day before Governor Ida Wolden Bache gives the traditional annual address at Bankplassen, Bitcoinpolitisk institutt Norge (BPI) holds the first Satoshi Nakamoto annual address. Welcome to an alternative, forward-looking talk on bitcoin and money in a broad sense. While the central bank's annual address has been a tradition for various elites for more than a hundred years, we want to open the doors. The event is free and open to everyone. Thomas Eichenberger gives the first Satoshi Nakamoto annual address.",
-     "nn": "Ein alternativ føredrag om pengar, teknologi og samfunn. Dagen før sentralbanksjef Ida Wolden Bache held den tradisjonelle årstalen på Bankplassen, arrangerer Bitcoinpolitisk institutt Norge (BPI) den første Satoshi Nakamoto-årstalen. Velkomen til ein alternativ og framtidsretta tale om bitcoin og pengar i vid forstand. Medan årstalen til sentralbanken har vore ein tradisjon for ulike elitar i over hundre år, vil me opne dørene. Arrangementet er gratis og ope for alle. Thomas Eichenberger held den første Satoshi Nakamoto-årstalen.",
-     "sv": "En alternativ föreläsning om pengar, teknik och samhälle. Dagen innan centralbankschef Ida Wolden Bache håller det traditionella årtalet på Bankplassen arrangerar Bitcoinpolitisk institutt Norge (BPI) det första Satoshi Nakamoto-årtalet. Välkommen till ett alternativt och framåtblickande föredrag om bitcoin och pengar i vid mening. Medan centralbankens årtal har varit en tradition för olika eliter i över hundra år vill vi öppna dörrarna. Evenemanget är gratis och öppet för alla. Thomas Eichenberger håller det första Satoshi Nakamoto-årtalet.",
-     "da": "En alternativ forelæsning om penge, teknologi og samfund. Dagen før centralbankchef Ida Wolden Bache holder den traditionelle årstale på Bankplassen arrangerer Bitcoinpolitisk institutt Norge (BPI) den første Satoshi Nakamoto-årstale. Velkommen til en alternativ og fremadrettet tale om bitcoin og penge i bred forstand. Mens centralbankens årstale har været en tradition for forskellige eliter i over hundrede år, vil vi åbne dørene. Arrangementet er gratis og åbent for alle. Thomas Eichenberger holder den første Satoshi Nakamoto-årstale.",
-     "fi": "Vaihtoehtoinen esitelmä rahasta, teknologiasta ja yhteiskunnasta. Päivää ennen kuin pääjohtaja Ida Wolden Bache pitää perinteisen vuosipuheen Bankplassenilla Bitcoinpolitisk institutt Norge (BPI) järjestää ensimmäisen Satoshi Nakamoto -vuosipuheen. Tervetuloa vaihtoehtoiseen ja eteenpäin katsovaan puheeseen bitcoinista ja rahasta laajassa mielessä. Kun keskuspankin vuosipuhe on ollut eri eliittien perinne yli sadan vuoden ajan, me haluamme avata ovet. Tapahtuma on maksuton ja avoin kaikille. Thomas Eichenberger pitää ensimmäisen Satoshi Nakamoto -vuosipuheen.",
-     "is": "Annarlegur fyrirlestur um peninga, tækni og samfélag. Daginn áður en seðlabankastjóri Ida Wolden Bache flytur hina hefðbundnu árræðu á Bankplassen stendur Bitcoinpolitisk institutt Norge (BPI) fyrir fyrstu Satoshi Nakamoto-árræðunni. Velkomin í annan og framsýnan fyrirlestur um bitcoin og peninga í víðum skilningi. Á meðan árræða seðlabankans hefur verið hefð ólíkra elíta í meira en hundrað ár viljum við opna dyrnar. Viðburðurinn er ókeypis og opinn öllum. Thomas Eichenberger flytur fyrstu Satoshi Nakamoto-árræðuna."
-    }
-   },
-   "past": true,
-   "ongoing": false,
-   "phase": "past",
-   "phase_end": "2026-02-11T20:00:00+01:00",
-   "html_url": "https://nordiccrypto.no/calendar/4a60aa9b39c4/",
-   "html_urls": {
-    "en": "https://nordiccrypto.no/calendar/4a60aa9b39c4/",
-    "nn": "https://nordiccrypto.no/nn/calendar/4a60aa9b39c4/",
-    "nb": "https://nordiccrypto.no/nb/calendar/4a60aa9b39c4/",
-    "sv": "https://nordiccrypto.no/sv/calendar/4a60aa9b39c4/",
-    "da": "https://nordiccrypto.no/da/calendar/4a60aa9b39c4/",
-    "fi": "https://nordiccrypto.no/fi/calendar/4a60aa9b39c4/",
-    "is": "https://nordiccrypto.no/is/calendar/4a60aa9b39c4/",
-    "zh": "https://nordiccrypto.no/zh/calendar/4a60aa9b39c4/",
-    "hi": "https://nordiccrypto.no/hi/calendar/4a60aa9b39c4/",
-    "es": "https://nordiccrypto.no/es/calendar/4a60aa9b39c4/",
-    "fr": "https://nordiccrypto.no/fr/calendar/4a60aa9b39c4/",
-    "ar": "https://nordiccrypto.no/ar/calendar/4a60aa9b39c4/",
-    "bn": "https://nordiccrypto.no/bn/calendar/4a60aa9b39c4/",
-    "pt": "https://nordiccrypto.no/pt/calendar/4a60aa9b39c4/",
-    "ru": "https://nordiccrypto.no/ru/calendar/4a60aa9b39c4/",
-    "ur": "https://nordiccrypto.no/ur/calendar/4a60aa9b39c4/",
-    "id": "https://nordiccrypto.no/id/calendar/4a60aa9b39c4/",
-    "de": "https://nordiccrypto.no/de/calendar/4a60aa9b39c4/",
-    "ja": "https://nordiccrypto.no/ja/calendar/4a60aa9b39c4/",
-    "sw": "https://nordiccrypto.no/sw/calendar/4a60aa9b39c4/",
-    "mr": "https://nordiccrypto.no/mr/calendar/4a60aa9b39c4/",
-    "fa": "https://nordiccrypto.no/fa/calendar/4a60aa9b39c4/",
-    "uk": "https://nordiccrypto.no/uk/calendar/4a60aa9b39c4/"
-   },
-   "api_url": "https://nordiccrypto.no/api/v1/events/4a60aa9b39c4.json",
-   "place_source": {
-    "name": "Nasjonalbiblioteket",
-    "url": "https://www.nb.no/hva-skjer/satoshi-nakamoto-arstalen/",
-    "retrieved": "2026-10-14T16:50:00+00:00"
-   }
   },
   {
    "id": "faa749a8058c",

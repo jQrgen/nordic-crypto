@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T09:12:35+00:00",
+ "generated_at": "2026-10-16T10:01:51+00:00",
  "preview": false,
  "item": {
   "id": "5cd3c3d9d648",
@@ -34,12 +34,12 @@
   ],
   "summary": "Fewer than half of Norway's data-centre operators paid corporate tax for 2024, while crypto miners account for several of the largest tax contributions, Digi.no reports from a new overview. According to the visible part of the paywalled article, the list covers 55 operators and comes from an answer by digitalisation minister Torgeir Micaelsen to MP Lars Haltbrekken (SV).",
   "summary_i18n": {
+   "nn": "Færre enn halvparten av datasenteraktørane i Noreg betalte selskapsskatt for 2024, medan kryptoutvinnarar står bak fleire av dei største skattebidraga, melder Digi.no frå ei fersk oversikt. Ifølgje den synlege delen av artikkelen, som ligg bak betalingsmur, omfattar lista 55 aktørar og kjem frå eit svar frå digitaliseringsminister Torgeir Micaelsen til stortingsrepresentant Lars Haltbrekken (SV).",
+   "nb": "Færre enn halvparten av datasenteraktørene i Norge betalte selskapsskatt for 2024, mens kryptoutvinnere står bak flere av de største skattebidragene, melder Digi.no fra en fersk oversikt. Ifølge den synlige delen av artikkelen, som ligger bak betalingsmur, omfatter listen 55 aktører og kommer fra et svar fra digitaliseringsminister Torgeir Micaelsen til stortingsrepresentant Lars Haltbrekken (SV).",
+   "sv": "Färre än hälften av Norges datacenteraktörer betalade bolagsskatt för 2024, medan kryptoutvinnare står bakom flera av de största skattebidragen, rapporterar Digi.no utifrån en ny sammanställning. Enligt den synliga delen av den betalväggsskyddade artikeln omfattar listan 55 aktörer och kommer från ett svar från digitaliseringsminister Torgeir Micaelsen till stortingsledamoten Lars Haltbrekken (SV).",
    "da": "Færre end halvdelen af Norges datacenteraktører betalte selskabsskat for 2024, mens kryptominere står bag flere af de største skattebidrag, skriver Digi.no ud fra en ny oversigt. Ifølge den synlige del af artiklen, som er bag betalingsmur, omfatter listen 55 aktører og stammer fra et svar fra digitaliseringsminister Torgeir Micaelsen til stortingsmedlem Lars Haltbrekken (SV).",
    "fi": "Alle puolet Norjan datakeskustoimijoista maksoi yhteisöveroa vuodelta 2024, kun taas kryptolouhijat ovat useiden suurimpien veronmaksujen takana, kertoo Digi.no tuoreen koosteen perusteella. Maksumuurin takana olevan artikkelin näkyvän osan mukaan lista kattaa 55 toimijaa ja on peräisin digitalisaatioministeri Torgeir Micaelsenin vastauksesta kansanedustaja Lars Haltbrekkenille (SV).",
-   "is": "Innan við helmingur gagnaversrekenda í Noregi greiddi tekjuskatt fyrirtækja fyrir árið 2024, en rafmyntanámufyrirtæki standa á bak við nokkrar af stærstu skattgreiðslunum, segir Digi.no upp úr nýju yfirliti. Samkvæmt sýnilegum hluta greinarinnar, sem er á bak við greiðsluvegg, nær listinn til 55 aðila og kemur úr svari Torgeir Micaelsen, ráðherra stafrænnar þróunar, til Lars Haltbrekken þingmanns (SV).",
-   "nb": "Færre enn halvparten av datasenteraktørene i Norge betalte selskapsskatt for 2024, mens kryptoutvinnere står bak flere av de største skattebidragene, melder Digi.no fra en fersk oversikt. Ifølge den synlige delen av artikkelen, som ligger bak betalingsmur, omfatter listen 55 aktører og kommer fra et svar fra digitaliseringsminister Torgeir Micaelsen til stortingsrepresentant Lars Haltbrekken (SV).",
-   "nn": "Færre enn halvparten av datasenteraktørane i Noreg betalte selskapsskatt for 2024, medan kryptoutvinnarar står bak fleire av dei største skattebidraga, melder Digi.no frå ei fersk oversikt. Ifølgje den synlege delen av artikkelen, som ligg bak betalingsmur, omfattar lista 55 aktørar og kjem frå eit svar frå digitaliseringsminister Torgeir Micaelsen til stortingsrepresentant Lars Haltbrekken (SV).",
-   "sv": "Färre än hälften av Norges datacenteraktörer betalade bolagsskatt för 2024, medan kryptoutvinnare står bakom flera av de största skattebidragen, rapporterar Digi.no utifrån en ny sammanställning. Enligt den synliga delen av den betalväggsskyddade artikeln omfattar listan 55 aktörer och kommer från ett svar från digitaliseringsminister Torgeir Micaelsen till stortingsledamoten Lars Haltbrekken (SV)."
+   "is": "Innan við helmingur gagnaversrekenda í Noregi greiddi tekjuskatt fyrirtækja fyrir árið 2024, en rafmyntanámufyrirtæki standa á bak við nokkrar af stærstu skattgreiðslunum, segir Digi.no upp úr nýju yfirliti. Samkvæmt sýnilegum hluta greinarinnar, sem er á bak við greiðsluvegg, nær listinn til 55 aðila og kemur úr svari Torgeir Micaelsen, ráðherra stafrænnar þróunar, til Lars Haltbrekken þingmanns (SV)."
   },
   "paywall": true,
   "links": [],
