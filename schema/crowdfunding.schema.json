@@ -154,7 +154,7 @@
       "nexa": {
        "type": "integer",
        "examples": [
-        50000000
+        100000000
        ]
       },
       "nok_approx": {

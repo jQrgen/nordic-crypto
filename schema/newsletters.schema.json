@@ -166,7 +166,7 @@
       "bytes": {
        "type": "integer",
        "examples": [
-        36587868
+        1048576
        ]
       },
       "sha256": {
