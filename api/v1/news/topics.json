@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T07:13:48+00:00",
+ "generated_at": "2026-10-16T07:22:21+00:00",
  "preview": false,
  "topics": [
   {
@@ -71,12 +71,12 @@
   },
   {
    "id": "mica",
-   "count": 15,
+   "count": 17,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/mica.json"
   },
   {
    "id": "mining",
-   "count": 9,
+   "count": 10,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/mining.json"
   },
   {
@@ -86,12 +86,12 @@
   },
   {
    "id": "policy",
-   "count": 9,
+   "count": 10,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/policy.json"
   },
   {
    "id": "regulation",
-   "count": 12,
+   "count": 14,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/regulation.json"
   },
   {
@@ -101,7 +101,7 @@
   },
   {
    "id": "stablecoins",
-   "count": 4,
+   "count": 6,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/stablecoins.json"
   },
   {

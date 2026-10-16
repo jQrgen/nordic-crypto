@@ -1,11 +1,152 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T07:13:48+00:00",
+ "generated_at": "2026-10-16T07:22:21+00:00",
  "preview": false,
  "topic": "policy",
- "count": 9,
+ "count": 10,
  "items": [
+  {
+   "id": "1ef937dc2654",
+   "url": "https://altaposten.no/nyheter/n/Jr3n17/etablering-i-kautokeino-hvor-vanlig-er-utvinning-av-krypto",
+   "html_url": "https://nordiccrypto.no/stories/1ef937dc2654/",
+   "api_url": "https://nordiccrypto.no/api/v1/news/1ef937dc2654.json",
+   "title": "Kryptokamp i Kautokeino: – Hvor vanlig er utvinning?",
+   "title_en": "Crypto dispute in Kautokeino: how common is mining?",
+   "title_i18n": {},
+   "source": "altaposten-no",
+   "source_name": "altaposten.no",
+   "source_logo": {
+    "kind": "logo",
+    "file_url": "https://nordiccrypto.no/assets/img/logos/altaposten-no.webp",
+    "source_url": "https://www.altaposten.no/applefavicon.png",
+    "author": null,
+    "license": null,
+    "license_url": null,
+    "credit": "Official website",
+    "raster_url": "https://nordiccrypto.no/assets/img/logos/altaposten-no.webp"
+   },
+   "source_note": null,
+   "country": "NO",
+   "language": "Norwegian",
+   "language_code": "no",
+   "published": "2026-10-15T10:30:00+00:00",
+   "topics": [
+    "mining",
+    "policy"
+   ],
+   "summary": "SV MP Lars Haltbrekken has submitted a written question to digitalisation and public administration minister Torgeir Micaelsen (Labour) about how common crypto mining is, Altaposten reports in a story on a data-centre establishment in Kautokeino. The rest of the article is behind a paywall, so the content of the question and any answer are not visible.",
+   "summary_i18n": {
+    "da": "Stortingsmedlem Lars Haltbrekken (SV) har stillet et skriftligt spørgsmål til digitaliserings- og forvaltningsminister Torgeir Micaelsen (Ap) om, hvor almindelig kryptomining er, skriver Altaposten i en artikel om en datacenteretablering i Kautokeino. Resten af artiklen er bag betalingsmur, så spørgsmålets indhold og et eventuelt svar fremgår ikke.",
+    "fi": "Kansanedustaja Lars Haltbrekken (SV) on esittänyt digitalisaatio- ja hallintoministeri Torgeir Micaelsenille (Ap) kirjallisen kysymyksen siitä, kuinka yleistä kryptolouhinta on, kertoo Altaposten jutussa Koutokeinoon suunnitellusta datakeskuksesta. Muu osa artikkelista on maksumuurin takana, joten kysymyksen sisältö ja mahdollinen vastaus eivät näy.",
+    "is": "Lars Haltbrekken, þingmaður SV, hefur lagt fram skriflega fyrirspurn til Torgeir Micaelsen (Ap), ráðherra stafrænnar þróunar og stjórnsýslu, um hversu algengur rafmyntanámugröftur sé, segir Altaposten í frétt um uppsetningu gagnavers í Kautokeino. Afgangur greinarinnar er á bak við greiðsluvegg, svo efni fyrirspurnarinnar og hugsanlegt svar sjást ekki.",
+    "nb": "Stortingsrepresentant Lars Haltbrekken (SV) har stilt et skriftlig spørsmål til digitaliserings- og forvaltningsminister Torgeir Micaelsen (Ap) om hvor vanlig kryptoutvinning er, melder Altaposten i en sak om en datasenteretablering i Kautokeino. Resten av artikkelen ligger bak betalingsmur, så innholdet i spørsmålet og eventuelle svar er ikke synlige.",
+    "nn": "Stortingsrepresentant Lars Haltbrekken (SV) har stilt eit skriftleg spørsmål til digitaliserings- og forvaltningsminister Torgeir Micaelsen (Ap) om kor vanleg kryptoutvinning er, melder Altaposten i ei sak om ei datasenteretablering i Kautokeino. Resten av artikkelen ligg bak betalingsmur, så innhaldet i spørsmålet og eventuelle svar er ikkje synlege.",
+    "sv": "Stortingsledamoten Lars Haltbrekken (SV) har ställt en skriftlig fråga till digitaliserings- och förvaltningsminister Torgeir Micaelsen (Ap) om hur vanlig kryptoutvinning är, rapporterar Altaposten i en artikel om en datacenteretablering i Kautokeino. Resten av artikeln ligger bakom betalvägg, så frågans innehåll och eventuella svar syns inte."
+   },
+   "paywall": true,
+   "links": [],
+   "own_story": false,
+   "illustration": {
+    "id": "commons-mining",
+    "kind": "commons",
+    "file_url": "https://nordiccrypto.no/assets/img/illustrations/commons-mining.webp",
+    "width": 960,
+    "height": 720,
+    "alt": "Rows of cryptocurrency mining machines indoors.",
+    "source": "Wikimedia Commons",
+    "author": "Jasper Reichardt",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "url": "https://commons.wikimedia.org/wiki/File:Mining-Rig.jpg",
+    "credit": "Photo: Jasper Reichardt. Licence: CC BY-SA 4.0. Source: Wikimedia Commons.",
+    "modifications": null,
+    "terms": null
+   },
+   "primary_source": {
+    "outlet": "altaposten-no",
+    "outlet_name": "altaposten.no",
+    "url": "https://altaposten.no/nyheter/n/Jr3n17/etablering-i-kautokeino-hvor-vanlig-er-utvinning-av-krypto",
+    "title": "Kryptokamp i Kautokeino: – Hvor vanlig er utvinning?",
+    "published": "2026-10-15T10:30:00+00:00",
+    "lang": "Norwegian",
+    "language_code": "no",
+    "country": "NO",
+    "source_type": "national",
+    "paywall": true,
+    "primary": true,
+    "logo": {
+     "kind": "logo",
+     "file_url": "https://nordiccrypto.no/assets/img/logos/altaposten-no.webp",
+     "source_url": "https://www.altaposten.no/applefavicon.png",
+     "author": null,
+     "license": null,
+     "license_url": null,
+     "credit": "Official website",
+     "raster_url": "https://nordiccrypto.no/assets/img/logos/altaposten-no.webp"
+    }
+   },
+   "primary_source_document": null,
+   "also_covered_by": [],
+   "sources": [
+    {
+     "outlet": "altaposten-no",
+     "outlet_name": "altaposten.no",
+     "url": "https://altaposten.no/nyheter/n/Jr3n17/etablering-i-kautokeino-hvor-vanlig-er-utvinning-av-krypto",
+     "title": "Kryptokamp i Kautokeino: – Hvor vanlig er utvinning?",
+     "published": "2026-10-15T10:30:00+00:00",
+     "lang": "Norwegian",
+     "language_code": "no",
+     "country": "NO",
+     "source_type": "national",
+     "paywall": true,
+     "primary": true,
+     "logo": {
+      "kind": "logo",
+      "file_url": "https://nordiccrypto.no/assets/img/logos/altaposten-no.webp",
+      "source_url": "https://www.altaposten.no/applefavicon.png",
+      "author": null,
+      "license": null,
+      "license_url": null,
+      "credit": "Official website",
+      "raster_url": "https://nordiccrypto.no/assets/img/logos/altaposten-no.webp"
+     }
+    }
+   ],
+   "coverage": {
+    "count": 1,
+    "by_country": [
+     {
+      "country": "NO",
+      "count": 1,
+      "share": 1.0
+     }
+    ],
+    "by_source_type": [
+     {
+      "type": "national",
+      "count": 1,
+      "share": 1.0
+     },
+     {
+      "type": "regional",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "official",
+      "count": 0,
+      "share": 0.0
+     },
+     {
+      "type": "international",
+      "count": 0,
+      "share": 0.0
+     }
+    ]
+   },
+   "source_logo_url": "https://nordiccrypto.no/assets/img/logos/altaposten-no.webp"
+  },
   {
    "id": "bdc1f0500eea",
    "url": "https://efn.se/skattesmocka-hotar-tyska-kryptosparare",
