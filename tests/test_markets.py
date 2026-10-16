@@ -234,32 +234,32 @@ def main():
         fails.append("summed exchanges " + str(summed and [(s["base"], s["volume"], s["pct"]) for s in summed[0]["slices"]]))
 
     import build as sitebuild
-    # Seven sections in the header; newsletter (the Subscribe/Follow button), sources, about, tip and API are in the footer and the phone menu.
-    if [n for n, _k in sitebuild.NAV] != ["", "calendar", "markets", "org-chart", "academia", "books", "talks", "archive", "newsletter", "sources", "about", "tip", "api"]:
+    # Eight sections in the header (newsletter right after calendar); sources, about, tip and API are in the footer and the phone menu.
+    if [n for n, _k in sitebuild.NAV] != ["", "calendar", "newsletter", "markets", "org-chart", "academia", "books", "talks", "archive", "sources", "about", "tip", "api"]:
         fails.append("nav order")
-    if sitebuild.NAV_MAIN != 7:
-        fails.append("seven header sections")
+    if sitebuild.NAV_MAIN != 8:
+        fails.append("eight header sections")
     sv = sitebuild._nav_html("../sv/", "../../", "markets")
     if 'href="../sv/api/"' not in sv:
         fails.append("api href follows the page language")
     if 'href="../sv/markets/" aria-current=page' not in sv:
         fails.append("markets active state")
     labels = re.findall(r">([^<]+)</a>", sv)
-    if labels != ["News", "Calendar", "Markets", "Who&#x27;s who", "Academia", "Books", "Talks", "Archive", "Newsletter", "Sources", "About", "Send a tip", "API"]:
+    if labels != ["News", "Calendar", "Newsletter", "Markets", "Who&#x27;s who", "Academia", "Books", "Talks", "Archive", "Sources", "About", "Send a tip", "API"]:
         fails.append("nav labels " + str(labels))
-    if sv.count('class="nav-more"') != 6 or 'class="nav-more" href="../sv/newsletter/"' not in sv or 'class="nav-more" href="../sv/archive/"' not in sv or 'class="nav-more" href="../sv/markets/"' in sv:
+    if sv.count('class="nav-more"') != 5 or 'class="nav-more" href="../sv/newsletter/"' in sv or 'class="nav-more" href="../sv/archive/"' not in sv or 'class="nav-more" href="../sv/markets/"' in sv:
         fails.append("only the pages about the site are nav-more")
     api_nav = sitebuild._nav_html("../", "../", "api")
     if 'href="../api/" aria-current=page>API' not in api_nav:
         fails.append("api active state")
     translated = {
-        "sv": ["Nyheter", "Kalender", "Marknader", "Vem är vem", "Akademi", "Böcker", "Föredrag", "Arkiv", "Nyhetsbrev", "Källor", "Om oss", "Tipsa oss", "API"],
-        "nn": ["Nyheiter", "Kalender", "Marknader", "Kven er kven", "Akademia", "Bøker", "Foredrag", "Arkiv", "Nyheitsbrev", "Kjelder", "Om oss", "Send tips", "API"],
-        "nb": ["Nyheter", "Kalender", "Markeder", "Hvem er hvem", "Akademia", "Bøker", "Foredrag", "Arkiv", "Nyhetsbrev", "Kilder", "Om oss", "Send tips", "API"],
-        "da": ["Nyheder", "Kalender", "Markeder", "Hvem er hvem", "Akademia", "Bøger", "Foredrag", "Arkiv", "Nyhedsbrev", "Kilder", "Om os", "Send et tip", "API"],
-        "fi": ["Uutiset", "Kalenteri", "Markkinat", "Kuka kukin on", "Tutkimus ja opetus", "Kirjat", "Esitelmät", "Arkisto", "Uutiskirje", "Lähteet", "Tietoa meistä", "Lähetä vinkki", "API"],
-        "is": ["Fréttir", "Viðburðir", "Markaðir", "Hver er hvað", "Rannsóknir og kennsla", "Bækur", "Erindi", "Safn", "Fréttabréf", "Heimildir", "Um okkur", "Senda ábendingu", "API"],
-        "ar": ["الأخبار", "التقويم", "الأسواق", "من هو من", "الأوساط الأكاديمية", "كتب", "محاضرات", "الأرشيف", "النشرة البريدية", "المصادر", "عن الموقع", "أرسل معلومة", "API"],
+        "sv": ["Nyheter", "Kalender", "Nyhetsbrev", "Marknader", "Vem är vem", "Akademi", "Böcker", "Föredrag", "Arkiv", "Källor", "Om oss", "Tipsa oss", "API"],
+        "nn": ["Nyheiter", "Kalender", "Nyheitsbrev", "Marknader", "Kven er kven", "Akademia", "Bøker", "Foredrag", "Arkiv", "Kjelder", "Om oss", "Send tips", "API"],
+        "nb": ["Nyheter", "Kalender", "Nyhetsbrev", "Markeder", "Hvem er hvem", "Akademia", "Bøker", "Foredrag", "Arkiv", "Kilder", "Om oss", "Send tips", "API"],
+        "da": ["Nyheder", "Kalender", "Nyhedsbrev", "Markeder", "Hvem er hvem", "Akademia", "Bøger", "Foredrag", "Arkiv", "Kilder", "Om os", "Send et tip", "API"],
+        "fi": ["Uutiset", "Kalenteri", "Uutiskirje", "Markkinat", "Kuka kukin on", "Tutkimus ja opetus", "Kirjat", "Esitelmät", "Arkisto", "Lähteet", "Tietoa meistä", "Lähetä vinkki", "API"],
+        "is": ["Fréttir", "Viðburðir", "Fréttabréf", "Markaðir", "Hver er hvað", "Rannsóknir og kennsla", "Bækur", "Erindi", "Safn", "Heimildir", "Um okkur", "Senda ábendingu", "API"],
+        "ar": ["الأخبار", "التقويم", "النشرة البريدية", "الأسواق", "من هو من", "الأوساط الأكاديمية", "كتب", "محاضرات", "الأرشيف", "المصادر", "عن الموقع", "أرسل معلومة", "API"],
     }
     for code, expect in translated.items():
         sitebuild.LANG = code
