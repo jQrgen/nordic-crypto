@@ -525,6 +525,18 @@ def push_endpoint():
     cfg = _cfg_json(P("workers", "push", "public.json"), {}) or {}
     return (cfg.get("public_endpoint") or "").strip().rstrip("/") or None
 _PUSH_JS = None
+_LIVE_JS = None
+def live_news_script(root):
+    """Homepage: add stories published after this build, from the content Worker (D1), falling back to the
+    static api/v1/news.json. Env NC_LIVE_API wins; otherwise workers/content/public.json api. Public URL only."""
+    global _LIVE_JS
+    api = os.environ.get("NC_LIVE_API")
+    if api is None:
+        api = (_cfg_json(P("workers", "content", "public.json"), {}) or {}).get("api") or ""
+    if _LIVE_JS is None:
+        _LIVE_JS = open(P("assets", "live", "news.js"), encoding="utf-8").read()
+    cfg = {"api": api.strip().rstrip("/"), "root": root, "lang": LANG}
+    return "<script>window.NC_LIVE=" + json.dumps(cfg) + ";</script><script>\n" + _LIVE_JS + "\n</script>"
 def push_panel(root):
     """Opt-in block. Left-aligned (start-aligned in RTL). The same button turns notifications off.
 
@@ -2162,7 +2174,7 @@ def build_lang(ctx):
     body = f"""<div class="home">
 <div class="home-lead">{lead}</div>
 <aside class="home-events" aria-labelledby="evsoon-h">{events_block}</aside>
-{latest}
+{latest}{live_news_script(root)}
 <aside class="home-more" aria-labelledby="nlhome-h"><section class="railbox nlhome"><h2 id="nlhome-h">{E(t("nl_title"))}</h2>{home_signup}</section>{tools}</aside>
 </div>
 <div class="notice home-note"><p>{E(t("home_lead", upd=upd, n=len(items), pend=t("home_pend", n=len(pending)) if pending else ""))}</p><p>{E(t("home_notice"))}</p><p><a href="archive/">{E(t("arc_home_link"))}</a></p></div>"""

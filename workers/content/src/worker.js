@@ -21,6 +21,8 @@ export const PUBLIC_EVENT_KEYS = [
   "description", "status",
 ];
 
+const PUBLIC_CACHE = "public, max-age=60, s-maxage=60, stale-while-revalidate=300";
+
 const STORY_SELECT = "SELECT id, payload, review_status, item_status, reviewed_by, reviewed_at, review_note, summary, url, title, country, published_at, created_at FROM stories WHERE id = ?";
 const EVENT_SELECT = "SELECT id, payload, review_status, item_status, reviewed_by, reviewed_at, review_note, url, title, country, start_at, created_at FROM events WHERE id = ?";
 
@@ -232,31 +234,31 @@ export async function handle(request, env) {
   if (!db) return json({ error: "database is not bound" }, 500);
 
   if (request.method === "GET" && url.pathname === "/api/v1/news.json") {
-    return json({ items: await listNews(db) }, 200, { cache: "public, max-age=300" });
+    return json({ items: await listNews(db) }, 200, { cache: PUBLIC_CACHE });
   }
   const storyId = storyIdFrom(url.pathname);
   if (request.method === "GET" && storyId) {
     const row = await db.prepare(STORY_SELECT).bind(storyId).first();
     const pub = row && row.review_status === "approved" ? publicStory(JSON.parse(row.payload)) : null;
     if (!pub) return json({ error: "not found" }, 404);
-    return json(pub, 200, { cache: "public, max-age=300" });
+    return json(pub, 200, { cache: PUBLIC_CACHE });
   }
   if (request.method === "GET" && url.pathname === "/api/v1/events.json") {
-    return json({ events: await listEvents(db) }, 200, { cache: "public, max-age=300" });
+    return json({ events: await listEvents(db) }, 200, { cache: PUBLIC_CACHE });
   }
   const eventId = eventIdFrom(url.pathname);
   if (request.method === "GET" && eventId) {
     const row = await db.prepare(EVENT_SELECT).bind(eventId).first();
     const pub = row ? publicEvent(JSON.parse(row.payload), row.review_status) : null;
     if (!pub) return json({ error: "not found" }, 404);
-    return json(pub, 200, { cache: "public, max-age=300" });
+    return json(pub, 200, { cache: PUBLIC_CACHE });
   }
   if (request.method === "GET" && url.pathname === "/api/v1/sources.json") {
     const out = await db.prepare(
       "SELECT payload FROM sources WHERE review_status = 'approved' ORDER BY kind, id"
     ).all();
     const sources = (out.results || []).map((row) => publicSource(JSON.parse(row.payload)));
-    return json({ sources }, 200, { cache: "public, max-age=300" });
+    return json({ sources }, 200, { cache: PUBLIC_CACHE });
   }
 
   if (url.pathname === "/api/review/pending" || url.pathname === "/api/review") {
@@ -335,4 +337,25 @@ export async function handle(request, env) {
   return json({ error: "not found" }, 404);
 }
 
-export default { fetch: (request, env) => handle(request, env) };
+// Public reads are cached at the edge for EDGE_TTL seconds, so D1 is read at most about
+// once a minute per colo. Review endpoints are never cached.
+export const EDGE_TTL = 60;
+
+export async function cachedHandle(request, env, ctx) {
+  const url = new URL(request.url);
+  const cacheable = request.method === "GET" && url.pathname.startsWith("/api/v1/");
+  const cache = cacheable && typeof caches !== "undefined" ? caches.default : null;
+  const key = cache ? new Request(url.origin + url.pathname, { method: "GET" }) : null;
+  if (cache) {
+    const hit = await cache.match(key);
+    if (hit) return hit;
+  }
+  const response = await handle(request, env);
+  if (cache && response.status === 200) {
+    const put = cache.put(key, response.clone());
+    if (ctx && ctx.waitUntil) ctx.waitUntil(put); else await put;
+  }
+  return response;
+}
+
+export default { fetch: (request, env, ctx) => cachedHandle(request, env, ctx) };
