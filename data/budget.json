@@ -1,6 +1,6 @@
 {
   "_note": "The only place these costs are written down. The page adds the monthly amounts and converts other currencies into the quote currency with the rates below. Do not add labour or any other cost. Update the figures by hand. A price is marked incl or excl VAT only when the bill says so.",
-  "as_of": "2026-10-13",
+  "as_of": "2026-10-17",
   "quote": "NOK",
   "rates_approximate": true,
   "rates": [
@@ -12,12 +12,14 @@
       "id": "hetzner-electrum-1",
       "kind": "server",
       "name": "electrum-1",
-      "type": "cx43",
+      "type": "cx33",
       "place": "Falkenstein",
-      "runs": "Electrum servers, Lightning node, Bitcoin/Nexa/BCH nodes, explorer",
-      "amount": "15.99",
+      "runs": "Electrum servers, Lightning node, Nexa/BCH nodes, explorer",
+      "amount": "8.99",
       "currency": "EUR",
-      "period": "month"
+      "period": "month",
+      "amount_server": "8.49",
+      "amount_ipv4": "0.50"
     },
     {
       "id": "hetzner-nexa-pool-1",
@@ -35,10 +37,10 @@
     {
       "id": "hetzner-volume",
       "kind": "volume",
-      "gb": "1500",
+      "gb": "500",
       "unit_price": "0.0572",
       "unit_currency": "EUR",
-      "amount": "85.80",
+      "amount": "28.60",
       "currency": "EUR",
       "period": "month"
     },
