@@ -23,18 +23,23 @@ class FrontPageBlurbs(unittest.TestCase):
         # The first published story whose English summary is still one sentence (newer stories may have longer summaries).
         sample = next(i for i in news["items"] if i.get("status") == "published" and len(sentences(i.get("summary"))) == 1 and i["id"] in blurbs)
         self.assertEqual(len(sentences(sample["summary"])), 1)
-        for lang in ("en", "nn", "nb", "sv", "da", "fi", "is"):
+        for lang in LANGS:
             text, code = card_text(sample, lang, blurbs)
             self.assertEqual(code, lang)
             n = len(sentences(text))
             self.assertGreaterEqual(n, 2, text)
             self.assertLessEqual(n, 4, text)
             self.assertNotEqual(text, sample["summary"])
-        text, code = card_text(sample, "de", blurbs)
+        # A language without a blurb of its own falls back to the English blurb.
+        bare = {sample["id"]: {"en": blurbs[sample["id"]]["en"]}}
+        text, code = card_text({**sample, "summary_i18n": {}}, "de", bare)
         self.assertEqual(code, "en")
         self.assertGreaterEqual(len(sentences(text)), 2)
-        text, code = card_text(sample, "ar", blurbs)
-        self.assertEqual(code, "en")
+
+    def test_sentences_in_scripts_without_capitals(self):
+        for text in ("یک جمله است. جمله دوم.", "这是第一句。这是第二句。", "यह पहला वाक्य है। यह दूसरा है।",
+                     "یہ پہلا ہے۔ یہ دوسرا ہے۔", "Первое предложение. Второе.", "Bitcoin steg 6.1 prosent 8. juni. Det er mye."):
+            self.assertEqual(len(sentences(text)), 2, text)
 
     def test_every_published_story_and_language(self):
         blurbs = load()
@@ -44,7 +49,7 @@ class FrontPageBlurbs(unittest.TestCase):
         for it in published:
             need = {lang for lang in LANGS if not substantive(own_summary(it, lang))}
             self.assertTrue(need <= set((blurbs.get(it["id"]) or {})), it["id"])
-            for lang in list(LANGS) + ["zh", "ur"]:
+            for lang in LANGS:
                 text, _ = card_text(it, lang, blurbs)
                 self.assertTrue(substantive(text), it["id"] + " " + lang)
 

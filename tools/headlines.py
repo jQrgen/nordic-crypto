@@ -2,9 +2,11 @@
 """Headlines on story cards.
 
 The stored title is the source headline. title_en is our English headline.
-data/title_i18n.json holds nn, nb, sv, da, fi and is for every published story
-whose source language is not already that site language. An editor can also set
-title_i18n on the news item (queue/approved.json); that copy wins.
+data/title_i18n.json holds a headline in every site language except English
+(nn, nb, sv, da, fi, is, zh, hi, es, fr, ar, bn, pt, ru, ur, id, de, ja, sw, mr, fa, uk)
+for every published story whose source language is not already that site language.
+tools/story_translate.py fills the gaps. An editor can also set title_i18n on the news
+item (queue/approved.json); that copy wins.
 
 card_headline() is what the front page, the story page and the newsletter use:
   * the headline in the page language, when we have one
@@ -13,9 +15,9 @@ card_headline() is what the front page, the story page and the newsletter use:
     translation repeats the source headline
 
 Norwegian headlines in this data are Bokmål, so a Nynorsk page translates them.
-Other site languages (German, Spanish, …) use the English headline, with the
-source headline underneath when it differs. Our own stories keep the title of
-the article.
+A site language with no stored headline yet falls back to the English headline,
+with the source headline underneath when it differs. check() fails on such a gap.
+Our own stories keep the title of the article.
 
   python3 tools/headlines.py check
 """
@@ -26,6 +28,8 @@ if ROOT not in sys.path:
 import i18n
 PATH = os.path.join(ROOT, "data", "title_i18n.json")
 NORDIC = ["nn", "nb", "sv", "da", "fi", "is"]
+# Every site language except English (English is title_en on the news item).
+TRANSLATED = [lang for lang in i18n.ALL_LANGS if lang != "en"]
 # Site language that already reads the stored title. Norwegian press titles are Bokmål.
 SOURCE_SITE = {
     "Norwegian": "nb",
@@ -60,9 +64,9 @@ def load(path=None):
     return items
 
 def needed_langs(language):
-    """Nordic site languages that still need a headline for this source language."""
+    """Site languages that still need a headline for this source language."""
     src = SOURCE_SITE.get(language or "")
-    return [lang for lang in NORDIC if lang != src]
+    return [lang for lang in TRANSLATED if lang != src]
 
 def title_map(item, catalogue=None):
     """Page-language headlines that still belong to this source title.
@@ -77,7 +81,7 @@ def title_map(item, catalogue=None):
     out = {}
     cat = catalogue.get(item.get("id")) or {}
     if isinstance(cat, dict) and (cat.get("source") or "") == title:
-        for lang in NORDIC:
+        for lang in TRANSLATED:
             text = (cat.get(lang) or "").strip()
             if text:
                 out[lang] = text
@@ -85,7 +89,7 @@ def title_map(item, catalogue=None):
     item_src = item.get("title_i18n_source")
     if item_map and (item_src is None or item_src == title):
         for lang, text in item_map.items():
-            if lang in NORDIC and (text or "").strip():
+            if lang in TRANSLATED and (text or "").strip():
                 out[lang] = text.strip()
     return out
 
@@ -121,7 +125,7 @@ def card_headline(item, lang, catalogue=None):
     if lang == src:
         return source_only()
 
-    if lang in NORDIC:
+    if lang in TRANSLATED:
         text = (translated.get(lang) or "").strip()
         if text:
             if norm(text) == norm(title):
@@ -143,7 +147,7 @@ def public_title_i18n(item, catalogue=None):
     return out
 
 def check(path=None):
-    """Exit 1 if a published story is missing a headline in a Nordic language it needs."""
+    """Exit 1 if a published story is missing a headline or a summary in a site language it needs."""
     news = json.load(open(os.path.join(ROOT, "data", "news.json"), encoding="utf-8"))
     catalogue = load(path)
     published = [i for i in news["items"] if i.get("status") == "published" and (i.get("summary") or "").strip()]
@@ -160,8 +164,12 @@ def check(path=None):
         for lang in needed_langs(lang_name):
             if not (got.get(lang) or "").strip():
                 bad.append(f"{it['id']} {lang}: no headline")
+        summaries = it.get("summary_i18n") or {}
+        for lang in TRANSLATED:
+            if not (summaries.get(lang) or "").strip():
+                bad.append(f"{it['id']} {lang}: no summary")
         # The card in every site language must come back with a headline.
-        for lang in NORDIC + ["en", "de"]:
+        for lang in ["en"] + TRANSLATED:
             head, code, orig = card_headline(it, lang, catalogue)
             if not (head or "").strip():
                 bad.append(f"{it['id']} card {lang}: empty")
@@ -171,20 +179,17 @@ def check(path=None):
                     bad.append(f"{it['id']} card {lang}: original shown on a same-language page")
                 if norm(head) != norm(it["title"]) and not (lang == "en" and it.get("title_en")):
                     bad.append(f"{it['id']} card {lang}: replaced the source headline")
-            elif lang in NORDIC and (got.get(lang) or "").strip() and norm(got[lang]) != norm(it["title"]):
+            elif lang != "en" and (got.get(lang) or "").strip() and norm(got[lang]) != norm(it["title"]):
                 if norm(head) != norm(got[lang]) or not orig:
                     bad.append(f"{it['id']} card {lang}: expected translated headline plus original")
                 if code != lang:
                     bad.append(f"{it['id']} card {lang}: headline language is {code}")
-            elif lang not in NORDIC and src != "en" and (it.get("title_en") or "").strip():
-                if code != "en" or not orig:
-                    bad.append(f"{it['id']} card {lang}: expected English headline plus original")
     if bad:
         print("headlines: FAIL", file=sys.stderr)
         for line in bad:
             print("  " + line, file=sys.stderr)
         return 1
-    print(f"headlines: OK ({len(published)} stories; source language keeps one headline)")
+    print(f"headlines: OK ({len(published)} stories, headline and summary in {len(TRANSLATED) + 1} site languages)")
     return 0
 
 if __name__ == "__main__":

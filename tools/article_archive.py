@@ -4,7 +4,7 @@
                          plus the additive v2 column `country`. Mirrors to Cloudflare D1 via tipworker/migrations/0002_articles.sql.
   archive/articles.json  export committed to the repo as a backup (the internal `origin` note is left out).
 A story that later disappears from the site gets removed = 1, removed_at and (if known) removal_reason – the row stays.
-Summary variants: summaries {lang: text} – "en" (written first) plus the editor-approved translations (nn, nb, sv, da, fi, is);
+Summary variants: summaries {lang: text} – "en" (written first) plus the translations in every other site language;
 an older variant is kept if it later falls away. Only stories with status "published" are recorded (never preview/pending).
 Usage:
   python3 tools/article_archive.py record [--at ISO]   # morning routine, after a successful publish: reads site/data/news.json
@@ -16,7 +16,9 @@ import json, os, sqlite3, subprocess, sys, urllib.parse, datetime as dt
 from zoneinfo import ZoneInfo
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); P = lambda *a: os.path.join(ROOT, *a)
 SITE_ID = "nordic-crypto"; DB = P("archive", "articles.db"); OSLO = ZoneInfo("Europe/Oslo")
-LANGS = ["en", "nn", "nb", "sv", "da", "fi", "is"]
+sys.path.insert(0, ROOT)
+import i18n
+LANGS = list(i18n.ALL_LANGS)   # en first, then every other site language
 TRACK = ("utm_", "fbclid", "gclid", "mc_cid", "mc_eid", "igshid", "ref_src", "_hsenc", "_hsmi", "yclid", "msclkid")
 def canon(u):  # same normalisation as Kryptonytt, so the two archives can be joined on canonical_url
     p = urllib.parse.urlsplit(u.strip()); host = (p.hostname or "").lower().removeprefix("www.")

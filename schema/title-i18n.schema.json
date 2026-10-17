@@ -2,7 +2,7 @@
  "$schema": "https://json-schema.org/draft/2020-12/schema",
  "$id": "https://nordiccrypto.no/api/v1/schema/title-i18n.schema.json",
  "title": "Headline translations",
- "description": "Our headlines by story id, in data/title_i18n.json. The source headline stays on the story. Keys are nn, nb, sv, da, fi and is, and only for languages that are not already the source headline.",
+ "description": "Our headlines by story id, in data/title_i18n.json. The source headline stays on the story. Keys are every site language except English (English is title_en on the story), and only for languages that are not already the source headline.",
  "x-nordic": {
   "id": "title-i18n",
   "order": 200,
@@ -73,6 +73,12 @@
       "Småspararar hamstra krypto under renteuro"
      ]
     },
+    "nb": {
+     "type": "string",
+     "examples": [
+      "Slik kan Sverige brukes til å finansiere kjernevåpen"
+     ]
+    },
     "sv": {
      "type": "string",
      "examples": [
@@ -97,11 +103,53 @@
       "Smásparifólk hamstraði rafmynt í vaxtaóróa"
      ]
     },
-    "nb": {
-     "type": "string",
-     "examples": [
-      "Slik kan Sverige brukes til å finansiere kjernevåpen"
-     ]
+    "zh": {
+     "type": "string"
+    },
+    "hi": {
+     "type": "string"
+    },
+    "es": {
+     "type": "string"
+    },
+    "fr": {
+     "type": "string"
+    },
+    "ar": {
+     "type": "string"
+    },
+    "bn": {
+     "type": "string"
+    },
+    "pt": {
+     "type": "string"
+    },
+    "ru": {
+     "type": "string"
+    },
+    "ur": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "de": {
+     "type": "string"
+    },
+    "ja": {
+     "type": "string"
+    },
+    "sw": {
+     "type": "string"
+    },
+    "mr": {
+     "type": "string"
+    },
+    "fa": {
+     "type": "string"
+    },
+    "uk": {
+     "type": "string"
     }
    },
    "additionalProperties": false,

@@ -33,13 +33,20 @@
     var h = document.createElement("h3");
     var a = document.createElement("a");
     a.href = "stories/" + s.id + "/";
-    a.textContent = (cfg.lang !== "no" && s.title_en) || s.title || "";
+    // Page-language headline and summary first (title_i18n, summary_i18n), then English, then the source title.
+    var lang = cfg.lang || "en";
+    var srcLang = { Norwegian: "nb", Swedish: "sv", Danish: "da", Finnish: "fi", Icelandic: "is", English: "en" }[s.language] || "";
+    var head = (s.title_i18n || {})[lang] || (lang === srcLang ? s.title : "") || s.title_en || s.title || "";
+    var own = lang !== "en" && (s.summary_i18n || {})[lang];
+    var sum = own || s.summary || "";
+    a.textContent = head;
     h.appendChild(a);
     art.appendChild(h);
-    if (s.summary) {
+    if (sum) {
       var p = document.createElement("p");
       p.className = "sum";
-      p.textContent = s.summary;
+      p.lang = own ? lang : "en";
+      p.textContent = sum;
       art.appendChild(p);
     }
     return art;

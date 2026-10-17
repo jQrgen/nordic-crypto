@@ -63,7 +63,9 @@ class Headlines(unittest.TestCase):
         self.assertEqual(head, it["title_en"])
         self.assertEqual(code, "en")
         self.assertEqual(orig, it["title"])
-        head, code, orig = card_headline(it, "de")
+        # A site language with no stored headline falls back to English, with the original underneath.
+        bare = {k: v for k, v in it.items() if k not in ("title_i18n", "title_i18n_source")}
+        head, code, orig = card_headline(bare, "de", {})
         self.assertEqual(head, it["title_en"])
         self.assertEqual(code, "en")
         self.assertEqual(orig, it["title"])
@@ -97,7 +99,22 @@ class Headlines(unittest.TestCase):
         self.assertNotIn("sv", needed_langs("Swedish"))
         self.assertIn("nn", needed_langs("Swedish"))
         self.assertNotIn("nb", needed_langs("Norwegian"))
-        self.assertEqual(needed_langs("English"), ["nn", "nb", "sv", "da", "fi", "is"])
+        self.assertEqual(needed_langs("English"), [l for l in build.i18n.ALL_LANGS if l != "en"])
+        self.assertIn("fa", needed_langs("Norwegian"))
+        self.assertEqual(len(needed_langs("Norwegian")), 21)
+
+    def test_farsi_card_reads_farsi_with_the_norwegian_original(self):
+        # jQrgen 2026-10-17: /fa/ showed the English headline and summary.
+        it = BY_ID["2cb0ee76f54a"]
+        head, code, orig = card_headline(it, "fa")
+        self.assertEqual(code, "fa")
+        self.assertRegex(head, "[\u0600-\u06ff]")
+        self.assertEqual(orig, "Avviser krypto-på-kammerset-påstand")  # Ságat's own headline, not a URL slug
+        self.assertRegex(it["summary_i18n"]["fa"], "[\u0600-\u06ff]")
+        build.LANG = "fa"
+        _shown, _hl, attr, html = build.story_heads(it)
+        self.assertEqual(attr, "")
+        self.assertIn('lang="no"', html)
 
     def test_item_translation_wins_and_a_stale_source_is_dropped(self):
         it = {"id": DUCT, "title": BY_ID[DUCT]["title"], "language": "Swedish", "title_en": "Reports",

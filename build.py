@@ -2020,8 +2020,10 @@ def story_heads(i):
         lname = i.get("language") or ""
         label = t("lname_" + lname) if i18n.has("en", "lname_" + lname) else lname
         src_l = i18n.SRC_LANG.get(lname, "en")
+        # dir="ltr": every source headline is in a left-to-right language; on fa, ar and ur pages it is isolated
+        # so a hyphenated headline (Ságat's «Avviser krypto-på-kammerset-påstand») is not reordered.
         orig = (f'<p class="orig">{E(t("orig_title", l=label))}'
-                f'<span lang="{src_l}">{E(orig_title)}</span></p>')
+                f'<span lang="{src_l}" dir="ltr">{E(orig_title)}</span></p>')
     return head, head_l, hl, orig
 def source_is_foreign(i, head_l):
     """Whether the card should say the story is in another language.

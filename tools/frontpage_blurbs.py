@@ -3,7 +3,8 @@
 
 The editorial summary on a news item is often a single sentence. That is too little on the
 front page, especially when the headline is in another language. data/frontpage_blurbs.json
-holds a scannable blurb for each published story: English first, then nn, nb, sv, da, fi and is.
+holds a scannable blurb for each published story: English first, then every other site language
+(tools/story_translate.py fills the languages that are missing).
 The words are ours, drawn from the headline and the public lead. We do not copy article text
 and we do not get around paywalls.
 
@@ -15,17 +16,22 @@ card_text() is what the front page uses:
   5. else the short summary, as before
 
 A later editorial summary of two or more sentences therefore replaces the stored blurb
-without editing the file. Other site languages have no blurb of their own and show the English one.
+without editing the file. A language with no blurb yet shows the English one.
 
   python3 tools/frontpage_blurbs.py check
 """
 import json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
+import i18n
 PATH = os.path.join(ROOT, "data", "frontpage_blurbs.json")
-LANGS = ["en", "nn", "nb", "sv", "da", "fi", "is"]
-# A sentence end is . ! or ? followed by whitespace and a capital letter.
-# That keeps decimals (6.1) and Nordic dates (8. juni, 18. september) inside the sentence.
-_END = re.compile(r"(?<=[.!?])\s+(?=[A-ZÁÉÍÓÚÝÞÆØÅÄÖÜ])")
+LANGS = list(i18n.ALL_LANGS)   # en first, then every other site language
+# A sentence end is . ! ? or ؟ followed by whitespace and a capital letter (À, Ç, Ł, Ş too) or a letter of a script
+# without case (Arabic, Persian, Urdu, Devanagari, Bengali, Cyrillic, CJK, …). That keeps decimals (6.1)
+# and Nordic dates (8. juni, 18. september) inside the sentence. 。！？ (Chinese, Japanese), । (Hindi,
+# Marathi, Bengali) and ۔ (Urdu) end a sentence with or without a following space.
+_END = re.compile(r"(?<=[.!?؟])\s+(?=[A-Z\u00C0-\u00DE\u0100-\u017F\u0370-\uFFFF])|(?<=[。！？।۔])\s*(?=\S)")
 
 def sentences(text):
     return [p for p in _END.split((text or "").strip()) if p.strip()]
@@ -93,8 +99,8 @@ def check(path=None):
             n = len(sentences(text))
             if n < 2 or n > 4:
                 bad.append(f"{it['id']} {lang}: {n} sentences")
-        # The card in every Nordic language, and in a language with no translation, must be substantive.
-        for lang in LANGS + ["de"]:
+        # The card in every site language must be substantive.
+        for lang in LANGS:
             text, _ = card_text(it, lang, blurbs)
             if not substantive(text):
                 bad.append(f"{it['id']} card {lang}: not substantive")
@@ -103,7 +109,7 @@ def check(path=None):
         for line in bad:
             print("  " + line, file=sys.stderr)
         return 1
-    print(f"frontpage blurbs: OK ({len(published)} stories, {', '.join(LANGS)}; other site languages use English)")
+    print(f"frontpage blurbs: OK ({len(published)} stories, {len(LANGS)} site languages)")
     return 0
 
 if __name__ == "__main__":
