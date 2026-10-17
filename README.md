@@ -351,6 +351,8 @@ KÅKÅ (`kaakaa.no`, Stavanger, home of the KÅKÅnomics economics festival) run
 
 The intake reads the one upcoming page, then one WordPress request for those slugs, and keeps a row with the same `crypto-money` filter. JSON-LD is fetched only for a keyword hit, for the room and the street. Images are not stored. “Ekstern arrangør” is a category, not the organiser’s name; the name is taken from “arrangerer …” in the text. “Gratis” is stored as free. A time marked to be announced is not invented.
 
+Bitcoinpolitisk institutt (`bpi_kalender`): the Kalender block on https://bpinorge.no/ (day, Norwegian month and year, type, city, title). A venue link is the event URL; otherwise the homepage. The same normalised title and date already listed by Litteraturhuset, Nasjonalbiblioteket or Polyteknisk is not added again. https://bpinorge.no/arrangementer/ is empty and is not read.
+
 ## Outlet logos on news
 
 Whenever a story is shown (the news list, the screen, our own story pages, and the HTML newsletter digest) the outlet logo sits beside the source name when a checked image is on file. The name is text only when there is no logo. Nothing is drawn or invented. The site brand stays Nordic Crypto. Kaupr is a news source, and its logo appears only next to Kaupr stories.

@@ -1,5 +1,5 @@
 {
- "_note": "Translations of organiser descriptions. An entry is used only while source equals the stored description text. en is set when the original is not English. nn, nb, sv, da, fi and is are set when that language is not the original. Other site languages use the English text. A missing translation means the page shows the original only.",
+ "_note": "Translations of organiser descriptions. An entry is used only while source equals the stored description text. en is set when the original is not English. Every other site language is set when that language is not the original. A site language with no text of its own uses the English text. A missing translation, and no English text, means the page shows the original only.",
  "items": {
   "ccc2eea6b213": {
    "source": "We want to provide friendly and open events where we discuss bitcoin and its current and potential role in the global economy. If you're new to the idea, this is the place to go for educated discussions from both professionals and experienced amateurs in the space. And if you are said professional or experienced amateur, this is your opportunity to go in depth in the topic with like minded peers. Note! This is a Bitcoin Only-event. We are not interested in NFT's, altcoins or general blockchain discussions.",
@@ -306,6 +306,15 @@
    "da": "Et uformelt træf for bitcoinere og alle, der er nysgerrige på bitcoin. Mød nye mennesker, udveksl idéer og tal om alt fra bitcoin og Lightning til suverænitet, Nostr, teknologi m.m. Uanset om du har været i bitcoin i årevis eller lige er begyndt at udforske det, er du velkommen. Kun bitcoin, ikke krypto. Svar »Going«, hvis du vil komme, så vi kan reservere nok pladser på restauranten, og opdater dit svar, hvis dine planer ændrer sig.",
    "fi": "Rento tapaaminen bitcoinaajille ja kaikille bitcoinista kiinnostuneille. Tapaa uusia ihmisiä, vaihda ajatuksia ja keskustele kaikesta bitcoinista ja Lightningista suvereniteettiin, Nostriin, teknologiaan ym. Olitpa ollut bitcoinin parissa vuosia tai vasta aloittamassa, olet tervetullut. Vain bitcoin, ei kryptoa. Vastaa ”Going”, jos aiot tulla, jotta voimme varata ravintolasta tarpeeksi paikkoja, ja päivitä vastauksesi, jos suunnitelmasi muuttuvat.",
    "is": "Óformlegur hittingur fyrir bitcoinara og alla sem eru forvitnir um bitcoin. Hittu nýtt fólk, skiptstu á hugmyndum og spjallaðu um allt frá bitcoin og Lightning til fullveldis, Nostr, tækni o.fl. Hvort sem þú hefur verið í bitcoin í mörg ár eða ert rétt að byrja ertu velkomin(n). Aðeins bitcoin, engar aðrar rafmyntir. Svaraðu „Going“ ef þú ætlar að mæta svo við getum tekið frá nóg sæti á veitingastaðnum, og uppfærðu svarið ef áætlanir breytast."
+  },
+  "03951f33970c": {
+   "source": "Bitcoinpolitisk institutt Noreg arrangerer Satoshi Nakamoto-årstalen 2027 i Oslo 10. februar 2027. Stedet er ventet å være Nasjonalbiblioteket, der årstalen 11. februar 2026 ble holdt.",
+   "en": "Bitcoinpolitisk institutt Noreg holds the Satoshi Nakamoto annual address 2027 in Oslo on 10 February 2027. The venue is expected to be Nasjonalbiblioteket, where the address was held on 11 February 2026.",
+   "nn": "Bitcoinpolitisk institutt Noreg arrangerer Satoshi Nakamoto-årstalen 2027 i Oslo 10. februar 2027. Staden er venta å vera Nasjonalbiblioteket, der årstalen vart halden 11. februar 2026.",
+   "sv": "Bitcoinpolitisk institutt Noreg håller Satoshi Nakamoto-årtalet 2027 i Oslo den 10 februari 2027. Platsen väntas vara Nasjonalbiblioteket, där årtalet hölls den 11 februari 2026.",
+   "da": "Bitcoinpolitisk institutt Noreg holder Satoshi Nakamoto-årstalen 2027 i Oslo den 10. februar 2027. Stedet ventes at være Nasjonalbiblioteket, hvor årstalen blev holdt den 11. februar 2026.",
+   "fi": "Bitcoinpolitisk institutt Noreg järjestää Satoshi Nakamoto -vuosipuheen 2027 Oslossa 10. helmikuuta 2027. Paikaksi odotetaan Nasjonalbiblioteketia, jossa vuosipuhe pidettiin 11. helmikuuta 2026.",
+   "is": "Bitcoinpolitisk institutt Noreg heldur Satoshi Nakamoto-árræðuna 2027 í Ósló 10. febrúar 2027. Gert er ráð fyrir að hún fari fram í Nasjonalbiblioteket, þar sem árræðan var haldin 11. febrúar 2026."
   }
  }
 }
