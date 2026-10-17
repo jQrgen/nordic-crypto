@@ -280,6 +280,54 @@
       },
       "is": {
        "type": "string"
+      },
+      "zh": {
+       "type": "string"
+      },
+      "hi": {
+       "type": "string"
+      },
+      "es": {
+       "type": "string"
+      },
+      "fr": {
+       "type": "string"
+      },
+      "ar": {
+       "type": "string"
+      },
+      "bn": {
+       "type": "string"
+      },
+      "pt": {
+       "type": "string"
+      },
+      "ru": {
+       "type": "string"
+      },
+      "ur": {
+       "type": "string"
+      },
+      "id": {
+       "type": "string"
+      },
+      "de": {
+       "type": "string"
+      },
+      "ja": {
+       "type": "string"
+      },
+      "sw": {
+       "type": "string"
+      },
+      "mr": {
+       "type": "string"
+      },
+      "fa": {
+       "type": "string"
+      },
+      "uk": {
+       "type": "string"
       }
      },
      "additionalProperties": false,
@@ -291,7 +339,7 @@
       "fi",
       "is"
      ],
-     "description": "Our summary in nn, nb, sv, da, fi and is, when that translation is published."
+     "description": "Our summary in every site language except English (nn, nb, sv, da, fi, is, zh, hi, es, fr, ar, bn, pt, ru, ur, id, de, ja, sw, mr, fa, uk). English is summary. tools/story_translate.py fills missing languages; tools/headlines.py check fails while one is missing."
     },
     "summary_i18n_review": {
      "type": "string",

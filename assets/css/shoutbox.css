@@ -20,7 +20,7 @@
 .shout-form button:hover,.shout-older:hover,.shout-toggle:hover{border-color:var(--fg)}
 .shout-form button{margin-top:8px;background:var(--btn);border-color:var(--btn);color:var(--btn-ink)}
 .shout-report{font-size:12px;font-weight:400;padding:2px 6px;color:var(--muted)}
-.shout-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.shout-hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 .shout-status{min-height:1.2em;font-size:14px;text-align:start}
 .shout-toggle{display:none;width:100%;justify-content:flex-start}
 @media(min-width:960px){

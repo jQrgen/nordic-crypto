@@ -125,6 +125,15 @@ CUSTOM="$URL"
 if [ "$DRY" = "--yes" ]; then
   .venv/bin/python tools/social_translate.py || echo "warning: social translation failed (Weibo/VK will skip this issue)"
 fi
+# Story headlines, summaries and blurbs in every site language (tools/story_translate.py): fills only what is
+# missing, after the editor's approvals are applied. Writes data/title_i18n.json, data/news.json,
+# data/frontpage_blurbs.json and queue/approved.json. Skips without CF_AI_TOKEN; a failure only warns.
+if [ "$DRY" = "--yes" ]; then
+  # Account id is not secret: the repository variable. The token is CF_AI_TOKEN or CLOUDFLARE_AI_TOKEN from the environment.
+  export CF_ACCOUNT_ID="${CF_ACCOUNT_ID:-$(gh variable get CF_ACCOUNT_ID -R nordic-crypto-org/nordic-crypto 2>/dev/null || true)}"
+  { .venv/bin/python tools/apply_approvals.py && .venv/bin/python tools/story_translate.py; } || echo "warning: story translation failed (cards fall back to English for the missing languages)"
+  .venv/bin/python tools/headlines.py check || echo "warning: a published story still lacks a headline or summary in a site language"
+fi
 # build.py also fetches Nordic exchange prices into site/api/v1/markets.json (tools/markets.py)
 # and always writes site/CNAME (nordiccrypto.no)
 .venv/bin/python build.py            # never --preview here

@@ -15,13 +15,18 @@ import datetime as dt
 import json
 import os
 import re
+import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if ROOT not in sys.path:
+    sys.path.insert(0, ROOT)
+import i18n  # noqa: E402
 NEWS_DIR = os.path.join(ROOT, "data", "archive", "news")
 ACADEMIA = os.path.join(ROOT, "data", "academia.json")
 PAGE_SIZE = 20
-# Same translation codes as a news item. English lives in title_en and summary.
-I18N_LANGS = ("nn", "nb", "sv", "da", "fi", "is")
+# Same translation codes as a news item: every site language except English.
+# English lives in title_en and summary.
+I18N_LANGS = tuple(l for l in i18n.ALL_LANGS if l != "en")
 COUNTRIES = ("NO", "SE", "DK", "FI", "IS", "FO", "GL", "AX", "NORDIC", "EU")
 # conference is included: those rows are papers. phd stays on /academia/ only.
 ACADEMIC_TYPES = ("master", "project", "paper", "conference")
