@@ -538,6 +538,10 @@ def main():
                 elif "/workspace/" in raw or "tips.db" in raw:
                     fails.append("local path in " + f)
         print(f"api files ok: {news['count']} news, {letters['count']} newsletters, {len(info['endpoints'])} endpoints")
+    # RSS: story links point to our story pages, outlet credited; separate newsletter feed (tests/test_rss_feeds.py)
+    r = subprocess.run([sys.executable, os.path.join(ROOT, "tests", "test_rss_feeds.py")], capture_output=True, text=True)
+    if r.returncode != 0:
+        fails.append("rss feeds: " + (r.stdout + r.stderr).strip()[-400:])
     if fails:
         print("FAILED")
         for f in fails[:30]:

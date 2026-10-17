@@ -660,6 +660,7 @@ S.update({
 "mk_about_h": "ان اعداد و شمار کے بارے میں",
 "nl_next_h": "اگلا شمارہ حاصل کریں",
 "nl_rss": "RSS فیڈ",
+"nl_rss_issues": "نیوز لیٹر RSS",
 "toc_h": "اس صفحے پر",
 "more_news_h": "مزید خبریں",
 "all_news": "تمام خبریں",

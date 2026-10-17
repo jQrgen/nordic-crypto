@@ -660,6 +660,7 @@ S.update({
 "mk_about_h": "या आकड्यांबद्दल",
 "nl_next_h": "पुढील अंक मिळवा",
 "nl_rss": "RSS फीड",
+"nl_rss_issues": "वृत्तपत्र RSS",
 "toc_h": "या पानावर",
 "more_news_h": "आणखी बातम्या",
 "all_news": "सर्व बातम्या",

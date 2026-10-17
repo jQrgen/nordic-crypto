@@ -434,6 +434,7 @@ def nl_follow_box(rel, hid, privacy=False):
     form = newsletter_form()
     top = (form + (f'<p class="notice">{t("nl_priv")}</p>' if privacy else "")) if form else f'<p class="nlsoon">{E(t("nl_soon"))}</p>'
     ways = (f'<p class="nlways"><a href="{E(rel)}rss.xml">{ICON_RSS}{E(t("nl_rss"))}</a>'
+            + (f'<a href="{E(rel)}newsletter/rss.xml" title="{E(NL_FEED_TITLE)}">{ICON_RSS}{E(t("nl_rss_issues"))}</a>' if nl_issues() else "") +
             f'<a href="{SITE_TELEGRAM}" rel="noopener">{ICON_TG}{E(t("tg_btn"))}</a>'
             f'<a href="{SITE_X}" rel="noopener">{ICON_X}{E(t("x_btn"))}</a>'
             f'<a href="{SITE_FACEBOOK}" rel="noopener">{ICON_FB}{E(t("fb_btn"))}</a>'
@@ -465,12 +466,14 @@ def build_newsletter():
     body = f"""<h1>{E(t("nl_title"))}</h1>
 <p class="lead">{E(t("nl_lead"))}</p>
 <section id="signup">{newsletter_offer("../", privacy=True)}</section>
+<p class="nlways nlfeeds"><a href="../rss.xml">{ICON_RSS}{E(t("nl_rss"))}</a><a href="rss.xml" type="application/rss+xml" title="{E(NL_FEED_TITLE)}">{ICON_RSS}{E(t("nl_rss_issues"))}</a></p>
 <h2 id="issues">{E(t("nl_issues_h"))}</h2>
 <p class="meta">{E(t("nl_issues_lead"))}</p>
 <ol class="nlissues">{''.join(lis) or f'<li class="empty">{E(t("nl_issues_none"))}</li>'}</ol>
 <p>{t("nl_write", href="../columnist/")}</p>
 <div class="prose"><p class="meta">{t("nl_kaupr")}</p></div>"""
     page("newsletter", t("nl_title"), "newsletter", body, t("nl_desc"))
+    write_newsletter_rss(issues)
 _CFG_JSON = {}   # path -> ((mtime_ns, size), data); analytics/push config is asked for on every page
 def _cfg_json(p, d=None):
     """load(p, d) for a small config file, parsed again only when the file changes. Read the result, do not change it."""
@@ -700,13 +703,18 @@ def site_footer(rel, root, slug=""):
             f'<p class="colophon">{E(t("logo_disclaimer"))}</p>'
             f'<p class="colophon">{E(t("contact_us"))}: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></p>'
             f'{source_footer_line()}</div></footer>')
+PAGES_WRITTEN = set()   # (LANG, slug) of every page written; RSS items link only to story pages that exist
+NL_FEED_TITLE = "Nordic Crypto nyhetsbrev"
 def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="", hero="", og=None, share_text=None):
     """Writes site/<lang>/<slug>/index.html for the current LANG (English at the root).
     hero: optional full-width band between the header and <main> (the front page title block)."""
+    PAGES_WRITTEN.add((LANG, slug))
     depth = (slug.count("/") + 1 if slug else 0) + (0 if LANG == "en" else 1)
     root = "../" * depth or "./"           # site root (data/, assets/, screen/)
     rel = root + lp()                      # home of this language
     url = BASE + lp() + (slug + "/" if slug else "")
+    nl_alt = (f'<link rel="alternate" type="application/rss+xml" title="{E(NL_FEED_TITLE)}" href="{E(rel)}newsletter/rss.xml">'
+              if (not slug or slug == "newsletter" or slug.startswith("newsletter/")) and nl_issues() else "")
     s = snippets(url, f"{title} – {SITE_NAME}" if slug else f"{SITE_NAME} – {t('site_desc_suffix')}", share_text)
     nav_html = _nav_html(rel, root, nav)
     langs = langs or i18n.LANGS
@@ -765,7 +773,7 @@ def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="
 <html lang="{i18n.HTML_LANG[LANG]}"{" dir=\"rtl\"" if i18n.rtl(LANG) else ""}><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <script>(function(d){{d.classList.add("js");try{{if(localStorage.getItem("nc-theme")==="dark")d.setAttribute("data-theme","dark")}}catch(e){{}}}})(document.documentElement)</script>
 {pick}<title>{E(title)}{" – " + SITE_NAME if slug else ""}</title>
-<meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}"><link rel="manifest" href="{root}manifest.json">{alt}<link rel="alternate" type="application/rss+xml" title="{E(SITE_NAME)}" href="{E(rel)}rss.xml">{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
+<meta name="description" content="{E(desc)}"><link rel="canonical" href="{url}"><link rel="manifest" href="{root}manifest.json">{alt}<link rel="alternate" type="application/rss+xml" title="{E(SITE_NAME)}" href="{E(rel)}rss.xml">{nl_alt}{head_extra}{'<meta name="robots" content="noindex">' if PREVIEW else ''}
 <meta property="og:title" content="{E(og_title)}"><meta property="og:description" content="{E(og_desc)}"><meta property="og:url" content="{url}"><meta property="og:type" content="{E(og_type)}"><meta property="og:site_name" content="{E(SITE_NAME)}"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{E(og_title)}"><meta name="twitter:description" content="{E(og_desc)}"><meta name="twitter:image" content="{E(og_img)}"><meta property="og:locale" content="{i18n.OG_LOCALE[LANG]}">{''.join(f'<meta property="og:locale:alternate" content="{i18n.OG_LOCALE[l]}">' for l in langs if l != LANG)}
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <link rel="icon" href="{root}favicon.svg?v={ICON_V}" type="image/svg+xml">
@@ -2050,18 +2058,28 @@ def write_rss(items):
             title = i.get("title") or ""
         desc = ((i.get("summary_i18n") or {}).get(LANG) or "") if LANG != "en" else ""
         desc = desc or i.get("summary") or ""
-        link = i.get("url") or ""
-        if link and not link.startswith("http"):
-            link = BASE + lp() + link.lstrip("/")
-        if not title or not link.startswith("http"):
-            continue
+        slug = story_path(i).strip("/")
+        if not title or (LANG, slug) not in PAGES_WRITTEN:
+            continue   # no story page of ours for this item in this language
+        link = BASE + lp() + slug + "/"
+        src_name = (i.get("source_name") or "").strip()
+        src_url = i.get("url") or ""
+        if src_url and not str(src_url).startswith("http"):
+            src_url = ""   # own stories: the story page is the source
+        credit = ""
+        if src_name and src_url:
+            credit = f'<p>{html.escape(t("source"))}: <a href="{html.escape(src_url)}">{html.escape(src_name)}</a></p>'
+        elif src_name:
+            credit = f'<p>{html.escape(t("source"))}: {html.escape(src_name)}</p>'
+        desc_html = (f"<p>{html.escape(desc)}</p>" if desc else "") + credit
         when = rss_pubdate(i.get("published"))
         pub = f"<pubDate>{html.escape(when)}</pubDate>" if when else ""
+        source_el = f'<source url="{html.escape(src_url)}">{html.escape(src_name)}</source>' if src_name and src_url else ""
         bits.append("<item>"
                     f"<title>{html.escape(title)}</title>"
                     f"<link>{html.escape(link)}</link>"
                     f"<guid isPermaLink=\"true\">{html.escape(link)}</guid>"
-                    f"{pub}<description>{html.escape(desc)}</description></item>")
+                    f"{pub}<description>{html.escape(desc_html)}</description>{source_el}</item>")
     home = BASE + lp()
     xml = ("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
            "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\"><channel>"
@@ -2072,6 +2090,33 @@ def write_rss(items):
            f"<atom:link href=\"{html.escape(home + 'rss.xml')}\" rel=\"self\" type=\"application/rss+xml\"/>"
            + "".join(bits) + "</channel></rss>\n")
     d = SITE if LANG == "en" else os.path.join(SITE, LANG)
+    os.makedirs(d, exist_ok=True)
+    open(os.path.join(d, "rss.xml"), "w", encoding="utf-8").write(xml)
+def write_newsletter_rss(issues):
+    """/newsletter/rss.xml next to each language's /newsletter/: one item per published issue, linking to its page."""
+    home = BASE + lp() + "newsletter/"
+    bits = []
+    for iss in issues:
+        title, _ = nl_i18n(iss, "title"); summary, _ = nl_i18n(iss, "subtitle")
+        if not title or (LANG, f"newsletter/{iss['id']}") not in PAGES_WRITTEN:
+            continue
+        link = home + iss["id"] + "/"
+        when = rss_pubdate((iss.get("date") or "") + "T08:00:00+00:00") if iss.get("date") else ""
+        pub = f"<pubDate>{html.escape(when)}</pubDate>" if when else ""
+        bits.append("<item>"
+                    f"<title>{html.escape(title)}</title>"
+                    f"<link>{html.escape(link)}</link>"
+                    f"<guid isPermaLink=\"true\">{html.escape(link)}</guid>"
+                    f"{pub}<description>{html.escape(summary)}</description></item>")
+    xml = ("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+           "<rss version=\"2.0\" xmlns:atom=\"http://www.w3.org/2005/Atom\"><channel>"
+           f"<title>{html.escape(NL_FEED_TITLE)}</title>"
+           f"<link>{html.escape(home)}</link>"
+           f"<description>{html.escape(t('nl_desc'))}</description>"
+           f"<language>{html.escape(i18n.HTML_LANG[LANG])}</language>"
+           f"<atom:link href=\"{html.escape(home + 'rss.xml')}\" rel=\"self\" type=\"application/rss+xml\"/>"
+           + "".join(bits) + "</channel></rss>\n")
+    d = os.path.join(SITE, "newsletter") if LANG == "en" else os.path.join(SITE, LANG, "newsletter")
     os.makedirs(d, exist_ok=True)
     open(os.path.join(d, "rss.xml"), "w", encoding="utf-8").write(xml)
 def public_extra(item):
@@ -2159,7 +2204,6 @@ def build_lang(ctx):
     news = ctx["news"]; upd = endate(news["updated"]) if news.get("updated") else ""
     root = "../" if LANG != "en" else ""
     home_signup = newsletter_offer("", compact=True)
-    write_rss(items)
     # A short title band, then the news. The lead story comes first; the rail beside it (below it on phones) has the next events;
     # the latest stories follow, then newsletter and tools. The same order on every screen, so reading and tab order match.
     hero = f"""<section class="hero" aria-labelledby="home-h1"><div class="wrap">
@@ -2185,6 +2229,7 @@ def build_lang(ctx):
     build_coverage_pages(items, ctx["blurbs"])
     build_stories(write=True, latest=items)
     build_external_stories(ctx)
+    write_rss(items)   # after the story pages, so every item links to a page that was written
     build_markets(ctx)
     build_org(ctx)
     build_sources(ctx)

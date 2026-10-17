@@ -660,6 +660,7 @@ S.update({
 "mk_about_h": "Über diese Zahlen",
 "nl_next_h": "Die nächste Ausgabe erhalten",
 "nl_rss": "RSS-Feed",
+"nl_rss_issues": "Newsletter-RSS",
 "toc_h": "Auf dieser Seite",
 "more_news_h": "Weitere Nachrichten",
 "all_news": "Alle Nachrichten",
