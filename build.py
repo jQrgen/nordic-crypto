@@ -1422,10 +1422,10 @@ def write_crowdfunding_api():
 
 CONTACT_EMAIL = "jqrgen@nordiccrypto.no"
 def contact_us_block():
-    """The 'Contact us' section (Google Play News policy): site name, publisher with org. number, place, email."""
+    """The 'Contact us' section (Google Play News policy): site name, publisher with org. number and registrations, place, email."""
     m = f'<a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>'
     return (f'<section class="contact-us" aria-labelledby="contact-us"><h2 id="contact-us">{E(t("contact_us"))}</h2>'
-            f'<p><b>Nordic Crypto</b><br>{E(t("contact_publisher"))}: jQrgenCorp ({E(t("contact_orgnr"))} 919 057 343)<br>'
+            f'<p><b>Nordic Crypto</b><br>{E(t("contact_publisher"))}: jQrgenCorp ({E(t("contact_orgnr"))} 919 057 343)<br>{E(t("contact_reg"))}<br>'
             f'{E(t("contact_place"))}<br>{E(t("contact_email"))}: {m}</p></section>\n')
 def build_contact():
     """Contact: the editor's email address."""
