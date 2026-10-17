@@ -1,13 +1,15 @@
 """Newsreel renderer for Nordic Crypto #2. PIL frames -> ffmpeg (-threads 1). One segment per process.
 usage: render.py SEG            -> $SEGDIR/v_SEG.mp4
        render.py SEG --still T  -> still frame at local time T
-       render.py thumb          -> thumbnail.png
-Env: TIMELINE (json path), SEGDIR (segment mp4 directory). Voice JSON stays in build/."""
+       render.py thumb          -> thumbnail.png (thumbnail-vertical.png with VERTICAL=1)
+Env: TIMELINE (json path), SEGDIR (segment mp4 directory), VERTICAL=1 for the 1080x1920 30 fps Reels cut.
+Voice JSON stays in build/."""
 import os, re, sys, json, math, random, subprocess
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, '.'); import content as C
-W, H = 1920, 1080
+V = os.environ.get('VERTICAL') == '1'
+W, H = (1080, 1920) if V else (1920, 1080)
 ROOT = 'build/'
 SEGDIR = os.environ.get('SEGDIR', ROOT)
 os.makedirs(SEGDIR, exist_ok=True)
@@ -119,6 +121,10 @@ def star(d, cx, cy, r, fill):
     d.polygon(pts, fill=fill)
 
 TL = json.load(open(os.environ.get('TIMELINE', ROOT + 'timeline.json'))); FPS = TL['fps']; SEGS = {s['name']: s for s in TL['segs']}
+if V:  # Reels: 30 fps, segment edges rounded from the 25 fps grid so the cut stays on the same mix
+    for _s in SEGS.values():
+        a, z = round(_s['start_f'] * 30 / FPS), round((_s['start_f'] + _s['frames']) * 30 / FPS); _s['start_f'], _s['frames'] = a, z - a
+    FPS = 30
 def sentences(name):
     try: return json.load(open(ROOT + name + '.json'))
     except FileNotFoundError: return []
@@ -135,6 +141,10 @@ def make_bug():
     d.rectangle((0, 0, w, 66), fill=SEA + (230,)); mark(im, 12, 9, 48)
     wordmark(d, 70, 2, f)
     return im
+def draw_issue_line(base):  # vertical: issue and dates under the centred bug
+    d = ImageDraw.Draw(base, 'RGBA'); f = F('cs', 24); w = spaced_w(C.BUG_LINE, f, 1.5) + 36; x0 = (W - w) / 2
+    d.rectangle((x0, BUG_Y + 72, x0 + w, BUG_Y + 112), fill=NIGHT + (235,)); spaced(d, (x0 + 18, BUG_Y + 78), C.BUG_LINE, f, GOLD, 1.5)
+BUG_Y = 200
 def draw_clock(base, T):
     d = ImageDraw.Draw(base, 'RGBA'); x0, y0 = 1500, 40
     d.rectangle((x0, y0, 1860, y0 + 66), fill=SEA + (230,))
@@ -146,7 +156,8 @@ def draw_clock(base, T):
     d.text((x, y0 + 22), 'CEST', font=F('cs', 22), fill=FOAM)
     d.rectangle((x0, y0 + 70, 1860, y0 + 104), fill=NIGHT + (235,))
     spaced(d, (x0 + 14, y0 + 74), C.BUG_LINE, F('cs', 20), GOLD, 1)
-TICK_Y, TICK_H, TICK_SPEED = 1012, 68, 140
+TICK_Y, TICK_H, TICK_SPEED = (1500 if V else 1012), 68, 140
+LAB_W = 250 if V else 290
 def make_ticker():
     f = F('cs', 32); parts = []
     for it in C.TICKER: parts.append(it)
@@ -158,12 +169,12 @@ def make_ticker():
             if x > L + W: break
             d.text((x, 12), p, font=f, fill=TAR); x += w + gap / 2
             cx, cy = x - 4, TICK_H / 2; d.polygon([(cx, cy - 11), (cx + 11, cy), (cx, cy + 11), (cx - 11, cy)], fill=GOLD); x += gap / 2
-    lab = Image.new('RGB', (290, TICK_H), SEA); dl = ImageDraw.Draw(lab)
-    spaced(dl, (22, 16), 'HEADLINES', F('cx', 30), SAIL, 2); dl.polygon([(262, 0), (290, 0), (290, TICK_H), (262 + 0, TICK_H)], fill=GOLD)
+    lab = Image.new('RGB', (LAB_W, TICK_H), SEA); dl = ImageDraw.Draw(lab)
+    spaced(dl, (20, 18) if V else (22, 16), 'HEADLINES', F('cx', 26 if V else 30), SAIL, 2); dl.polygon([(LAB_W - 28, 0), (LAB_W, 0), (LAB_W, TICK_H), (LAB_W - 28, TICK_H)], fill=GOLD)
     return strip, int(L), lab
 def draw_ticker(base, T, strip, L, lab, yoff=0):
     off = int(T * TICK_SPEED) % L
-    base.paste(strip.crop((off, 0, off + W - 290, TICK_H)), (290, TICK_Y + yoff)); base.paste(lab, (0, TICK_Y + yoff))
+    base.paste(strip.crop((off, 0, off + W - LAB_W, TICK_H)), (LAB_W, TICK_Y + yoff)); base.paste(lab, (0, TICK_Y + yoff))
     ImageDraw.Draw(base).rectangle((0, TICK_Y + yoff - 5, W, TICK_Y + yoff - 1), fill=GOLD)
 def draw_band(base, p):  # wipe band; p 0..1 across a cut (covers screen at p=.5)
     if p <= 0 or p >= 1: return
@@ -177,9 +188,9 @@ def draw_band(base, p):  # wipe band; p 0..1 across a cut (covers screen at p=.5
 WIPE = 0.36  # seconds each side of a cut
 
 # ---------- backgrounds ----------
-BW_, BH_ = 2112, 1188
+BW_, BH_ = round(W * 1.1), round(H * 1.1)
 def kb(img, u, dirx=1, diry=0):  # Ken Burns: zoom from 1.0 to 1.1, gentle pan
-    u = eio(u); bw = BW_ / (1 + 0.1 * u); bh = bw * 9 / 16
+    u = eio(u); bw = BW_ / (1 + 0.1 * u); bh = bw * H / W
     cx = BW_ / 2 + dirx * (BW_ - bw) / 2 * (u * 2 - 1) * 0.8; cy = BH_ / 2 + diry * (BH_ - bh) / 2 * (u * 2 - 1) * 0.8
     return img.resize((W, H), Image.BILINEAR, box=(cx - bw / 2, cy - bh / 2, cx + bw / 2, cy + bh / 2))
 def base_bg(tint=None):
@@ -192,7 +203,7 @@ def glow_layer(draw_fn, blur=14):
     g = lay.filter(ImageFilter.GaussianBlur(blur)); out = Image.alpha_composite(g, lay); del g; return out
 def art_bg(st):
     random.seed(st['big']); tint = (52, 44, 30) if st['art'] == 'scan' else None
-    im = base_bg(tint).convert('RGBA'); cx, cy = 1530, 540
+    im = base_bg(tint).convert('RGBA'); cx, cy = (BW_ / 2, 665) if V else (1530, 540)
     def motif(d):
         a = st['art']
         if a == 'stars':
@@ -231,10 +242,11 @@ def art_bg(st):
                 d.ellipse((x - 8, y - 8, x + 8, y + 8), fill=SAIL + (255,))
     im = Image.alpha_composite(im, glow_layer(motif)); d = ImageDraw.Draw(im)
     # headline typography (left), keep out of lower-third area (screen y<760 -> art y<~800)
-    kf = F('cx', 40); kw = spaced_w(st['kicker'], kf, 3)
-    d.rectangle((200, 300, 200 + kw + 40, 366), fill=GOLD); spaced(d, (220, 310), st['kicker'], kf, TAR, 3)
-    bf = fit(st['big'], 'cb', 290, 980, 90); d.text((196, 330), st['big'], font=bf, fill=SAIL)
-    d.rectangle((200, 640, 420, 652), fill=GOLD)
+    x0, y0 = (110, 1010) if V else (200, 300)
+    kf = fit(st['kicker'], 'cx', 40, BW_ - 2 * x0 - 80, 24) if V else F('cx', 40); kw = spaced_w(st['kicker'], kf, 3)
+    d.rectangle((x0, y0, x0 + kw + 40, y0 + 66), fill=GOLD); spaced(d, (x0 + 20, y0 + 10), st['kicker'], kf, TAR, 3)
+    bf = fit(st['big'], 'cb', 190 if V else 290, BW_ - 2 * x0 if V else 980, 90); d.text((x0 - 4, y0 + 30), st['big'], font=bf, fill=SAIL)
+    d.rectangle((x0, y0 + (250 if V else 340), x0 + 220, y0 + (262 if V else 352)), fill=GOLD)
     return im.convert('RGB')
 def bokeh_bg(seed=3, tint=SEA):
     random.seed(seed); im = grad(BW_, BH_, tint, NIGHT).convert('RGBA')
@@ -248,18 +260,19 @@ def bokeh_bg(seed=3, tint=SEA):
 
 # ---------- lower third ----------
 def make_lt(st):
-    f = fit(st['head'], 'cs', 54, 1640, 42); lines = [st['head']] if tw(DUMMY, st['head'], f) <= 1640 else wrap(st['head'], F('cs', 44), 1640)
+    hw = W - 160 if V else 1740; mw = hw - 100
+    f = fit(st['head'], 'cs', 54, mw, 42); lines = [st['head']] if tw(DUMMY, st['head'], f) <= mw else wrap(st['head'], F('cs', 44), mw)
     if len(lines) > 1: f = F('cs', 44)
     hh = 34 + len(lines) * (f.size + 6)
-    head = Image.new('RGB', (1740, hh), SAIL); d = ImageDraw.Draw(head)
+    head = Image.new('RGB', (hw, hh), SAIL); d = ImageDraw.Draw(head)
     for i, ln in enumerate(lines): d.text((40, 10 + i * (f.size + 6)), ln, font=f, fill=TAR)
     d.rectangle((0, 0, 12, hh), fill=GOLD)
     tf = F('cx', 32); tag = Image.new('RGB', (int(spaced_w(st['section'], tf, 3)) + 44, 56), GOLD); spaced(ImageDraw.Draw(tag), (22, 9), st['section'], tf, TAR, 3)
-    sf = F('cs', 26); src = Image.new('RGB', (int(tw(DUMMY, 'SOURCE  ' + st['src'], sf)) + 60, 46), SEA); ds = ImageDraw.Draw(src)
+    sf = fit('SOURCE  ' + st['src'], 'cs', 26, W - 220, 18) if V else F('cs', 26); src = Image.new('RGB', (int(tw(DUMMY, 'SOURCE  ' + st['src'], sf)) + 60, 46), SEA); ds = ImageDraw.Draw(src)
     ds.text((22, 8), 'SOURCE', font=F('cx', 26), fill=GOLD); ds.text((22 + tw(ds, 'SOURCE  ', F('cx', 26)), 8), st['src'], font=sf, fill=SAIL)
     return tag, head, src
 def draw_lt(base, lt, t, dur):
-    tag, head, src = lt; x0 = 90; ybot = 994; ys = ybot - src.height; yh = ys - head.height; yt = yh - tag.height
+    tag, head, src = lt; x0, ybot = (80, 1460) if V else (90, 994); ys = ybot - src.height; yh = ys - head.height; yt = yh - tag.height
     out = clamp((t - (dur - 0.5)) / 0.35)  # slide out before the wipe
     a = eo((t - 0.35) / 0.4) * (1 - eio(out))
     if a > 0: base.paste(tag, (int(x0 - (1 - a) * (tag.width + 120)), yt))
@@ -271,10 +284,10 @@ def draw_lt(base, lt, t, dur):
     if c > 0: base.paste(src.crop((0, 0, src.width, int(src.height * c)) if c < 1 else (0, 0, src.width, src.height)), (x0, ys))
 
 # ---------- segment renderers ----------
-def seg_bumper(s):
-    logo_big = Image.new('RGBA', (1400, 300), (0, 0, 0, 0)); d = ImageDraw.Draw(logo_big)
+def seg_bumper(s): return seg_bumper_core(s)
+def seg_bumper_core(s, vertical=False):
     def frame(t, T):
-        im = Image.new('RGB', (W, H), NIGHT); d = ImageDraw.Draw(im); cx, cy = W / 2, H / 2 - 40
+        im = Image.new('RGB', (W, H), NIGHT); d = ImageDraw.Draw(im); cx, cy = W / 2, H / 2 - (180 if vertical else 40)
         rot = t * 0.35; flash = clamp(1 - abs(t - 3.0) / 0.25)
         for i in range(24):  # rotating sunburst
             a0 = rot + i * 2 * math.pi / 24; a1 = a0 + math.pi / 24
@@ -294,14 +307,17 @@ def seg_bumper(s):
                 yy = cy + r * k / 3; hw = math.sqrt(max(0, r * r - (r * k / 3) ** 2)); d.line((cx - hw, yy, cx + hw, yy), fill=(70, 110, 118), width=2)
         sz = 260 * eback((t - 1.0) / 0.5)
         if sz > 4: mark(im, cx - sz / 2, cy - 40 - sz / 2, sz)
-        f = F('cb', 200)
+        f = F('cb', 200); ty = cy + (560 if vertical else 385)
         if t > 1.9:
-            u = eo((t - 1.9) / 0.5); w1 = tw(d, 'Nordic', f); y = cy + 110
-            d.text((cx - 24 - w1 - (1 - u) * 1200, y), 'Nordic', font=f, fill=SAIL); d.text((cx + 24 + (1 - u) * 1200, y), 'Crypto', font=f, fill=GOLD)
+            u = eo((t - 1.9) / 0.5); w1 = tw(d, 'Nordic', f)
+            if vertical:
+                d.text((cx - w1 / 2 - (1 - u) * 1200, cy + 120), 'Nordic', font=f, fill=SAIL); d.text((cx - tw(d, 'Crypto', f) / 2 + (1 - u) * 1200, cy + 310), 'Crypto', font=f, fill=GOLD)
+            else:
+                d.text((cx - 24 - w1 - (1 - u) * 1200, cy + 110), 'Nordic', font=f, fill=SAIL); d.text((cx + 24 + (1 - u) * 1200, cy + 110), 'Crypto', font=f, fill=GOLD)
         if t > 3.0:
-            u = eo((t - 3.0) / 0.4); sf = F('cx', 40); txt = 'CRYPTO NEWS FROM THE NORDICS'; ww = spaced_w(txt, sf, 6)
-            d.rectangle((cx - ww / 2 - 30, cy + 385, cx - ww / 2 - 30 + (ww + 60) * u, cy + 450), fill=GOLD)
-            if u > .6: spaced(d, (cx - ww / 2, cy + 395), txt, sf, TAR, 6)
+            u = eo((t - 3.0) / 0.4); sf = F('cx', 36 if vertical else 40); txt = 'CRYPTO NEWS FROM THE NORDICS'; ww = spaced_w(txt, sf, 4 if vertical else 6)
+            d.rectangle((cx - ww / 2 - 30, ty, cx - ww / 2 - 30 + (ww + 60) * u, ty + 65), fill=GOLD)
+            if u > .6: spaced(d, (cx - ww / 2, ty + 10), txt, sf, TAR, 4 if vertical else 6)
         if flash > 0:  # Sailcloth flash on the final chord
             im = Image.blend(im, Image.new('RGB', (W, H), SAIL), 0.55 * flash)
         if t < 0.3: im = Image.blend(Image.new('RGB', (W, H), (0, 0, 0)), im, t / 0.3)
@@ -394,7 +410,7 @@ def seg_section(s):
 def seg_story(s):
     st = C.STORIES[s['name']]; bg = art_bg(st); lt = make_lt(st); dirx = 1 if int(s['name'][1]) % 2 else -1
     def frame(t, T):
-        im = kb(bg, t / s['dur'], dirx, 0.5); draw_lt(im, lt, t, s['dur']); return im
+        im = kb(bg, t / s['dur'], dirx, -1 if V else 0.5); draw_lt(im, lt, t, s['dur']); return im
     return frame, {}
 def seg_calendar(s):
     bg = bokeh_bg(8); sents = sentences(s['name']); st = [s['voff'] + x[0] for x in sents]
@@ -465,7 +481,136 @@ def seg_end(s):
         if fade > 0: im = Image.blend(im, Image.new('RGB', (W, H), (0, 0, 0)), fade)
         return im
     return frame, dict(ticker_out=True, last=True)
+# ---------- vertical (9:16) layouts: same segments and cues, stacked for portrait ----------
+def ctext(d, y, txt, f, fill):
+    d.text((W / 2 - tw(d, txt, f) / 2, y), txt, font=f, fill=fill)
+def fade_c(c, a): return c if a > .99 else tuple(int(v * a) for v in c)
+def vseg_bumper(s): return seg_bumper_core(s, vertical=True)
+def vseg_title(s):
+    bg = bokeh_bg(11)
+    stripes = Image.new('L', (W * 2, H), 0); ds = ImageDraw.Draw(stripes)
+    for i in range(0, W * 2, 240): ds.polygon([(i, 0), (i + 90, 0), (i + 90 - 700, H), (i - 700, H)], fill=26)
+    def frame(t, T):
+        im = kb(bg, t / s['dur']); off = int(t * 60) % 240
+        im.paste(FOAM, (0, 0), stripes.crop((off, 0, off + W, H))); d = ImageDraw.Draw(im); cx = W / 2
+        sz = 220 * eback((t - 0.1) / 0.6)
+        if sz > 3: mark(im, cx - sz / 2, 470 - sz / 2, sz)
+        f = F('cb', 200); u2 = eo((t - 0.4) / 0.6)
+        d.text((cx - tw(d, 'Nordic', f) / 2 - (1 - u2) * 900, 600), 'Nordic', font=f, fill=SAIL)
+        d.text((cx - tw(d, 'Crypto', f) / 2 + (1 - u2) * 900, 790), 'Crypto', font=f, fill=GOLD)
+        u3 = eo((t - 0.9) / 0.5)
+        if u3 > 0:
+            tf = F('cx', 50); txt = C.ISSUE_RIBBON; ww = spaced_w(txt, tf, 4) + 60
+            d.rectangle((cx - ww / 2, 1080, cx - ww / 2 + ww * u3, 1160), fill=GOLD)
+            if u3 > .7: spaced(d, (cx - ww / 2 + 30, 1090), txt, tf, TAR, 4)
+        u4 = eo((t - 1.3) / 0.5)
+        if u4 > 0: ctext(d, 1185 + (1 - u4) * 40, C.DATES, F('cb', 70), fade_c(SAIL, u4))
+        u5 = eo((t - 1.7) / 0.45)
+        if u5 > 0:
+            nf = F('cs', 34); lines = wrap('CRYPTO, BITCOIN AND BLOCKCHAIN NEWS FROM THE NORDICS', nf, W - 200)
+            ww = max(tw(d, ln, nf) for ln in lines) + 50; hh = 20 + 46 * len(lines)
+            d.rectangle((cx - ww / 2, 1300, cx + ww / 2, 1300 + hh * u5), fill=NIGHT)
+            if u5 > .8:
+                for k, ln in enumerate(lines): ctext(d, 1308 + k * 46, ln, nf, GOLD)
+        return im
+    return frame, {}
+def vseg_tonight(s):
+    bg = bokeh_bg(5); sents = sentences(s['name']); vo = s['voff']
+    tags, heads, needles = zip(*C.TONIGHT); starts = []
+    for i, needle in enumerate(needles):
+        hit = cue_at(sents, vo, needle)
+        if hit is None and i < len(sents): hit = vo + sents[i][0]
+        starts.append(0.2 + i * 1.6 if hit is None else hit)
+    def frame(t, T):
+        im = kb(bg, t / s['dur'], -1); d = ImageDraw.Draw(im)
+        u = eo(t / 0.45); tf = F('cx', 80); bw = spaced_w('TONIGHT', tf, 6) + 60
+        d.rectangle((70 - (1 - u) * 800, 380, 70 - (1 - u) * 800 + bw, 500), fill=GOLD)
+        spaced(d, (98 - (1 - u) * 800, 395), 'TONIGHT', tf, TAR, 6)
+        for i in range(3):
+            a = eo((t - starts[i]) / 0.42)
+            if a <= 0: continue
+            y = 560 + i * 300; x = 70 + (1 - a) * 1100; hf = F('cb', 54); lines = wrap(heads[i], hf, W - 230)[:3]
+            d.rectangle((x, y, x + W - 140, y + 270), fill=NIGHT); d.rectangle((x, y, x + 14, y + 270), fill=GOLD)
+            d.text((x + 44, y + 24), tags[i], font=F('cx', 32), fill=GOLD)
+            for k, ln in enumerate(lines): d.text((x + 44, y + 72 + k * 62), ln, font=hf, fill=SAIL)
+        return im
+    return frame, {}
+def vseg_section(s):
+    def frame(t, T):
+        im = Image.new('RGB', (W, H), NIGHT); d = ImageDraw.Draw(im)
+        for i in range(20):
+            y = (i * 97 + 40) % H; x = ((t * 2400 + i * 517) % (W + 1200)) - 600; d.line((W - x, y, W - x + 300 + i * 15, y), fill=LINE, width=3 + i % 3)
+        u = eo((t - 0.05) / 0.45); sl = 160; x1 = W - u * (W + 200)
+        d.polygon([(x1 + sl, 640), (W + 400, 640), (W + 400 - sl, 1120), (x1, 1120)], fill=SEA)
+        d.polygon([(x1 + sl - 40, 640), (x1 + sl, 640), (x1, 1120), (x1 - 40, 1120)], fill=GOLD)
+        words = s['label'].split(' & ') if ' & ' in s['label'] else [s['label']]
+        lines = [words[0] + ' &', words[1]] if len(words) == 2 else words
+        tf = min((fit(ln, 'cb', 200, W - 140, 90) for ln in lines), key=lambda f: f.size); v = eo((t - 0.25) / 0.5)
+        y0 = 880 - len(lines) * (tf.size + 10) / 2
+        for k, ln in enumerate(lines):
+            lw = spaced_w(ln, tf, 6); x = W / 2 - lw / 2 + (1 - v) * 1000
+            if v > 0: spaced(d, (x, y0 + k * (tf.size + 10)), ln, tf, SAIL, 6)
+        a = eo((t - 0.6) / 0.4)
+        if a > 0:
+            sf = F('cs', 42); sl_ = wrap(s['sub'], sf, W - 220); sw = max(tw(d, ln, sf) for ln in sl_); hh = 22 + 54 * len(sl_)
+            d.rectangle((W / 2 - sw / 2 - 30, 1160, W / 2 - sw / 2 - 30 + (sw + 60) * a, 1160 + hh), fill=GOLD)
+            if a > .8:
+                for k, ln in enumerate(sl_): ctext(d, 1170 + k * 54, ln, sf, TAR)
+        return im
+    return frame, {}
+def vseg_calendar(s):
+    bg = bokeh_bg(8); sents = sentences(s['name']); st = [s['voff'] + x[0] for x in sents]
+    def frame(t, T):
+        im = kb(bg, t / s['dur'], 1); d = ImageDraw.Draw(im)
+        u = eo(t / 0.5); lf = F('cx', 52); bw = spaced_w('ON THE CALENDAR', lf, 4) + 50
+        d.rectangle((60 - (1 - u) * 900, 340, 60 - (1 - u) * 900 + bw, 426), fill=GOLD)
+        spaced(d, (85 - (1 - u) * 900, 352), 'ON THE CALENDAR', lf, TAR, 4)
+        for i, (dt, city, title, venue) in enumerate(C.EVENTS):
+            a = eo((t - st[i] + 0.1) / 0.45) if i < len(st) else 0
+            if a <= 0: continue
+            y = 460 + i * 136; x = 60 + (1 - a) * 1100; hi = (i == 3)
+            d.rectangle((x, y, x + W - 120, y + 120), fill=SAIL if not hi else (251, 241, 220)); d.rectangle((x, y, x + 170, y + 120), fill=SEA if not hi else GOLD)
+            df = fit(dt, 'cb', 56, 150, 30); d.text((x + 85 - tw(d, dt, df) / 2, y + 22), dt, font=df, fill=TAR if hi else SAIL)
+            d.text((x + 195, y + 12), title, font=fit(title, 'cx', 40, W - 360, 24), fill=TAR)
+            d.text((x + 195, y + 70), f'{city}  ·  {venue}', font=fit(f'{city}  ·  {venue}', 'm', 28, W - 360, 18), fill=MUTED)
+        return im
+    return frame, {}
+def vseg_end(s):
+    bg = bokeh_bg(13); sents = sentences(s['name'])
+    site_t = cue_at(sents, s['voff'], 'every story'); advice_t = cue_at(sents, s['voff'], 'investment advice'); team_t = cue_at(sents, s['voff'], 'nordic crypto team')
+    if site_t is None and len(sents) > 1: site_t = s['voff'] + sents[1][0]
+    if advice_t is None and len(sents) > 2: advice_t = s['voff'] + sents[2][0]
+    if team_t is None and sents: team_t = s['voff'] + sents[-1][0]
+    def frame(t, T):
+        im = kb(bg, t / s['dur'], -1); d = ImageDraw.Draw(im); cx = W / 2
+        sz = 170 * eback((t - 0.1) / 0.55)
+        if sz > 3: mark(im, cx - sz / 2, 440 - sz / 2, sz)
+        a = eo((t - 0.25) / 0.5); tf = F('cb', 96); lines = wrap(C.END_HEAD, tf, W - 140)
+        for k, ln in enumerate(lines): ctext(d, 560 + k * 104 + (1 - a) * 50, ln, tf, fade_c(SAIL, a))
+        y = 580 + len(lines) * 104
+        if site_t is not None:
+            b = eo((t - site_t) / 0.45)
+            if b > 0:
+                f1 = F('m', 36)
+                for k, ln in enumerate(wrap("Every story, with a link to the original source", f1, W - 200)): ctext(d, y + k * 46, ln, f1, FOAM)
+                f2 = F('cx', 64); w2 = tw(d, C.SITE, f2)
+                d.rectangle((cx - w2 / 2 - 36, y + 110, cx - w2 / 2 - 36 + (w2 + 72) * b, y + 210), fill=GOLD)
+                if b > .85: ctext(d, y + 122, C.SITE, f2, TAR)
+        if advice_t is not None:
+            c = eo((t - advice_t) / 0.4)
+            if c > 0: ctext(d, y + 260 + (1 - c) * 24, C.END_DISCLOSURE, F('m', 34), FOAM)
+        if team_t is not None:
+            e = eo((t - team_t) / 0.4)
+            if e > 0:
+                f4 = F('cx', 56); w4 = spaced_w('GOOD NIGHT', f4, 4); spaced(d, (cx - w4 / 2, y + 360 + (1 - e) * 28), 'GOOD NIGHT', f4, SAIL, 4)
+                ctext(d, y + 440 + (1 - e) * 28, C.SIGNOFF_CARD, fit(C.SIGNOFF_CARD, 'cb', 70, W - 140, 40), GOLD)
+        fade = clamp((t - (s['dur'] - 1.2)) / 1.2)
+        if fade > 0: im = Image.blend(im, Image.new('RGB', (W, H), (0, 0, 0)), fade)
+        return im
+    return frame, dict(ticker_out=True, last=True)
+def vseg_none(s): raise SystemExit(f"no vertical layout for segment kind {s['kind']!r}")
 KINDS = dict(bumper=seg_bumper, title=seg_title, tonight=seg_tonight, countries=seg_countries, section=seg_section, story=seg_story, calendar=seg_calendar, end=seg_end)
+if V: KINDS.update(bumper=vseg_bumper, title=vseg_title, tonight=vseg_tonight, countries=vseg_none, section=vseg_section, calendar=vseg_calendar, end=vseg_end)
 
 def compose(s, frame, opts, i, bug, tick):
     t = i / FPS; T = (s['start_f'] + i) / FPS; dur = s['frames'] / FPS
@@ -478,7 +623,8 @@ def compose(s, frame, opts, i, bug, tick):
         if fade > 0:
             yo = int(eio(clamp(t / 0.6)) * 120) if opts.get('ticker_out') else 0
             if yo < 100: draw_ticker(im, T, *tick, yoff=yo)
-            im.paste(bug, (60, 40), bug); draw_clock(im, T)
+            if V: im.paste(bug, ((W - bug.width) // 2, BUG_Y), bug); draw_issue_line(im)
+            else: im.paste(bug, (60, 40), bug); draw_clock(im, T)
     return im
 
 def main():
@@ -496,7 +642,7 @@ def main():
            '-s', f'{W}x{H}', '-r', str(FPS), '-i', 'pipe:0',
            '-threads', '1', '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '20',
            '-x264-params', 'threads=1:sliced-threads=0:lookahead-threads=1:rc-lookahead=8',
-           '-pix_fmt', 'yuv420p', '-g', '50', out]
+           '-pix_fmt', 'yuv420p', '-g', str(2 * FPS), out]
     logf = open(logp, 'w')
     p = subprocess.Popen(cmd, stdin=subprocess.PIPE, stderr=logf, bufsize=1024 * 1024)
     broken = False
@@ -527,6 +673,7 @@ def main():
 
 def thumb():
     st = dict(C.STORIES['s1']); st['big'] = 'HALT'; st['kicker'] = 'NORWAY · ISSUE #2'
+    if V: st['big'] = ''; return thumb_vertical(st)
     im = art_bg(st).resize((W, H), Image.LANCZOS, box=(96, 54, 96 + 1920, 54 + 1080)); d = ImageDraw.Draw(im)
     d.rectangle((90, 680, 1830, 900), fill=SAIL); d.rectangle((90, 680, 104, 900), fill=GOLD)
     lines = wrap(C.THUMB_HEAD, F('cb', 80), 1640)
@@ -535,5 +682,15 @@ def thumb():
     bug = make_bug(); im.paste(bug, (60, 40), bug)
     tick = make_ticker(); draw_ticker(im, 3.0, *tick)
     im.resize((1280, 720), Image.LANCZOS).save('thumbnail.png'); print('thumbnail.png')
+
+def thumb_vertical(st):  # Reels cover, 1080x1920
+    im = kb(art_bg(st), 0.5, 1, 0.5); d = ImageDraw.Draw(im); f = F('cb', 76); lines = wrap(C.THUMB_HEAD, f, W - 220)[:3]
+    hh = 40 + 86 * len(lines); y = TICK_Y - 60 - 58 - hh
+    d.rectangle((80, y, W - 80, y + hh), fill=SAIL); d.rectangle((80, y, 94, y + hh), fill=GOLD)
+    for k, ln in enumerate(lines): d.text((120, y + 16 + k * 86), ln, font=f, fill=TAR)
+    d.rectangle((80, y + hh, 80 + tw(d, C.DATES.upper(), F('cx', 36)) + 50, y + hh + 58), fill=SEA); d.text((105, y + hh + 9), C.DATES.upper(), font=F('cx', 36), fill=SAIL)
+    bug = make_bug(); im.paste(bug, ((W - bug.width) // 2, BUG_Y), bug); draw_issue_line(im)
+    tick = make_ticker(); draw_ticker(im, 3.0, *tick)
+    im.save('thumbnail-vertical.png'); print('thumbnail-vertical.png')
 
 if __name__ == '__main__': main()

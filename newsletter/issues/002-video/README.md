@@ -34,6 +34,29 @@ bash concat.sh build/timeline.json build build/mix.wav build/nordic-crypto-2-new
 python3 render.py thumb
 ```
 
+## Vertical cut for Instagram Reels
+
+Same timeline, narration and mix; 1080×1920, 30 fps, H.264/AAC, laid out for portrait
+(centred logo, stacked headlines and story cards, ticker above the Reels caption area).
+
+```bash
+VERTICAL=1 SEGDIR=build/vertical/ bash render_all.sh
+bash concat.sh build/timeline.json build/vertical build/mix.wav build/nordic-crypto-N-newsreel-vertical.mp4
+VERTICAL=1 python3 render.py thumb   # thumbnail-vertical.png
+```
+
+Locally it sits next to the landscape file as `newsletter/published/<id>/video-vertical.mp4`. Publish it in
+the same release as the landscape file and record it as `video_vertical` in `issues.json`:
+
+```bash
+gh release upload newsletter-00N-newsreel-1 build/nordic-crypto-N-newsreel-vertical.mp4
+python3 video_meta.py 00N video_vertical build/nordic-crypto-N-newsreel-vertical.mp4 \
+  https://github.com/<owner>/nordic-crypto/releases/download/newsletter-00N-newsreel-1/nordic-crypto-N-newsreel-vertical.mp4
+```
+
+`video_meta.py` checks the Reels limits (H.264, 1080×1920, 30 fps, at most 15 minutes) and writes duration, size
+and sha256. `python3 video_meta.py 00N video build/nordic-crypto-N-newsreel.mp4 URL` does the same for the landscape file.
+
 WAV mixes and MP4s are gitignored. The finished newsreel is a GitHub release asset
 (`newsletter-002-newsreel-1`, file `nordic-crypto-2-newsreel.mp4`). `issues.json` stores
 its sha256, byte size and duration.
