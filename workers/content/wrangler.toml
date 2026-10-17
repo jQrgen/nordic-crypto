@@ -9,6 +9,9 @@ main = "src/worker.js"
 compatibility_date = "2026-10-01"
 workers_dev = true
 preview_urls = false
+# Public read API for the site and the apps: https://api.nordiccrypto.no/api/v1/news.json
+# (approved, published stories from D1; 60 s edge cache). Needs the nordiccrypto.no zone on this account.
+routes = [{ pattern = "api.nordiccrypto.no", custom_domain = true }]
 
 [observability]
 enabled = false
@@ -21,3 +24,4 @@ binding = "DB"
 database_name = "nordic-crypto-content"
 database_id = "ebba20cc-77a8-4d50-a753-dd46fcb8798d"
 migrations_dir = "migrations"
+
