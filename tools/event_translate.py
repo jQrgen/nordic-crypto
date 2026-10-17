@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Fill data/event_description_i18n.json for event descriptions that have no current translation.
 
-Same model endpoint as tools/social_translate.py (SOCIAL_TRANSLATE_URL, _KEY, _MODEL). Without it nothing is written.
+Cloudflare Workers AI (CLOUDFLARE_API_TOKEN with Workers AI permission, CF_ACCOUNT_ID; model CF_AI_MODEL).
+Without them, or when a call fails, nothing is written for that event.
 An entry is replaced only when its source no longer matches the description; existing languages are kept.
 
   python3 tools/event_translate.py [--dry-run]
@@ -26,16 +27,25 @@ def missing(event, catalogue):
     return text, src, [l for l in ed.KNOWN if l != src and not (have.get(l) or "").strip()]
 
 
+MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
+ENV = ("CLOUDFLARE_API_TOKEN", "CF_ACCOUNT_ID")
+
+
 def call_model(text, src, langs):
-    url, key, model = (os.environ.get(k) for k in ("SOCIAL_TRANSLATE_URL", "SOCIAL_TRANSLATE_KEY", "SOCIAL_TRANSLATE_MODEL"))
-    body = {"model": model, "temperature": 0.2, "response_format": {"type": "json_object"},
+    account, token = os.environ["CF_ACCOUNT_ID"], os.environ["CLOUDFLARE_API_TOKEN"]
+    model = os.environ.get("CF_AI_MODEL") or MODEL
+    body = {"temperature": 0.2, "max_tokens": 4096,
             "messages": [{"role": "system", "content": PROMPT.format(src=NAMES[src], codes=", ".join(f"{l} ({NAMES[l]})" for l in langs))},
                          {"role": "user", "content": text}]}
-    req = urllib.request.Request(url, data=json.dumps(body).encode(), method="POST",
-                                 headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"})
+    req = urllib.request.Request(f"https://api.cloudflare.com/client/v4/accounts/{account}/ai/run/{model}",
+                                 data=json.dumps(body).encode(), method="POST",
+                                 headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=180) as r:
-        out = json.load(r)["choices"][0]["message"]["content"]
-    return json.loads(re.sub(r"^```(?:json)?|```$", "", out.strip()).strip())
+        out = json.load(r)["result"]["response"]
+    if isinstance(out, dict):
+        return out
+    out = re.sub(r"^```(?:json)?|```$", "", out.strip()).strip()
+    return json.loads(out[out.find("{"):out.rfind("}") + 1])
 
 
 def fill(events, catalogue, translate=call_model, log=print):
@@ -64,8 +74,8 @@ def fill(events, catalogue, translate=call_model, log=print):
 
 def run(root=ROOT, log=print, translate=None, dry=False):
     if translate is None:
-        if not all(os.environ.get(k) for k in ("SOCIAL_TRANSLATE_URL", "SOCIAL_TRANSLATE_KEY", "SOCIAL_TRANSLATE_MODEL")):
-            log("event-translate: SOCIAL_TRANSLATE_* not set, skipped")
+        if not all(os.environ.get(k) for k in ENV):
+            log("event-translate: CLOUDFLARE_API_TOKEN or CF_ACCOUNT_ID not set, skipped")
             return []
         translate = call_model
     path = os.path.join(root, "data", "event_description_i18n.json")

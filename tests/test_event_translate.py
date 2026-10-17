@@ -19,9 +19,14 @@ class T(unittest.TestCase):
         self.assertEqual(et.fill([EV], cat, tr), [])
 
     def test_no_endpoint_skips(self):
-        for k in ("SOCIAL_TRANSLATE_URL", "SOCIAL_TRANSLATE_KEY", "SOCIAL_TRANSLATE_MODEL"):
+        for k in et.ENV:
             os.environ.pop(k, None)
         self.assertEqual(et.run(log=lambda m: None), [])
+
+    def test_failure_writes_nothing(self):
+        def bad(*a): raise OSError("403")
+        cat, msgs = {}, []
+        self.assertEqual(et.fill([EV], cat, bad, msgs.append), []); self.assertEqual(cat, {}); self.assertTrue(msgs)
 
 
 if __name__ == "__main__":
