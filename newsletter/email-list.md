@@ -197,7 +197,7 @@ file sends have no issue number and are not recorded. No issue has been mailed y
 From `tipworker/`, with `CLOUDFLARE_API_TOKEN` set:
 
 ```
-npx wrangler d1 migrations apply nordic-crypto-tips --remote   # adds 0006_admin.sql (deploy.sh also does this)
+npx wrangler d1 migrations apply nordic-crypto-tips --remote   # adds 0007_admin.sql (deploy.sh also does this)
 npx wrangler deploy                                            # or ../tipworker/deploy.sh
 # optional, only for send_issue.py --from-json:
 openssl rand -hex 32 > "$HOME/.nordic-crypto-admin-delivery"; chmod 600 "$HOME/.nordic-crypto-admin-delivery"

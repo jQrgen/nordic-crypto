@@ -173,7 +173,7 @@ def issue_number(issue_id):
     return n if 0 < n < 100000 else None
 
 def d1_record(local):
-    """Recorder that writes newsletter_deliveries (migrations/0006_admin.sql) with wrangler, like d1_rows reads."""
+    """Recorder that writes newsletter_deliveries (migrations/0007_admin.sql) with wrangler, like d1_rows reads."""
     import subprocess
     env = dict(os.environ, WRANGLER_SEND_METRICS="false")
     n22 = os.path.expanduser("~/.local/node22/bin")

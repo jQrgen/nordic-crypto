@@ -17,7 +17,7 @@ class SqliteD1 {
 const O = "https://nordiccrypto.no";
 function env(extra = {}) {
   const db = new DatabaseSync(":memory:");
-  for (const m of ["0001_tips.sql", "0003_subscribers.sql", "0006_admin.sql"]) db.exec(readFileSync(new URL("../migrations/" + m, import.meta.url), "utf8"));
+  for (const m of ["0001_tips.sql", "0003_subscribers.sql", "0007_admin.sql"]) db.exec(readFileSync(new URL("../migrations/" + m, import.meta.url), "utf8"));
   return { DB: new SqliteD1(db), raw: db, SUBSCRIBE_TEST: "1", ...extra };
 }
 let ipn = 1;

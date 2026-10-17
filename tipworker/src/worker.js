@@ -17,7 +17,7 @@
 // /api/unsubscribe – see src/newsletter.js (D1 table subscribers, migrations/0003_subscribers.sql) and src/mailer.js.
 // Shoutbox (one shared room, every language): GET/POST /api/shouts, POST /api/shouts/report,
 // GET/POST /api/shouts/admin – see src/shouts.js (migrations/0004_shouts.sql).
-// Admin page (magic link, bearer session, subscriber list): /api/admin/* – see src/admin.js (migrations/0006_admin.sql).
+// Admin page (magic link, bearer session, subscriber list): /api/admin/* – see src/admin.js (migrations/0007_admin.sql).
 // Private tip inbox (the /tip/ form, free text, Turnstile): POST /api/private-tip, newsroom GET /api/private-tips and
 // POST /api/private-tips/:id (bearer) – see src/private_tips.js (migrations/0005_private_tips.sql).
 import { postColumnist } from "./columnist.js";
