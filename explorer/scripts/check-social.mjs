@@ -89,6 +89,14 @@ const pages = [
     },
   ],
   [
+    "btc/index.html",
+    {
+      "og:title": `Bitcoin explorer ${DASH} Nordic Crypto`,
+      "og:description": "Blocks, transactions and addresses, read in this browser from the public mempool.space API.",
+      "og:url": `${ORIGIN}/btc/`,
+    },
+  ],
+  [
     "search/index.html",
     {
       "og:title": `Search ${DASH} Nordic Crypto`,
@@ -184,7 +192,7 @@ const headerLabels = [
   "RSS",
   "nordiccrypto.no",
 ];
-for (const file of ["bch/index.html", "nexa/index.html", "bch/mempool/index.html", "nexa/tokens/index.html"]) {
+for (const file of ["bch/index.html", "nexa/index.html", "btc/index.html", "bch/mempool/index.html", "nexa/tokens/index.html"]) {
   const html = readFileSync(join(out, file), "utf8");
   const bar = html.match(/<nav class="socialbar"[^>]*>[\s\S]*?<\/nav>/);
   if (!bar) {

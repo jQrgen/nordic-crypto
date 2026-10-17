@@ -8,7 +8,7 @@ import { prettyRedirect } from "../lib/routes";
 test("Bitcoin Cash is the default chain and is listed first", () => {
   assert.equal(defaultChain, "bch");
   assert.equal(homePath, "/bch/");
-  assert.deepEqual(chainOrder, ["bch", "nexa"]);
+  assert.deepEqual(chainOrder, ["bch", "nexa", "btc"]);
   assert.equal(resolveChain(undefined), "bch");
   assert.equal(resolveChain(null), "bch");
   assert.equal(resolveChain(""), "bch");

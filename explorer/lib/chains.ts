@@ -25,6 +25,9 @@ export const chains: Record<ChainId, ChainMeta> = {
     ],
     apiHref: "https://nordiccrypto.no/api/",
     about: "Blocks, transactions and addresses, read in this browser from a Bitcoin Cash Electrum server.",
+    backend: "electrum",
+    feeUnit: "byte",
+    tokens: true,
   },
   nexa: {
     id: "nexa",
@@ -41,11 +44,31 @@ export const chains: Record<ChainId, ChainMeta> = {
     ],
     apiHref: "https://nordiccrypto.no/api/",
     about: "Blocks, transactions and addresses, read in this browser from a Nexa Rostrum server.",
+    backend: "electrum",
+    feeUnit: "byte",
+    tokens: true,
+  },
+  btc: {
+    id: "btc",
+    name: "Bitcoin",
+    ticker: "BTC",
+    decimals: 8,
+    subunits: 100_000_000,
+    feeEstimate: "sat-per-kb",
+    target: "10 min",
+    // Not a WebSocket: the public mempool.space REST API, called from the browser (CORS *).
+    servers: [{ url: "https://mempool.space/api", label: "mempool.space", primary: true }],
+    apiHref: "https://mempool.space/docs/api/rest",
+    apiLabel: "API docs",
+    about: "Blocks, transactions and addresses, read in this browser from the public mempool.space API.",
+    backend: "mempool-space",
+    feeUnit: "vB",
+    tokens: false,
   },
 };
 
-/** Chain selector, nav, and static paths. Bitcoin Cash is the first choice. */
-export const chainOrder = ["bch", "nexa"] as const satisfies readonly ChainId[];
+/** Chain selector, nav, and static paths. Bitcoin Cash is the first choice; Bitcoin comes last. */
+export const chainOrder = ["bch", "nexa", "btc"] as const satisfies readonly ChainId[];
 
 export const defaultChain: ChainId = chainOrder[0];
 
@@ -64,3 +87,6 @@ export function resolveChain(value: string | null | undefined): ChainId {
 export function getChain(id: string) {
   return isChainId(id) ? chains[id] : undefined;
 }
+
+/** Chains with a token directory page (`/{chain}/tokens`, `/{chain}/token`). */
+export const tokenChains = chainOrder.filter((id) => chains[id].tokens);

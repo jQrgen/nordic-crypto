@@ -238,8 +238,8 @@ export function TxView({ tx }: { tx: TxModel }) {
           </dd>
         </div>
         <div>
-          <dt>Size</dt>
-          <dd>{tx.size == null ? "Not reported" : formatBytes(tx.size)}</dd>
+          <dt>{chain.feeUnit === "vB" ? "Virtual size" : "Size"}</dt>
+          <dd>{tx.size == null ? "Not reported" : chain.feeUnit === "vB" ? `${formatNumber(tx.size)} vB` : formatBytes(tx.size)}</dd>
         </div>
         <div>
           <dt>Status</dt>
@@ -283,9 +283,9 @@ export function AddressView({ address }: { address: AddressModel }) {
             </Link>
           ))}
         </div>
-      ) : (
+      ) : chain.tokens ? (
         <p className="muted">No token balance reported for this address.</p>
-      )}
+      ) : null}
       <section className="sheet" aria-labelledby="hist-h">
         <div className="sheethead">
           <h2 id="hist-h">History</h2>

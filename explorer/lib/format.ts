@@ -73,7 +73,7 @@ const LOCAL_MARK: Record<Fiat, { place: "prefix" | "suffix"; mark: string }> = {
  * Returns null when the text is not `number unit/byte`.
  */
 export function coinCostAtFeeRate(feeRate: string, bytes = TYPICAL_TX_BYTES, satsPerCoin = SATS_PER_COIN): number | null {
-  const match = /^(\d+(?:\.\d+)?)\s+([A-Za-z]+)\/byte$/.exec(feeRate.trim());
+  const match = /^(\d+(?:\.\d+)?)\s+([A-Za-z]+)\/(?:byte|vB)$/.exec(feeRate.trim());
   if (!match) return null;
   const perByte = Number(match[1]);
   if (!Number.isFinite(perByte) || satsPerCoin <= 0) return null;
@@ -139,9 +139,10 @@ export function formatDifficulty(value: number): string {
   return value.toPrecision(4);
 }
 
-export function formatSatPerByte(satPerByte: number) {
+/** `unit` is "vB" for Bitcoin, where fees are paid per virtual byte. */
+export function formatSatPerByte(satPerByte: number, unit: "byte" | "vB" = "byte") {
   const body = new Intl.NumberFormat("en-GB", { maximumFractionDigits: 2, useGrouping: false }).format(satPerByte);
-  return `${body} sat/byte`;
+  return `${body} sat/${unit}`;
 }
 
 export function formatRawAmount(amount: string) {

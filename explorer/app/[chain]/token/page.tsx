@@ -4,13 +4,13 @@ import { notFound } from "next/navigation";
 import { Frame } from "@/components/frame";
 import { TokenScreen } from "@/components/screens";
 import { LoadingState } from "@/components/states";
-import { chainOrder, getChain } from "@/lib/chains";
+import { getChain, tokenChains } from "@/lib/chains";
 import { onExplorer, rootSocial, socialMetadata, socialTitle } from "@/lib/social";
 
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return chainOrder.map((chain) => ({ chain }));
+  return tokenChains.map((chain) => ({ chain }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ chain: string }> }): Promise<Metadata> {
