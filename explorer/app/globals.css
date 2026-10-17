@@ -246,7 +246,8 @@ header.top .socialbar a.soc:focus-visible {
 }
 header.top .socialbar a.soc.text { white-space: normal; text-align: start; }
 .socialbar .ico { display: block; flex: none; }
-.socialbar .socicons { display: inline-flex; flex-wrap: nowrap; gap: 6px; }
+.socialbar .socicons { display: inline-flex; flex-wrap: nowrap; gap: 6px; order: 2; }
+.socialbar a.back { order: 1; }
 .socialbar .app {
   display: inline-flex;
   flex-wrap: wrap;
