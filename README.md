@@ -476,6 +476,10 @@ The mint Worker is `mintworker/` (`nordic-crypto-mint`, D1 `nordic-crypto-mint`,
 ## Electrum server (added 9 Oct 2026)
 Our own Electrum server for Bitcoin Cash and Nexa, so wallets and apps do not depend on public servers. It runs on a Hetzner Cloud server (`electrum-1`): Bitcoin Cash Node and Nexa, each with Rostrum on top. It is reachable on the standard Electrum ports: Nexa at `wss://electrum-nexa.nordiccrypto.no:20004` (TLS `:20002`) and BCH at `wss://electrum-bch.nordiccrypto.no:50004` (TLS `:50002`). This repo does not deploy it. Setup, services and upgrade steps are in [docs/electrum-server.md](docs/electrum-server.md).
 
+## Block explorer
+
+[explorer.nordiccrypto.no](https://explorer.nordiccrypto.no) (Bitcoin, Bitcoin Cash, Nexa) has its own repo: [nordic-crypto-org/nordic-explorer](https://github.com/nordic-crypto-org/nordic-explorer), with its deploy workflow, nginx config and the Nexa token-stats timer.
+
 ## Shoutbox
 One shared reader chat for every language. The front page can show a compact box (a sidebar on a wide screen, a collapsible block on a phone) and each language has `/chat/` (or `/sv/chat/` and so on). Every one of those pages reads and writes the same message list. Only the buttons and the house rules are translated. A small language tag can show which page a message was sent from. The messages themselves are not translated.
 
