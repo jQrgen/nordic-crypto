@@ -53,11 +53,66 @@ const fill = (s, v) => s.replace(/\{(\w+)\}/g, (m, k) => (k in v ? v[k] : m));
 export function text(lang, key, vars) { return fill((T[lang] || T.en)[key], vars || {}); }
 export function confirmEmail(site, lang, link) {
   const v = { name: SITES[site].name, site: SITES[site].base + (SITES[site].langs[lang] ?? ""), link };
-  return { subject: text(lang, "cs", v), text: text(lang, "cb", v) };
+  const subject = text(lang, "cs", v), body = text(lang, "cb", v);
+  return { subject, text: body, ...(site === "nordic-crypto" ? { html: emailHtml(site, lang, { title: subject, body, link, cta: true }) } : {}) };
 }
 export function welcomeEmail(site, lang, link) {
   const v = { name: SITES[site].name, site: SITES[site].base + (SITES[site].langs[lang] ?? ""), link };
   let body = text(lang, "wb", v);
   if (site === "nordic-crypto" && !body.includes("The Nordic Crypto team")) body += "The Nordic Crypto team\n";
-  return { subject: text(lang, "ws", v), text: body };
+  const subject = text(lang, "ws", v);
+  return { subject, text: body, ...(site === "nordic-crypto" ? { html: emailHtml(site, lang, { title: subject, body, link, cta: false }) } : {}) };
+}
+
+// ---- Branded HTML alternative (Langskip palette, see nordiccrypto.no/media). Table layout + inline CSS for email clients.
+// The text/plain body above stays the canonical version; html is sent alongside it.
+const C = { sail: "#F0F1EC", pine: "#1D1C1A", sea: "#1E3A45", gold: "#D9A034", foam: "#BFD3D3" };
+const F = { sans: "'Schibsted Grotesk',Helvetica,Arial,sans-serif", serif: "'Cormorant Garamond',Georgia,'Times New Roman',serif",
+  mono: "'IBM Plex Mono',Menlo,Consolas,monospace" };
+const LOGO = SITE_BASE + "assets/brand/mark-192.png";   // PNG on the live site (no SVG in email)
+const B = {
+  en: { btn: "Confirm subscription", alt: "Or copy this link into your browser:", visit: "Visit the site" },
+  nn: { btn: "Stadfest abonnementet", alt: "Eller kopier denne lenkja inn i nettlesaren:", visit: "Gå til nettstaden" },
+  nb: { btn: "Bekreft abonnementet", alt: "Eller kopier denne lenken inn i nettleseren:", visit: "Gå til nettstedet" },
+  sv: { btn: "Bekräfta prenumerationen", alt: "Eller kopiera länken till din webbläsare:", visit: "Besök webbplatsen" },
+  da: { btn: "Bekræft abonnementet", alt: "Eller kopiér linket ind i din browser:", visit: "Besøg sitet" },
+  fi: { btn: "Vahvista tilaus", alt: "Tai kopioi tämä linkki selaimeesi:", visit: "Siirry sivustolle" },
+  is: { btn: "Staðfesta áskrift", alt: "Eða afritaðu tengilinn í vafrann:", visit: "Fara á vefinn" },
+};
+const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
+const para = (t) => `<p style="margin:0 0 16px;font-family:${F.sans};font-size:16px;line-height:1.55;color:${C.pine}">${esc(t).replace(/\n/g, "<br>")}</p>`;
+const button = (href, label) => `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin:8px 0 24px"><tr>` +
+  `<td bgcolor="${C.gold}" style="border-radius:6px;background:${C.gold}"><a href="${esc(href)}" style="display:inline-block;padding:16px 32px;font-family:${F.sans};font-size:18px;font-weight:700;color:${C.pine};text-decoration:none;border-radius:6px">${esc(label)} &rarr;</a></td></tr></table>`;
+const linkLine = (lang, href) => `<p style="margin:0 0 20px;font-family:${F.sans};font-size:13px;color:${C.sea}">${esc((B[lang] || B.en).alt)}<br>` +
+  `<a href="${esc(href)}" style="font-family:${F.mono};font-size:12px;color:${C.sea};word-break:break-all">${esc(href)}</a></p>`;
+
+export function emailHtml(site, lang, { title, body, link, cta }) {
+  const s = SITES[site], home = s.base + (s.langs[lang] ?? ""), b = B[lang] || B.en;
+  // Split the plain body: the bare link line becomes the button (or link block), the "{name} – {site}" sign-off goes to the footer.
+  const blocks = body.trim().split(/\n\n+/).filter((p) => !p.startsWith(s.name + " – "));
+  const inner = blocks.map((p) => {
+    if (p.trim() === link) return cta ? button(link, b.btn) + linkLine(lang, link) : "";
+    if (p.includes("\n" + link)) return para(p.replace("\n" + link, "")) + (cta ? "" : linkLine(lang, link).replace(esc(b.alt) + "<br>", ""));
+    return para(p);
+  }).join("");
+  return `<!doctype html><html lang="${esc(lang)}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">` +
+    `<meta name="color-scheme" content="light"><title>${esc(title)}</title></head>` +
+    `<body style="margin:0;padding:0;background:${C.sail}">` +
+    `<div style="display:none;max-height:0;overflow:hidden">${esc(title)}</div>` +
+    `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" bgcolor="${C.sail}" style="background:${C.sail}"><tr><td align="center" style="padding:24px 12px">` +
+    `<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background:#ffffff;border:1px solid ${C.foam};border-radius:8px;overflow:hidden">` +
+    // North Sea band with logo + wordmark
+    `<tr><td bgcolor="${C.sea}" style="background:${C.sea};padding:22px 28px;border-bottom:4px solid ${C.gold}">` +
+    `<table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr>` +
+    `<td style="padding-right:14px"><img src="${esc(LOGO)}" width="48" height="48" alt="" style="display:block;border:0"></td>` +
+    `<td><div style="font-family:${F.serif};font-size:28px;font-weight:600;line-height:1;color:${C.sail}">${esc(s.name)}</div>` +
+    `<div style="font-family:${F.mono};font-size:11px;letter-spacing:2px;text-transform:uppercase;color:${C.gold};padding-top:6px">Newsletter</div></td>` +
+    `</tr></table></td></tr>` +
+    `<tr><td style="padding:32px 28px 8px">` +
+    `<h1 style="margin:0 0 20px;font-family:${F.serif};font-size:30px;line-height:1.15;font-weight:600;color:${C.pine}">${esc(title)}</h1>` +
+    inner + `</td></tr>` +
+    `<tr><td style="padding:0 28px"><div style="border-top:1px solid ${C.foam};font-size:0;line-height:0">&nbsp;</div></td></tr>` +
+    `<tr><td style="padding:18px 28px 26px;font-family:${F.mono};font-size:12px;color:${C.sea}">` +
+    `${esc(s.name)} &middot; <a href="${esc(home)}" style="color:${C.sea}">${esc(b.visit)}</a></td></tr>` +
+    `</table></td></tr></table></body></html>`;
 }
