@@ -64,9 +64,6 @@ export function SiteLinks() {
           </a>
         );
       })}
-      <a className="soc text back" href={newsSite.href} rel="noopener">
-        {newsSite.label}
-      </a>
       <span className="socicons">
         {siteLinks
           .filter((l) => l.variant === "icon")
@@ -76,6 +73,9 @@ export function SiteLinks() {
             </a>
           ))}
       </span>
+      <a className="soc text back" href={newsSite.href} rel="noopener">
+        {newsSite.label}
+      </a>
     </nav>
   );
 }
