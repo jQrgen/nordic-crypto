@@ -16,7 +16,7 @@ import {
   rowsFromEstimates,
   sideFrom,
 } from "./protocol";
-import { documentIcon, knownTokenIcon } from "./known-tokens";
+import { knownTokenIcon } from "./known-tokens";
 import type { SubgroupRow, AddressModel, BlockModel, ChainId, FeeRow, OverviewModel, TokenModel, TxModel, TxSide } from "./types";
 
 const HISTORY_LIMIT = 40;
@@ -220,7 +220,7 @@ export async function loadToken(session: Session, id: string): Promise<TokenMode
   try {
     const raw = await session.call("token.genesis.info", [text]);
     const token = mapTokenInfo(session.chain, text, raw);
-    const icon = knownTokenIcon(session.chain, text) ?? knownTokenIcon(session.chain, token.id) ?? (await documentIcon(token.documentUrl));
+    const icon = knownTokenIcon(session.chain, text) ?? knownTokenIcon(session.chain, token.id);
     return { ...token, icon };
   } catch {
     throw new MissingError("The server has no genesis record for that token.");

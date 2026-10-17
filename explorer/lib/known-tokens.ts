@@ -30,20 +30,3 @@ export function knownTokenIcon(chain: ChainId, id: string): string | null {
   if (!isKnownToken(chain, group) || noIcon.has(group)) return null;
   return `/tokens/nexa/${group.slice("nexa:".length)}.png`;
 }
-
-// Best effort: the token document's "icon" field (needs CORS on the document host).
-export async function documentIcon(url: string | null): Promise<string | null> {
-  if (!url || !/^https?:\/\//i.test(url)) return null;
-  try {
-    const res = await fetch(url, { signal: AbortSignal.timeout(5000) });
-    if (!res.ok) return null;
-    const doc: unknown = await res.json();
-    const head = Array.isArray(doc) ? doc[0] : doc;
-    const icon = head && typeof head === "object" ? (head as { icon?: unknown }).icon : null;
-    if (typeof icon !== "string" || !icon) return null;
-    const abs = new URL(icon, url);
-    return abs.protocol === "https:" || abs.protocol === "http:" ? abs.href : null;
-  } catch {
-    return null;
-  }
-}
