@@ -34,7 +34,7 @@
    "type": "string",
    "description": "YYYY-MM-DD the figures were written down.",
    "examples": [
-    "2026-10-13"
+    "2026-10-17"
    ]
   },
   "quote": {
@@ -136,7 +136,7 @@
     "type": {
      "type": "string",
      "examples": [
-      "cx43"
+      "cx33"
      ]
     },
     "place": {
@@ -148,14 +148,14 @@
     "runs": {
      "type": "string",
      "examples": [
-      "Electrum servers, Lightning node, Bitcoin/Nexa/BCH nodes, explorer"
+      "Electrum servers, Lightning node, Nexa/BCH nodes, explorer"
      ]
     },
     "amount": {
      "type": "string",
      "description": "Monthly amount, decimal string.",
      "examples": [
-      "15.99"
+      "8.99"
      ]
     },
     "currency": {
@@ -190,7 +190,7 @@
     "gb": {
      "type": "string",
      "examples": [
-      "1500"
+      "500"
      ]
     },
     "unit_price": {
