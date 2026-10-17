@@ -1,6 +1,6 @@
 # Nordic Crypto Explorer
 
-Bitcoin Cash, Nexa and Bitcoin explorer at [explorer.nordiccrypto.no](https://explorer.nordiccrypto.no). It uses the same North Sea, sea foam and gold, and the same type, as [nordiccrypto.no](https://nordiccrypto.no).
+Bitcoin, Bitcoin Cash and Nexa explorer at [explorer.nordiccrypto.no](https://explorer.nordiccrypto.no). It uses the same North Sea, sea foam and gold, and the same type, as [nordiccrypto.no](https://nordiccrypto.no).
 
 Figures are read in the browser. The site is a Next.js static export: there is no Node server in production. Each page opens an Electrum WebSocket, asks the primary server, and moves to the next server if that one does not answer within a few seconds. The line under the title names the server that answered. Fiat prices come from CoinGecko; if that request fails, amounts stay in coins.
 
@@ -48,7 +48,7 @@ npm install
 npm run dev
 ```
 
-Open http://127.0.0.1:43123. Bitcoin Cash is the front page. Nexa is at `/nexa`, Bitcoin at `/btc`.
+Open http://127.0.0.1:43123. Bitcoin is the front page. Bitcoin Cash is at `/bch`, Nexa at `/nexa`.
 
 ```sh
 npm test

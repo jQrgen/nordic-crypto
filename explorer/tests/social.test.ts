@@ -46,11 +46,11 @@ test("the share card is absolute https and names Nordic Crypto", () => {
   assert.equal(meta.twitter && "site" in meta.twitter ? meta.twitter.site : "", TWITTER_SITE);
 });
 
-test("the root card is the Bitcoin Cash explorer", () => {
+test("the root card is the Bitcoin explorer", () => {
   const meta = rootSocial();
   const title = meta.title;
   assert.ok(title && typeof title === "object" && "absolute" in title);
-  assert.equal(title.absolute, chainExplorerTitle("Bitcoin Cash"));
+  assert.equal(title.absolute, chainExplorerTitle("Bitcoin"));
   const graph = meta.openGraph;
   assert.ok(graph && "url" in graph);
   assert.equal(graph.url, "https://explorer.nordiccrypto.no/");
