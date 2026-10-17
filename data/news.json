@@ -1,6 +1,87 @@
 {
  "items": [
   {
+   "id": "8bb058436b71",
+   "url": "https://kauppalehti.fi/uutiset/a/c035c9ec-b632-4590-a416-92de4fa03995",
+   "title": "Bitcoin heräsi ryminällä – Nyt markkina odottaa yhtä selvää merkkiä",
+   "title_en": null,
+   "source": "kauppalehti",
+   "source_name": "Kauppalehti",
+   "country": "FI",
+   "language": "Finnish",
+   "via": "bing-fi",
+   "seen_via": [
+    "bing-fi"
+   ],
+   "published": "2026-10-16T11:00:00+00:00",
+   "fetched": "2026-10-17T01:45:06+00:00",
+   "topics": [
+    "bitcoin",
+    "crypto"
+   ],
+   "matched": [
+    "\\bbitcoin\\w*",
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": true,
+   "status": "pending",
+   "summary": null
+  },
+  {
+   "id": "2cb0ee76f54a",
+   "url": "https://sagat.no/avviser-krypto-pa-kammerset-pastand/19.60032",
+   "title": "Avviser krypto-på-kammerset-påstand",
+   "title_en": null,
+   "source": "sagat",
+   "source_name": "Ságat",
+   "country": "NO",
+   "language": "Norwegian",
+   "via": "bing-no-kn",
+   "seen_via": [
+    "bing-no-kn",
+    "sagat"
+   ],
+   "published": "2026-10-16T10:24:41+00:00",
+   "fetched": "2026-10-17T01:45:06+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*"
+   ],
+   "paywall": true,
+   "status": "pending",
+   "summary": null
+  },
+  {
+   "id": "e10c4ddf9f01",
+   "url": "https://kryptovalutaguiden.se/2026/10/canton-gar-in-i-sydkorea-vill-tokenisera-landets-finansmarknad",
+   "title": "Canton går in i Sydkorea – vill tokenisera landets finansmarknad",
+   "title_en": null,
+   "source": "kryptovalutaguiden",
+   "source_name": "Kryptovalutaguiden",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "kryptovalutaguiden",
+   "seen_via": [
+    "kryptovalutaguiden"
+   ],
+   "published": "2026-10-16T00:27:02+00:00",
+   "fetched": "2026-10-17T01:45:06+00:00",
+   "topics": [
+    "blockchain",
+    "crypto"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*",
+    "\\bkryptovaluta\\w*",
+    "\\btokeni[sz]\\w*"
+   ],
+   "paywall": false,
+   "status": "pending",
+   "summary": null
+  },
+  {
    "id": "1ef937dc2654",
    "url": "https://altaposten.no/nyheter/n/Jr3n17/etablering-i-kautokeino-hvor-vanlig-er-utvinning-av-krypto",
    "title": "Kryptokamp i Kautokeino: – Hvor vanlig er utvinning?",
@@ -150,6 +231,33 @@
    "summary_i18n_review": "approved"
   },
   {
+   "id": "ce72c9215962",
+   "url": "https://kaupr.io/nyheter/den-svenske-riksbanken-ber-riksdagen-forberede-en-digital-krona",
+   "title": "Den svenske Riksbanken ber Riksdagen forberede en digital krona",
+   "title_en": null,
+   "source": "kaupr",
+   "source_name": "Kaupr",
+   "country": "SE",
+   "language": "Norwegian",
+   "via": "kaupr-se",
+   "seen_via": [
+    "kaupr-se"
+   ],
+   "published": "2026-10-15",
+   "fetched": "2026-10-17T01:45:06+00:00",
+   "topics": [
+    "crypto",
+    "regulation"
+   ],
+   "matched": [
+    "\\bstablecoin\\w*"
+   ],
+   "paywall": false,
+   "status": "pending",
+   "summary": null,
+   "published_date_only": true
+  },
+  {
    "id": "63c4a7af3b37",
    "url": "https://podcasters.spotify.com/pod/show/andreas-harding2/episodes/76-HKON-REISVANG---Nr-samfunnet-styres-av-sosiopater-e3qh267",
    "title": "#76 HÅKON REISVANG - Når samfunnet styres av sosiopater.",
@@ -172,6 +280,32 @@
    "status": "rejected",
    "summary": null,
    "reject_reason": "Podcast episode not about crypto; the only crypto content is a sponsor deal (Bare Bitcoin) with a referral code, which is paid content, not news. Source check 2026-10-15."
+  },
+  {
+   "id": "fdaeb7b07aee",
+   "url": "https://kryptovalutaguiden.se/2026/10/kraken-koper-finskagda-saldo-bank-och-far-bankverksamhet-i-sverige",
+   "title": "Kraken köper finskägda Saldo Bank och får bankverksamhet i Sverige",
+   "title_en": null,
+   "source": "kryptovalutaguiden",
+   "source_name": "Kryptovalutaguiden",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "kryptovalutaguiden",
+   "seen_via": [
+    "kryptovalutaguiden"
+   ],
+   "published": "2026-10-14T20:50:05+00:00",
+   "fetched": "2026-10-17T01:45:06+00:00",
+   "topics": [
+    "crypto"
+   ],
+   "matched": [
+    "\\bkrypto(?!graf)\\w*",
+    "\\bkryptovaluta\\w*"
+   ],
+   "paywall": false,
+   "status": "pending",
+   "summary": null
   },
   {
    "id": "5285674a58d8",
@@ -260,6 +394,34 @@
    "summary": null,
    "merged_into": "5285674a58d8",
    "reject_reason": "Duplicate of 5285674a58d8 (Yle, same Schueler arrest report). Source check 2026-10-15."
+  },
+  {
+   "id": "91b3ef49e216",
+   "url": "https://kryptovalutaguiden.se/2026/10/usas-inflation-stiger-bitcoin-och-guld-rasar",
+   "title": "USA’s inflation stiger, bitcoin och guld rasar…",
+   "title_en": null,
+   "source": "kryptovalutaguiden",
+   "source_name": "Kryptovalutaguiden",
+   "country": "SE",
+   "language": "Swedish",
+   "via": "kryptovalutaguiden",
+   "seen_via": [
+    "kryptovalutaguiden"
+   ],
+   "published": "2026-10-14T14:59:00+00:00",
+   "fetched": "2026-10-17T01:45:06+00:00",
+   "topics": [
+    "bitcoin",
+    "crypto"
+   ],
+   "matched": [
+    "\\bbitcoin\\w*",
+    "\\bkrypto(?!graf)\\w*",
+    "\\bkryptovaluta\\w*"
+   ],
+   "paywall": false,
+   "status": "pending",
+   "summary": null
   },
   {
    "id": "e7665f6b5021",
@@ -4880,5 +5042,5 @@
    "summary_i18n_review": "approved"
   }
  ],
- "updated": "2026-10-16T01:49:46+00:00"
+ "updated": "2026-10-17T01:45:06+00:00"
 }

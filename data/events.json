@@ -387,6 +387,38 @@
    }
   },
   {
+   "id": "e8e2b767dca6",
+   "title": "Uppsala Bitcoin Meetup",
+   "start": "2026-11-13T18:00:00+01:00",
+   "end": "2026-11-13T20:30:00+01:00",
+   "place": "L'alessandro, Vaksalagatan 24, 753 31, Uppsala",
+   "city": "Uppsala",
+   "country": "SE",
+   "online": false,
+   "organiser": "Swedish Bitcoin Meetups",
+   "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/317015057/",
+   "source": "Swedish Bitcoin Meetups (Meetup.com)",
+   "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/",
+   "paid": null,
+   "sponsored": null,
+   "trusted_source": true,
+   "found": "2026-10-17T02:20:26+00:00",
+   "status": "pending",
+   "note": null,
+   "place_source": {
+    "name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "url": "https://www.meetup.com/swedish-bitcoin-meetups/events/317015057/",
+    "retrieved": "2026-10-17T02:20:26+00:00"
+   },
+   "description": {
+    "text": "A casual meetup for Bitcoiners and anyone curious about Bitcoin. Meet new people, exchange ideas and talk about everything from Bitcoin and Lightning to sovereignty, Nostr, technology, etc. Whether you’ve been into Bitcoin for years or are just starting to explore it, you’re welcome. Bitcoin only. No crypto Please RSVP “Going” if you plan to attend so we can reserve enough seats at the restaurant, and update your RSVP if your plans change.",
+    "lang": "en",
+    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/317015057/",
+    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
+    "retrieved": "2026-10-17T02:20:26+00:00"
+   }
+  },
+  {
    "id": "7adc8e1ede97",
    "title": "Krypto-skatt v/ Reese Legal",
    "start": "2026-11-25T17:00:00+01:00",
@@ -522,5 +554,5 @@
    }
   }
  ],
- "updated": "2026-10-16T10:56:23+00:00"
+ "updated": "2026-10-17T02:20:26+00:00"
 }
