@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-17T05:41:20+00:00",
+ "generated_at": "2026-10-17T05:48:17+00:00",
  "preview": false,
  "item": {
   "id": "e8e2b767dca6",
@@ -20,12 +20,12 @@
   "sponsored": null,
   "note": "Informal Bitcoin-only meetup at a restaurant in Uppsala. No entry fee is listed; please RSVP on Meetup.",
   "note_i18n": {
-   "nn": "Uformelt treff berre om bitcoin på ein restaurant i Uppsala. Det er ikkje oppgitt nokon inngangspris; meld deg på via Meetup.",
-   "nb": "Uformelt treff kun om bitcoin på en restaurant i Uppsala. Det er ikke oppgitt noen inngangspris; meld deg på via Meetup.",
-   "sv": "Informell träff enbart om bitcoin på en restaurang i Uppsala. Ingen entréavgift anges; anmäl dig via Meetup.",
    "da": "Uformelt træf kun om bitcoin på en restaurant i Uppsala. Der er ikke angivet nogen entré; tilmeld dig via Meetup.",
    "fi": "Epämuodollinen vain bitcoiniin keskittyvä tapaaminen ravintolassa Uppsalassa. Pääsymaksua ei ole ilmoitettu; ilmoittaudu Meetupissa.",
-   "is": "Óformlegur hittingur eingöngu um bitcoin á veitingastað í Uppsölum. Enginn aðgangseyrir er tilgreindur; skráðu þig á Meetup."
+   "is": "Óformlegur hittingur eingöngu um bitcoin á veitingastað í Uppsölum. Enginn aðgangseyrir er tilgreindur; skráðu þig á Meetup.",
+   "nb": "Uformelt treff kun om bitcoin på en restaurant i Uppsala. Det er ikke oppgitt noen inngangspris; meld deg på via Meetup.",
+   "nn": "Uformelt treff berre om bitcoin på ein restaurant i Uppsala. Det er ikkje oppgitt nokon inngangspris; meld deg på via Meetup.",
+   "sv": "Informell träff enbart om bitcoin på en restaurang i Uppsala. Ingen entréavgift anges; anmäl dig via Meetup."
   },
   "description": {
    "text": "A casual meetup for Bitcoiners and anyone curious about Bitcoin. Meet new people, exchange ideas and talk about everything from Bitcoin and Lightning to sovereignty, Nostr, technology, etc. Whether you’ve been into Bitcoin for years or are just starting to explore it, you’re welcome. Bitcoin only. No crypto Please RSVP “Going” if you plan to attend so we can reserve enough seats at the restaurant, and update your RSVP if your plans change.",

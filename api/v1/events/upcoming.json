@@ -1,9 +1,9 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-17T05:41:20+00:00",
+ "generated_at": "2026-10-17T05:48:17+00:00",
  "preview": false,
- "count": 13,
+ "count": 14,
  "events": [
   {
    "id": "16b9aa68f972",
@@ -68,6 +68,68 @@
    }
   },
   {
+   "id": "dde3d01aa7af",
+   "title": "Har bankene kuppet kryptorevolusjonen?",
+   "title_original": null,
+   "start": "2026-10-24T18:30:00+02:00",
+   "end": "2026-10-24T19:15:00+02:00",
+   "place": "Vingtor",
+   "city": "Stavanger",
+   "country": "NO",
+   "online": false,
+   "organiser": "KÅKÅ",
+   "url": "https://www.kaakaa.no/program/har-bankene-kuppet-kryptorevolusjonen",
+   "source": "KÅKÅ",
+   "paid": null,
+   "sponsored": null,
+   "note": null,
+   "note_i18n": {},
+   "description": {
+    "text": "Når bankene omfavner kryptovaluta, hvem får makten over framtidens penger? Morten Søberg, Peder Østbye og Kyrre Martinius Knudsen Bitcoin og kryptovaluta ble født ut av en mistillit til bankene, sentralbankene og det etablerte pengesystemet. Nå er utviklingen i ferd med å ta en merkelig vending. Verdens største banker begynner å lage sine egne kryptobaserte penger, mens stablecoins, tokenisering og blokkjedeteknologi flytter stadig lenger inn i den tradisjonelle finansverdenen. Har bankene kuppet kryptorevolusjonen, eller er dette tvert imot beviset på at kryptorevolusjonen har vunnet?",
+    "lang": "nb",
+    "source_url": "https://www.kaakaa.no/program/har-bankene-kuppet-kryptorevolusjonen",
+    "source_name": "KÅKÅ",
+    "retrieved": "2026-10-16T10:56:23+00:00",
+    "i18n": {}
+   },
+   "past": false,
+   "ongoing": false,
+   "phase": "upcoming",
+   "phase_end": "2026-10-24T19:15:00+02:00",
+   "html_url": "https://nordiccrypto.no/calendar/dde3d01aa7af/",
+   "html_urls": {
+    "en": "https://nordiccrypto.no/calendar/dde3d01aa7af/",
+    "nn": "https://nordiccrypto.no/nn/calendar/dde3d01aa7af/",
+    "nb": "https://nordiccrypto.no/nb/calendar/dde3d01aa7af/",
+    "sv": "https://nordiccrypto.no/sv/calendar/dde3d01aa7af/",
+    "da": "https://nordiccrypto.no/da/calendar/dde3d01aa7af/",
+    "fi": "https://nordiccrypto.no/fi/calendar/dde3d01aa7af/",
+    "is": "https://nordiccrypto.no/is/calendar/dde3d01aa7af/",
+    "zh": "https://nordiccrypto.no/zh/calendar/dde3d01aa7af/",
+    "hi": "https://nordiccrypto.no/hi/calendar/dde3d01aa7af/",
+    "es": "https://nordiccrypto.no/es/calendar/dde3d01aa7af/",
+    "fr": "https://nordiccrypto.no/fr/calendar/dde3d01aa7af/",
+    "ar": "https://nordiccrypto.no/ar/calendar/dde3d01aa7af/",
+    "bn": "https://nordiccrypto.no/bn/calendar/dde3d01aa7af/",
+    "pt": "https://nordiccrypto.no/pt/calendar/dde3d01aa7af/",
+    "ru": "https://nordiccrypto.no/ru/calendar/dde3d01aa7af/",
+    "ur": "https://nordiccrypto.no/ur/calendar/dde3d01aa7af/",
+    "id": "https://nordiccrypto.no/id/calendar/dde3d01aa7af/",
+    "de": "https://nordiccrypto.no/de/calendar/dde3d01aa7af/",
+    "ja": "https://nordiccrypto.no/ja/calendar/dde3d01aa7af/",
+    "sw": "https://nordiccrypto.no/sw/calendar/dde3d01aa7af/",
+    "mr": "https://nordiccrypto.no/mr/calendar/dde3d01aa7af/",
+    "fa": "https://nordiccrypto.no/fa/calendar/dde3d01aa7af/",
+    "uk": "https://nordiccrypto.no/uk/calendar/dde3d01aa7af/"
+   },
+   "api_url": "https://nordiccrypto.no/api/v1/events/dde3d01aa7af.json",
+   "place_source": {
+    "name": "KÅKÅ",
+    "url": "https://www.kaakaa.no/program/har-bankene-kuppet-kryptorevolusjonen",
+    "retrieved": "2026-10-16T10:56:23+00:00"
+   }
+  },
+  {
    "id": "a1ea7afabcb0",
    "title": "Oslo Blockchain Meetup - Nexa",
    "title_original": null,
@@ -84,12 +146,12 @@
    "sponsored": null,
    "note": "Disclosure: the speaker, Jørgen S. Notland, is the publisher of Nordic Crypto.",
    "note_i18n": {
-    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
-    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
-    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto.",
     "da": "Oplysning: foredragsholderen, Jørgen S. Notland, er udgiver af Nordic Crypto.",
     "fi": "Tiedoksi: puhuja Jørgen S. Notland on Nordic Crypton julkaisija.",
-    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto."
+    "is": "Til upplýsingar: fyrirlesarinn, Jørgen S. Notland, er útgefandi Nordic Crypto.",
+    "nb": "Til opplysning: foredragsholderen, Jørgen S. Notland, er utgiver av Nordic Crypto.",
+    "nn": "Til opplysing: foredragshaldaren, Jørgen S. Notland, er utgjevar av Nordic Crypto.",
+    "sv": "Upplysning: talaren, Jørgen S. Notland, är utgivare av Nordic Crypto."
    },
    "description": {
     "text": "Nexa blockchain: Scaling Bitcoin Tech-demo m/overraskelse og pizza! At this event jQrgen, member of Bitcoin Unlimited that works with the Nexa blockchain project will present what is unique about the Nexa blockchain. The Bitcoin Unlimited team has a long history of working with core Bitcoin and Bitcoin Cash software. The Nexa blockchain is the latest project. Nexa is a work in progress software-fork of Bitcoin/Bitcoin Cash with its own genesis block.",
@@ -498,12 +560,12 @@
    "sponsored": null,
    "note": "Informal Bitcoin-only meetup at a restaurant in Uppsala. No entry fee is listed; please RSVP on Meetup.",
    "note_i18n": {
-    "nn": "Uformelt treff berre om bitcoin på ein restaurant i Uppsala. Det er ikkje oppgitt nokon inngangspris; meld deg på via Meetup.",
-    "nb": "Uformelt treff kun om bitcoin på en restaurant i Uppsala. Det er ikke oppgitt noen inngangspris; meld deg på via Meetup.",
-    "sv": "Informell träff enbart om bitcoin på en restaurang i Uppsala. Ingen entréavgift anges; anmäl dig via Meetup.",
     "da": "Uformelt træf kun om bitcoin på en restaurant i Uppsala. Der er ikke angivet nogen entré; tilmeld dig via Meetup.",
     "fi": "Epämuodollinen vain bitcoiniin keskittyvä tapaaminen ravintolassa Uppsalassa. Pääsymaksua ei ole ilmoitettu; ilmoittaudu Meetupissa.",
-    "is": "Óformlegur hittingur eingöngu um bitcoin á veitingastað í Uppsölum. Enginn aðgangseyrir er tilgreindur; skráðu þig á Meetup."
+    "is": "Óformlegur hittingur eingöngu um bitcoin á veitingastað í Uppsölum. Enginn aðgangseyrir er tilgreindur; skráðu þig á Meetup.",
+    "nb": "Uformelt treff kun om bitcoin på en restaurant i Uppsala. Det er ikke oppgitt noen inngangspris; meld deg på via Meetup.",
+    "nn": "Uformelt treff berre om bitcoin på ein restaurant i Uppsala. Det er ikkje oppgitt nokon inngangspris; meld deg på via Meetup.",
+    "sv": "Informell träff enbart om bitcoin på en restaurang i Uppsala. Ingen entréavgift anges; anmäl dig via Meetup."
    },
    "description": {
     "text": "A casual meetup for Bitcoiners and anyone curious about Bitcoin. Meet new people, exchange ideas and talk about everything from Bitcoin and Lightning to sovereignty, Nostr, technology, etc. Whether you’ve been into Bitcoin for years or are just starting to explore it, you’re welcome. Bitcoin only. No crypto Please RSVP “Going” if you plan to attend so we can reserve enough seats at the restaurant, and update your RSVP if your plans change.",
@@ -767,12 +829,12 @@
    "sponsored": null,
    "note": "Falls on New Year's Day: check the organiser's page before you go.",
    "note_i18n": {
-    "nn": "Fell på første nyttårsdag: sjekk sida til arrangøren før du dreg.",
-    "nb": "Faller på første nyttårsdag: sjekk arrangørens side før du drar.",
-    "sv": "Infaller på nyårsdagen: kontrollera arrangörens sida innan du går.",
     "da": "Falder på nytårsdag: tjek arrangørens side, før du tager afsted.",
     "fi": "Osuu uudenvuodenpäivälle: tarkista järjestäjän sivu ennen lähtöä.",
-    "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð."
+    "is": "Ber upp á nýársdag: athugaðu síðu skipuleggjandans áður en þú ferð.",
+    "nb": "Faller på første nyttårsdag: sjekk arrangørens side før du drar.",
+    "nn": "Fell på første nyttårsdag: sjekk sida til arrangøren før du dreg.",
+    "sv": "Infaller på nyårsdagen: kontrollera arrangörens sida innan du går."
    },
    "description": {
     "text": "Bitcoin meetup - meet the local bitcoiners, network, present your projects and ideas or just hang out! Topics include everything that remotely touches Bitcoin.",
