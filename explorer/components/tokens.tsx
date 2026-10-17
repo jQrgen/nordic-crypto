@@ -8,6 +8,7 @@ import { fetchTokenDoc, safeHttpUrl, type TokenDoc } from "@/lib/token-doc";
 import { useRouter } from "next/navigation";
 import { chains } from "@/lib/chains";
 import { formatNumber, shortId } from "@/lib/format";
+import { knownTokenIcon } from "@/lib/known-tokens";
 import { blockHref, tokenHref, txHref } from "@/lib/routes";
 import type { ChainId, SubgroupRow, TokenModel } from "@/lib/types";
 
@@ -20,7 +21,7 @@ export function TokenLookup({ chainId }: { chainId: ChainId }) {
       <h1>{chainId === "nexa" ? "Group tokens" : "CashTokens"}</h1>
       <p className="lead">
         {chainId === "nexa"
-          ? "Nexa carries tokens in the same transaction as the coin. Paste a group id to ask the server for its genesis record. There is no list of every token."
+          ? "Nexa carries tokens in the same transaction as the coin. Paste a group id to ask the server for its genesis record, or pick one from the list below."
           : "Bitcoin Cash carries tokens as CashTokens. Paste a category id to ask the server for its genesis record. There is no list of every token."}
       </p>
       <form
@@ -39,7 +40,74 @@ export function TokenLookup({ chainId }: { chainId: ChainId }) {
         <input id="token-id" name="id" placeholder="Token id" autoComplete="off" />
         <button type="submit">Look up</button>
       </form>
+      {chainId === "nexa" ? <TopTokens chainId={chainId} /> : null}
     </>
+  );
+}
+
+type TokenStats = {
+  source: string;
+  fetchedAt: string;
+  lastBlock: number;
+  tokens: { id: string; name: string | null; ticker: string | null; txs: number; holders: number }[];
+};
+
+function TopTokens({ chainId }: { chainId: ChainId }) {
+  const [data, setData] = useState<TokenStats | null | "failed">(null);
+  const [all, setAll] = useState(false);
+  useEffect(() => {
+    fetch(`/data/${chainId}-tokens.json`)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d: TokenStats) => setData(Array.isArray(d.tokens) ? d : "failed"))
+      .catch(() => setData("failed"));
+  }, [chainId]);
+  if (data === null) return <p className="muted">Loading the token list…</p>;
+  if (data === "failed") return <p className="muted">The token list is not available right now.</p>;
+  const rows = all ? data.tokens : data.tokens.slice(0, 50);
+  return (
+    <section className="toptokens">
+      <h2>Tokens by transfers</h2>
+      <p className="muted">
+        {formatNumber(data.tokens.length)} tokens, most transfers first. Source: <a href={data.source}>explorer.nexa.org Token Tracker</a>, block{" "}
+        {formatNumber(data.lastBlock)}, fetched {new Date(data.fetchedAt).toLocaleString()}.
+      </p>
+      <table className="ledger">
+        <thead>
+          <tr>
+            <th className="r">#</th>
+            <th>Token</th>
+            <th className="r">Transfers</th>
+            <th className="r">Holders</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((t, i) => {
+            const icon = knownTokenIcon(chainId, t.id);
+            return (
+              <tr key={t.id}>
+                <td className="r">{i + 1}</td>
+                <td>
+                  <Link href={tokenHref(chainId, t.id)} className="toptoken">
+                    {icon ? <img src={icon} alt="" width={24} height={24} /> : <span className="noicon" aria-hidden="true" />}
+                    <span>
+                      {t.name ?? shortId(t.id, 12, 6)}
+                      {t.ticker ? <span className="muted"> {t.ticker}</span> : null}
+                    </span>
+                  </Link>
+                </td>
+                <td className="r">{formatNumber(t.txs)}</td>
+                <td className="r">{formatNumber(t.holders)}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+      {!all && data.tokens.length > rows.length ? (
+        <button type="button" onClick={() => setAll(true)}>
+          Show all {formatNumber(data.tokens.length)}
+        </button>
+      ) : null}
+    </section>
   );
 }
 

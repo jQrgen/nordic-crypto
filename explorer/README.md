@@ -45,3 +45,5 @@ npm test
 npm run lint
 npm run build
 ```
+
+The Nexa tokens page reads `/data/nexa-tokens.json`, written hourly on the server by `deploy/token-stats.mjs` (`token-stats.service` + `token-stats.timer`) from the [explorer.nexa.org Token Tracker](https://explorer.nexa.org/tokens). nginx serves it from `/var/www/explorer-data/` (see `deploy/nginx-explorer.conf`).
