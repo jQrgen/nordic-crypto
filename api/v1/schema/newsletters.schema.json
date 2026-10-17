@@ -1,0 +1,289 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/newsletters.schema.json",
+ "title": "Newsletters",
+ "description": "Published issues in newsletter/published/issues.json. Drafts under newsletter/issues/ are not part of this schema. Subscriber addresses are a private store and are not in this file.",
+ "x-nordic": {
+  "id": "newsletters",
+  "order": 40,
+  "files": [
+   "newsletter/published/issues.json"
+  ],
+  "pages": [
+   "/newsletter/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/newsletters.json",
+    "note": "Published issues, without the HTML body"
+   },
+   {
+    "path": "/api/v1/newsletters/{id}.json",
+    "note": "One issue, including text and HTML"
+   }
+  ],
+  "relations": [],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "issue",
+    "title": "Issue",
+    "row": "#/$defs/issue"
+   }
+  ],
+  "row": "#/$defs/issue"
+ },
+ "type": "object",
+ "properties": {
+  "_how_to": {
+   "type": "string"
+  },
+  "issues": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/issue"
+   }
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "_how_to",
+  "issues"
+ ],
+ "$defs": {
+  "issue": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "description": "Issue id, such as 001.",
+     "examples": [
+      "002"
+     ]
+    },
+    "number": {
+     "type": "integer",
+     "description": "Issue number.",
+     "examples": [
+      2
+     ]
+    },
+    "date": {
+     "type": "string",
+     "description": "Publication date, YYYY-MM-DD.",
+     "examples": [
+      "2026-10-12"
+     ]
+    },
+    "period": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "2026-10-05"
+      ]
+     },
+     "description": "Start and end dates the issue covers, YYYY-MM-DD.",
+     "examples": [
+      [
+       "2026-10-05",
+       "2026-10-12"
+      ]
+     ]
+    },
+    "lang": {
+     "type": "string",
+     "examples": [
+      "en"
+     ]
+    },
+    "title": {
+     "type": "string",
+     "description": "English title.",
+     "examples": [
+      "Nordic Crypto #1: Binance under scrutiny and Sweden's crypto sanctions warning"
+     ]
+    },
+    "subtitle": {
+     "type": "string",
+     "description": "English subtitle.",
+     "examples": [
+      "The Nordic crypto news our editor approved from 5 to 12 October 2026."
+     ]
+    },
+    "stories": {
+     "type": "integer",
+     "examples": [
+      7
+     ]
+    },
+    "events": {
+     "type": "integer",
+     "examples": [
+      0
+     ]
+    },
+    "video": {
+     "type": "object",
+     "properties": {
+      "file": {
+       "type": "string",
+       "examples": [
+        "video.mp4"
+       ]
+      },
+      "poster": {
+       "type": "string",
+       "examples": [
+        "thumbnail.png"
+       ]
+      },
+      "subs": {
+       "type": "string",
+       "examples": [
+        "subs.vtt"
+       ]
+      },
+      "duration": {
+       "type": "integer",
+       "examples": [
+        131
+       ]
+      },
+      "width": {
+       "type": "integer",
+       "examples": [
+        1920
+       ]
+      },
+      "height": {
+       "type": "integer",
+       "examples": [
+        1080
+       ]
+      },
+      "bytes": {
+       "type": "integer",
+       "examples": [
+        1048576
+       ]
+      },
+      "sha256": {
+       "type": "string",
+       "examples": [
+        "0f8966a443883e2ecb1e51a64b0fa8f35039bd2ddb76997c1143b93a9a4061f8"
+       ]
+      },
+      "url": {
+       "type": "string"
+      },
+      "youtube": {
+       "type": "string",
+       "examples": [
+        "https://www.youtube.com/watch?v=yqN3QaMdHhM"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "file",
+      "poster",
+      "subs",
+      "duration",
+      "width",
+      "height",
+      "bytes",
+      "sha256",
+      "url"
+     ],
+     "description": "Shared English video. video.mp4 is not committed; the build copies or downloads it."
+    },
+    "title_i18n": {
+     "type": "object",
+     "properties": {
+      "nn": {
+       "type": "string"
+      },
+      "nb": {
+       "type": "string"
+      },
+      "sv": {
+       "type": "string",
+       "examples": [
+        "Nordic Crypto #1: Binance granskas och Sveriges varning om krypto och sanktioner"
+       ]
+      },
+      "da": {
+       "type": "string",
+       "examples": [
+        "Nordic Crypto #1: Binance under lup og Sveriges advarsel om krypto og sanktioner"
+       ]
+      },
+      "fi": {
+       "type": "string"
+      },
+      "is": {
+       "type": "string"
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "nn",
+      "nb",
+      "sv",
+      "da",
+      "fi",
+      "is"
+     ],
+     "description": "Title in the Nordic site languages."
+    },
+    "subtitle_i18n": {
+     "type": "object",
+     "properties": {
+      "nn": {
+       "type": "string"
+      },
+      "nb": {
+       "type": "string"
+      },
+      "sv": {
+       "type": "string"
+      },
+      "da": {
+       "type": "string"
+      },
+      "fi": {
+       "type": "string"
+      },
+      "is": {
+       "type": "string"
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "nn",
+      "nb",
+      "sv",
+      "da",
+      "fi",
+      "is"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "number",
+    "date",
+    "period",
+    "lang",
+    "title",
+    "subtitle",
+    "stories",
+    "events",
+    "video"
+   ]
+  }
+ }
+}

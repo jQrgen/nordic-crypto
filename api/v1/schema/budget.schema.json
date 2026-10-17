@@ -1,0 +1,252 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/budget.schema.json",
+ "title": "Budget",
+ "description": "Monthly hosting and domain costs in data/budget.json. The figures exclude labour. amount is the monthly figure in currency.",
+ "x-nordic": {
+  "id": "budget",
+  "order": 180,
+  "files": [
+   "data/budget.json"
+  ],
+  "pages": [
+   "/budget/"
+  ],
+  "api": [],
+  "relations": [],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "line",
+    "title": "Line",
+    "row": "#/$defs/line"
+   }
+  ],
+  "row": "#/$defs/line"
+ },
+ "type": "object",
+ "properties": {
+  "_note": {
+   "type": "string"
+  },
+  "as_of": {
+   "type": "string",
+   "description": "YYYY-MM-DD the figures were written down.",
+   "examples": [
+    "2026-10-13"
+   ]
+  },
+  "quote": {
+   "type": "string",
+   "description": "Currency the page converts into.",
+   "enum": [
+    "NOK"
+   ],
+   "examples": [
+    "NOK"
+   ]
+  },
+  "rates_approximate": {
+   "type": "boolean",
+   "examples": [
+    true
+   ]
+  },
+  "rates": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "currency": {
+      "type": "string",
+      "examples": [
+       "EUR"
+      ]
+     },
+     "per": {
+      "type": "string",
+      "examples": [
+       "1"
+      ]
+     },
+     "quote_amount": {
+      "type": "string",
+      "examples": [
+       "11.70"
+      ]
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "currency",
+     "per",
+     "quote_amount"
+    ]
+   },
+   "description": "Approximate conversion into the quote currency."
+  },
+  "lines": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/line"
+   }
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "_note",
+  "as_of",
+  "quote",
+  "rates_approximate",
+  "rates",
+  "lines"
+ ],
+ "$defs": {
+  "line": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "examples": [
+      "hetzner-electrum-1"
+     ]
+    },
+    "kind": {
+     "type": "string",
+     "description": "server, volume, workers, domains, pages or dns.",
+     "enum": [
+      "server",
+      "volume",
+      "workers",
+      "domains",
+      "pages",
+      "dns"
+     ],
+     "examples": [
+      "server"
+     ]
+    },
+    "name": {
+     "type": "string",
+     "examples": [
+      "electrum-1"
+     ]
+    },
+    "type": {
+     "type": "string",
+     "examples": [
+      "cx43"
+     ]
+    },
+    "place": {
+     "type": "string",
+     "examples": [
+      "Falkenstein"
+     ]
+    },
+    "runs": {
+     "type": "string",
+     "examples": [
+      "Electrum servers, Lightning node, Bitcoin/Nexa/BCH nodes, explorer"
+     ]
+    },
+    "amount": {
+     "type": "string",
+     "description": "Monthly amount, decimal string.",
+     "examples": [
+      "15.99"
+     ]
+    },
+    "currency": {
+     "type": "string",
+     "enum": [
+      "EUR",
+      "USD",
+      "NOK"
+     ],
+     "examples": [
+      "EUR"
+     ]
+    },
+    "period": {
+     "type": "string",
+     "examples": [
+      "month"
+     ]
+    },
+    "amount_server": {
+     "type": "string",
+     "examples": [
+      "8.49"
+     ]
+    },
+    "amount_ipv4": {
+     "type": "string",
+     "examples": [
+      "0.50"
+     ]
+    },
+    "gb": {
+     "type": "string",
+     "examples": [
+      "1500"
+     ]
+    },
+    "unit_price": {
+     "type": "string",
+     "examples": [
+      "0.0572"
+     ]
+    },
+    "unit_currency": {
+     "type": "string",
+     "examples": [
+      "EUR"
+     ]
+    },
+    "names": {
+     "type": "string",
+     "examples": [
+      "nordiccrypto.no/.dk/.se/.fi/.is/.eu"
+     ]
+    },
+    "vendor": {
+     "type": "string",
+     "examples": [
+      "Domeneshop"
+     ]
+    },
+    "amount_year": {
+     "type": "string",
+     "examples": [
+      "1578"
+     ]
+    },
+    "vat": {
+     "type": "string",
+     "examples": [
+      "incl"
+     ]
+    },
+    "host": {
+     "type": "string",
+     "examples": [
+      "nordiccrypto.no"
+     ]
+    },
+    "free": {
+     "type": "boolean",
+     "examples": [
+      true
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "kind"
+   ]
+  }
+ }
+}

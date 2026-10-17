@@ -1,0 +1,250 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/crowdfunding.schema.json",
+ "title": "Crowdfunding",
+ "description": "The closed crowdfunding pilot in data/crowdfunding.json. Nordic Crypto does not hold keys or funds. The file has no donor data and no balances. demo true marks an example, not a live campaign.",
+ "x-nordic": {
+  "id": "crowdfunding",
+  "order": 170,
+  "files": [
+   "data/crowdfunding.json"
+  ],
+  "pages": [
+   "/crowdfunding/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/crowdfunding.json",
+    "note": "The curated list. No balances and no donor data."
+   }
+  ],
+  "relations": [],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "campaign",
+    "title": "Campaign",
+    "row": "#/$defs/campaign"
+   }
+  ],
+  "row": "#/$defs/campaign"
+ },
+ "type": "object",
+ "properties": {
+  "_doc": {
+   "type": "string"
+  },
+  "pilot": {
+   "type": "object",
+   "properties": {
+    "status": {
+     "type": "string",
+     "description": "closed or open. The pilot is closed.",
+     "enum": [
+      "closed",
+      "open"
+     ],
+     "examples": [
+      "closed"
+     ]
+    },
+    "max_projects": {
+     "type": "integer",
+     "examples": [
+      5
+     ]
+    },
+    "apply_email": {
+     "type": "null"
+    },
+    "report_email": {
+     "type": "null"
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "status",
+    "max_projects",
+    "apply_email",
+    "report_email"
+   ]
+  },
+  "campaigns": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/campaign"
+   }
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "_doc",
+  "pilot",
+  "campaigns"
+ ],
+ "$defs": {
+  "campaign": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "examples": [
+      "demo-example"
+     ]
+    },
+    "demo": {
+     "type": "boolean",
+     "description": "True for an example with invalid addresses.",
+     "examples": [
+      true
+     ]
+    },
+    "title": {
+     "type": "string",
+     "examples": [
+      "Example campaign (demo, not live)"
+     ]
+    },
+    "owner": {
+     "type": "string",
+     "examples": [
+      "Example project owner"
+     ]
+    },
+    "owner_country": {
+     "type": "string",
+     "enum": [
+      "NO",
+      "SE",
+      "DK",
+      "FI",
+      "IS",
+      "NORDIC",
+      "EU",
+      "FO",
+      "GL",
+      "AX"
+     ],
+     "examples": [
+      "NO"
+     ]
+    },
+    "owner_is_trader": {
+     "type": "boolean",
+     "examples": [
+      false
+     ]
+    },
+    "description": {
+     "type": "string"
+    },
+    "reward": {
+     "type": "string"
+    },
+    "goal": {
+     "type": "object",
+     "properties": {
+      "bch": {
+       "type": "number",
+       "examples": [
+        2.5
+       ]
+      },
+      "nexa": {
+       "type": "integer",
+       "examples": [
+        100000000
+       ]
+      },
+      "nok_approx": {
+       "type": "null"
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "bch",
+      "nexa",
+      "nok_approx"
+     ]
+    },
+    "addresses": {
+     "type": "object",
+     "properties": {
+      "bch": {
+       "type": "string",
+       "examples": [
+        "bitcoincash:DEMO-NOT-A-REAL-ADDRESS"
+       ]
+      },
+      "nexa": {
+       "type": "string",
+       "examples": [
+        "nexa:DEMO-NOT-A-REAL-ADDRESS"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "bch",
+      "nexa"
+     ],
+     "description": "The project's own addresses. Nordic Crypto does not hold them."
+    },
+    "deadline": {
+     "type": "string",
+     "examples": [
+      "2026-12-31"
+     ]
+    },
+    "kyc_verified": {
+     "type": "boolean",
+     "examples": [
+      false
+     ]
+    },
+    "links": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "label": {
+        "type": "string",
+        "examples": [
+         "Project website (example)"
+        ]
+       },
+       "url": {
+        "type": "string",
+        "examples": [
+         "https://example.org/"
+        ]
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "label",
+       "url"
+      ]
+     }
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "demo",
+    "title",
+    "owner",
+    "owner_country",
+    "owner_is_trader",
+    "description",
+    "reward",
+    "goal",
+    "addresses",
+    "deadline",
+    "kyc_verified",
+    "links"
+   ]
+  }
+ }
+}

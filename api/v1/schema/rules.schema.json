@@ -1,0 +1,1656 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/rules.schema.json",
+ "title": "Rules map",
+ "description": "The regulation map behind /rules/, in rules.json. Every node points at a primary source. review approved is what the public page shows.",
+ "x-nordic": {
+  "id": "rules",
+  "order": 150,
+  "files": [
+   "rules.json"
+  ],
+  "pages": [
+   "/rules/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/rules.json",
+    "note": "The public rules document"
+   }
+  ],
+  "relations": [],
+  "derived": [],
+  "omitted_from_api": []
+ },
+ "type": "object",
+ "properties": {
+  "_note": {
+   "type": "string"
+  },
+  "review": {
+   "type": "string",
+   "description": "approved is shown. pending leaves the public page as a short placeholder.",
+   "enum": [
+    "pending",
+    "approved"
+   ],
+   "examples": [
+    "approved"
+   ]
+  },
+  "checked": {
+   "type": "string",
+   "description": "YYYY-MM-DD the claims were last checked.",
+   "examples": [
+    "2026-10-04"
+   ]
+  },
+  "sources": {
+   "type": "object",
+   "properties": {
+    "mica": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng"
+       ]
+      },
+      "title": {
+       "type": "string",
+       "examples": [
+        "Regulation (EU) 2023/1114 (MiCA), Art. 149 and closing formula"
+       ]
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "EUR-Lex"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "tfr": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://eur-lex.europa.eu/eli/reg/2023/1113/oj/eng"
+       ]
+      },
+      "title": {
+       "type": "string",
+       "examples": [
+        "Regulation (EU) 2023/1113 (transfer of funds and certain crypto-assets), Art. 40"
+       ]
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "EUR-Lex"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "amlr": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://eur-lex.europa.eu/eli/reg/2024/1624/oj/eng"
+       ]
+      },
+      "title": {
+       "type": "string",
+       "examples": [
+        "Regulation (EU) 2024/1624 (AMLR), Art. 90"
+       ]
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "EUR-Lex"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "dora": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://eur-lex.europa.eu/eli/reg/2022/2554/oj/eng"
+       ]
+      },
+      "title": {
+       "type": "string",
+       "examples": [
+        "Regulation (EU) 2022/2554 (DORA), Art. 64"
+       ]
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "EUR-Lex"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "esma": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string",
+       "examples": [
+        "Markets in Crypto-Assets Regulation (MiCA) – interim MiCA register"
+       ]
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "ESMA"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "is_act": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://www.althingi.is/altext/stjt/2025.101.html"
+       ]
+      },
+      "title": {
+       "type": "string",
+       "examples": [
+        "Lög nr. 101/2025 um markaði fyrir sýndareignir (Art. 1, 3 and 16)"
+       ]
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Alþingi"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "no_act": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://lovdata.no/dokument/NL/lov/2025-05-27-20"
+       ]
+      },
+      "title": {
+       "type": "string",
+       "examples": [
+        "Lov om kryptoeiendeler (kryptoeiendelsloven), LOV-2025-05-27-20, § 2"
+       ]
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Lovdata"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "se_act": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string"
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Sveriges riksdag"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "dk_act": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://www.retsinformation.dk/eli/lta/2024/1013"
+       ]
+      },
+      "title": {
+       "type": "string"
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Retsinformation"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "fi_act": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://www.finlex.fi/fi/lainsaadanto/2024/402"
+       ]
+      },
+      "title": {
+       "type": "string"
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Finlex"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "fi_fiva": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string",
+       "examples": [
+        "Crypto-asset service providers in Finland must be authorised in the EU"
+       ]
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Finanssivalvonta"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "no_aml": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://lovdata.no/dokument/NL/lov/2018-06-01-23"
+       ]
+      },
+      "title": {
+       "type": "string"
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Lovdata"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "se_aml": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string"
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Sveriges riksdag"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "fi_aml": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://www.finlex.fi/fi/lainsaadanto/2017/444"
+       ]
+      },
+      "title": {
+       "type": "string"
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Finlex"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "is_aml": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://www.althingi.is/lagas/nuna/2018140.html"
+       ]
+      },
+      "title": {
+       "type": "string"
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Alþingi"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "dk_ft": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string"
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Finanstilsynet (DK)"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "fi_fiu_act": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://www.finlex.fi/fi/lainsaadanto/2017/445"
+       ]
+      },
+      "title": {
+       "type": "string"
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Finlex"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "dk_fiu": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://hvidvask.dk/"
+       ]
+      },
+      "title": {
+       "type": "string",
+       "examples": [
+        "Hvidvasksekretariatet – National enhed for Særlig Kriminalitet (NSK)"
+       ]
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Hvidvasksekretariatet"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "dk_tax": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string",
+       "examples": [
+        "Skat på krypto: Kend reglerne, så du undgår et skattesmæk"
+       ]
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Skattestyrelsen (skat.dk)"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "dk_tax_jv": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://info.skat.dk/data.aspx?oid=2395613"
+       ]
+      },
+      "title": {
+       "type": "string"
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Skattestyrelsen (info.skat.dk)"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "no_tax": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string",
+       "examples": [
+        "Virtuelle eiendeler (kryptovaluta med mer)"
+       ]
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Skatteetaten"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "se_tax": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string"
+      },
+      "title": {
+       "type": "string",
+       "examples": [
+        "Kryptovalutor"
+       ]
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Skatteverket"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "fi_tax": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://www.vero.fi/henkiloasiakkaat/omaisuus/sijoitukset/virtuaalivaluutat/"
+       ]
+      },
+      "title": {
+       "type": "string",
+       "examples": [
+        "Kryptovarat"
+       ]
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Verohallinto (vero.fi)"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    },
+    "is_tax": {
+     "type": "object",
+     "properties": {
+      "url": {
+       "type": "string",
+       "examples": [
+        "https://www.skatturinn.is/einstaklingar/skattskylda/rafmynt/"
+       ]
+      },
+      "title": {
+       "type": "string",
+       "examples": [
+        "Rafmynt (no special provisions; general tax rules apply)"
+       ]
+      },
+      "publisher": {
+       "type": "string",
+       "examples": [
+        "Skatturinn"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "url",
+      "title",
+      "publisher"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "mica",
+    "tfr",
+    "amlr",
+    "dora",
+    "esma",
+    "is_act",
+    "no_act",
+    "se_act",
+    "dk_act",
+    "fi_act",
+    "fi_fiva",
+    "no_aml",
+    "se_aml",
+    "fi_aml",
+    "is_aml",
+    "dk_ft",
+    "fi_fiu_act",
+    "dk_fiu",
+    "dk_tax",
+    "dk_tax_jv",
+    "no_tax",
+    "se_tax",
+    "fi_tax",
+    "is_tax"
+   ],
+   "description": "Primary sources, keyed by id."
+  },
+  "eu": {
+   "type": "object",
+   "properties": {
+    "institutions": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "name": {
+        "type": "string",
+        "examples": [
+         "European Commission"
+        ]
+       },
+       "role": {
+        "type": "string",
+        "examples": [
+         "propose"
+        ]
+       },
+       "src": {
+        "type": "string",
+        "examples": [
+         "mica"
+        ]
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "name",
+       "role",
+       "src"
+      ]
+     }
+    },
+    "acts": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "name": {
+        "type": "string",
+        "examples": [
+         "MiCA"
+        ]
+       },
+       "ref": {
+        "type": "string",
+        "examples": [
+         "Regulation (EU) 2023/1114"
+        ]
+       },
+       "applies": {
+        "type": "string",
+        "examples": [
+         "2024-12-30"
+        ]
+       },
+       "note_key": {
+        "type": "string",
+        "examples": [
+         "act_mica"
+        ]
+       },
+       "src": {
+        "type": "string",
+        "examples": [
+         "mica"
+        ]
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "name",
+       "ref",
+       "applies",
+       "note_key",
+       "src"
+      ]
+     }
+    },
+    "agencies": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "name": {
+        "type": "string",
+        "examples": [
+         "ESMA"
+        ]
+       },
+       "org": {
+        "type": "string",
+        "examples": [
+         "esma"
+        ]
+       },
+       "note_key": {
+        "type": "string",
+        "examples": [
+         "ag_esma"
+        ]
+       },
+       "src": {
+        "type": "string",
+        "examples": [
+         "mica"
+        ]
+       },
+       "src2": {
+        "type": "string",
+        "examples": [
+         "esma"
+        ]
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "name",
+       "org",
+       "note_key",
+       "src"
+      ]
+     }
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "institutions",
+    "acts",
+    "agencies"
+   ],
+   "description": "EU institutions, acts and agencies."
+  },
+  "countries": {
+   "type": "object",
+   "properties": {
+    "SE": {
+     "type": "object",
+     "properties": {
+      "route": {
+       "type": "string",
+       "examples": [
+        "eu"
+       ]
+      },
+      "law": {
+       "type": "string",
+       "examples": [
+        "Lag (2024:1159)"
+       ]
+      },
+      "law_src": {
+       "type": "string",
+       "examples": [
+        "se_act"
+       ]
+      },
+      "parliament": {
+       "type": "string",
+       "examples": [
+        "Riksdagen"
+       ]
+      },
+      "ministry": {
+       "type": "object",
+       "properties": {
+        "name": {
+         "type": "string",
+         "examples": [
+          "Finansdepartementet"
+         ]
+        },
+        "org": {
+         "type": "string",
+         "examples": [
+          "se-finansdepartementet"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "name",
+        "org"
+       ]
+      },
+      "supervisor": {
+       "type": "object",
+       "properties": {
+        "name": {
+         "type": "string",
+         "examples": [
+          "Finansinspektionen"
+         ]
+        },
+        "org": {
+         "type": "string",
+         "examples": [
+          "se-fi"
+         ]
+        },
+        "src": {
+         "type": "string",
+         "examples": [
+          "se_act"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "name",
+        "org",
+        "src"
+       ]
+      },
+      "enforce": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "name": {
+          "type": "string",
+          "examples": [
+           "Finanspolisen (Polismyndigheten)"
+          ]
+         },
+         "org": {
+          "type": "string",
+          "examples": [
+           "se-finanspolisen"
+          ]
+         },
+         "kind": {
+          "type": "string",
+          "examples": [
+           "fiu"
+          ]
+         },
+         "src": {
+          "type": "string",
+          "examples": [
+           "se_aml"
+          ]
+         }
+        },
+        "additionalProperties": false,
+        "required": [
+         "name",
+         "org",
+         "kind",
+         "src"
+        ]
+       }
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "route",
+      "law",
+      "law_src",
+      "parliament",
+      "ministry",
+      "supervisor",
+      "enforce"
+     ]
+    },
+    "DK": {
+     "type": "object",
+     "properties": {
+      "route": {
+       "type": "string",
+       "examples": [
+        "eu"
+       ]
+      },
+      "law": {
+       "type": "string",
+       "examples": [
+        "Lov om finansiel virksomhed § 332 c"
+       ]
+      },
+      "law_src": {
+       "type": "string",
+       "examples": [
+        "dk_act"
+       ]
+      },
+      "parliament": {
+       "type": "string",
+       "examples": [
+        "Folketinget"
+       ]
+      },
+      "ministry": {
+       "type": "object",
+       "properties": {
+        "name": {
+         "type": "string",
+         "examples": [
+          "Erhvervsministeriet"
+         ]
+        },
+        "org": {
+         "type": "string",
+         "examples": [
+          "dk-erhvervsministeriet"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "name",
+        "org"
+       ]
+      },
+      "supervisor": {
+       "type": "object",
+       "properties": {
+        "name": {
+         "type": "string",
+         "examples": [
+          "Finanstilsynet"
+         ]
+        },
+        "org": {
+         "type": "string",
+         "examples": [
+          "dk-finanstilsynet"
+         ]
+        },
+        "src": {
+         "type": "string",
+         "examples": [
+          "dk_act"
+         ]
+        },
+        "src2": {
+         "type": "string",
+         "examples": [
+          "dk_ft"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "name",
+        "org",
+        "src",
+        "src2"
+       ]
+      },
+      "enforce": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "name": {
+          "type": "string",
+          "examples": [
+           "Hvidvasksekretariatet"
+          ]
+         },
+         "org": {
+          "type": "string",
+          "examples": [
+           "dk-hvidvasksekretariatet"
+          ]
+         },
+         "kind": {
+          "type": "string",
+          "examples": [
+           "fiu"
+          ]
+         },
+         "src": {
+          "type": "string",
+          "examples": [
+           "dk_fiu"
+          ]
+         },
+         "src2": {
+          "type": "string",
+          "examples": [
+           "dk_tax_jv"
+          ]
+         }
+        },
+        "additionalProperties": false,
+        "required": [
+         "name",
+         "org",
+         "kind",
+         "src"
+        ]
+       }
+      },
+      "note5": {
+       "type": "string",
+       "examples": [
+        "r12_dk"
+       ]
+      },
+      "note5_src": {
+       "type": "array",
+       "items": {
+        "type": "string",
+        "examples": [
+         "dk_fiu"
+        ]
+       },
+       "examples": [
+        [
+         "dk_fiu",
+         "dk_tax",
+         "dk_tax_jv"
+        ]
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "route",
+      "law",
+      "law_src",
+      "parliament",
+      "ministry",
+      "supervisor",
+      "enforce",
+      "note5",
+      "note5_src"
+     ]
+    },
+    "FI": {
+     "type": "object",
+     "properties": {
+      "route": {
+       "type": "string",
+       "examples": [
+        "eu"
+       ]
+      },
+      "law": {
+       "type": "string",
+       "examples": [
+        "Laki 402/2024"
+       ]
+      },
+      "law_src": {
+       "type": "string",
+       "examples": [
+        "fi_act"
+       ]
+      },
+      "parliament": {
+       "type": "string",
+       "examples": [
+        "Eduskunta"
+       ]
+      },
+      "ministry": {
+       "type": "object",
+       "properties": {
+        "name": {
+         "type": "string",
+         "examples": [
+          "Valtiovarainministeriö"
+         ]
+        },
+        "org": {
+         "type": "string",
+         "examples": [
+          "fi-vm"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "name",
+        "org"
+       ]
+      },
+      "supervisor": {
+       "type": "object",
+       "properties": {
+        "name": {
+         "type": "string",
+         "examples": [
+          "Finanssivalvonta"
+         ]
+        },
+        "org": {
+         "type": "string",
+         "examples": [
+          "fi-fiva"
+         ]
+        },
+        "src": {
+         "type": "string",
+         "examples": [
+          "fi_act"
+         ]
+        },
+        "src2": {
+         "type": "string",
+         "examples": [
+          "fi_fiva"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "name",
+        "org",
+        "src",
+        "src2"
+       ]
+      },
+      "enforce": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "name": {
+          "type": "string",
+          "examples": [
+           "Rahanpesun selvittelykeskus (KRP)"
+          ]
+         },
+         "org": {
+          "type": "string",
+          "examples": [
+           "fi-fiu"
+          ]
+         },
+         "kind": {
+          "type": "string",
+          "examples": [
+           "fiu"
+          ]
+         },
+         "src": {
+          "type": "string",
+          "examples": [
+           "fi_aml"
+          ]
+         },
+         "src2": {
+          "type": "string",
+          "examples": [
+           "fi_fiu_act"
+          ]
+         }
+        },
+        "additionalProperties": false,
+        "required": [
+         "name",
+         "org",
+         "kind",
+         "src"
+        ]
+       }
+      },
+      "note4": {
+       "type": "string",
+       "examples": [
+        "r13_fi"
+       ]
+      },
+      "note4_src": {
+       "type": "array",
+       "items": {
+        "type": "string",
+        "examples": [
+         "fi_act"
+        ]
+       },
+       "examples": [
+        [
+         "fi_act"
+        ]
+       ]
+      },
+      "note5": {
+       "type": "string",
+       "examples": [
+        "r14_fi"
+       ]
+      },
+      "note5_src": {
+       "type": "array",
+       "items": {
+        "type": "string",
+        "examples": [
+         "fi_aml"
+        ]
+       },
+       "examples": [
+        [
+         "fi_aml",
+         "fi_fiu_act"
+        ]
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "route",
+      "law",
+      "law_src",
+      "parliament",
+      "ministry",
+      "supervisor",
+      "enforce",
+      "note4",
+      "note4_src",
+      "note5",
+      "note5_src"
+     ]
+    },
+    "NO": {
+     "type": "object",
+     "properties": {
+      "route": {
+       "type": "string",
+       "examples": [
+        "eea"
+       ]
+      },
+      "law": {
+       "type": "string",
+       "examples": [
+        "Lov om kryptoeiendeler (LOV-2025-05-27-20)"
+       ]
+      },
+      "law_src": {
+       "type": "string",
+       "examples": [
+        "no_act"
+       ]
+      },
+      "parliament": {
+       "type": "string",
+       "examples": [
+        "Stortinget"
+       ]
+      },
+      "parliament_org": {
+       "type": "string",
+       "examples": [
+        "stortinget-finanskomiteen"
+       ]
+      },
+      "ministry": {
+       "type": "object",
+       "properties": {
+        "name": {
+         "type": "string",
+         "examples": [
+          "Finansdepartementet"
+         ]
+        },
+        "org": {
+         "type": "string",
+         "examples": [
+          "finansdepartementet"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "name",
+        "org"
+       ]
+      },
+      "supervisor": {
+       "type": "object",
+       "properties": {
+        "name": {
+         "type": "string",
+         "examples": [
+          "Finanstilsynet"
+         ]
+        },
+        "org": {
+         "type": "string",
+         "examples": [
+          "finanstilsynet"
+         ]
+        },
+        "src": {
+         "type": "string",
+         "examples": [
+          "no_act"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "name",
+        "org",
+        "src"
+       ]
+      },
+      "enforce": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "name": {
+          "type": "string",
+          "examples": [
+           "Økokrim"
+          ]
+         },
+         "org": {
+          "type": "string",
+          "examples": [
+           "okokrim"
+          ]
+         },
+         "kind": {
+          "type": "string",
+          "examples": [
+           "fiu"
+          ]
+         },
+         "src": {
+          "type": "string",
+          "examples": [
+           "no_aml"
+          ]
+         }
+        },
+        "additionalProperties": false,
+        "required": [
+         "name",
+         "org",
+         "kind",
+         "src"
+        ]
+       }
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "route",
+      "law",
+      "law_src",
+      "parliament",
+      "parliament_org",
+      "ministry",
+      "supervisor",
+      "enforce"
+     ]
+    },
+    "IS": {
+     "type": "object",
+     "properties": {
+      "route": {
+       "type": "string",
+       "examples": [
+        "eea"
+       ]
+      },
+      "law": {
+       "type": "string",
+       "examples": [
+        "Lög nr. 101/2025"
+       ]
+      },
+      "law_src": {
+       "type": "string",
+       "examples": [
+        "is_act"
+       ]
+      },
+      "parliament": {
+       "type": "string",
+       "examples": [
+        "Alþingi"
+       ]
+      },
+      "ministry": {
+       "type": "object",
+       "properties": {
+        "name": {
+         "type": "string",
+         "examples": [
+          "Fjármála- og efnahagsráðuneytið"
+         ]
+        },
+        "org": {
+         "type": "string",
+         "examples": [
+          "is-fjr"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "name",
+        "org"
+       ]
+      },
+      "supervisor": {
+       "type": "object",
+       "properties": {
+        "name": {
+         "type": "string",
+         "examples": [
+          "Seðlabanki Íslands – Fjármálaeftirlit"
+         ]
+        },
+        "org": {
+         "type": "string",
+         "examples": [
+          "is-fme"
+         ]
+        },
+        "src": {
+         "type": "string",
+         "examples": [
+          "is_act"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "name",
+        "org",
+        "src"
+       ]
+      },
+      "enforce": {
+       "type": "array",
+       "items": {
+        "type": "object",
+        "properties": {
+         "name": {
+          "type": "string",
+          "examples": [
+           "Skrifstofa fjármálagreininga lögreglu"
+          ]
+         },
+         "org": {
+          "type": "string",
+          "examples": [
+           "is-sfl"
+          ]
+         },
+         "kind": {
+          "type": "string",
+          "examples": [
+           "fiu"
+          ]
+         },
+         "src": {
+          "type": "string",
+          "examples": [
+           "is_aml"
+          ]
+         }
+        },
+        "additionalProperties": false,
+        "required": [
+         "name",
+         "org",
+         "kind",
+         "src"
+        ]
+       }
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "route",
+      "law",
+      "law_src",
+      "parliament",
+      "ministry",
+      "supervisor",
+      "enforce"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "SE",
+    "DK",
+    "FI",
+    "NO",
+    "IS"
+   ],
+   "description": "One object per Nordic country."
+  },
+  "eea": {
+   "type": "object",
+   "properties": {
+    "decision": {
+     "type": "string",
+     "examples": [
+      "EEA Joint Committee Decision No 41/2025 (20 February 2025)"
+     ]
+    },
+    "src": {
+     "type": "string",
+     "examples": [
+      "is_act"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "decision",
+    "src"
+   ]
+  },
+  "approved": {
+   "type": "string"
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "_note",
+  "review",
+  "checked",
+  "sources",
+  "eu",
+  "countries",
+  "eea",
+  "approved"
+ ]
+}

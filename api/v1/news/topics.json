@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T12:23:25+00:00",
+ "generated_at": "2026-10-17T05:41:20+00:00",
  "preview": false,
  "topics": [
   {
@@ -11,7 +11,7 @@
   },
   {
    "id": "banking",
-   "count": 6,
+   "count": 7,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/banking.json"
   },
   {
@@ -20,13 +20,8 @@
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/bitcoin.json"
   },
   {
-   "id": "blockchain",
-   "count": 1,
-   "url": "https://nordiccrypto.no/api/v1/news/by-topic/blockchain.json"
-  },
-  {
    "id": "business",
-   "count": 20,
+   "count": 21,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/business.json"
   },
   {
@@ -43,11 +38,6 @@
    "id": "crime",
    "count": 7,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/crime.json"
-  },
-  {
-   "id": "crypto",
-   "count": 1,
-   "url": "https://nordiccrypto.no/api/v1/news/by-topic/crypto.json"
   },
   {
    "id": "defi",
@@ -76,7 +66,7 @@
   },
   {
    "id": "mining",
-   "count": 10,
+   "count": 11,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/mining.json"
   },
   {
@@ -86,7 +76,7 @@
   },
   {
    "id": "policy",
-   "count": 10,
+   "count": 12,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/policy.json"
   },
   {
@@ -101,7 +91,7 @@
   },
   {
    "id": "stablecoins",
-   "count": 6,
+   "count": 7,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/stablecoins.json"
   },
   {
@@ -111,7 +101,7 @@
   },
   {
    "id": "tokenisation",
-   "count": 7,
+   "count": 8,
    "url": "https://nordiccrypto.no/api/v1/news/by-topic/tokenisation.json"
   },
   {

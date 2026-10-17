@@ -1,0 +1,842 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-17T05:41:20+00:00",
+ "title": "Nordic Crypto data model",
+ "docs_url": "https://nordiccrypto.no/db/",
+ "schema_version": "2026-10-17",
+ "commit": "8959dbf",
+ "committed_at": "2026-10-17T07:37:29+02:00",
+ "commit_url": "https://github.com/nordic-crypto-org/nordic-crypto/commit/8959dbfd5889319709cd0c588d6b18dcc9ebd0ad",
+ "changelog_url": "https://nordiccrypto.no/api/v1/schema/changelog.json",
+ "erd_svg_url": "https://nordiccrypto.no/api/v1/schema/erd.svg",
+ "erd_mermaid_url": "https://nordiccrypto.no/api/v1/schema/erd.mmd",
+ "note": "These schemas are copied from schema/*.schema.json at build time. Field names are the stored names. Reader tips and newsletter subscriber addresses are private Cloudflare D1 stores and are not described field by field.",
+ "private": [
+  {
+   "id": "tips",
+   "store": "Cloudflare D1",
+   "summary": "Reader tips. The text of a tip is not in the public files and is not served under /api/v1/."
+  },
+  {
+   "id": "subscribers",
+   "store": "Cloudflare D1",
+   "summary": "Newsletter subscriber addresses. They are not in the public files and are not served under /api/v1/."
+  }
+ ],
+ "collections": [
+  {
+   "id": "news",
+   "title": "News stories",
+   "description": "Stories in data/news.json. status is the editorial state: pending, published, rejected or merged. The public API lists published stories that have a summary. Editor fields stay in the file and are left out of /api/v1/.",
+   "files": [
+    "data/news.json"
+   ],
+   "pages": [
+    "/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/news.json",
+     "note": "Published stories, newest first"
+    },
+    {
+     "path": "/api/v1/news/{id}.json",
+     "note": "One story"
+    },
+    {
+     "path": "/api/v1/news/latest.json",
+     "note": "The 25 newest stories, notifier fields only"
+    },
+    {
+     "path": "/api/v1/news/by-country/{country}.json",
+     "note": "NO, SE, DK, FI, IS, NORDIC or EU"
+    },
+    {
+     "path": "/api/v1/news/by-topic/{topic}.json",
+     "note": "One topic"
+    },
+    {
+     "path": "/api/v1/news/topics.json",
+     "note": "Topic index"
+    }
+   ],
+   "relations": [
+    {
+     "field": "source",
+     "to": "sources",
+     "cardinality": "many-to-one",
+     "note": "Outlet id in sources.json"
+    },
+    {
+     "field": "also_covered_by[].outlet",
+     "to": "sources",
+     "cardinality": "many-to-one",
+     "note": "Other outlets on the same event"
+    },
+    {
+     "field": "id",
+     "to": "title-i18n",
+     "cardinality": "one-to-one",
+     "note": "Our headlines, when we wrote them"
+    },
+    {
+     "field": "id",
+     "to": "blurbs",
+     "cardinality": "one-to-one",
+     "note": "Front-page blurb, when one is written"
+    }
+   ],
+   "derived": [],
+   "omitted_from_api": [
+    "approved_by",
+    "approved_at",
+    "reject_reason",
+    "matched",
+    "fetched",
+    "seen_via",
+    "via",
+    "suggested_by",
+    "suggested_status",
+    "suggested_at",
+    "summary_i18n_review",
+    "origin"
+   ],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/news.schema.json"
+  },
+  {
+   "id": "events",
+   "title": "Events",
+   "description": "Calendar events. data/events.json is the working list, archive/events.json is what the public calendar keeps, and data/events_backfill.json is the previous-events backfill. sponsored is null, false, true, or the sponsor's name, and is never Kaupr. The calendar status upcoming, ongoing or past is computed from start and end and is not stored.",
+   "files": [
+    "data/events.json",
+    "archive/events.json",
+    "data/events_backfill.json"
+   ],
+   "pages": [
+    "/calendar/",
+    "/calendar/previous/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/events.json",
+     "note": "Public events, soonest start first, including past events"
+    },
+    {
+     "path": "/api/v1/events/{id}.json",
+     "note": "One event"
+    },
+    {
+     "path": "/api/v1/events/upcoming.json",
+     "note": "Events that have not ended"
+    },
+    {
+     "path": "/api/v1/events/past.json",
+     "note": "Finished public events"
+    },
+    {
+     "path": "/api/v1/events/previous.json",
+     "note": "Finished calendar events plus the backfill"
+    },
+    {
+     "path": "/api/v1/events/by-country/{country}.json",
+     "note": "One country"
+    }
+   ],
+   "relations": [
+    {
+     "field": "sponsored",
+     "to": "sponsors",
+     "cardinality": "many-to-one",
+     "note": "Null, false, true, or the sponsor's name"
+    },
+    {
+     "field": "id",
+     "to": "talks",
+     "cardinality": "one-to-many",
+     "note": "Talks recorded at this event"
+    },
+    {
+     "field": "id",
+     "to": "event-descriptions",
+     "cardinality": "one-to-one"
+    },
+    {
+     "field": "id",
+     "to": "event-redirects",
+     "cardinality": "one-to-one",
+     "note": "A removed duplicate points at the kept id"
+    }
+   ],
+   "derived": [
+    {
+     "name": "calendar_status",
+     "type": "string",
+     "enum": [
+      "upcoming",
+      "ongoing",
+      "past"
+     ],
+     "description": "Not stored. upcoming: start is in the future. ongoing: start is in the past and end is still ahead (an event with no end is never ongoing). past: the event has ended. The same split is published as /api/v1/events/upcoming.json, the ongoing array, and /api/v1/events/past.json."
+    }
+   ],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/events.schema.json"
+  },
+  {
+   "id": "sources",
+   "title": "Sources",
+   "description": "News outlets and event sources in sources.json. type is how the fetcher reads the outlet. coverage is national, regional, local or justice. Kaupr is a news source and is never a sponsor.",
+   "files": [
+    "sources.json"
+   ],
+   "pages": [
+    "/sources/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/sources.json",
+     "note": "Outlets, search terms and event sources"
+    }
+   ],
+   "relations": [
+    {
+     "field": "id",
+     "to": "news",
+     "cardinality": "one-to-many",
+     "note": "Stories that cite this outlet"
+    }
+   ],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/sources.schema.json"
+  },
+  {
+   "id": "newsletters",
+   "title": "Newsletters",
+   "description": "Published issues in newsletter/published/issues.json. Drafts under newsletter/issues/ are not part of this schema. Subscriber addresses are a private store and are not in this file.",
+   "files": [
+    "newsletter/published/issues.json"
+   ],
+   "pages": [
+    "/newsletter/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/newsletters.json",
+     "note": "Published issues, without the HTML body"
+    },
+    {
+     "path": "/api/v1/newsletters/{id}.json",
+     "note": "One issue, including text and HTML"
+    }
+   ],
+   "relations": [],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/newsletters.schema.json"
+  },
+  {
+   "id": "sponsors",
+   "title": "Sponsors",
+   "description": "There is no sponsors file. A sponsor is the sponsored field on an event: null or false when there is no sponsor, true when it is sponsored without a named sponsor, or the sponsor's name. Kaupr is never a sponsor.",
+   "files": [],
+   "pages": [
+    "/calendar/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/events.json",
+     "note": "sponsored on each event"
+    }
+   ],
+   "relations": [
+    {
+     "field": "sponsored",
+     "to": "events",
+     "cardinality": "one-to-many",
+     "note": "The event names its sponsor"
+    }
+   ],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/sponsors.schema.json"
+  },
+  {
+   "id": "academia",
+   "title": "Academia",
+   "description": "Courses, student groups, publications and research groups in data/academia.json. The public page shows rows whose status is approved.",
+   "files": [
+    "data/academia.json"
+   ],
+   "pages": [
+    "/academia/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/academia.json",
+     "note": "All four sections"
+    },
+    {
+     "path": "/api/v1/academia/{section}.json",
+     "note": "courses, groups, publications or research"
+    },
+    {
+     "path": "/api/v1/academia/{id}.json",
+     "note": "One row"
+    }
+   ],
+   "relations": [],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/academia.schema.json"
+  },
+  {
+   "id": "books",
+   "title": "Books",
+   "description": "Published books about bitcoin, crypto or blockchain by Nordic authors, or about the Nordic countries, in data/books.json. Titles stay in the original language. about is our one-line description in English.",
+   "files": [
+    "data/books.json"
+   ],
+   "pages": [
+    "/books/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/books.json",
+     "note": "Every book"
+    },
+    {
+     "path": "/api/v1/books/{id}.json",
+     "note": "One book"
+    }
+   ],
+   "relations": [],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/books.schema.json"
+  },
+  {
+   "id": "markets",
+   "title": "Markets",
+   "description": "Nordic exchange prices written at build time to /api/v1/markets.json. This is not a file in data/. Market data, not investment advice. quote is NOK, SEK, DKK or EUR. Nothing is converted between currencies.",
+   "files": [],
+   "pages": [
+    "/markets/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/markets.json",
+     "note": "All tickers and the aggregate"
+    },
+    {
+     "path": "/api/v1/markets/aggregated.json",
+     "note": "One row per pair"
+    },
+    {
+     "path": "/api/v1/markets/{exchange}.json",
+     "note": "firi, nbx or coinmotion"
+    },
+    {
+     "path": "/api/v1/markets/by-asset/{symbol}.json",
+     "note": "One base asset, such as BTC"
+    },
+    {
+     "path": "/api/v1/markets/logos/{symbol}.svg",
+     "note": "CC0 icon when the set includes the asset"
+    }
+   ],
+   "relations": [],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/markets.schema.json"
+  },
+  {
+   "id": "profiles",
+   "title": "Profiles",
+   "description": "Public profile links in data/profiles.json, keyed by who's who id. Each link needs a source_url that shows it belongs to that person or organisation. status published is what the site shows.",
+   "files": [
+    "data/profiles.json"
+   ],
+   "pages": [
+    "/org-chart/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/profiles.json",
+     "note": "Profiles taken from the published who's who"
+    },
+    {
+     "path": "/api/v1/profiles/{id}.json",
+     "note": "One entity's links"
+    }
+   ],
+   "relations": [
+    {
+     "field": "entity id (object key)",
+     "to": "orgchart",
+     "cardinality": "many-to-one"
+    }
+   ],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/profiles.schema.json"
+  },
+  {
+   "id": "orgchart",
+   "title": "Who's who",
+   "description": "People and organisations in data/orgchart.json, the relations between them, and a short regulation note per country. status published is what the public page and the API show.",
+   "files": [
+    "data/orgchart.json"
+   ],
+   "pages": [
+    "/org-chart/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/orgchart.json",
+     "note": "Entities, relations and regulation"
+    },
+    {
+     "path": "/api/v1/orgchart/{id}.json",
+     "note": "One entity"
+    },
+    {
+     "path": "/api/v1/relations.json",
+     "note": "Relations only"
+    },
+    {
+     "path": "/api/v1/regulation.json",
+     "note": "Regulation notes"
+    }
+   ],
+   "relations": [
+    {
+     "field": "relations[].from",
+     "to": "orgchart",
+     "cardinality": "many-to-one"
+    },
+    {
+     "field": "relations[].to",
+     "to": "orgchart",
+     "cardinality": "many-to-one"
+    },
+    {
+     "field": "entities[].talk_ids",
+     "to": "talks",
+     "cardinality": "many-to-many"
+    },
+    {
+     "field": "id",
+     "to": "profiles",
+     "cardinality": "one-to-many"
+    },
+    {
+     "field": "id",
+     "to": "developers",
+     "cardinality": "one-to-many",
+     "note": "whoswho_id and org_id on a developer"
+    }
+   ],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/orgchart.schema.json"
+  },
+  {
+   "id": "talks",
+   "title": "Talks",
+   "description": "Public talks on bitcoin, cryptocurrencies and blockchain in the Nordic countries, in data/talks.json. description is ours. The other details come from the platform at source_url. A field the platform did not state is null.",
+   "files": [
+    "data/talks.json"
+   ],
+   "pages": [
+    "/talks/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/talks.json",
+     "note": "Every talk, newest first"
+    },
+    {
+     "path": "/api/v1/talks/{id}.json",
+     "note": "One talk"
+    },
+    {
+     "path": "/api/v1/talks/by-country/{country}.json",
+     "note": "NO, SE, DK, FI, IS, FO, GL or AX"
+    }
+   ],
+   "relations": [
+    {
+     "field": "event_id",
+     "to": "events",
+     "cardinality": "many-to-one",
+     "note": "Null when the talk could not be dated or placed"
+    },
+    {
+     "field": "speaker_ids",
+     "to": "orgchart",
+     "cardinality": "many-to-many"
+    }
+   ],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/talks.schema.json"
+  },
+  {
+   "id": "developers",
+   "title": "Developers",
+   "description": "Open-source developers in data/developers.json. Only public professional information: no addresses and no private details. The public page shows status published.",
+   "files": [
+    "data/developers.json"
+   ],
+   "pages": [
+    "/developers/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/developers.json",
+     "note": "Published developers"
+    },
+    {
+     "path": "/api/v1/developers/{id}.json",
+     "note": "One developer"
+    }
+   ],
+   "relations": [
+    {
+     "field": "org_id",
+     "to": "orgchart",
+     "cardinality": "many-to-one"
+    },
+    {
+     "field": "whoswho_id",
+     "to": "orgchart",
+     "cardinality": "many-to-one"
+    }
+   ],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/developers.schema.json"
+  },
+  {
+   "id": "illustrations",
+   "title": "Illustrations",
+   "description": "Licensed pictures that may be assigned to a story, in data/illustrations.json. kind is original, commons or official-press. A newspaper photograph is never stored here.",
+   "files": [
+    "data/illustrations.json"
+   ],
+   "pages": [
+    "/media/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/illustrations.json",
+     "note": "Picture records and the assignment rules"
+    }
+   ],
+   "relations": [
+    {
+     "field": "assign[].id",
+     "to": "news",
+     "cardinality": "many-to-many",
+     "note": "Chosen from topics, then country"
+    }
+   ],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/illustrations.schema.json"
+  },
+  {
+   "id": "images",
+   "title": "Portraits",
+   "description": "Portrait files for the who's who, keyed by entity id, in data/images.json. Each record names the file, the author and the licence.",
+   "files": [
+    "data/images.json"
+   ],
+   "pages": [
+    "/org-chart/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/images.json",
+     "note": "Portraits and logos published with the who's who"
+    }
+   ],
+   "relations": [
+    {
+     "field": "entity id (object key)",
+     "to": "orgchart",
+     "cardinality": "many-to-one"
+    }
+   ],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/images.schema.json"
+  },
+  {
+   "id": "logos",
+   "title": "Outlet logos",
+   "description": "Outlet marks in assets/img/logos/logos.json, keyed by id. review ok is what the public API shows. A missing review counts as ok. pending is included only in a preview build. rejected is never shown. The marks are the publishers' trademarks, shown only to identify the source of a headline.",
+   "files": [
+    "assets/img/logos/logos.json"
+   ],
+   "pages": [],
+   "api": [
+    {
+     "path": "/api/v1/sources.json",
+     "note": "logo and logo_url on each outlet"
+    },
+    {
+     "path": "/api/v1/news.json",
+     "note": "source_logo and source_logo_url on each story"
+    }
+   ],
+   "relations": [
+    {
+     "field": "id (object key)",
+     "to": "sources",
+     "cardinality": "one-to-one"
+    }
+   ],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/logos.schema.json"
+  },
+  {
+   "id": "changelog",
+   "title": "Changelog",
+   "description": "Site changes in changelog.json (new pages, sections and features, not the daily news). review pending keeps an entry off the public page until it has a date.",
+   "files": [
+    "changelog.json"
+   ],
+   "pages": [
+    "/changelog/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/changelog.json",
+     "note": "Public entries, newest first"
+    },
+    {
+     "path": "/api/v1/changelog/{id}.json",
+     "note": "One entry"
+    }
+   ],
+   "relations": [],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/changelog.schema.json"
+  },
+  {
+   "id": "rules",
+   "title": "Rules map",
+   "description": "The regulation map behind /rules/, in rules.json. Every node points at a primary source. review approved is what the public page shows.",
+   "files": [
+    "rules.json"
+   ],
+   "pages": [
+    "/rules/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/rules.json",
+     "note": "The public rules document"
+    }
+   ],
+   "relations": [],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/rules.schema.json"
+  },
+  {
+   "id": "stats",
+   "title": "Visitor stats",
+   "description": "Aggregate visits and page views in data/stats.json, from Cloudflare Web Analytics. No IP addresses, user agents, paths, referrers or countries. Days are UTC. Weeks are ISO weeks.",
+   "files": [
+    "data/stats.json"
+   ],
+   "pages": [
+    "/stats/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/stats.json",
+     "note": "The same counts the stats page shows"
+    }
+   ],
+   "relations": [],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/stats.schema.json"
+  },
+  {
+   "id": "crowdfunding",
+   "title": "Crowdfunding",
+   "description": "The closed crowdfunding pilot in data/crowdfunding.json. Nordic Crypto does not hold keys or funds. The file has no donor data and no balances. demo true marks an example, not a live campaign.",
+   "files": [
+    "data/crowdfunding.json"
+   ],
+   "pages": [
+    "/crowdfunding/"
+   ],
+   "api": [
+    {
+     "path": "/api/v1/crowdfunding.json",
+     "note": "The curated list. No balances and no donor data."
+    }
+   ],
+   "relations": [],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/crowdfunding.schema.json"
+  },
+  {
+   "id": "budget",
+   "title": "Budget",
+   "description": "Monthly hosting and domain costs in data/budget.json. The figures exclude labour. amount is the monthly figure in currency.",
+   "files": [
+    "data/budget.json"
+   ],
+   "pages": [
+    "/budget/"
+   ],
+   "api": [],
+   "relations": [],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/budget.schema.json"
+  },
+  {
+   "id": "articles",
+   "title": "Article archive",
+   "description": "Stories the public site has shown, in archive/articles.json, including when a story was removed. removal_reason stays null in this public file.",
+   "files": [
+    "archive/articles.json"
+   ],
+   "pages": [],
+   "api": [
+    {
+     "path": "/api/v1/archive/articles.json",
+     "note": "Archived stories"
+    }
+   ],
+   "relations": [
+    {
+     "field": "articles[].id",
+     "to": "news",
+     "cardinality": "many-to-one"
+    }
+   ],
+   "derived": [],
+   "omitted_from_api": [
+    "removal_reason"
+   ],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/articles.schema.json"
+  },
+  {
+   "id": "title-i18n",
+   "title": "Headline translations",
+   "description": "Our headlines by story id, in data/title_i18n.json. The source headline stays on the story. Keys are nn, nb, sv, da, fi and is, and only for languages that are not already the source headline.",
+   "files": [
+    "data/title_i18n.json"
+   ],
+   "pages": [],
+   "api": [],
+   "relations": [
+    {
+     "field": "items key",
+     "to": "news",
+     "cardinality": "many-to-one"
+    }
+   ],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/title-i18n.schema.json"
+  },
+  {
+   "id": "blurbs",
+   "title": "Front-page blurbs",
+   "description": "Front-page blurbs by story id, in data/frontpage_blurbs.json. en is ours, in English. The Nordic site languages sit beside it when a translation is published.",
+   "files": [
+    "data/frontpage_blurbs.json"
+   ],
+   "pages": [],
+   "api": [],
+   "relations": [
+    {
+     "field": "items key",
+     "to": "news",
+     "cardinality": "many-to-one"
+    }
+   ],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/blurbs.schema.json"
+  },
+  {
+   "id": "event-descriptions",
+   "title": "Event descriptions",
+   "description": "Organiser descriptions and our translations, by event id, in data/event_description_i18n.json. source is the original wording. A language key is present only when that translation is written.",
+   "files": [
+    "data/event_description_i18n.json"
+   ],
+   "pages": [],
+   "api": [],
+   "relations": [
+    {
+     "field": "items key",
+     "to": "events",
+     "cardinality": "many-to-one"
+    }
+   ],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/event-descriptions.schema.json"
+  },
+  {
+   "id": "event-redirects",
+   "title": "Event redirects",
+   "description": "Merged duplicate events in data/event_redirects.json. Each key is a removed id and each value is the id that was kept. The old calendar URL refreshes to the kept event.",
+   "files": [
+    "data/event_redirects.json"
+   ],
+   "pages": [
+    "/calendar/"
+   ],
+   "api": [],
+   "relations": [
+    {
+     "field": "removed id (object key)",
+     "to": "events",
+     "cardinality": "many-to-one"
+    },
+    {
+     "field": "value",
+     "to": "events",
+     "cardinality": "many-to-one",
+     "note": "The id that was kept"
+    }
+   ],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/event-redirects.schema.json"
+  },
+  {
+   "id": "regulation-videos",
+   "title": "Regulation videos",
+   "description": "Country explainer slots in data/regulation-videos.json. status scripts_ready means the script and storyboard exist and the MP4 is not committed yet.",
+   "files": [
+    "data/regulation-videos.json"
+   ],
+   "pages": [
+    "/regulation-videos/"
+   ],
+   "api": [],
+   "relations": [],
+   "derived": [],
+   "omitted_from_api": [],
+   "schema_url": "https://nordiccrypto.no/api/v1/schema/regulation-videos.schema.json"
+  }
+ ]
+}

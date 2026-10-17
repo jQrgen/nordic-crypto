@@ -1,0 +1,99 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/images.schema.json",
+ "title": "Portraits",
+ "description": "Portrait files for the who's who, keyed by entity id, in data/images.json. Each record names the file, the author and the licence.",
+ "x-nordic": {
+  "id": "images",
+  "order": 120,
+  "files": [
+   "data/images.json"
+  ],
+  "pages": [
+   "/org-chart/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/images.json",
+    "note": "Portraits and logos published with the who's who"
+   }
+  ],
+  "relations": [
+   {
+    "field": "entity id (object key)",
+    "to": "orgchart",
+    "cardinality": "many-to-one"
+   }
+  ],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "portrait",
+    "title": "Portrait",
+    "row": "#/$defs/portrait"
+   }
+  ],
+  "row": "#/$defs/portrait"
+ },
+ "type": "object",
+ "properties": {},
+ "additionalProperties": {
+  "$ref": "#/$defs/portrait"
+ },
+ "$defs": {
+  "portrait": {
+   "type": "object",
+   "properties": {
+    "file": {
+     "type": "string",
+     "description": "Path in the repo.",
+     "examples": [
+      "assets/img/people/tuva-moflag.jpg"
+     ]
+    },
+    "source_page": {
+     "type": "string",
+     "description": "Page the picture was taken from.",
+     "examples": [
+      "https://commons.wikimedia.org/wiki/File:Tuva_Moflag.jpg"
+     ]
+    },
+    "author": {
+     "type": "string",
+     "examples": [
+      "Johannes Dalen Giske"
+     ]
+    },
+    "license": {
+     "type": "string",
+     "description": "Licence name, such as CC BY-SA 4.0.",
+     "examples": [
+      "CC BY-SA 4.0"
+     ]
+    },
+    "license_url": {
+     "type": "string",
+     "examples": [
+      "https://creativecommons.org/licenses/by-sa/4.0"
+     ]
+    },
+    "origin": {
+     "type": "string",
+     "examples": [
+      "Wikimedia Commons"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "file",
+    "source_page",
+    "author",
+    "license",
+    "license_url",
+    "origin"
+   ]
+  }
+ }
+}

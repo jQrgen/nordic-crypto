@@ -1,0 +1,23 @@
+{
+ "schema_version": "2026-10-17",
+ "commit": "8959dbf",
+ "committed_at": "2026-10-17T07:37:29+02:00",
+ "entries": [
+  {
+   "sha": "8959dbfd5889319709cd0c588d6b18dcc9ebd0ad",
+   "short": "8959dbf",
+   "committed_at": "2026-10-17T07:37:29+02:00",
+   "date": "2026-10-17",
+   "subject": "Schema examples: avoid 8-digit values the privacy gate reads as phone numbers",
+   "url": "https://github.com/nordic-crypto-org/nordic-crypto/commit/8959dbfd5889319709cd0c588d6b18dcc9ebd0ad"
+  },
+  {
+   "sha": "5e22089319986ae565c34d81953410282c87f1c7",
+   "short": "5e22089",
+   "committed_at": "2026-10-16T14:20:04+02:00",
+   "date": "2026-10-16",
+   "subject": "Document the public data model at /db/ (#153)",
+   "url": "https://github.com/nordic-crypto-org/nordic-crypto/commit/5e22089319986ae565c34d81953410282c87f1c7"
+  }
+ ]
+}

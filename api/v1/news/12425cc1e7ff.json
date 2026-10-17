@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T12:23:25+00:00",
+ "generated_at": "2026-10-17T05:41:20+00:00",
  "preview": false,
  "item": {
   "id": "12425cc1e7ff",
@@ -40,12 +40,12 @@
   ],
   "summary": "Finnish crypto broker Coinmotion, which serves customers in Finland and Sweden, has chosen K33 as its partner for institutional execution of larger trades, Kaupr reports. Under the deal Coinmotion keeps the customer relationship and platform while K33 carries out the trades, and both firms hold MiCA licences. K33's CEO says MiCA's common framework makes partnerships like this easier.",
   "summary_i18n": {
+   "nn": "Den finske kryptomeklaren Coinmotion, som har kundar i Finland og Sverige, har valt K33 som partnar for institusjonell utføring av større handlar, melder Kaupr. Etter avtalen held Coinmotion på kundeforholdet og plattforma, medan K33 utfører handlane, og begge selskapa har MiCA-lisens. Administrerande direktør i K33 seier at det felles regelverket i MiCA gjer slike samarbeid enklare.",
+   "nb": "Den finske kryptomegleren Coinmotion, som har kunder i Finland og Sverige, har valgt K33 som partner for institusjonell utførelse av større handler, melder Kaupr. Etter avtalen beholder Coinmotion kundeforholdet og plattformen, mens K33 utfører handlene, og begge selskapene har MiCA-lisens. Administrerende direktør i K33 sier at det felles regelverket i MiCA gjør slike samarbeid enklere.",
+   "sv": "Den finska kryptomäklaren Coinmotion, som har kunder i Finland och Sverige, har valt K33 som partner för institutionellt utförande av större affärer, rapporterar Kaupr. Enligt avtalet behåller Coinmotion kundrelationen och plattformen medan K33 utför affärerna, och båda bolagen har MiCA-licens. K33:s vd säger att MiCA:s gemensamma ramverk gör sådana samarbeten enklare.",
    "da": "Den finske kryptomægler Coinmotion, som har kunder i Finland og Sverige, har valgt K33 som partner til institutionel udførelse af større handler, skriver Kaupr. Ifølge aftalen beholder Coinmotion kundeforholdet og platformen, mens K33 udfører handlerne, og begge selskaber har MiCA-licens. K33's administrerende direktør siger, at MiCA's fælles rammer gør den slags partnerskaber lettere.",
    "fi": "Suomessa ja Ruotsissa toimiva kryptovälittäjä Coinmotion on valinnut K33:n kumppanikseen suurempien kauppojen institutionaaliseen toteutukseen, kertoo Kaupr. Sopimuksen mukaan Coinmotion pitää asiakassuhteen ja alustan, kun taas K33 toteuttaa kaupat, ja molemmilla yhtiöillä on MiCA-toimilupa. K33:n toimitusjohtajan mukaan MiCA:n yhteinen sääntelykehys helpottaa tällaisia kumppanuuksia.",
-   "is": "Finnski rafmyntamiðlarinn Coinmotion, sem þjónar viðskiptavinum í Finnlandi og Svíþjóð, hefur valið K33 sem samstarfsaðila við framkvæmd stærri viðskipta fyrir fagfjárfesta, segir Kaupr. Samkvæmt samningnum heldur Coinmotion viðskiptasambandinu og vettvanginum en K33 framkvæmir viðskiptin, og bæði fyrirtækin hafa MiCA-leyfi. Forstjóri K33 segir að sameiginlegur rammi MiCA auðveldi samstarf af þessu tagi.",
-   "nb": "Den finske kryptomegleren Coinmotion, som har kunder i Finland og Sverige, har valgt K33 som partner for institusjonell utførelse av større handler, melder Kaupr. Etter avtalen beholder Coinmotion kundeforholdet og plattformen, mens K33 utfører handlene, og begge selskapene har MiCA-lisens. Administrerende direktør i K33 sier at det felles regelverket i MiCA gjør slike samarbeid enklere.",
-   "nn": "Den finske kryptomeklaren Coinmotion, som har kundar i Finland og Sverige, har valt K33 som partnar for institusjonell utføring av større handlar, melder Kaupr. Etter avtalen held Coinmotion på kundeforholdet og plattforma, medan K33 utfører handlane, og begge selskapa har MiCA-lisens. Administrerande direktør i K33 seier at det felles regelverket i MiCA gjer slike samarbeid enklare.",
-   "sv": "Den finska kryptomäklaren Coinmotion, som har kunder i Finland och Sverige, har valt K33 som partner för institutionellt utförande av större affärer, rapporterar Kaupr. Enligt avtalet behåller Coinmotion kundrelationen och plattformen medan K33 utför affärerna, och båda bolagen har MiCA-licens. K33:s vd säger att MiCA:s gemensamma ramverk gör sådana samarbeten enklare."
+   "is": "Finnski rafmyntamiðlarinn Coinmotion, sem þjónar viðskiptavinum í Finnlandi og Svíþjóð, hefur valið K33 sem samstarfsaðila við framkvæmd stærri viðskipta fyrir fagfjárfesta, segir Kaupr. Samkvæmt samningnum heldur Coinmotion viðskiptasambandinu og vettvanginum en K33 framkvæmir viðskiptin, og bæði fyrirtækin hafa MiCA-leyfi. Forstjóri K33 segir að sameiginlegur rammi MiCA auðveldi samstarf af þessu tagi."
   },
   "paywall": false,
   "links": [],

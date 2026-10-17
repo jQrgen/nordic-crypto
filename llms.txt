@@ -13,6 +13,7 @@ Absolute URLs in this file use that origin, at the domain root.
 
 - [Discovery](https://nordiccrypto.no/api/v1/index.json): every endpoint, counts, and example URLs.
 - [Human docs](https://nordiccrypto.no/api/): the same catalogue as a web page.
+- [Database](https://nordiccrypto.no/db/): fields, types and relations for every public collection. JSON Schemas: https://nordiccrypto.no/api/v1/schema/index.json.
 - [OpenAPI JSON](https://nordiccrypto.no/api/v1/openapi.json): OpenAPI 3.0.
 - [OpenAPI YAML](https://nordiccrypto.no/api/v1/openapi.yaml): the same document.
 - [API catalog](https://nordiccrypto.no/.well-known/api-catalog): RFC 9727 linkset. A .json copy is at https://nordiccrypto.no/.well-known/api-catalog.json.
@@ -115,6 +116,7 @@ curl -fsS https://nordiccrypto.no/api/v1/talks.json
 - [/api/v1/languages.json](https://nordiccrypto.no/api/v1/languages.json): Site UI languages: code, native name, English name, rtl, html lang and home URL.
 - [/api/v1/geo-language.json](https://nordiccrypto.no/api/v1/geo-language.json): Country to default site language. An IP guess only; the nc_lang cookie from the language switcher wins.
 - [/api/v1/meta.json](https://nordiccrypto.no/api/v1/meta.json): Site name, languages, countries, page list, CORS, editorial notes and brand social accounts (social.telegram, social.x, social.facebook, social.youtube).
+- [/api/v1/schema/index.json](https://nordiccrypto.no/api/v1/schema/index.json): JSON Schemas for the public data model: fields, enums, relations, schema version and changelog. Human page: /db/. Reader tips and newsletter addresses are named only, not described field by field.
 
 ## Not in this feed
 

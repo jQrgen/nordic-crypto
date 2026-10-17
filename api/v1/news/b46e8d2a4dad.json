@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T12:23:25+00:00",
+ "generated_at": "2026-10-17T05:41:20+00:00",
  "preview": false,
  "item": {
   "id": "b46e8d2a4dad",
@@ -40,12 +40,12 @@
   ],
   "summary": "Neither ESMA nor Sweden's Finansinspektionen will say whether marketing and distributing crypto services under your own brand requires a MiCA licence, Kaupr reports after putting the question to both. Both answer that it depends on how the service works in practice. ESMA stresses that an authorised provider that outsources functions must remain fully responsible for the service and remain the customer's contractual party.",
   "summary_i18n": {
+   "nn": "Verken ESMA eller Finansinspektionen i Sverige vil seie om det å marknadsføre og distribuere kryptotenester under eige merke krev MiCA-løyve, melder Kaupr etter å ha stilt spørsmålet til begge. Begge svarar at det kjem an på korleis tenesta fungerer i praksis. ESMA understrekar at ein autorisert tilbydar som set ut funksjonar, framleis må ha fullt ansvar for tenesta og vere kunden sin avtalepart.",
+   "nb": "Verken ESMA eller Finansinspektionen i Sverige vil si om det å markedsføre og distribuere kryptotjenester under eget merke krever MiCA-tillatelse, melder Kaupr etter å ha stilt spørsmålet til begge. Begge svarer at det avhenger av hvordan tjenesten fungerer i praksis. ESMA understreker at en autorisert tilbyder som setter ut funksjoner, fortsatt må ha fullt ansvar for tjenesten og være kundens avtalepart.",
+   "sv": "Varken Esma eller Finansinspektionen vill säga om det krävs MiCA-tillstånd för att marknadsföra och distribuera kryptotjänster under eget varumärke, rapporterar Kaupr efter att ha ställt frågan till båda. Båda svarar att det beror på hur tjänsten fungerar i praktiken. Esma betonar att en auktoriserad leverantör som lägger ut funktioner fortfarande måste ha fullt ansvar för tjänsten och vara kundens avtalspart.",
    "da": "Hverken ESMA eller det svenske Finansinspektionen vil sige, om markedsføring og distribution af kryptotjenester under eget brand kræver MiCA-tilladelse, skriver Kaupr efter at have stillet spørgsmålet til begge. Begge svarer, at det afhænger af, hvordan tjenesten fungerer i praksis. ESMA understreger, at en autoriseret udbyder, der outsourcer funktioner, fortsat skal have det fulde ansvar for tjenesten og være kundens aftalepart.",
    "fi": "ESMA tai Ruotsin Finansinspektionen eivät suostu sanomaan, vaatiiko kryptopalvelujen markkinointi ja jakelu omalla brändillä MiCA-toimiluvan, kertoo Kaupr kysyttyään asiaa molemmilta. Molemmat vastaavat, että se riippuu siitä, miten palvelu käytännössä toimii. ESMA korostaa, että toimintoja ulkoistavan toimiluvallisen palveluntarjoajan on edelleen vastattava palvelusta täysin ja pysyttävä asiakkaan sopimuskumppanina.",
-   "is": "Hvorki ESMA né sænska fjármálaeftirlitið Finansinspektionen vilja segja hvort markaðssetning og dreifing rafmyntaþjónustu undir eigin vörumerki krefjist MiCA-leyfis, segir Kaupr eftir að hafa lagt spurninguna fyrir báða. Báðir svara að það fari eftir því hvernig þjónustan virkar í reynd. ESMA leggur áherslu á að leyfishafi sem útvistar verkþáttum verði áfram að bera fulla ábyrgð á þjónustunni og vera samningsaðili viðskiptavinarins.",
-   "nb": "Verken ESMA eller Finansinspektionen i Sverige vil si om det å markedsføre og distribuere kryptotjenester under eget merke krever MiCA-tillatelse, melder Kaupr etter å ha stilt spørsmålet til begge. Begge svarer at det avhenger av hvordan tjenesten fungerer i praksis. ESMA understreker at en autorisert tilbyder som setter ut funksjoner, fortsatt må ha fullt ansvar for tjenesten og være kundens avtalepart.",
-   "nn": "Verken ESMA eller Finansinspektionen i Sverige vil seie om det å marknadsføre og distribuere kryptotenester under eige merke krev MiCA-løyve, melder Kaupr etter å ha stilt spørsmålet til begge. Begge svarar at det kjem an på korleis tenesta fungerer i praksis. ESMA understrekar at ein autorisert tilbydar som set ut funksjonar, framleis må ha fullt ansvar for tenesta og vere kunden sin avtalepart.",
-   "sv": "Varken Esma eller Finansinspektionen vill säga om det krävs MiCA-tillstånd för att marknadsföra och distribuera kryptotjänster under eget varumärke, rapporterar Kaupr efter att ha ställt frågan till båda. Båda svarar att det beror på hur tjänsten fungerar i praktiken. Esma betonar att en auktoriserad leverantör som lägger ut funktioner fortfarande måste ha fullt ansvar för tjänsten och vara kundens avtalspart."
+   "is": "Hvorki ESMA né sænska fjármálaeftirlitið Finansinspektionen vilja segja hvort markaðssetning og dreifing rafmyntaþjónustu undir eigin vörumerki krefjist MiCA-leyfis, segir Kaupr eftir að hafa lagt spurninguna fyrir báða. Báðir svara að það fari eftir því hvernig þjónustan virkar í reynd. ESMA leggur áherslu á að leyfishafi sem útvistar verkþáttum verði áfram að bera fulla ábyrgð á þjónustunni og vera samningsaðili viðskiptavinarins."
   },
   "paywall": false,
   "links": [],

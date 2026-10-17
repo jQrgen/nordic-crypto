@@ -1,0 +1,212 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/books.schema.json",
+ "title": "Books",
+ "description": "Published books about bitcoin, crypto or blockchain by Nordic authors, or about the Nordic countries, in data/books.json. Titles stay in the original language. about is our one-line description in English.",
+ "x-nordic": {
+  "id": "books",
+  "order": 60,
+  "files": [
+   "data/books.json"
+  ],
+  "pages": [
+   "/books/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/books.json",
+    "note": "Every book"
+   },
+   {
+    "path": "/api/v1/books/{id}.json",
+    "note": "One book"
+   }
+  ],
+  "relations": [],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "book",
+    "title": "Book",
+    "row": "#/$defs/book"
+   }
+  ],
+  "row": "#/$defs/book"
+ },
+ "type": "object",
+ "properties": {
+  "updated": {
+   "type": "string",
+   "examples": [
+    "2026-10-08"
+   ]
+  },
+  "note": {
+   "type": "string"
+  },
+  "books": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/book"
+   }
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "updated",
+  "note",
+  "books"
+ ],
+ "$defs": {
+  "book": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "examples": [
+      "svalbard-pengar"
+     ]
+    },
+    "title": {
+     "type": "string",
+     "description": "Title in the original language, as printed.",
+     "examples": [
+      "Svalbard! Pengar!"
+     ]
+    },
+    "authors": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "Morten Søberg"
+      ]
+     },
+     "description": "Names as printed.",
+     "examples": [
+      [
+       "Morten Søberg"
+      ]
+     ]
+    },
+    "year": {
+     "type": "integer",
+     "description": "Year of the edition we checked.",
+     "examples": [
+      2022
+     ]
+    },
+    "publisher": {
+     "type": "string",
+     "examples": [
+      "Spartacus"
+     ]
+    },
+    "language": {
+     "type": "string",
+     "description": "nn, nb, sv, da, fi, is or en.",
+     "enum": [
+      "nn",
+      "nb",
+      "sv",
+      "da",
+      "fi",
+      "is",
+      "en"
+     ],
+     "examples": [
+      "nn"
+     ]
+    },
+    "country": {
+     "type": "string",
+     "description": "The author's country, or the country the book is about.",
+     "enum": [
+      "NO",
+      "SE",
+      "DK",
+      "FI",
+      "IS",
+      "FO",
+      "GL",
+      "AX"
+     ],
+     "examples": [
+      "NO"
+     ]
+    },
+    "isbn": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "ISBN-13 when the catalogue gave one.",
+     "examples": [
+      "9788243014817"
+     ]
+    },
+    "about": {
+     "type": "string"
+    },
+    "source": {
+     "type": "string",
+     "description": "Catalogue or publisher page where the title, authors, year and publisher were checked.",
+     "examples": [
+      "https://www.nb.no/items/URN:NBN:no-nb_digibok_2022102848045"
+     ]
+    },
+    "source_name": {
+     "type": "string",
+     "examples": [
+      "Nasjonalbiblioteket"
+     ]
+    },
+    "more_sources": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "https://www.ark.no/produkt/svalbard-pengar-9788243015197"
+      ]
+     },
+     "examples": [
+      [
+       "https://www.finna.fi/Record/3amk.284126"
+      ]
+     ]
+    },
+    "subtitle": {
+     "type": "string",
+     "examples": [
+      "kryptovaluta, «smarte kontrakter» og andre eiendeler på blokkjeden"
+     ]
+    },
+    "author_role": {
+     "type": "string",
+     "description": "editors for an edited volume, otherwise omitted.",
+     "enum": [
+      "editors"
+     ],
+     "examples": [
+      "editors"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "title",
+    "authors",
+    "year",
+    "publisher",
+    "language",
+    "country",
+    "isbn",
+    "about",
+    "source",
+    "source_name"
+   ]
+  }
+ }
+}

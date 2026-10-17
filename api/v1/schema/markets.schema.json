@@ -1,0 +1,983 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/markets.schema.json",
+ "title": "Markets",
+ "description": "Nordic exchange prices written at build time to /api/v1/markets.json. This is not a file in data/. Market data, not investment advice. quote is NOK, SEK, DKK or EUR. Nothing is converted between currencies.",
+ "x-nordic": {
+  "id": "markets",
+  "order": 65,
+  "files": [],
+  "pages": [
+   "/markets/"
+  ],
+  "api": [
+   {
+    "path": "/api/v1/markets.json",
+    "note": "All tickers and the aggregate"
+   },
+   {
+    "path": "/api/v1/markets/aggregated.json",
+    "note": "One row per pair"
+   },
+   {
+    "path": "/api/v1/markets/{exchange}.json",
+    "note": "firi, nbx or coinmotion"
+   },
+   {
+    "path": "/api/v1/markets/by-asset/{symbol}.json",
+    "note": "One base asset, such as BTC"
+   },
+   {
+    "path": "/api/v1/markets/logos/{symbol}.svg",
+    "note": "CC0 icon when the set includes the asset"
+   }
+  ],
+  "relations": [],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "ticker",
+    "title": "Ticker",
+    "row": "#/$defs/ticker"
+   },
+   {
+    "id": "aggregate",
+    "title": "Aggregate",
+    "row": "#/$defs/aggregate"
+   },
+   {
+    "id": "exchange",
+    "title": "Exchange",
+    "row": "#/$defs/exchange"
+   }
+  ],
+  "row": "#/$defs/ticker"
+ },
+ "type": "object",
+ "properties": {
+  "api_version": {
+   "type": "string",
+   "examples": [
+    "1"
+   ]
+  },
+  "name": {
+   "type": "string",
+   "examples": [
+    "Nordic Crypto"
+   ]
+  },
+  "generated_at": {
+   "type": "string",
+   "examples": [
+    "2026-10-14T12:00:00+00:00"
+   ]
+  },
+  "preview": {
+   "type": "boolean",
+   "examples": [
+    false
+   ]
+  },
+  "kind": {
+   "type": "string",
+   "examples": [
+    "markets"
+   ]
+  },
+  "disclaimer": {
+   "type": "string",
+   "description": "Market data, not investment advice."
+  },
+  "sign_off": {
+   "type": "string",
+   "examples": [
+    "The Nordic Crypto team"
+   ]
+  },
+  "not_investment_advice": {
+   "type": "boolean",
+   "examples": [
+    true
+   ]
+  },
+  "quotes": {
+   "type": "array",
+   "items": {
+    "type": "string",
+    "examples": [
+     "NOK"
+    ]
+   },
+   "description": "NOK, SEK, DKK and EUR only."
+  },
+  "quote_note": {
+   "type": "string"
+  },
+  "aggregation": {
+   "type": "object",
+   "additionalProperties": {
+    "type": "string"
+   }
+  },
+  "refresh": {
+   "type": "object",
+   "properties": {
+    "build": {
+     "type": "string",
+     "examples": [
+      "Fetched when the site is built (./build.sh and ./publish.sh)."
+     ]
+    },
+    "github_actions": {
+     "type": "string"
+    },
+    "browser": {
+     "type": "string"
+    },
+    "browser_json_seconds": {
+     "type": "integer",
+     "examples": [
+      900
+     ]
+    },
+    "browser_exchange_seconds": {
+     "type": "integer",
+     "examples": [
+      300
+     ]
+    },
+    "actions_cron": {
+     "type": "string",
+     "examples": [
+      "17 * * * *"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "build",
+    "github_actions",
+    "browser",
+    "browser_json_seconds",
+    "browser_exchange_seconds",
+    "actions_cron"
+   ]
+  },
+  "urls": {
+   "type": "object",
+   "properties": {
+    "github_pages": {
+     "type": "string",
+     "examples": [
+      "https://nordiccrypto.no/api/v1/markets.json"
+     ]
+    },
+    "raw_githubusercontent": {
+     "type": "string"
+    },
+    "custom_domain": {
+     "type": "string",
+     "examples": [
+      "https://nordiccrypto.no/api/v1/markets.json"
+     ]
+    },
+    "aggregated_github_pages": {
+     "type": "string",
+     "examples": [
+      "https://nordiccrypto.no/api/v1/markets/aggregated.json"
+     ]
+    },
+    "aggregated_custom_domain": {
+     "type": "string",
+     "examples": [
+      "https://nordiccrypto.no/api/v1/markets/aggregated.json"
+     ]
+    },
+    "logos": {
+     "type": "string",
+     "examples": [
+      "https://nordiccrypto.no/api/v1/markets/logos/"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "github_pages",
+    "raw_githubusercontent",
+    "custom_domain",
+    "aggregated_github_pages",
+    "aggregated_custom_domain",
+    "logos"
+   ]
+  },
+  "exchanges": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/exchange"
+   }
+  },
+  "skipped": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "properties": {
+     "id": {
+      "type": "string",
+      "examples": [
+       "safello"
+      ]
+     },
+     "name": {
+      "type": "string",
+      "examples": [
+       "Safello"
+      ]
+     },
+     "country": {
+      "type": "string",
+      "examples": [
+       "SE"
+      ]
+     },
+     "reason": {
+      "type": "string",
+      "examples": [
+       "No public unauthenticated ticker API was found."
+      ]
+     }
+    },
+    "additionalProperties": false,
+    "required": [
+     "id",
+     "name",
+     "country",
+     "reason"
+    ]
+   }
+  },
+  "count": {
+   "type": "integer",
+   "examples": [
+    1
+   ]
+  },
+  "aggregated_count": {
+   "type": "integer",
+   "examples": [
+    1
+   ]
+  },
+  "tickers": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/ticker"
+   },
+   "description": "One row per exchange pair."
+  },
+  "aggregated": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/aggregate"
+   },
+   "description": "One row per base-quote pair. BTC-NOK is not averaged with BTC-EUR."
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "api_version",
+  "name",
+  "generated_at",
+  "preview",
+  "kind",
+  "disclaimer",
+  "sign_off",
+  "not_investment_advice",
+  "quotes",
+  "quote_note",
+  "aggregation",
+  "refresh",
+  "urls",
+  "exchanges",
+  "skipped",
+  "count",
+  "aggregated_count",
+  "tickers",
+  "aggregated"
+ ],
+ "$defs": {
+  "ticker": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "examples": [
+      "firi:BTC-NOK"
+     ]
+    },
+    "symbol": {
+     "type": "string",
+     "examples": [
+      "BTC-NOK"
+     ]
+    },
+    "exchange_symbol": {
+     "type": "string",
+     "examples": [
+      "BTCNOK"
+     ]
+    },
+    "base": {
+     "type": "string",
+     "examples": [
+      "BTC"
+     ]
+    },
+    "quote": {
+     "type": "string",
+     "enum": [
+      "NOK",
+      "SEK",
+      "DKK",
+      "EUR"
+     ],
+     "examples": [
+      "NOK"
+     ]
+    },
+    "last": {
+     "type": "string",
+     "examples": [
+      "100.5"
+     ]
+    },
+    "bid": {
+     "type": "string",
+     "examples": [
+      "100"
+     ]
+    },
+    "ask": {
+     "type": "string",
+     "examples": [
+      "101"
+     ]
+    },
+    "exchange": {
+     "type": "object",
+     "properties": {
+      "id": {
+       "type": "string",
+       "examples": [
+        "firi"
+       ]
+      },
+      "name": {
+       "type": "string",
+       "examples": [
+        "Firi"
+       ]
+      },
+      "country": {
+       "type": "string",
+       "examples": [
+        "NO"
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "id",
+      "name",
+      "country"
+     ]
+    },
+    "fetched_at": {
+     "type": "string",
+     "examples": [
+      "2026-10-14T12:00:00+00:00"
+     ]
+    },
+    "source_url": {
+     "type": "string",
+     "examples": [
+      "https://api.firi.com/v2/markets/BTCNOK"
+     ]
+    },
+    "volume_base": {
+     "type": "string",
+     "examples": [
+      "1"
+     ]
+    },
+    "volume_quote": {
+     "type": "null"
+    },
+    "volume_base_24h": {
+     "type": "null"
+    },
+    "volume_quote_24h": {
+     "type": "null"
+    },
+    "high": {
+     "type": "string",
+     "examples": [
+      "101"
+     ]
+    },
+    "low": {
+     "type": "string",
+     "examples": [
+      "99"
+     ]
+    },
+    "change_pct": {
+     "type": "string",
+     "examples": [
+      "0.1"
+     ]
+    },
+    "exchange_time": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "description": "Timestamp from the exchange payload, when it sends one."
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "symbol",
+    "exchange_symbol",
+    "base",
+    "quote",
+    "last",
+    "bid",
+    "ask",
+    "exchange",
+    "fetched_at",
+    "source_url",
+    "volume_base",
+    "volume_quote",
+    "volume_base_24h",
+    "volume_quote_24h",
+    "high",
+    "low",
+    "change_pct"
+   ]
+  },
+  "aggregate": {
+   "type": "object",
+   "properties": {
+    "symbol": {
+     "type": "string",
+     "examples": [
+      "BTC-NOK"
+     ]
+    },
+    "base": {
+     "type": "string",
+     "examples": [
+      "BTC"
+     ]
+    },
+    "name": {
+     "type": "string",
+     "examples": [
+      "Bitcoin"
+     ]
+    },
+    "quote": {
+     "type": "string",
+     "enum": [
+      "NOK",
+      "SEK",
+      "DKK",
+      "EUR"
+     ],
+     "examples": [
+      "NOK"
+     ]
+    },
+    "currency": {
+     "type": "string",
+     "enum": [
+      "NOK",
+      "SEK",
+      "DKK",
+      "EUR"
+     ],
+     "examples": [
+      "NOK"
+     ]
+    },
+    "updated_at": {
+     "type": "string",
+     "examples": [
+      "2026-10-14T12:00:00+00:00"
+     ]
+    },
+    "oldest_fetched_at": {
+     "type": "string",
+     "examples": [
+      "2026-10-14T12:00:00+00:00"
+     ]
+    },
+    "exchange_count": {
+     "type": "integer",
+     "examples": [
+      1
+     ]
+    },
+    "method": {
+     "type": "string",
+     "enum": [
+      "mean_last",
+      "mean_bid_ask_mid"
+     ],
+     "examples": [
+      "mean_last"
+     ]
+    },
+    "method_note": {
+     "type": "string"
+    },
+    "price": {
+     "type": "string",
+     "examples": [
+      "100.5"
+     ]
+    },
+    "min": {
+     "type": "string",
+     "examples": [
+      "100.5"
+     ]
+    },
+    "max": {
+     "type": "string",
+     "examples": [
+      "100.5"
+     ]
+    },
+    "last": {
+     "type": "string",
+     "examples": [
+      "100.5"
+     ]
+    },
+    "last_count": {
+     "type": "integer",
+     "examples": [
+      1
+     ]
+    },
+    "last_min": {
+     "type": "string",
+     "examples": [
+      "100.5"
+     ]
+    },
+    "last_max": {
+     "type": "string",
+     "examples": [
+      "100.5"
+     ]
+    },
+    "mid": {
+     "type": "string",
+     "examples": [
+      "100.5"
+     ]
+    },
+    "mid_count": {
+     "type": "integer",
+     "examples": [
+      1
+     ]
+    },
+    "mid_min": {
+     "type": "string",
+     "examples": [
+      "100.5"
+     ]
+    },
+    "mid_max": {
+     "type": "string",
+     "examples": [
+      "100.5"
+     ]
+    },
+    "vwap": {
+     "type": "null"
+    },
+    "volume_used_for_price": {
+     "type": "boolean",
+     "examples": [
+      false
+     ]
+    },
+    "volume": {
+     "type": "object",
+     "properties": {
+      "units": {
+       "type": "object",
+       "properties": {
+        "volume_base": {
+         "type": "string",
+         "examples": [
+          "base asset; window not named by the exchange"
+         ]
+        },
+        "volume_quote": {
+         "type": "string",
+         "examples": [
+          "quote currency; window not named by the exchange"
+         ]
+        },
+        "volume_base_24h": {
+         "type": "string",
+         "examples": [
+          "base asset; last 24 hours, as named by the exchange"
+         ]
+        },
+        "volume_quote_24h": {
+         "type": "string",
+         "examples": [
+          "quote currency; last 24 hours, as named by the exchange"
+         ]
+        }
+       },
+       "additionalProperties": false,
+       "required": [
+        "volume_base",
+        "volume_quote",
+        "volume_base_24h",
+        "volume_quote_24h"
+       ]
+      },
+      "volume_base": {
+       "type": "string",
+       "examples": [
+        "1"
+       ]
+      },
+      "volume_base_exchanges": {
+       "type": "integer",
+       "examples": [
+        1
+       ]
+      },
+      "volume_quote": {
+       "type": "null"
+      },
+      "volume_quote_exchanges": {
+       "type": "integer",
+       "examples": [
+        0
+       ]
+      },
+      "volume_base_24h": {
+       "type": "null"
+      },
+      "volume_base_24h_exchanges": {
+       "type": "integer",
+       "examples": [
+        0
+       ]
+      },
+      "volume_quote_24h": {
+       "type": "null"
+      },
+      "volume_quote_24h_exchanges": {
+       "type": "integer",
+       "examples": [
+        0
+       ]
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "units",
+      "volume_base",
+      "volume_base_exchanges",
+      "volume_quote",
+      "volume_quote_exchanges",
+      "volume_base_24h",
+      "volume_base_24h_exchanges",
+      "volume_quote_24h",
+      "volume_quote_24h_exchanges"
+     ]
+    },
+    "contributors": {
+     "type": "array",
+     "items": {
+      "type": "object",
+      "properties": {
+       "exchange_id": {
+        "type": "string",
+        "examples": [
+         "firi"
+        ]
+       },
+       "name": {
+        "type": "string",
+        "examples": [
+         "Firi"
+        ]
+       },
+       "country": {
+        "type": "string",
+        "examples": [
+         "NO"
+        ]
+       },
+       "last": {
+        "type": "string",
+        "examples": [
+         "100.5"
+        ]
+       },
+       "bid": {
+        "type": "string",
+        "examples": [
+         "100"
+        ]
+       },
+       "ask": {
+        "type": "string",
+        "examples": [
+         "101"
+        ]
+       },
+       "mid": {
+        "type": "string",
+        "examples": [
+         "100.5"
+        ]
+       },
+       "included_in_last": {
+        "type": "boolean",
+        "examples": [
+         true
+        ]
+       },
+       "included_in_mid": {
+        "type": "boolean",
+        "examples": [
+         true
+        ]
+       },
+       "volume_base": {
+        "type": "string",
+        "examples": [
+         "1"
+        ]
+       },
+       "volume_quote": {
+        "type": "null"
+       },
+       "volume_base_24h": {
+        "type": "null"
+       },
+       "volume_quote_24h": {
+        "type": "null"
+       },
+       "fetched_at": {
+        "type": "string",
+        "examples": [
+         "2026-10-14T12:00:00+00:00"
+        ]
+       },
+       "source_url": {
+        "type": "string",
+        "examples": [
+         "https://api.firi.com/v2/markets/BTCNOK"
+        ]
+       },
+       "included_in_price": {
+        "type": "boolean",
+        "examples": [
+         true
+        ]
+       }
+      },
+      "additionalProperties": false,
+      "required": [
+       "exchange_id",
+       "name",
+       "country",
+       "last",
+       "bid",
+       "ask",
+       "mid",
+       "included_in_last",
+       "included_in_mid",
+       "volume_base",
+       "volume_quote",
+       "volume_base_24h",
+       "volume_quote_24h",
+       "fetched_at",
+       "source_url",
+       "included_in_price"
+      ]
+     }
+    },
+    "logo_url": {
+     "type": "string",
+     "examples": [
+      "https://nordiccrypto.no/api/v1/markets/logos/btc.svg"
+     ]
+    },
+    "logo_url_custom_domain": {
+     "type": "string",
+     "examples": [
+      "https://nordiccrypto.no/api/v1/markets/logos/btc.svg"
+     ]
+    },
+    "logo_path": {
+     "type": "string",
+     "examples": [
+      "api/v1/markets/logos/btc.svg"
+     ]
+    },
+    "logo": {
+     "type": "object",
+     "additionalProperties": {
+      "type": "string"
+     }
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "symbol",
+    "base",
+    "name",
+    "quote",
+    "currency",
+    "updated_at",
+    "oldest_fetched_at",
+    "exchange_count",
+    "method",
+    "method_note",
+    "price",
+    "min",
+    "max",
+    "last",
+    "last_count",
+    "last_min",
+    "last_max",
+    "mid",
+    "mid_count",
+    "mid_min",
+    "mid_max",
+    "vwap",
+    "volume_used_for_price",
+    "volume",
+    "contributors",
+    "logo_url",
+    "logo_url_custom_domain",
+    "logo_path",
+    "logo"
+   ]
+  },
+  "exchange": {
+   "type": "object",
+   "properties": {
+    "id": {
+     "type": "string",
+     "examples": [
+      "firi"
+     ]
+    },
+    "name": {
+     "type": "string",
+     "examples": [
+      "Firi"
+     ]
+    },
+    "country": {
+     "type": "string",
+     "examples": [
+      "NO"
+     ]
+    },
+    "website": {
+     "type": "string",
+     "examples": [
+      "https://firi.com/"
+     ]
+    },
+    "docs_url": {
+     "type": "string",
+     "examples": [
+      "https://developers.firi.com/"
+     ]
+    },
+    "source_url": {
+     "type": "string",
+     "examples": [
+      "https://api.firi.com/v2/markets"
+     ]
+    },
+    "cors": {
+     "type": "boolean",
+     "examples": [
+      true
+     ]
+    },
+    "note": {
+     "type": "string"
+    },
+    "status": {
+     "type": "string",
+     "enum": [
+      "ok",
+      "error"
+     ],
+     "examples": [
+      "ok"
+     ]
+    },
+    "fetched_at": {
+     "type": "string",
+     "examples": [
+      "2026-10-14T17:10:34+00:00"
+     ]
+    },
+    "error": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "fixture"
+     ]
+    },
+    "ticker_count": {
+     "type": "integer",
+     "examples": [
+      1
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "id",
+    "name",
+    "country",
+    "website",
+    "docs_url",
+    "source_url",
+    "cors",
+    "note",
+    "status",
+    "fetched_at",
+    "error",
+    "ticker_count"
+   ]
+  }
+ }
+}

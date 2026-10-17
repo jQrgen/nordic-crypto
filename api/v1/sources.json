@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-16T12:23:25+00:00",
+ "generated_at": "2026-10-17T05:41:20+00:00",
  "preview": false,
  "user_agent": "NordicCryptoBot/0.1 (+__SITE__about/; news headline bot)",
  "min_delay_seconds": 2,
@@ -31628,6 +31628,22 @@
    "status": "no machine-readable event data (DokuWiki, RSS disabled, no JSON-LD/iCal); checked by hand. NKS 2026: Friday 23 Oct 2026, Nygårdsgaten 5, Bergen (https://wiki.math.ntnu.no/nks/nks26) – start time not yet published, so not added to the calendar.",
    "method": "",
    "intake": "manual",
+   "ics": null,
+   "organizer_id": null,
+   "venue_id": null
+  },
+  {
+   "id": "kaakaa",
+   "name": "KÅKÅ",
+   "url": "https://www.kaakaa.no/program",
+   "country": "NO",
+   "city": "Stavanger",
+   "organiser": "KÅKÅ",
+   "enabled": true,
+   "trusted": false,
+   "status": "used",
+   "method": "Squarespace events collection /program read once as ?format=json (title, start, end, room, text). No iCal, RSS or programme sitemap entries with dates; JSON-LD exists only on each event page and is not opened. KÅKÅnomics is an economics festival, so the site-wide crypto filter is used (bitcoin, krypto, blockchain), not the broader crypto-money profile. Checked 2026-10-16.",
+   "intake": "squarespace-events",
    "ics": null,
    "organizer_id": null,
    "venue_id": null

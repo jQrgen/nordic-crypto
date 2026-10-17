@@ -1,0 +1,87 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/event-descriptions.schema.json",
+ "title": "Event descriptions",
+ "description": "Organiser descriptions and our translations, by event id, in data/event_description_i18n.json. source is the original wording. A language key is present only when that translation is written.",
+ "x-nordic": {
+  "id": "event-descriptions",
+  "order": 220,
+  "files": [
+   "data/event_description_i18n.json"
+  ],
+  "pages": [],
+  "api": [],
+  "relations": [
+   {
+    "field": "items key",
+    "to": "events",
+    "cardinality": "many-to-one"
+   }
+  ],
+  "derived": [],
+  "omitted_from_api": [],
+  "sections": [
+   {
+    "id": "description",
+    "title": "Description",
+    "row": "#/$defs/description"
+   }
+  ],
+  "row": "#/$defs/description"
+ },
+ "type": "object",
+ "properties": {
+  "_note": {
+   "type": "string"
+  },
+  "items": {
+   "type": "object",
+   "additionalProperties": {
+    "$ref": "#/$defs/description"
+   }
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "_note",
+  "items"
+ ],
+ "$defs": {
+  "description": {
+   "type": "object",
+   "properties": {
+    "source": {
+     "type": "string"
+    },
+    "nn": {
+     "type": "string"
+    },
+    "nb": {
+     "type": "string"
+    },
+    "sv": {
+     "type": "string"
+    },
+    "da": {
+     "type": "string"
+    },
+    "fi": {
+     "type": "string"
+    },
+    "is": {
+     "type": "string"
+    },
+    "en": {
+     "type": "string"
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "source",
+    "sv",
+    "da",
+    "fi"
+   ]
+  }
+ }
+}

@@ -1,0 +1,385 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://nordiccrypto.no/api/v1/schema/articles.schema.json",
+ "title": "Article archive",
+ "description": "Stories the public site has shown, in archive/articles.json, including when a story was removed. removal_reason stays null in this public file.",
+ "x-nordic": {
+  "id": "articles",
+  "order": 190,
+  "files": [
+   "archive/articles.json"
+  ],
+  "pages": [],
+  "api": [
+   {
+    "path": "/api/v1/archive/articles.json",
+    "note": "Archived stories"
+   }
+  ],
+  "relations": [
+   {
+    "field": "articles[].id",
+    "to": "news",
+    "cardinality": "many-to-one"
+   }
+  ],
+  "derived": [],
+  "omitted_from_api": [
+   "removal_reason"
+  ],
+  "sections": [
+   {
+    "id": "article",
+    "title": "Archived story",
+    "row": "#/$defs/article"
+   },
+   {
+    "id": "archive-event",
+    "title": "Archive event",
+    "row": "#/$defs/archive-event"
+   }
+  ],
+  "row": "#/$defs/article"
+ },
+ "type": "object",
+ "properties": {
+  "schema": {
+   "type": "integer",
+   "examples": [
+    2
+   ]
+  },
+  "site": {
+   "type": "string",
+   "examples": [
+    "nordic-crypto"
+   ]
+  },
+  "exported_at": {
+   "type": "string",
+   "examples": [
+    "2026-10-14T07:38:23+02:00"
+   ]
+  },
+  "articles": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/article"
+   }
+  },
+  "events": {
+   "type": "array",
+   "items": {
+    "$ref": "#/$defs/archive-event"
+   },
+   "description": "Append-only notes about archive changes."
+  }
+ },
+ "additionalProperties": false,
+ "required": [
+  "schema",
+  "site",
+  "exported_at",
+  "articles",
+  "events"
+ ],
+ "$defs": {
+  "article": {
+   "type": "object",
+   "properties": {
+    "site": {
+     "type": "string",
+     "examples": [
+      "nordic-crypto"
+     ]
+    },
+    "id": {
+     "type": "string",
+     "examples": [
+      "07e49032be5a"
+     ]
+    },
+    "url": {
+     "type": "string",
+     "examples": [
+      "https://www.kaupr.io/nyheter/nytt-nederlag-for-valuno-i-kampen-om-mica-lisens"
+     ]
+    },
+    "canonical_url": {
+     "type": "string",
+     "examples": [
+      "https://kaupr.io/nyheter/hilbert-finansierer-utlan-med-innskudd-pa-blokkjeden"
+     ]
+    },
+    "title": {
+     "type": "string",
+     "examples": [
+      "Safello åpner for at andre selskaper kan tilby kryptokjøp"
+     ]
+    },
+    "source": {
+     "type": "string",
+     "examples": [
+      "kaupr"
+     ]
+    },
+    "source_name": {
+     "type": "string",
+     "examples": [
+      "Kaupr"
+     ]
+    },
+    "published_at": {
+     "type": "string",
+     "description": "When the outlet published the story.",
+     "examples": [
+      "2026-09-24T12:00:00+00:00"
+     ]
+    },
+    "first_published_on_site": {
+     "type": "string",
+     "description": "When it first appeared on Nordic Crypto.",
+     "examples": [
+      "2026-10-03T17:59:40+02:00"
+     ]
+    },
+    "last_seen_on_site": {
+     "type": "string",
+     "examples": [
+      "2026-10-14T07:38:23+02:00"
+     ]
+    },
+    "languages": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "en"
+      ]
+     }
+    },
+    "summaries": {
+     "type": "object",
+     "properties": {
+      "en": {
+       "type": "string"
+      },
+      "nn": {
+       "type": "string"
+      },
+      "nb": {
+       "type": "string"
+      },
+      "sv": {
+       "type": "string"
+      },
+      "da": {
+       "type": "string"
+      },
+      "fi": {
+       "type": "string"
+      },
+      "is": {
+       "type": "string"
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "en",
+      "nn",
+      "nb",
+      "sv",
+      "da",
+      "fi",
+      "is"
+     ]
+    },
+    "titles": {
+     "type": "object",
+     "properties": {
+      "en": {
+       "type": "string",
+       "examples": [
+        "Safello opens up so other companies can offer crypto purchases"
+       ]
+      },
+      "nn": {
+       "type": "string",
+       "examples": [
+        "Safello opnar for at andre selskap kan tilby kryptokjøp"
+       ]
+      },
+      "sv": {
+       "type": "string",
+       "examples": [
+        "Safello öppnar för att andra bolag kan erbjuda kryptoköp"
+       ]
+      },
+      "da": {
+       "type": "string",
+       "examples": [
+        "Safello åbner for, at andre selskaber kan tilbyde kryptokøb"
+       ]
+      },
+      "fi": {
+       "type": "string",
+       "examples": [
+        "Safello antaa muiden yhtiöiden tarjota kryptokauppaa"
+       ]
+      },
+      "is": {
+       "type": "string",
+       "examples": [
+        "Safello opnar á að önnur fyrirtæki geti boðið kaup á rafmyntum"
+       ]
+      },
+      "nb": {
+       "type": "string",
+       "examples": [
+        "Opplysninger: Tenåringer sølvteipet mann i jakt på kryptovaluta"
+       ]
+      }
+     },
+     "additionalProperties": false
+    },
+    "topics": {
+     "type": "array",
+     "items": {
+      "type": "string",
+      "examples": [
+       "business"
+      ]
+     },
+     "examples": [
+      [
+       "business",
+       "mica"
+      ]
+     ]
+    },
+    "removed": {
+     "type": "integer",
+     "description": "1 when the story was taken off the public site, otherwise 0.",
+     "examples": [
+      0
+     ]
+    },
+    "removed_at": {
+     "type": "null"
+    },
+    "removal_reason": {
+     "type": "null",
+     "description": "Not filled in this public file."
+    },
+    "updated_at": {
+     "type": "string",
+     "examples": [
+      "2026-10-14T07:38:23+02:00"
+     ]
+    },
+    "country": {
+     "type": "string",
+     "enum": [
+      "NO",
+      "SE",
+      "DK",
+      "FI",
+      "IS",
+      "NORDIC",
+      "EU",
+      "FO",
+      "GL",
+      "AX"
+     ],
+     "examples": [
+      "SE"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "site",
+    "id",
+    "url",
+    "canonical_url",
+    "title",
+    "source",
+    "source_name",
+    "published_at",
+    "first_published_on_site",
+    "last_seen_on_site",
+    "languages",
+    "summaries",
+    "titles",
+    "topics",
+    "removed",
+    "removed_at",
+    "removal_reason",
+    "updated_at",
+    "country"
+   ]
+  },
+  "archive-event": {
+   "type": "object",
+   "properties": {
+    "seq": {
+     "type": "integer",
+     "examples": [
+      1
+     ]
+    },
+    "site": {
+     "type": "string",
+     "examples": [
+      "nordic-crypto"
+     ]
+    },
+    "id": {
+     "type": "string",
+     "examples": [
+      "e6727b4858b5"
+     ]
+    },
+    "at": {
+     "type": "string",
+     "examples": [
+      "2026-10-03T17:59:40+02:00"
+     ]
+    },
+    "event": {
+     "type": "string",
+     "description": "What the archive recorded for this row.",
+     "enum": [
+      "backfill",
+      "publish",
+      "published",
+      "update",
+      "updated",
+      "remove"
+     ],
+     "examples": [
+      "backfill"
+     ]
+    },
+    "detail": {
+     "type": [
+      "string",
+      "null"
+     ],
+     "examples": [
+      "summaries"
+     ]
+    }
+   },
+   "additionalProperties": false,
+   "required": [
+    "seq",
+    "site",
+    "id",
+    "at",
+    "event",
+    "detail"
+   ]
+  }
+ }
+}
