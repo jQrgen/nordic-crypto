@@ -257,11 +257,7 @@ S.update({
 "col_title": "Søg som klummeskribent",
 "col_desc": "Søg om at skrive en klumme for Nordic Crypto om krypto, bitcoin eller blockchain i Norden.",
 "col_lead": "Vil du skrive for Nordic Crypto? Send en kort ansøgning. Vores redaktør læser hver eneste.",
-"col_p": "Redaktøren læser hver ansøgning op imod det, Nordic Crypto dækker: krypto, bitcoin eller blockchain i Norden. <b>En ansøgning er ingen garanti for udgivelse.</b> En klumme er journalistik, ikke investeringsrådgivning. Du skal bruge en gratis GitHub-konto. Sagen står åben, mens redaktøren beslutter sig.",
-"col_priv": "<b>Privatliv:</b> ansøgningerne er <b>offentlige</b> på GitHub sammen med dit GitHub-brugernavn. Del kun et navn og en kontaktmulighed, du vil have offentligt. Tag ikke sundhedsoplysninger, private økonomiske oplysninger eller andre følsomme oplysninger om dig selv eller andre med. Intet gemmes på dette websted.",
 "col_name": "Dit navn", "col_name_opt": "(valgfrit)",
-"col_contact": "E-mail eller anden kontakt",
-"col_contact_help": "En kontaktmulighed, du vil have offentligt. Vi offentliggør den ikke på dette websted.",
 "col_langs": "Sprog du kan skrive på",
 "col_langs_help": "For eksempel engelsk, norsk (nynorsk eller bokmål), svensk, dansk, finsk eller islandsk.",
 "col_pitch": "Idé / emne",
@@ -269,9 +265,6 @@ S.update({
 "col_sample": "Link til en tekst", "col_sample_opt": "(valgfrit)",
 "col_why": "Hvorfor Nordic Crypto",
 "col_why_help": "Hvorfor du vil skrive her.",
-"col_btn": "Fortsæt på GitHub →",
-"col_meta": "Dette åbner formularen på GitHub med dine svar udfyldt; intet sendes, før du indsender den der. Ingen data gemmes på dette websted.",
-"col_direct": "Eller åbn <a href=\"{gh}\" rel=\"noopener\">klummeskribentformularen på GitHub</a> direkte.",
 "ios_link": "Hent iOS-appen (TestFlight)",
 "ios_note": "Offentlig TestFlight-invitation. Der er ingen App Store-side.",
 "ios_tv": "Understøtter især Apple TV.",
@@ -504,3 +497,16 @@ S.update({
 "dev_org_link": "Udviklere med open source"
 })
 S.update({"contact_us": "Kontakt os", "contact_publisher": "Udgiver", "contact_orgnr": "Org.nr.", "contact_place": "Oslo, Norge", "contact_email": "E-mail"})  # Contact us block (contact page, footer)
+S.update({'col_p2': 'Redaktøren læser hver ansøgning ud fra det, Nordic Crypto dækker: krypto, bitcoin eller blockchain i Norden. <b>En ansøgning er ingen garanti for udgivelse.</b> En klumme er journalistik, ikke investeringsrådgivning.',
+ 'col_priv2': '<b>Privat:</b> din ansøgning går kun til Nordic Cryptos redaktør. Den bliver aldrig offentliggjort, og din e-mail bruges kun til at svare dig. Medtag ikke helbredsoplysninger eller andre følsomme personoplysninger.',
+ 'col_email': 'Din e-mail',
+ 'col_email_help': 'Vi svarer til denne adresse. Den offentliggøres aldrig.',
+ 'col_send': 'Send ansøgning',
+ 'col_thanks': 'Tak! Din ansøgning er sendt til redaktøren.',
+ 'col_fail': 'Noget gik galt. Tjek felterne og prøv igen.',
+ 'col_off': 'Formularen er ikke tilgængelig lige nu. Prøv igen senere.',
+ 'col_rate': 'For mange ansøgninger fra dig på kort tid. Prøv igen senere.',
+ 'col_bad_email': 'Indtast en gyldig e-mailadresse.',
+ 'col_turnstile': 'Spamtjekket mislykkedes. Prøv igen.',
+ 'col_closed': 'Private ansøgninger åbner snart. Kig forbi igen senere.',
+ 'col_need_js': 'Formularen kræver JavaScript til spamtjekket.'})  # private columnist form (tipworker /api/columnist)

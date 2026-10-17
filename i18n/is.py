@@ -257,11 +257,7 @@ S.update({
 "col_title": "Sækja um að skrifa pistil",
 "col_desc": "Sæktu um að skrifa pistil fyrir Nordic Crypto um rafmyntir, bitcoin eða bálkakeðjur á Norðurlöndum.",
 "col_lead": "Viltu skrifa fyrir Nordic Crypto? Sendu stutta hugmynd. Ritstjóri okkar les hverja einustu.",
-"col_p": "Ritstjórinn les hverja hugmynd út frá því sem Nordic Crypto fjallar um: rafmyntir, bitcoin eða bálkakeðjur á Norðurlöndunum. <b>Hugmynd tryggir ekki birtingu.</b> Pistill er blaðamennska, ekki fjárfestingarráðgjöf. Þú þarft ókeypis GitHub-aðgang. Málið er opið þar til ritstjórinn hefur tekið ákvörðun.",
-"col_priv": "<b>Persónuvernd:</b> umsóknir eru <b>opinberar</b> á GitHub ásamt GitHub-notandanafni þínu. Deildu aðeins nafni og samskiptaleið sem þú vilt hafa opinbera. Ekki láta fylgja heilsufarsupplýsingar, einkafjármálaupplýsingar eða aðrar viðkvæmar upplýsingar um þig eða aðra. Ekkert er vistað á þessari síðu.",
 "col_name": "Nafn þitt", "col_name_opt": "(valfrjálst)",
-"col_contact": "Netfang eða önnur samskiptaleið",
-"col_contact_help": "Samskiptaleið sem þú vilt hafa opinbera. Við birtum hana ekki á þessari síðu.",
 "col_langs": "Tungumál sem þú getur skrifað á",
 "col_langs_help": "Til dæmis enska, norska (nýnorska eða bókmál), sænska, danska, finnska eða íslenska.",
 "col_pitch": "Hugmynd / efni",
@@ -269,9 +265,6 @@ S.update({
 "col_sample": "Tengill á sýnishorn", "col_sample_opt": "(valfrjálst)",
 "col_why": "Hvers vegna Nordic Crypto",
 "col_why_help": "Hvers vegna þú vilt skrifa hér.",
-"col_btn": "Halda áfram á GitHub →",
-"col_meta": "Þetta opnar form GitHub með svörum þínum útfylltum; ekkert er sent fyrr en þú sendir formið þar. Engin gögn eru vistuð á þessari síðu.",
-"col_direct": "Eða opnaðu <a href=\"{gh}\" rel=\"noopener\">pistlaform GitHub</a> beint.",
 "ios_link": "Sækja iOS-appið (TestFlight)",
 "ios_note": "Opinber TestFlight-boð. Það er engin App Store-síða.",
 "ios_tv": "Styður sérstaklega Apple TV.",
@@ -504,3 +497,16 @@ S.update({
 "dev_org_link": "Forritarar með opinn hugbúnað"
 })
 S.update({"contact_us": "Hafðu samband", "contact_publisher": "Útgefandi", "contact_orgnr": "Skráningarnr.", "contact_place": "Osló, Noregi", "contact_email": "Netfang"})  # Contact us block (contact page, footer)
+S.update({'col_p2': 'Ritstjórinn les hverja umsókn með tilliti til þess sem Nordic Crypto fjallar um: rafmynt, bitcoin eða bálkakeðjur á Norðurlöndum. <b>Umsókn tryggir ekki birtingu.</b> Pistill er blaðamennska, ekki fjárfestingarráðgjöf.',
+ 'col_priv2': '<b>Einkamál:</b> umsóknin fer aðeins til ritstjóra Nordic Crypto. Hún er aldrei birt og netfangið þitt er aðeins notað til að svara þér. Ekki láta fylgja heilsufarsupplýsingar eða aðrar viðkvæmar persónuupplýsingar.',
+ 'col_email': 'Netfangið þitt',
+ 'col_email_help': 'Við svörum á þetta netfang. Það er aldrei birt.',
+ 'col_send': 'Senda umsókn',
+ 'col_thanks': 'Takk! Umsóknin þín hefur verið send ritstjóranum.',
+ 'col_fail': 'Eitthvað fór úrskeiðis. Athugaðu reitina og reyndu aftur.',
+ 'col_off': 'Eyðublaðið er ekki tiltækt núna. Reyndu aftur síðar.',
+ 'col_rate': 'Of margar umsóknir frá þér á stuttum tíma. Reyndu aftur síðar.',
+ 'col_bad_email': 'Sláðu inn gilt netfang.',
+ 'col_turnstile': 'Ruslpóstprófunin mistókst. Reyndu aftur.',
+ 'col_closed': 'Einkaumsóknir opna fljótlega. Kíktu aftur síðar.',
+ 'col_need_js': 'Eyðublaðið þarf JavaScript fyrir ruslpóstprófunina.'})  # private columnist form (tipworker /api/columnist)

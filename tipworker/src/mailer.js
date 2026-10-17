@@ -20,6 +20,7 @@ const PROVIDERS = {
     if (!env.RESEND_API_KEY || !fromFor(env, m.site)) return { sent: false, reason: "resend not configured" };
     const payload = { from: fromFor(env, m.site), to: [m.to], subject: m.subject, text: m.text };
     if (m.html) payload.html = m.html;
+    if (m.replyTo) payload.reply_to = m.replyTo;
     if (m.unsubscribe) payload.headers = { "List-Unsubscribe": `<${m.unsubscribe}>`, "List-Unsubscribe-Post": "List-Unsubscribe=One-Click" };
     const r = await fetch("https://api.resend.com/emails", { method: "POST",
       headers: { Authorization: "Bearer " + env.RESEND_API_KEY, "Content-Type": "application/json" },
@@ -32,6 +33,7 @@ const PROVIDERS = {
     const base = (env.MAILGUN_API_BASE || "https://api.mailgun.net").replace(/\/$/, "");
     const body = new URLSearchParams({ from, to: m.to, subject: m.subject, text: m.text || "" });
     if (m.html) body.set("html", m.html);
+    if (m.replyTo) body.set("h:Reply-To", m.replyTo);
     if (m.unsubscribe) {
       body.set("h:List-Unsubscribe", `<${m.unsubscribe}>`);
       body.set("h:List-Unsubscribe-Post", "List-Unsubscribe=One-Click");

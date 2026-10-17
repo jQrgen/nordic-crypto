@@ -3798,7 +3798,6 @@ cc.forEach(function(b){b.addEventListener('click',function(){b.setAttribute('ari
     page("developers", t("dev_title"), "developers", body, t("dev_desc"), js)
     if LANG == "en": print(f"developers: {len(rows)} shown ({n_pend} pending) {per_c}")
 
-COL_FORM = "https://github.com/nordic-crypto-org/nordic-crypto/issues/new?template=columnist.yml"
 def tip_endpoint():
     """Fixed public tip endpoint (e.g. https://tips.<domain>): env TIP_ENDPOINT or tipserver/config.json -> public_endpoint.
     Takes precedence and is baked into /tip/. Without it, /tip/ reads the current quick-tunnel URL at runtime from
@@ -3911,28 +3910,60 @@ f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidit
  .catch(function(){t.done();b.disabled=false;say(M.off,'warn')})})})();</script>""" % (json.dumps(ep), json.dumps(LANG), json.dumps(msgs, ensure_ascii=False))
     page("tip", t("tip_title"), "tip", text_page(body, toc=False, cls="formpage"), t("tip_desc"), js, head_extra=onion_head)
 
+def columnist_intake():
+    """(endpoint, site_key) for private columnist applications (tipworker/ POST /api/columnist), or (None, None).
+    Endpoint: the deployed Worker (tipserver/config.json public_endpoint, else newsletter/config.json endpoint; env
+    COLUMNIST_ENDPOINT for test builds). Needs the public Turnstile site key (tip_turnstile_key), like the tip inbox."""
+    ep = os.environ.get("COLUMNIST_ENDPOINT") or tip_endpoint() or NL_CFG.get("endpoint")
+    key = tip_turnstile_key()
+    if not (ep and re.fullmatch(r"https?://[A-Za-z0-9.-]+(?::\d{2,5})?", ep.rstrip("/")) and key): return None, None
+    return ep.rstrip("/"), key
+
 def build_columnist():
-    """'Apply as a columnist' page. Same privacy pattern as the static tip page: a plain HTML form (GET, no JavaScript,
-    no tracking) that opens a prefilled public GitHub issue (.github/ISSUE_TEMPLATE/columnist.yml). Nothing is stored
-    on this site. The editor reviews every pitch; publication is not guaranteed."""
-    body = f"""<h1>{E(t("col_title"))}</h1>
+    """'Apply as a columnist' page. A private application to the editor: the form POSTs to the tipworker
+    (/api/columnist, Turnstile + rate limit), which stores it in D1 and forwards it by email (Reply-To = applicant).
+    Never a public GitHub issue. While the intake is closed (no endpoint or no Turnstile site key) there is no form."""
+    ep, key = columnist_intake()
+    head = f"""<h1>{E(t("col_title"))}</h1>
 <p class="lead">{E(t("col_lead"))}</p>
 <div class="prose">
-<p>{t("col_p")}</p>
-<p class="notice warn">{t("col_priv")}</p>
-<form class="tipform form" method="get" action="https://github.com/nordic-crypto-org/nordic-crypto/issues/new">
-<input type="hidden" name="template" value="columnist.yml">
+<p>{t("col_p2")}</p>
+<p class="notice">{t("col_priv2")} <a href="../privacy/">{E(t("pp_title"))}</a></p>"""
+    if not ep:
+        body = head + f"""\n<p class="notice">{E(t("col_closed"))}</p>\n</div>"""
+        page("columnist", t("col_title"), "columnist", text_page(body, toc=False, cls="formpage"), t("col_desc"))
+        return
+    body = head + f"""
+<div id="colmsg" role="status" aria-live="polite"></div>
+<noscript><p class="notice warn">{E(t("col_need_js"))}</p></noscript>
+<form id="colform" class="tipform form"><fieldset id="colfs" class="plain" disabled>
 {form_field("c-name", t("col_name"), t("col_name_opt"), '<input id="c-name" name="name" maxlength="80" autocomplete="name">')}
-{form_field("c-contact", t("col_contact"), t("tip_required"), '<input id="c-contact" name="contact" required maxlength="120" autocomplete="email">', t("col_contact_help"))}
+{form_field("c-email", t("col_email"), t("tip_required"), '<input id="c-email" name="email" type="email" required maxlength="254" autocomplete="email">', t("col_email_help"))}
 {form_field("c-langs", t("col_langs"), t("tip_required"), '<input id="c-langs" name="languages" required maxlength="120">', t("col_langs_help"))}
 {form_field("c-pitch", t("col_pitch"), t("tip_required"), '<textarea id="c-pitch" name="pitch" required rows="5" maxlength="1500"></textarea>', t("col_pitch_help"))}
 {form_field("c-sample", t("col_sample"), t("col_sample_opt"), '<input id="c-sample" name="sample" type="url" maxlength="300" placeholder="https://" autocomplete="url">')}
 {form_field("c-why", t("col_why"), t("tip_required"), '<textarea id="c-why" name="why" required rows="4" maxlength="800"></textarea>', t("col_why_help"))}
-<div class="form-actions"><button type="submit">{E(t("col_btn"))}</button><p class="meta">{E(t("col_meta"))}</p></div>
-</form>
-<p class="meta">{t("col_direct", gh=COL_FORM)}</p>
+<p class="vh" aria-hidden="true"><label for="c-website">{E(t("tip_honeypot"))}</label><input id="c-website" name="website" tabindex="-1" autocomplete="off"></p>
+<div class="cf-turnstile" data-sitekey="{E(key)}"></div>
+<div class="form-actions"><button type="submit">{E(t("col_send"))}</button></div>
+</fieldset></form>
 </div>"""
-    page("columnist", t("col_title"), "columnist", text_page(body, toc=False, cls="formpage"), t("col_desc"))
+    msgs = {"thanks": t("col_thanks"), "fail": t("col_fail"), "off": t("col_off"),
+            "err": {"rate": t("col_rate"), "bad_email": t("col_bad_email"), "turnstile": t("col_turnstile")}}
+    js = """<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>(function(){var EP=%s,LANG=%s,M=%s,f=document.getElementById('colform'),fs=document.getElementById('colfs'),m=document.getElementById('colmsg'),b=f.querySelector('button');
+function say(t,cls){m.className='notice'+(cls?' '+cls:'');m.textContent=t}
+fs.disabled=false;
+f.addEventListener('submit',function(ev){ev.preventDefault();if(!f.reportValidity())return;b.disabled=true;
+ var tk=f.querySelector('[name="cf-turnstile-response"]'),d={language:LANG,'cf-turnstile-response':tk?tk.value:''};
+ ['name','email','languages','pitch','sample','why','website'].forEach(function(k){d[k]=f.elements[k].value});
+ var ac=new AbortController(),tm=setTimeout(function(){ac.abort()},12000);
+ fetch(EP+'/api/columnist',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d),signal:ac.signal,credentials:'omit',referrerPolicy:'no-referrer'})
+ .then(function(r){clearTimeout(tm);return r.json().catch(function(){return {}}).then(function(j){return {s:r.status,j:j}})})
+ .then(function(x){b.disabled=false;if(window.turnstile)try{window.turnstile.reset()}catch(e){}
+  if(x.s>=200&&x.s<300&&x.j.ok){f.reset();say(M.thanks)}else if(x.s>=500)say(M.off,'warn');else say((x.j&&M.err[x.j.error])||M.fail,'warn')})
+ .catch(function(){clearTimeout(tm);b.disabled=false;say(M.off,'warn')})})})();</script>""" % (json.dumps(ep), json.dumps(LANG), json.dumps(msgs, ensure_ascii=False))
+    page("columnist", t("col_title"), "columnist", text_page(body, toc=False, cls="formpage"), t("col_desc"), js)
 
 def build_changelog():
     """Changelog page from changelog.json (site changes only, newest first). Entries dated "launch" use launch_date,
