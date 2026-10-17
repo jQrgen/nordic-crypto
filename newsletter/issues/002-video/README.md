@@ -18,6 +18,10 @@ Kaupr is named only on the Ace Digital story card, as its source.
 The Socialist Left card is labelled **Proposal**.
 The narration does not say the programme is made with artificial intelligence.
 
+Look: the media kit at nordiccrypto.no/media. The key shield is drawn from `assets/brand/shield-band.svg`;
+wordmark "Nordic" in Sailcloth and "Crypto" in Shield Gold, Cormorant Garamond Bold; text in Schibsted Grotesk;
+North Sea, Shield Gold, Sailcloth, Pine Tar and Sea Foam. The published #2 cut predates this and used the old crest.
+
 ## Rebuild the site cut
 
 ```bash
