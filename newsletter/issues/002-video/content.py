@@ -17,23 +17,25 @@ DATES = "5–12 October 2026"
 DATES_SHORT = "5–12 Oct 2026"
 BUG_LINE = "ISSUE #2 · 5–12 OCT 2026"
 SITE = site_url.HOST
+LANG = "en"   # source label: "Source:" (en) or «Kilde:» (nb/nn)
 
 # story key -> lower third + graphic data. section is the red label on the card.
+# logo: key in assets/img/logos/logos.json, shown small on that story's source chip only.
 STORIES = {
  "s1": dict(section="NORWAY", head="Red Party proposes a temporary halt for new data centres",
-            src="Stortinget (Norway) · 5 Oct", big="HALT", kicker="RED PARTY · LICENSING REGIME", art="globe"),
+            src="Stortinget (Norway) · 5 Oct", big="HALT", kicker="RED PARTY · LICENSING REGIME", art="globe", logo="stortinget-finanskomiteen"),
  "s2": dict(section="PROPOSAL", head="Socialist Left proposes a pause on new data centres",
-            src="Stortinget (Norway) · 5 Oct", big="PROPOSAL", kicker="SOCIALIST LEFT · NOT A DECISION", art="globe"),
+            src="Stortinget (Norway) · 5 Oct", big="PROPOSAL", kicker="SOCIALIST LEFT · NOT A DECISION", art="globe", logo="stortinget-finanskomiteen"),
  "s3": dict(section="NORWAY", head="Arctic Core says crypto mining is income in a test phase",
             src="Ságat (Norway) · 7 Oct · may require a subscription", big="TEST", kicker="ARCTIC CORE · DATA CENTRE", art="nodes"),
  "s4": dict(section="MARKETS", head="Firi customers bought 16.1 million kroner more crypto than they sold",
             src="Finansavisen (Norway) · 5 Oct · may require a subscription", big="16.1M", kicker="KRONER NET BUYING · SEPTEMBER", art="bars"),
  "s5": dict(section="COMPANIES", head="Ace Digital reports a 6.3 million kroner third-quarter net profit",
-            src="Kaupr (Norway) · 5 Oct", big="6.3M", kicker="Q3 NET PROFIT · ACE DIGITAL", art="bars"),
+            src="Kaupr (Norway) · 5 Oct", big="6.3M", kicker="Q3 NET PROFIT · ACE DIGITAL", art="bars", logo="kaupr"),
  "s6": dict(section="SWEDEN", head="Finansinspektionen warns against thirty more unlicensed firms",
             src="Nyheter24 (Sweden) · 6 Oct", big="30", kicker="MORE WARNINGS · 227 THIS YEAR", art="scan"),
  "s7": dict(section="EU RULES", head="AMLA sends three draft standards to the European Commission",
-            src="Finansinspektionen (Sweden) · 5 Oct", big="AMLA", kicker="DRAFT STANDARDS · CRYPTO RULES", art="stars"),
+            src="Finansinspektionen (Sweden) · 5 Oct", big="AMLA", kicker="DRAFT STANDARDS · CRYPTO RULES", art="stars", logo="se-fi"),
 }
 END_DISCLOSURE = "Nothing here is investment advice."
 # Kaupr is not named in the ticker. It appears only as the source on the Ace Digital card.

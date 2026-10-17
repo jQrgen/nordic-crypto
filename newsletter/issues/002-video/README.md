@@ -22,6 +22,22 @@ Look: the media kit at nordiccrypto.no/media. The key shield is drawn from `asse
 wordmark "Nordic" in Sailcloth and "Crypto" in Shield Gold, Cormorant Garamond Bold; text in Schibsted Grotesk;
 North Sea, Shield Gold, Sailcloth, Pine Tar and Sea Foam. The published #2 cut predates this and used the old crest.
 
+Source logos (legal note, 17 Oct 2026): a story's `logo` (key in `assets/img/logos/logos.json`) is shown only on
+that story's source chip, after «Kilde:» (`LANG = "nb"`) or "Source:" (`LANG = "en"`), unchanged and at most 10% of
+the frame width. Never in `thumbnail.png`, `thumbnail-vertical.png`, title cards, the intro or the outro. The
+Nordic Crypto mark stays the dominant brand on screen.
+
+## Upload description footer
+
+Every upload of a newsletter video (YouTube, Facebook, Instagram Reels) ends its description with the links to the
+original sources and this disclaimer, in the issue's language:
+
+> Logos and trademarks belong to their respective owners and are used only to identify the source. Nordic Crypto is not affiliated with, sponsored by or endorsed by these media outlets.
+
+> Logoer og varemerker tilhører de respektive eierne og brukes kun for å vise kilden. Nordic Crypto har ingen tilknytning til, og er ikke sponset eller godkjent av, disse mediehusene.
+
+Custom thumbnails follow the same rule as the cover images: no third-party logos.
+
 ## Rebuild the site cut
 
 ```bash
