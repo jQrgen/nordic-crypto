@@ -109,6 +109,7 @@ export type TokenModel = {
   height: number | null;
   txid: string | null;
   documentUrl: string | null;
+  icon: string | null;
 };
 
 export type SearchHit = {

@@ -734,3 +734,6 @@ footer.foot h2 {
 /* Social links sit in the header tools row, left of the fiat picker and theme toggle. */
 .hdrtools { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
 .hdrtools .socialbar { margin: 0; padding: 0; border: 0; }
+
+.token-title { display: flex; align-items: center; gap: 0.5em; }
+.token-title img { border-radius: 8px; flex: none; }

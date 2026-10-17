@@ -51,7 +51,10 @@ export function TokenView({ token }: { token: TokenModel }) {
         <span>{token.ticker ?? "Token"}</span>
       </nav>
       <p className="eyebrow">Token · {chain.name}</p>
-      <h1>{token.ticker ?? shortId(token.id, 12, 6)}</h1>
+      <h1 className="token-title">
+        {token.icon ? <img src={token.icon} alt="" width={48} height={48} /> : null}
+        {token.name && token.ticker ? `${token.name} (${token.ticker})` : (token.ticker ?? token.name ?? shortId(token.id, 12, 6))}
+      </h1>
       <p className="lead">
         {token.name ?? "The server returned a genesis record without a name."}
         {token.documentUrl ? (
