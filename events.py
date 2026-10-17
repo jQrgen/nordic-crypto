@@ -1286,6 +1286,7 @@ def run(get, robots_ok, matches, log, cfg, add_url=None, a=None, only=None, root
         if old["id"] not in stored and not blocked_event(old): data["events"].append(old)
     data["events"].sort(key=lambda e: dt.datetime.fromisoformat(e["start"])); data["updated"] = now.isoformat(timespec="seconds")
     _save(lp("data", "events.json"), data); _save(lp("state", "source_status.json"), status)
+    from tools import event_translate; event_translate.run(lp(), log)
     q = _load(lp("queue", "review.json"), {"items_needing_summary": [], "candidate_entities": []})
     apev = (_load(lp("queue", "approved.json"), {}) or {}).get("events", {}); done = set(apev.get("approve", [])) | set(apev.get("reject", []))
     q["events_pending"] = [e for e in data["events"] if e["status"] == "pending" and e["id"] not in done and dt.datetime.fromisoformat(e["end"] or e["start"]) >= now]

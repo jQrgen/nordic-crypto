@@ -105,6 +105,8 @@ jobs:
           # Stop just inside the 4 hour job limit so the log records the timeout.
           NIGHTLY_TIMEOUT_SECS: "13800"
           NIGHTLY_STALE_SECS: "13800"
+          CF_AI_TOKEN: ${{ secrets.CF_AI_TOKEN }}
+          CF_ACCOUNT_ID: ${{ vars.CF_ACCOUNT_ID }}
         run: routines/nightly-fetch.sh
 
       - name: Privacy gate before D1
