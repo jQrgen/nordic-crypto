@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="is" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordic Crypto Nexa-pottur</title>
+<meta name="description" content="Nexa-pottur frá Nordic Crypto. 1% gjald fjármagnar óháða norræna kryptóblaðamennsku.">
+<link rel="icon" href="../shield.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../pool.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="https://nordiccrypto.no/"><img src="../shield.svg" width="36" height="36" alt=""> Nordic Crypto</a>
+    <nav class="sections" aria-label="Nordic Crypto Nexa-pottur">
+      <a href="#start">Byrja</a>
+      <a href="#status">Staða potts</a>
+      <a href="#stats">Mín tölfræði</a>
+      <a href="#terms">Skilmálar</a>
+      <a href="#about">Gagnsæi</a>
+    </nav>
+  </div>
+  <nav class="langs wrap" aria-label="Tungumál">
+    <a href="../" lang="en">English</a> <a href="../nn/" lang="nn">Nynorsk</a> <a href="../nb/" lang="nb">Bokmål</a> <a href="../sv/" lang="sv">Svenska</a> <a href="../da/" lang="da">Dansk</a> <a href="../fi/" lang="fi">Suomi</a> <a href="../is/" lang="is" aria-current="page">Íslenska</a> <a href="../zh/" lang="zh">中文</a> <a href="../hi/" lang="hi">हिन्दी</a> <a href="../es/" lang="es">Español</a> <a href="../fr/" lang="fr">Français</a> <a href="../ar/" lang="ar">العربية</a> <a href="../bn/" lang="bn">বাংলা</a> <a href="../pt/" lang="pt">Português</a> <a href="../ru/" lang="ru">Русский</a> <a href="../ur/" lang="ur">اردو</a> <a href="../id/" lang="id">Bahasa Indonesia</a> <a href="../de/" lang="de">Deutsch</a> <a href="../ja/" lang="ja">日本語</a> <a href="../sw/" lang="sw">Kiswahili</a> <a href="../mr/" lang="mr">मराठी</a> <a href="../fa/" lang="fa">فارسی</a> <a href="../uk/" lang="uk">Українська</a> 
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Nexa</p>
+      <h1>Nordic Crypto Nexa-pottur – 1% gjald sem fjármagnar óháða norræna kryptóblaðamennsku</h1>
+      <p><a href="https://nordiccrypto.no/budget/">Í hvað gjaldið fer</a></p>
+    </div>
+  </section>
+  <section id="start">
+    <div class="wrap">
+      <h2>Byrja</h2>
+      <hr class="rule">
+      <p class="lead">Beindu Nexa-gröfu að þessum potti. Notandanafnið er Nexa-fangið þitt.</p>
+      <p>Stratum-slóð</p>
+      <div class="urlrow">
+        <code id="stratum">stratum+tcp://pool.nordiccrypto.no:3333</code>
+        <button type="button" id="copy">Afrita</button>
+      </div>
+      <p>Notandanafnið er Nexa-fangið þitt. Nafn verkamanns er valkvætt: fangi.verk</p>
+      <p>Ekkert Nexa-fang enn? Búðu það til í <a href="https://wallywallet.org/" rel="noopener">Wally-veski</a></p>
+      <h3>Dæmi um gröfur</h3>
+      <ul class="examples">
+        <li><p class="miner">lolMiner</p><pre>lolMiner --algo NEXA --pool stratum+tcp://pool.nordiccrypto.no:3333 --user nexa:ADDRESS</pre></li>
+        <li><p class="miner">BzMiner</p><pre>bzminer -a nexa -p stratum+tcp://pool.nordiccrypto.no:3333 -w nexa:ADDRESS</pre></li>
+        <li><p class="miner">Rigel</p><pre>rigel -a nexapow -o stratum+tcp://pool.nordiccrypto.no:3333 -u nexa:ADDRESS</pre></li>
+        <li><p class="miner">SRBMiner</p><pre>SRBMiner-MULTI --algorithm nexa --pool stratum+tcp://pool.nordiccrypto.no:3333 --wallet nexa:ADDRESS</pre></li>
+      </ul>
+    </div>
+  </section>
+  <section id="status">
+    <div class="wrap">
+      <h2>Staða pottsins núna</h2>
+      <hr class="rule">
+      <p id="status-msg" role="status"></p>
+      <dl class="figures" id="figures" hidden>
+        <div><dt>Hashrate potts</dt><dd id="pool-hash"></dd></div>
+        <div><dt>Gröfur</dt><dd id="miner-count"></dd></div>
+        <div><dt>Hashrate nets</dt><dd id="net-hash"></dd></div>
+        <div><dt>Hlutur potts</dt><dd id="pool-share"></dd></div>
+      </dl>
+      <p id="since"></p>
+      <p id="live-line"></p>
+      <h3>Nýlegar blokkir</h3>
+      <ul id="blocks"></ul>
+      <noscript><p class="notice">API pottsins svarar ekki.</p></noscript>
+    </div>
+  </section>
+  <section id="stats">
+    <div class="wrap">
+      <h2>Mín tölfræði</h2>
+      <hr class="rule">
+      <p class="lead">Flettu upp Nexa-fangi.</p>
+      <form id="lookup">
+        <label for="addr">Nexa-fang</label>
+        <div class="urlrow">
+          <input id="addr" name="address" autocomplete="off" spellcheck="false">
+          <button type="submit">Fletta upp</button>
+        </div>
+      </form>
+      <div id="mine"></div>
+    </div>
+  </section>
+  <section id="terms">
+    <div class="wrap">
+      <h2>Skilmálar</h2>
+      <hr class="rule">
+      <ul>
+        <li>Gjald pottsins er 1%.</li>
+        <li>Verðlaun fylgja pay-per-last-N-shares. Glugginn er nýjustu hlutarnir sem saman vega jafnt og tvöfalda erfiðleika netsins.</li>
+        <li>Lágmarksútborgun er 1.000.000 NEX.</li>
+        <li>Greiðslur fara út um það bil einu sinni á klukkustund, og aðeins eftir að coinbase hefur 5.000 staðfestingar.</li>
+      </ul>
+    </div>
+  </section>
+  <section id="about">
+    <div class="wrap about">
+      <h2>Gagnsæi</h2>
+      <hr class="rule">
+      <p>Nordic Crypto rekur þennan pott.</p>
+      <p>Gjaldið greiðir hýsingu pottsins og óháða norræna kryptóblaðamennsku.</p>
+      <p>Grafan sækir blokkartillögu frá pottinum og leitar að proof of work. Hlutur er sönnun sem nær marki pottsins. Þegar hlutur nær líka marki netsins sendir potturinn hann inn sem blokk. Þegar coinbase er þroskuð er verðlaununum skipt á hlutina í glugganum, gjaldið lagt til hliðar og hvert fang greitt úr veski pottsins.</p>
+    </div>
+  </section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <ul class="social">
+      <li><a href="https://nordiccrypto.no/">Nordic Crypto</a></li>
+      <li><a href="https://nordiccrypto.no/budget/">Í hvað gjaldið fer</a></li>
+      <li><a href="https://t.me/nordiccryptochat" rel="noopener">Telegram</a></li>
+      <li><a href="https://x.com/nordiccryptobot" rel="noopener">X @nordiccryptobot</a></li>
+      <li><a href="https://github.com/jQrgen/nordic-crypto" rel="noopener">GitHub</a></li>
+      <li><a href="https://nordiccrypto.no/newsletter/">Fréttabréf</a></li>
+      <li><a href="https://nordiccrypto.no/rss.xml">RSS</a></li>
+      <li><a href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">TestFlight</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="pool-text.js"></script>
+<script src="../pool.js"></script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>استخر Nexa نوردیک کریپتو</title>
+<meta name="description" content="استخر Nexa از Nordic Crypto. کارمزد ۱٪ روزنامه‌نگاری مستقل رمزارز در شمال اروپا را تأمین می‌کند.">
+<link rel="icon" href="../shield.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../pool.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="https://nordiccrypto.no/"><img src="../shield.svg" width="36" height="36" alt=""> Nordic Crypto</a>
+    <nav class="sections" aria-label="استخر Nexa نوردیک کریپتو">
+      <a href="#start">شروع</a>
+      <a href="#status">وضعیت استخر</a>
+      <a href="#stats">آمار من</a>
+      <a href="#terms">شرایط</a>
+      <a href="#about">شفافیت</a>
+    </nav>
+  </div>
+  <nav class="langs wrap" aria-label="زبان">
+    <a href="../" lang="en">English</a> <a href="../nn/" lang="nn">Nynorsk</a> <a href="../nb/" lang="nb">Bokmål</a> <a href="../sv/" lang="sv">Svenska</a> <a href="../da/" lang="da">Dansk</a> <a href="../fi/" lang="fi">Suomi</a> <a href="../is/" lang="is">Íslenska</a> <a href="../zh/" lang="zh">中文</a> <a href="../hi/" lang="hi">हिन्दी</a> <a href="../es/" lang="es">Español</a> <a href="../fr/" lang="fr">Français</a> <a href="../ar/" lang="ar">العربية</a> <a href="../bn/" lang="bn">বাংলা</a> <a href="../pt/" lang="pt">Português</a> <a href="../ru/" lang="ru">Русский</a> <a href="../ur/" lang="ur">اردو</a> <a href="../id/" lang="id">Bahasa Indonesia</a> <a href="../de/" lang="de">Deutsch</a> <a href="../ja/" lang="ja">日本語</a> <a href="../sw/" lang="sw">Kiswahili</a> <a href="../mr/" lang="mr">मराठी</a> <a href="../fa/" lang="fa" aria-current="page">فارسی</a> <a href="../uk/" lang="uk">Українська</a> 
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Nexa</p>
+      <h1>استخر Nexa نوردیک کریپتو – کارمزد ۱٪ که روزنامه‌نگاری مستقل رمزارز شمال اروپا را تأمین می‌کند</h1>
+      <p><a href="https://nordiccrypto.no/budget/">کارمزد کجا خرج می‌شود</a></p>
+    </div>
+  </section>
+  <section id="start">
+    <div class="wrap">
+      <h2>شروع</h2>
+      <hr class="rule">
+      <p class="lead">ماینر Nexa را به این استخر وصل کنید. نام کاربری نشانی Nexa شماست.</p>
+      <p>نشانی stratum</p>
+      <div class="urlrow">
+        <code id="stratum">stratum+tcp://pool.nordiccrypto.no:3333</code>
+        <button type="button" id="copy">رونوشت</button>
+      </div>
+      <p>نام کاربری نشانی Nexa شماست. نام کارگر اختیاری است: نشانی.کارگر</p>
+      <p>هنوز نشانی Nexa ندارید؟ یکی بسازید در <a href="https://wallywallet.org/" rel="noopener">کیف پول Wally</a></p>
+      <h3>نمونه ماینرها</h3>
+      <ul class="examples">
+        <li><p class="miner">lolMiner</p><pre>lolMiner --algo NEXA --pool stratum+tcp://pool.nordiccrypto.no:3333 --user nexa:ADDRESS</pre></li>
+        <li><p class="miner">BzMiner</p><pre>bzminer -a nexa -p stratum+tcp://pool.nordiccrypto.no:3333 -w nexa:ADDRESS</pre></li>
+        <li><p class="miner">Rigel</p><pre>rigel -a nexapow -o stratum+tcp://pool.nordiccrypto.no:3333 -u nexa:ADDRESS</pre></li>
+        <li><p class="miner">SRBMiner</p><pre>SRBMiner-MULTI --algorithm nexa --pool stratum+tcp://pool.nordiccrypto.no:3333 --wallet nexa:ADDRESS</pre></li>
+      </ul>
+    </div>
+  </section>
+  <section id="status">
+    <div class="wrap">
+      <h2>وضعیت زنده استخر</h2>
+      <hr class="rule">
+      <p id="status-msg" role="status"></p>
+      <dl class="figures" id="figures" hidden>
+        <div><dt>هش‌ریت استخر</dt><dd id="pool-hash"></dd></div>
+        <div><dt>ماینرها</dt><dd id="miner-count"></dd></div>
+        <div><dt>هش‌ریت شبکه</dt><dd id="net-hash"></dd></div>
+        <div><dt>سهم استخر</dt><dd id="pool-share"></dd></div>
+      </dl>
+      <p id="since"></p>
+      <p id="live-line"></p>
+      <h3>بلوک‌های اخیر</h3>
+      <ul id="blocks"></ul>
+      <noscript><p class="notice">رابط استخر پاسخ نمی‌دهد.</p></noscript>
+    </div>
+  </section>
+  <section id="stats">
+    <div class="wrap">
+      <h2>آمار من</h2>
+      <hr class="rule">
+      <p class="lead">یک نشانی Nexa را جستجو کنید.</p>
+      <form id="lookup">
+        <label for="addr">نشانی Nexa</label>
+        <div class="urlrow">
+          <input id="addr" name="address" autocomplete="off" spellcheck="false">
+          <button type="submit">جستجو</button>
+        </div>
+      </form>
+      <div id="mine"></div>
+    </div>
+  </section>
+  <section id="terms">
+    <div class="wrap">
+      <h2>شرایط</h2>
+      <hr class="rule">
+      <ul>
+        <li>کارمزد استخر ۱٪ است.</li>
+        <li>پاداش با pay-per-last-N-shares تقسیم می‌شود. پنجره تازه‌ترین سهم‌هایی است که کارشان برابر دو سختی شبکه است.</li>
+        <li>حداقل پرداخت ۱٬۰۰۰٬۰۰۰ NEX است.</li>
+        <li>پرداخت‌ها حدود یک بار در ساعت انجام می‌شود و فقط پس از ۵٬۰۰۰ تأیید coinbase.</li>
+      </ul>
+    </div>
+  </section>
+  <section id="about">
+    <div class="wrap about">
+      <h2>شفافیت</h2>
+      <hr class="rule">
+      <p>این استخر را Nordic Crypto اداره می‌کند.</p>
+      <p>کارمزد هزینه میزبانی استخر و روزنامه‌نگاری مستقل رمزارز در شمال اروپا را می‌دهد.</p>
+      <p>ماینر یک نامزد بلوک از استخر می‌گیرد و به دنبال اثبات کار می‌گردد. سهم اثباتی است که به هدف استخر می‌رسد. وقتی سهم به هدف شبکه هم برسد، استخر آن را به عنوان بلوک می‌فرستد. پس از بلوغ coinbase، پاداش میان سهم‌های پنجره تقسیم می‌شود، کارمزد کنار گذاشته می‌شود و هر نشانی از کیف پول استخر پرداخت می‌گیرد.</p>
+    </div>
+  </section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <ul class="social">
+      <li><a href="https://nordiccrypto.no/">Nordic Crypto</a></li>
+      <li><a href="https://nordiccrypto.no/budget/">کارمزد کجا خرج می‌شود</a></li>
+      <li><a href="https://t.me/nordiccryptochat" rel="noopener">Telegram</a></li>
+      <li><a href="https://x.com/nordiccryptobot" rel="noopener">X @nordiccryptobot</a></li>
+      <li><a href="https://github.com/jQrgen/nordic-crypto" rel="noopener">GitHub</a></li>
+      <li><a href="https://nordiccrypto.no/newsletter/">خبرنامه</a></li>
+      <li><a href="https://nordiccrypto.no/rss.xml">RSS</a></li>
+      <li><a href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">TestFlight</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="pool-text.js"></script>
+<script src="../pool.js"></script>
+</body>
+</html>

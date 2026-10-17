@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="bn" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordic Crypto Nexa পুল</title>
+<meta name="description" content="Nordic Crypto-র Nexa পুল। 1% ফি স্বাধীন নর্ডিক ক্রিপ্টো সাংবাদিকতাকে অর্থায়ন করে।">
+<link rel="icon" href="../shield.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../pool.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="https://nordiccrypto.no/"><img src="../shield.svg" width="36" height="36" alt=""> Nordic Crypto</a>
+    <nav class="sections" aria-label="Nordic Crypto Nexa পুল">
+      <a href="#start">শুরু করুন</a>
+      <a href="#status">পুলের অবস্থা</a>
+      <a href="#stats">আমার হিসাব</a>
+      <a href="#terms">শর্ত</a>
+      <a href="#about">স্বচ্ছতা</a>
+    </nav>
+  </div>
+  <nav class="langs wrap" aria-label="ভাষা">
+    <a href="../" lang="en">English</a> <a href="../nn/" lang="nn">Nynorsk</a> <a href="../nb/" lang="nb">Bokmål</a> <a href="../sv/" lang="sv">Svenska</a> <a href="../da/" lang="da">Dansk</a> <a href="../fi/" lang="fi">Suomi</a> <a href="../is/" lang="is">Íslenska</a> <a href="../zh/" lang="zh">中文</a> <a href="../hi/" lang="hi">हिन्दी</a> <a href="../es/" lang="es">Español</a> <a href="../fr/" lang="fr">Français</a> <a href="../ar/" lang="ar">العربية</a> <a href="../bn/" lang="bn" aria-current="page">বাংলা</a> <a href="../pt/" lang="pt">Português</a> <a href="../ru/" lang="ru">Русский</a> <a href="../ur/" lang="ur">اردو</a> <a href="../id/" lang="id">Bahasa Indonesia</a> <a href="../de/" lang="de">Deutsch</a> <a href="../ja/" lang="ja">日本語</a> <a href="../sw/" lang="sw">Kiswahili</a> <a href="../mr/" lang="mr">मराठी</a> <a href="../fa/" lang="fa">فارسی</a> <a href="../uk/" lang="uk">Українська</a> 
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Nexa</p>
+      <h1>Nordic Crypto Nexa পুল – 1% ফি যা স্বাধীন নর্ডিক ক্রিপ্টো সাংবাদিকতাকে অর্থায়ন করে</h1>
+      <p><a href="https://nordiccrypto.no/budget/">ফি কোথায় খরচ হয়</a></p>
+    </div>
+  </section>
+  <section id="start">
+    <div class="wrap">
+      <h2>শুরু করুন</h2>
+      <hr class="rule">
+      <p class="lead">একটি Nexa মাইনার এই পুলে দিন। ব্যবহারকারীর নাম আপনার Nexa ঠিকানা।</p>
+      <p>Stratum ঠিকানা</p>
+      <div class="urlrow">
+        <code id="stratum">stratum+tcp://pool.nordiccrypto.no:3333</code>
+        <button type="button" id="copy">কপি</button>
+      </div>
+      <p>ব্যবহারকারীর নাম আপনার Nexa ঠিকানা। ওয়ার্কারের নাম ঐচ্ছিক: ঠিকানা.ওয়ার্কার</p>
+      <p>এখনও Nexa ঠিকানা নেই? তৈরি করুন <a href="https://wallywallet.org/" rel="noopener">Wally ওয়ালেটে</a></p>
+      <h3>মাইনারের উদাহরণ</h3>
+      <ul class="examples">
+        <li><p class="miner">lolMiner</p><pre>lolMiner --algo NEXA --pool stratum+tcp://pool.nordiccrypto.no:3333 --user nexa:ADDRESS</pre></li>
+        <li><p class="miner">BzMiner</p><pre>bzminer -a nexa -p stratum+tcp://pool.nordiccrypto.no:3333 -w nexa:ADDRESS</pre></li>
+        <li><p class="miner">Rigel</p><pre>rigel -a nexapow -o stratum+tcp://pool.nordiccrypto.no:3333 -u nexa:ADDRESS</pre></li>
+        <li><p class="miner">SRBMiner</p><pre>SRBMiner-MULTI --algorithm nexa --pool stratum+tcp://pool.nordiccrypto.no:3333 --wallet nexa:ADDRESS</pre></li>
+      </ul>
+    </div>
+  </section>
+  <section id="status">
+    <div class="wrap">
+      <h2>পুলের লাইভ অবস্থা</h2>
+      <hr class="rule">
+      <p id="status-msg" role="status"></p>
+      <dl class="figures" id="figures" hidden>
+        <div><dt>পুলের হ্যাশরেট</dt><dd id="pool-hash"></dd></div>
+        <div><dt>মাইনার</dt><dd id="miner-count"></dd></div>
+        <div><dt>নেটওয়ার্ক হ্যাশরেট</dt><dd id="net-hash"></dd></div>
+        <div><dt>পুলের অংশ</dt><dd id="pool-share"></dd></div>
+      </dl>
+      <p id="since"></p>
+      <p id="live-line"></p>
+      <h3>সাম্প্রতিক ব্লক</h3>
+      <ul id="blocks"></ul>
+      <noscript><p class="notice">পুল এপিআই সাড়া দিচ্ছে না।</p></noscript>
+    </div>
+  </section>
+  <section id="stats">
+    <div class="wrap">
+      <h2>আমার হিসাব</h2>
+      <hr class="rule">
+      <p class="lead">একটি Nexa ঠিকানা খুঁজুন।</p>
+      <form id="lookup">
+        <label for="addr">Nexa ঠিকানা</label>
+        <div class="urlrow">
+          <input id="addr" name="address" autocomplete="off" spellcheck="false">
+          <button type="submit">খুঁজুন</button>
+        </div>
+      </form>
+      <div id="mine"></div>
+    </div>
+  </section>
+  <section id="terms">
+    <div class="wrap">
+      <h2>শর্ত</h2>
+      <hr class="rule">
+      <ul>
+        <li>পুল ফি 1%।</li>
+        <li>পুরস্কার pay-per-last-N-shares অনুসারে ভাগ হয়। উইন্ডো হলো নতুন শেয়ার, যাদের কাজ দুটি নেটওয়ার্ক কঠিনতার সমান।</li>
+        <li>ন্যূনতম পেআউট 1,000,000 NEX।</li>
+        <li>পেআউট প্রায় ঘণ্টায় একবার হয়, এবং শুধু কয়েনবেস 5,000 নিশ্চিতকরণ পাওয়ার পর।</li>
+      </ul>
+    </div>
+  </section>
+  <section id="about">
+    <div class="wrap about">
+      <h2>স্বচ্ছতা</h2>
+      <hr class="rule">
+      <p>এই পুল Nordic Crypto চালায়।</p>
+      <p>ফি পুলের হোস্টিং এবং স্বাধীন নর্ডিক ক্রিপ্টো সাংবাদিকতার খরচ দেয়।</p>
+      <p>মাইনার পুল থেকে একটি ব্লক প্রার্থী নেয় এবং প্রুফ অব ওয়ার্ক খোঁজে। শেয়ার এমন একটি প্রমাণ যা পুলের লক্ষ্য পূরণ করে। শেয়ার নেটওয়ার্কের লক্ষ্যও পূরণ করলে পুল সেটিকে ব্লক হিসেবে জমা দেয়। কয়েনবেস পরিপক্ক হলে পুরস্কার উইন্ডোর শেয়ারে ভাগ হয়, ফি আলাদা রাখা হয়, এবং প্রতিটি ঠিকানায় পুল ওয়ালেট থেকে টাকা যায়।</p>
+    </div>
+  </section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <ul class="social">
+      <li><a href="https://nordiccrypto.no/">Nordic Crypto</a></li>
+      <li><a href="https://nordiccrypto.no/budget/">ফি কোথায় খরচ হয়</a></li>
+      <li><a href="https://t.me/nordiccryptochat" rel="noopener">Telegram</a></li>
+      <li><a href="https://x.com/nordiccryptobot" rel="noopener">X @nordiccryptobot</a></li>
+      <li><a href="https://github.com/jQrgen/nordic-crypto" rel="noopener">GitHub</a></li>
+      <li><a href="https://nordiccrypto.no/newsletter/">নিউজলেটার</a></li>
+      <li><a href="https://nordiccrypto.no/rss.xml">RSS</a></li>
+      <li><a href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">TestFlight</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="pool-text.js"></script>
+<script src="../pool.js"></script>
+</body>
+</html>

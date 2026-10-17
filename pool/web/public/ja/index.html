@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordic Crypto Nexaプール</title>
+<meta name="description" content="Nordic Crypto の Nexa プール。1% の手数料は、独立した北欧の暗号資産ジャーナリズムを支えます。">
+<link rel="icon" href="../shield.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../pool.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="https://nordiccrypto.no/"><img src="../shield.svg" width="36" height="36" alt=""> Nordic Crypto</a>
+    <nav class="sections" aria-label="Nordic Crypto Nexaプール">
+      <a href="#start">始める</a>
+      <a href="#status">プールの状態</a>
+      <a href="#stats">自分の統計</a>
+      <a href="#terms">条件</a>
+      <a href="#about">透明性</a>
+    </nav>
+  </div>
+  <nav class="langs wrap" aria-label="言語">
+    <a href="../" lang="en">English</a> <a href="../nn/" lang="nn">Nynorsk</a> <a href="../nb/" lang="nb">Bokmål</a> <a href="../sv/" lang="sv">Svenska</a> <a href="../da/" lang="da">Dansk</a> <a href="../fi/" lang="fi">Suomi</a> <a href="../is/" lang="is">Íslenska</a> <a href="../zh/" lang="zh">中文</a> <a href="../hi/" lang="hi">हिन्दी</a> <a href="../es/" lang="es">Español</a> <a href="../fr/" lang="fr">Français</a> <a href="../ar/" lang="ar">العربية</a> <a href="../bn/" lang="bn">বাংলা</a> <a href="../pt/" lang="pt">Português</a> <a href="../ru/" lang="ru">Русский</a> <a href="../ur/" lang="ur">اردو</a> <a href="../id/" lang="id">Bahasa Indonesia</a> <a href="../de/" lang="de">Deutsch</a> <a href="../ja/" lang="ja" aria-current="page">日本語</a> <a href="../sw/" lang="sw">Kiswahili</a> <a href="../mr/" lang="mr">मराठी</a> <a href="../fa/" lang="fa">فارسی</a> <a href="../uk/" lang="uk">Українська</a> 
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Nexa</p>
+      <h1>Nordic Crypto Nexaプール – 独立した北欧の暗号資産ジャーナリズムを支える1%の手数料</h1>
+      <p><a href="https://nordiccrypto.no/budget/">手数料の使いみち</a></p>
+    </div>
+  </section>
+  <section id="start">
+    <div class="wrap">
+      <h2>始める</h2>
+      <hr class="rule">
+      <p class="lead">Nexa のマイナーをこのプールに向けます。ユーザー名は自分の Nexa アドレスです。</p>
+      <p>Stratum URL</p>
+      <div class="urlrow">
+        <code id="stratum">stratum+tcp://pool.nordiccrypto.no:3333</code>
+        <button type="button" id="copy">コピー</button>
+      </div>
+      <p>ユーザー名は Nexa アドレスです。ワーカー名は任意です: アドレス.ワーカー</p>
+      <p>まだ Nexa アドレスがありませんか？こちらで作成できます: <a href="https://wallywallet.org/" rel="noopener">Wally ウォレット</a></p>
+      <h3>マイナーの例</h3>
+      <ul class="examples">
+        <li><p class="miner">lolMiner</p><pre>lolMiner --algo NEXA --pool stratum+tcp://pool.nordiccrypto.no:3333 --user nexa:ADDRESS</pre></li>
+        <li><p class="miner">BzMiner</p><pre>bzminer -a nexa -p stratum+tcp://pool.nordiccrypto.no:3333 -w nexa:ADDRESS</pre></li>
+        <li><p class="miner">Rigel</p><pre>rigel -a nexapow -o stratum+tcp://pool.nordiccrypto.no:3333 -u nexa:ADDRESS</pre></li>
+        <li><p class="miner">SRBMiner</p><pre>SRBMiner-MULTI --algorithm nexa --pool stratum+tcp://pool.nordiccrypto.no:3333 --wallet nexa:ADDRESS</pre></li>
+      </ul>
+    </div>
+  </section>
+  <section id="status">
+    <div class="wrap">
+      <h2>プールの現在の状態</h2>
+      <hr class="rule">
+      <p id="status-msg" role="status"></p>
+      <dl class="figures" id="figures" hidden>
+        <div><dt>プールのハッシュレート</dt><dd id="pool-hash"></dd></div>
+        <div><dt>マイナー</dt><dd id="miner-count"></dd></div>
+        <div><dt>ネットワークのハッシュレート</dt><dd id="net-hash"></dd></div>
+        <div><dt>プールの割合</dt><dd id="pool-share"></dd></div>
+      </dl>
+      <p id="since"></p>
+      <p id="live-line"></p>
+      <h3>最近のブロック</h3>
+      <ul id="blocks"></ul>
+      <noscript><p class="notice">プールのAPIが応答しません。</p></noscript>
+    </div>
+  </section>
+  <section id="stats">
+    <div class="wrap">
+      <h2>自分の統計</h2>
+      <hr class="rule">
+      <p class="lead">Nexa アドレスを検索します。</p>
+      <form id="lookup">
+        <label for="addr">Nexa アドレス</label>
+        <div class="urlrow">
+          <input id="addr" name="address" autocomplete="off" spellcheck="false">
+          <button type="submit">検索</button>
+        </div>
+      </form>
+      <div id="mine"></div>
+    </div>
+  </section>
+  <section id="terms">
+    <div class="wrap">
+      <h2>条件</h2>
+      <hr class="rule">
+      <ul>
+        <li>プール手数料は 1% です。</li>
+        <li>報酬は pay-per-last-N-shares です。窓は、仕事量の合計がネットワーク難度2つ分になる最新のシェアです。</li>
+        <li>最低支払額は 1,000,000 NEX です。</li>
+        <li>支払いはおよそ1時間に1回で、コインベースが 5,000 承認されてから行われます。</li>
+      </ul>
+    </div>
+  </section>
+  <section id="about">
+    <div class="wrap about">
+      <h2>透明性</h2>
+      <hr class="rule">
+      <p>このプールは Nordic Crypto が運営しています。</p>
+      <p>手数料はプールの運用と、独立した北欧の暗号資産ジャーナリズムに使われます。</p>
+      <p>マイナーはプールからブロック候補を受け取り、プルーフ・オブ・ワークを探します。シェアはプールの目標に達した証明です。シェアがネットワークの目標にも達すると、プールはそれをブロックとして提出します。コインベースが成熟したあと、報酬は窓の中のシェアに分配され、手数料は別に取り置かれ、各アドレスへプールのウォレットから支払われます。</p>
+    </div>
+  </section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <ul class="social">
+      <li><a href="https://nordiccrypto.no/">Nordic Crypto</a></li>
+      <li><a href="https://nordiccrypto.no/budget/">手数料の使いみち</a></li>
+      <li><a href="https://t.me/nordiccryptochat" rel="noopener">Telegram</a></li>
+      <li><a href="https://x.com/nordiccryptobot" rel="noopener">X @nordiccryptobot</a></li>
+      <li><a href="https://github.com/jQrgen/nordic-crypto" rel="noopener">GitHub</a></li>
+      <li><a href="https://nordiccrypto.no/newsletter/">ニュースレター</a></li>
+      <li><a href="https://nordiccrypto.no/rss.xml">RSS</a></li>
+      <li><a href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">TestFlight</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="pool-text.js"></script>
+<script src="../pool.js"></script>
+</body>
+</html>

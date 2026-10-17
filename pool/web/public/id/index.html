@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pool Nexa Nordic Crypto</title>
+<meta name="description" content="Pool Nexa dari Nordic Crypto. Biaya 1% mendanai jurnalisme kripto Nordik yang independen.">
+<link rel="icon" href="../shield.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../pool.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="https://nordiccrypto.no/"><img src="../shield.svg" width="36" height="36" alt=""> Nordic Crypto</a>
+    <nav class="sections" aria-label="Pool Nexa Nordic Crypto">
+      <a href="#start">Mulai</a>
+      <a href="#status">Status pool</a>
+      <a href="#stats">Statistik saya</a>
+      <a href="#terms">Ketentuan</a>
+      <a href="#about">Transparansi</a>
+    </nav>
+  </div>
+  <nav class="langs wrap" aria-label="Bahasa">
+    <a href="../" lang="en">English</a> <a href="../nn/" lang="nn">Nynorsk</a> <a href="../nb/" lang="nb">Bokmål</a> <a href="../sv/" lang="sv">Svenska</a> <a href="../da/" lang="da">Dansk</a> <a href="../fi/" lang="fi">Suomi</a> <a href="../is/" lang="is">Íslenska</a> <a href="../zh/" lang="zh">中文</a> <a href="../hi/" lang="hi">हिन्दी</a> <a href="../es/" lang="es">Español</a> <a href="../fr/" lang="fr">Français</a> <a href="../ar/" lang="ar">العربية</a> <a href="../bn/" lang="bn">বাংলা</a> <a href="../pt/" lang="pt">Português</a> <a href="../ru/" lang="ru">Русский</a> <a href="../ur/" lang="ur">اردو</a> <a href="../id/" lang="id" aria-current="page">Bahasa Indonesia</a> <a href="../de/" lang="de">Deutsch</a> <a href="../ja/" lang="ja">日本語</a> <a href="../sw/" lang="sw">Kiswahili</a> <a href="../mr/" lang="mr">मराठी</a> <a href="../fa/" lang="fa">فارسی</a> <a href="../uk/" lang="uk">Українська</a> 
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Nexa</p>
+      <h1>Pool Nexa Nordic Crypto – biaya 1% yang mendanai jurnalisme kripto Nordik yang independen</h1>
+      <p><a href="https://nordiccrypto.no/budget/">Ke mana biaya ini pergi</a></p>
+    </div>
+  </section>
+  <section id="start">
+    <div class="wrap">
+      <h2>Mulai</h2>
+      <hr class="rule">
+      <p class="lead">Arahkan penambang Nexa ke pool ini. Nama pengguna adalah alamat Nexa Anda.</p>
+      <p>URL stratum</p>
+      <div class="urlrow">
+        <code id="stratum">stratum+tcp://pool.nordiccrypto.no:3333</code>
+        <button type="button" id="copy">Salin</button>
+      </div>
+      <p>Nama pengguna adalah alamat Nexa Anda. Nama pekerja bersifat pilihan: alamat.pekerja</p>
+      <p>Belum punya alamat Nexa? Buat di <a href="https://wallywallet.org/" rel="noopener">dompet Wally</a></p>
+      <h3>Contoh penambang</h3>
+      <ul class="examples">
+        <li><p class="miner">lolMiner</p><pre>lolMiner --algo NEXA --pool stratum+tcp://pool.nordiccrypto.no:3333 --user nexa:ADDRESS</pre></li>
+        <li><p class="miner">BzMiner</p><pre>bzminer -a nexa -p stratum+tcp://pool.nordiccrypto.no:3333 -w nexa:ADDRESS</pre></li>
+        <li><p class="miner">Rigel</p><pre>rigel -a nexapow -o stratum+tcp://pool.nordiccrypto.no:3333 -u nexa:ADDRESS</pre></li>
+        <li><p class="miner">SRBMiner</p><pre>SRBMiner-MULTI --algorithm nexa --pool stratum+tcp://pool.nordiccrypto.no:3333 --wallet nexa:ADDRESS</pre></li>
+      </ul>
+    </div>
+  </section>
+  <section id="status">
+    <div class="wrap">
+      <h2>Status pool langsung</h2>
+      <hr class="rule">
+      <p id="status-msg" role="status"></p>
+      <dl class="figures" id="figures" hidden>
+        <div><dt>Hashrate pool</dt><dd id="pool-hash"></dd></div>
+        <div><dt>Penambang</dt><dd id="miner-count"></dd></div>
+        <div><dt>Hashrate jaringan</dt><dd id="net-hash"></dd></div>
+        <div><dt>Bagian pool</dt><dd id="pool-share"></dd></div>
+      </dl>
+      <p id="since"></p>
+      <p id="live-line"></p>
+      <h3>Blok terbaru</h3>
+      <ul id="blocks"></ul>
+      <noscript><p class="notice">API pool tidak menjawab.</p></noscript>
+    </div>
+  </section>
+  <section id="stats">
+    <div class="wrap">
+      <h2>Statistik saya</h2>
+      <hr class="rule">
+      <p class="lead">Cari alamat Nexa.</p>
+      <form id="lookup">
+        <label for="addr">Alamat Nexa</label>
+        <div class="urlrow">
+          <input id="addr" name="address" autocomplete="off" spellcheck="false">
+          <button type="submit">Cari</button>
+        </div>
+      </form>
+      <div id="mine"></div>
+    </div>
+  </section>
+  <section id="terms">
+    <div class="wrap">
+      <h2>Ketentuan</h2>
+      <hr class="rule">
+      <ul>
+        <li>Biaya pool adalah 1%.</li>
+        <li>Imbalan memakai pay-per-last-N-shares. Jendelanya adalah bagian terbaru yang pekerjaannya setara dengan dua tingkat kesulitan jaringan.</li>
+        <li>Pembayaran minimum adalah 1.000.000 NEX.</li>
+        <li>Pembayaran berjalan kira-kira sekali sejam, dan hanya setelah coinbase mendapat 5.000 konfirmasi.</li>
+      </ul>
+    </div>
+  </section>
+  <section id="about">
+    <div class="wrap about">
+      <h2>Transparansi</h2>
+      <hr class="rule">
+      <p>Pool ini dijalankan oleh Nordic Crypto.</p>
+      <p>Biaya membayar hosting pool dan jurnalisme kripto Nordik yang independen.</p>
+      <p>Penambang mengambil kandidat blok dari pool dan mencari bukti kerja. Bagian adalah bukti yang mencapai target pool. Saat bagian juga mencapai target jaringan, pool mengirimkannya sebagai blok. Setelah coinbase matang, imbalan dibagi ke bagian dalam jendela, biaya disisihkan, dan setiap alamat dibayar dari dompet pool.</p>
+    </div>
+  </section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <ul class="social">
+      <li><a href="https://nordiccrypto.no/">Nordic Crypto</a></li>
+      <li><a href="https://nordiccrypto.no/budget/">Ke mana biaya ini pergi</a></li>
+      <li><a href="https://t.me/nordiccryptochat" rel="noopener">Telegram</a></li>
+      <li><a href="https://x.com/nordiccryptobot" rel="noopener">X @nordiccryptobot</a></li>
+      <li><a href="https://github.com/jQrgen/nordic-crypto" rel="noopener">GitHub</a></li>
+      <li><a href="https://nordiccrypto.no/newsletter/">Buletin</a></li>
+      <li><a href="https://nordiccrypto.no/rss.xml">RSS</a></li>
+      <li><a href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">TestFlight</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="pool-text.js"></script>
+<script src="../pool.js"></script>
+</body>
+</html>

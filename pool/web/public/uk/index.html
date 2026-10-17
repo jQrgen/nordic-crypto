@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="uk" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Пул Nexa Nordic Crypto</title>
+<meta name="description" content="Пул Nexa від Nordic Crypto. Комісія 1% фінансує незалежну північну криптожурналістику.">
+<link rel="icon" href="../shield.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../pool.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="https://nordiccrypto.no/"><img src="../shield.svg" width="36" height="36" alt=""> Nordic Crypto</a>
+    <nav class="sections" aria-label="Пул Nexa Nordic Crypto">
+      <a href="#start">Почати</a>
+      <a href="#status">Стан пулу</a>
+      <a href="#stats">Моя статистика</a>
+      <a href="#terms">Умови</a>
+      <a href="#about">Прозорість</a>
+    </nav>
+  </div>
+  <nav class="langs wrap" aria-label="Мова">
+    <a href="../" lang="en">English</a> <a href="../nn/" lang="nn">Nynorsk</a> <a href="../nb/" lang="nb">Bokmål</a> <a href="../sv/" lang="sv">Svenska</a> <a href="../da/" lang="da">Dansk</a> <a href="../fi/" lang="fi">Suomi</a> <a href="../is/" lang="is">Íslenska</a> <a href="../zh/" lang="zh">中文</a> <a href="../hi/" lang="hi">हिन्दी</a> <a href="../es/" lang="es">Español</a> <a href="../fr/" lang="fr">Français</a> <a href="../ar/" lang="ar">العربية</a> <a href="../bn/" lang="bn">বাংলা</a> <a href="../pt/" lang="pt">Português</a> <a href="../ru/" lang="ru">Русский</a> <a href="../ur/" lang="ur">اردو</a> <a href="../id/" lang="id">Bahasa Indonesia</a> <a href="../de/" lang="de">Deutsch</a> <a href="../ja/" lang="ja">日本語</a> <a href="../sw/" lang="sw">Kiswahili</a> <a href="../mr/" lang="mr">मराठी</a> <a href="../fa/" lang="fa">فارسی</a> <a href="../uk/" lang="uk" aria-current="page">Українська</a> 
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Nexa</p>
+      <h1>Пул Nexa Nordic Crypto – комісія 1%, яка фінансує незалежну північну криптожурналістику</h1>
+      <p><a href="https://nordiccrypto.no/budget/">На що йде комісія</a></p>
+    </div>
+  </section>
+  <section id="start">
+    <div class="wrap">
+      <h2>Почати</h2>
+      <hr class="rule">
+      <p class="lead">Спрямуйте майнер Nexa на цей пул. Ім&#39;я користувача — ваша адреса Nexa.</p>
+      <p>Адреса stratum</p>
+      <div class="urlrow">
+        <code id="stratum">stratum+tcp://pool.nordiccrypto.no:3333</code>
+        <button type="button" id="copy">Копіювати</button>
+      </div>
+      <p>Ім&#39;я користувача — ваша адреса Nexa. Ім&#39;я воркера необов&#39;язкове: адреса.воркер</p>
+      <p>Ще немає адреси Nexa? Створіть її в <a href="https://wallywallet.org/" rel="noopener">гаманці Wally</a></p>
+      <h3>Приклади майнерів</h3>
+      <ul class="examples">
+        <li><p class="miner">lolMiner</p><pre>lolMiner --algo NEXA --pool stratum+tcp://pool.nordiccrypto.no:3333 --user nexa:ADDRESS</pre></li>
+        <li><p class="miner">BzMiner</p><pre>bzminer -a nexa -p stratum+tcp://pool.nordiccrypto.no:3333 -w nexa:ADDRESS</pre></li>
+        <li><p class="miner">Rigel</p><pre>rigel -a nexapow -o stratum+tcp://pool.nordiccrypto.no:3333 -u nexa:ADDRESS</pre></li>
+        <li><p class="miner">SRBMiner</p><pre>SRBMiner-MULTI --algorithm nexa --pool stratum+tcp://pool.nordiccrypto.no:3333 --wallet nexa:ADDRESS</pre></li>
+      </ul>
+    </div>
+  </section>
+  <section id="status">
+    <div class="wrap">
+      <h2>Стан пулу зараз</h2>
+      <hr class="rule">
+      <p id="status-msg" role="status"></p>
+      <dl class="figures" id="figures" hidden>
+        <div><dt>Хешрейт пулу</dt><dd id="pool-hash"></dd></div>
+        <div><dt>Майнери</dt><dd id="miner-count"></dd></div>
+        <div><dt>Хешрейт мережі</dt><dd id="net-hash"></dd></div>
+        <div><dt>Частка пулу</dt><dd id="pool-share"></dd></div>
+      </dl>
+      <p id="since"></p>
+      <p id="live-line"></p>
+      <h3>Нещодавні блоки</h3>
+      <ul id="blocks"></ul>
+      <noscript><p class="notice">API пулу не відповідає.</p></noscript>
+    </div>
+  </section>
+  <section id="stats">
+    <div class="wrap">
+      <h2>Моя статистика</h2>
+      <hr class="rule">
+      <p class="lead">Знайти адресу Nexa.</p>
+      <form id="lookup">
+        <label for="addr">Адреса Nexa</label>
+        <div class="urlrow">
+          <input id="addr" name="address" autocomplete="off" spellcheck="false">
+          <button type="submit">Знайти</button>
+        </div>
+      </form>
+      <div id="mine"></div>
+    </div>
+  </section>
+  <section id="terms">
+    <div class="wrap">
+      <h2>Умови</h2>
+      <hr class="rule">
+      <ul>
+        <li>Комісія пулу — 1%.</li>
+        <li>Винагорода ділиться за pay-per-last-N-shares. Вікно — найновіші шари, чия робота дорівнює двом складностям мережі.</li>
+        <li>Мінімальна виплата — 1 000 000 NEX.</li>
+        <li>Виплати йдуть приблизно раз на годину і лише після 5 000 підтверджень coinbase.</li>
+      </ul>
+    </div>
+  </section>
+  <section id="about">
+    <div class="wrap about">
+      <h2>Прозорість</h2>
+      <hr class="rule">
+      <p>Цей пул веде Nordic Crypto.</p>
+      <p>Комісія оплачує хостинг пулу та незалежну північну криптожурналістику.</p>
+      <p>Майнер бере в пулу кандидата блока і шукає доказ роботи. Шара — це доказ, який досягає цілі пулу. Коли шара досягає і цілі мережі, пул надсилає її як блок. Після дозрівання coinbase винагорода ділиться між шарами вікна, комісія відкладається, і кожна адреса отримує виплату з гаманця пулу.</p>
+    </div>
+  </section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <ul class="social">
+      <li><a href="https://nordiccrypto.no/">Nordic Crypto</a></li>
+      <li><a href="https://nordiccrypto.no/budget/">На що йде комісія</a></li>
+      <li><a href="https://t.me/nordiccryptochat" rel="noopener">Telegram</a></li>
+      <li><a href="https://x.com/nordiccryptobot" rel="noopener">X @nordiccryptobot</a></li>
+      <li><a href="https://github.com/jQrgen/nordic-crypto" rel="noopener">GitHub</a></li>
+      <li><a href="https://nordiccrypto.no/newsletter/">Розсилка</a></li>
+      <li><a href="https://nordiccrypto.no/rss.xml">RSS</a></li>
+      <li><a href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">TestFlight</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="pool-text.js"></script>
+<script src="../pool.js"></script>
+</body>
+</html>

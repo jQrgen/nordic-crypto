@@ -1,0 +1,34 @@
+[Unit]
+Description=Nordic Crypto Nexa mining pool
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Not the nexad cold-wallet user. This account owns the hot wallet datadir
+# only. It must not be able to read /var/lib/nexa.
+User=nexapool
+Group=nexapool
+UMask=0077
+ExecStart=/usr/local/bin/nexapool -config /etc/nexapool/nexapool.toml
+EnvironmentFile=-/etc/nexapool/nexapool.env
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+PrivateDevices=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+MemoryDenyWriteExecute=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+CapabilityBoundingSet=
+SystemCallFilter=@system-service
+ReadWritePaths=/var/lib/nexapool
+
+[Install]
+WantedBy=multi-user.target

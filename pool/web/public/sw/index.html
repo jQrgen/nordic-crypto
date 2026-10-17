@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="sw" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bwawa la Nexa la Nordic Crypto</title>
+<meta name="description" content="Bwawa la Nexa kutoka Nordic Crypto. Ada ya 1% inafadhili uandishi huru wa kripto wa Nordic.">
+<link rel="icon" href="../shield.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../pool.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="https://nordiccrypto.no/"><img src="../shield.svg" width="36" height="36" alt=""> Nordic Crypto</a>
+    <nav class="sections" aria-label="Bwawa la Nexa la Nordic Crypto">
+      <a href="#start">Anza</a>
+      <a href="#status">Hali ya bwawa</a>
+      <a href="#stats">Takwimu zangu</a>
+      <a href="#terms">Masharti</a>
+      <a href="#about">Uwazi</a>
+    </nav>
+  </div>
+  <nav class="langs wrap" aria-label="Lugha">
+    <a href="../" lang="en">English</a> <a href="../nn/" lang="nn">Nynorsk</a> <a href="../nb/" lang="nb">Bokmål</a> <a href="../sv/" lang="sv">Svenska</a> <a href="../da/" lang="da">Dansk</a> <a href="../fi/" lang="fi">Suomi</a> <a href="../is/" lang="is">Íslenska</a> <a href="../zh/" lang="zh">中文</a> <a href="../hi/" lang="hi">हिन्दी</a> <a href="../es/" lang="es">Español</a> <a href="../fr/" lang="fr">Français</a> <a href="../ar/" lang="ar">العربية</a> <a href="../bn/" lang="bn">বাংলা</a> <a href="../pt/" lang="pt">Português</a> <a href="../ru/" lang="ru">Русский</a> <a href="../ur/" lang="ur">اردو</a> <a href="../id/" lang="id">Bahasa Indonesia</a> <a href="../de/" lang="de">Deutsch</a> <a href="../ja/" lang="ja">日本語</a> <a href="../sw/" lang="sw" aria-current="page">Kiswahili</a> <a href="../mr/" lang="mr">मराठी</a> <a href="../fa/" lang="fa">فارسی</a> <a href="../uk/" lang="uk">Українська</a> 
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Nexa</p>
+      <h1>Bwawa la Nexa la Nordic Crypto – ada ya 1% inayofadhili uandishi huru wa kripto wa Nordic</h1>
+      <p><a href="https://nordiccrypto.no/budget/">Ada inalipia nini</a></p>
+    </div>
+  </section>
+  <section id="start">
+    <div class="wrap">
+      <h2>Anza</h2>
+      <hr class="rule">
+      <p class="lead">Elekeza mchimbaji wa Nexa kwenye bwawa hili. Jina la mtumiaji ni anwani yako ya Nexa.</p>
+      <p>Anwani ya stratum</p>
+      <div class="urlrow">
+        <code id="stratum">stratum+tcp://pool.nordiccrypto.no:3333</code>
+        <button type="button" id="copy">Nakili</button>
+      </div>
+      <p>Jina la mtumiaji ni anwani yako ya Nexa. Jina la mfanyakazi si lazima: anwani.mfanyakazi</p>
+      <p>Bado huna anwani ya Nexa? Tengeneza moja katika <a href="https://wallywallet.org/" rel="noopener">mkoba wa Wally</a></p>
+      <h3>Mifano ya wachimbaji</h3>
+      <ul class="examples">
+        <li><p class="miner">lolMiner</p><pre>lolMiner --algo NEXA --pool stratum+tcp://pool.nordiccrypto.no:3333 --user nexa:ADDRESS</pre></li>
+        <li><p class="miner">BzMiner</p><pre>bzminer -a nexa -p stratum+tcp://pool.nordiccrypto.no:3333 -w nexa:ADDRESS</pre></li>
+        <li><p class="miner">Rigel</p><pre>rigel -a nexapow -o stratum+tcp://pool.nordiccrypto.no:3333 -u nexa:ADDRESS</pre></li>
+        <li><p class="miner">SRBMiner</p><pre>SRBMiner-MULTI --algorithm nexa --pool stratum+tcp://pool.nordiccrypto.no:3333 --wallet nexa:ADDRESS</pre></li>
+      </ul>
+    </div>
+  </section>
+  <section id="status">
+    <div class="wrap">
+      <h2>Hali ya bwawa sasa</h2>
+      <hr class="rule">
+      <p id="status-msg" role="status"></p>
+      <dl class="figures" id="figures" hidden>
+        <div><dt>Hashrate ya bwawa</dt><dd id="pool-hash"></dd></div>
+        <div><dt>Wachimbaji</dt><dd id="miner-count"></dd></div>
+        <div><dt>Hashrate ya mtandao</dt><dd id="net-hash"></dd></div>
+        <div><dt>Sehemu ya bwawa</dt><dd id="pool-share"></dd></div>
+      </dl>
+      <p id="since"></p>
+      <p id="live-line"></p>
+      <h3>Bloku za hivi karibuni</h3>
+      <ul id="blocks"></ul>
+      <noscript><p class="notice">API ya bwawa haijibu.</p></noscript>
+    </div>
+  </section>
+  <section id="stats">
+    <div class="wrap">
+      <h2>Takwimu zangu</h2>
+      <hr class="rule">
+      <p class="lead">Tafuta anwani ya Nexa.</p>
+      <form id="lookup">
+        <label for="addr">Anwani ya Nexa</label>
+        <div class="urlrow">
+          <input id="addr" name="address" autocomplete="off" spellcheck="false">
+          <button type="submit">Tafuta</button>
+        </div>
+      </form>
+      <div id="mine"></div>
+    </div>
+  </section>
+  <section id="terms">
+    <div class="wrap">
+      <h2>Masharti</h2>
+      <hr class="rule">
+      <ul>
+        <li>Ada ya bwawa ni 1%.</li>
+        <li>Zawadi hugawanywa kwa pay-per-last-N-shares. Dirisha ni hisa mpya ambazo kazi yake inalingana na ugumu wa mtandao mara mbili.</li>
+        <li>Malipo ya chini ni NEX 1,000,000.</li>
+        <li>Malipo hutoka takriban mara moja kwa saa, na tu baada ya coinbase kupata uthibitisho 5,000.</li>
+      </ul>
+    </div>
+  </section>
+  <section id="about">
+    <div class="wrap about">
+      <h2>Uwazi</h2>
+      <hr class="rule">
+      <p>Bwawa hili linaendeshwa na Nordic Crypto.</p>
+      <p>Ada hulipia uhifadhi wa bwawa na uandishi huru wa kripto wa Nordic.</p>
+      <p>Mchimbaji huchukua mgombea wa bloku kutoka bwawa na kutafuta uthibitisho wa kazi. Hisa ni uthibitisho unaofikia lengo la bwawa. Hisa ikifikia pia lengo la mtandao, bwawa huituma kama bloku. Coinbase inapokomaa, zawadi hugawanywa kwa hisa za dirisha, ada huwekwa kando, na kila anwani hulipwa kutoka mkoba wa bwawa.</p>
+    </div>
+  </section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <ul class="social">
+      <li><a href="https://nordiccrypto.no/">Nordic Crypto</a></li>
+      <li><a href="https://nordiccrypto.no/budget/">Ada inalipia nini</a></li>
+      <li><a href="https://t.me/nordiccryptochat" rel="noopener">Telegram</a></li>
+      <li><a href="https://x.com/nordiccryptobot" rel="noopener">X @nordiccryptobot</a></li>
+      <li><a href="https://github.com/jQrgen/nordic-crypto" rel="noopener">GitHub</a></li>
+      <li><a href="https://nordiccrypto.no/newsletter/">Barua ya habari</a></li>
+      <li><a href="https://nordiccrypto.no/rss.xml">RSS</a></li>
+      <li><a href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">TestFlight</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="pool-text.js"></script>
+<script src="../pool.js"></script>
+</body>
+</html>

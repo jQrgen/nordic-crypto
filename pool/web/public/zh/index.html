@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nordic Crypto Nexa 矿池</title>
+<meta name="description" content="Nordic Crypto 的 Nexa 矿池。1% 手续费用于资助独立的北欧加密货币新闻。">
+<link rel="icon" href="../shield.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../pool.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="https://nordiccrypto.no/"><img src="../shield.svg" width="36" height="36" alt=""> Nordic Crypto</a>
+    <nav class="sections" aria-label="Nordic Crypto Nexa 矿池">
+      <a href="#start">开始挖矿</a>
+      <a href="#status">矿池状态</a>
+      <a href="#stats">我的数据</a>
+      <a href="#terms">条款</a>
+      <a href="#about">透明度</a>
+    </nav>
+  </div>
+  <nav class="langs wrap" aria-label="语言">
+    <a href="../" lang="en">English</a> <a href="../nn/" lang="nn">Nynorsk</a> <a href="../nb/" lang="nb">Bokmål</a> <a href="../sv/" lang="sv">Svenska</a> <a href="../da/" lang="da">Dansk</a> <a href="../fi/" lang="fi">Suomi</a> <a href="../is/" lang="is">Íslenska</a> <a href="../zh/" lang="zh" aria-current="page">中文</a> <a href="../hi/" lang="hi">हिन्दी</a> <a href="../es/" lang="es">Español</a> <a href="../fr/" lang="fr">Français</a> <a href="../ar/" lang="ar">العربية</a> <a href="../bn/" lang="bn">বাংলা</a> <a href="../pt/" lang="pt">Português</a> <a href="../ru/" lang="ru">Русский</a> <a href="../ur/" lang="ur">اردو</a> <a href="../id/" lang="id">Bahasa Indonesia</a> <a href="../de/" lang="de">Deutsch</a> <a href="../ja/" lang="ja">日本語</a> <a href="../sw/" lang="sw">Kiswahili</a> <a href="../mr/" lang="mr">मराठी</a> <a href="../fa/" lang="fa">فارسی</a> <a href="../uk/" lang="uk">Українська</a> 
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Nexa</p>
+      <h1>Nordic Crypto Nexa 矿池 – 1% 手续费用于资助独立的北欧加密货币新闻</h1>
+      <p><a href="https://nordiccrypto.no/budget/">手续费用在何处</a></p>
+    </div>
+  </section>
+  <section id="start">
+    <div class="wrap">
+      <h2>开始挖矿</h2>
+      <hr class="rule">
+      <p class="lead">把 Nexa 矿机指向这个矿池。用户名是你的 Nexa 地址。</p>
+      <p>Stratum 地址</p>
+      <div class="urlrow">
+        <code id="stratum">stratum+tcp://pool.nordiccrypto.no:3333</code>
+        <button type="button" id="copy">复制</button>
+      </div>
+      <p>用户名是你的 Nexa 地址。工作名可选：地址.工作名</p>
+      <p>还没有 Nexa 地址？请在 <a href="https://wallywallet.org/" rel="noopener">Wally 钱包</a></p>
+      <h3>矿机示例</h3>
+      <ul class="examples">
+        <li><p class="miner">lolMiner</p><pre>lolMiner --algo NEXA --pool stratum+tcp://pool.nordiccrypto.no:3333 --user nexa:ADDRESS</pre></li>
+        <li><p class="miner">BzMiner</p><pre>bzminer -a nexa -p stratum+tcp://pool.nordiccrypto.no:3333 -w nexa:ADDRESS</pre></li>
+        <li><p class="miner">Rigel</p><pre>rigel -a nexapow -o stratum+tcp://pool.nordiccrypto.no:3333 -u nexa:ADDRESS</pre></li>
+        <li><p class="miner">SRBMiner</p><pre>SRBMiner-MULTI --algorithm nexa --pool stratum+tcp://pool.nordiccrypto.no:3333 --wallet nexa:ADDRESS</pre></li>
+      </ul>
+    </div>
+  </section>
+  <section id="status">
+    <div class="wrap">
+      <h2>矿池实时状态</h2>
+      <hr class="rule">
+      <p id="status-msg" role="status"></p>
+      <dl class="figures" id="figures" hidden>
+        <div><dt>矿池算力</dt><dd id="pool-hash"></dd></div>
+        <div><dt>矿工</dt><dd id="miner-count"></dd></div>
+        <div><dt>全网算力</dt><dd id="net-hash"></dd></div>
+        <div><dt>矿池份额</dt><dd id="pool-share"></dd></div>
+      </dl>
+      <p id="since"></p>
+      <p id="live-line"></p>
+      <h3>最近区块</h3>
+      <ul id="blocks"></ul>
+      <noscript><p class="notice">矿池接口没有响应。</p></noscript>
+    </div>
+  </section>
+  <section id="stats">
+    <div class="wrap">
+      <h2>我的数据</h2>
+      <hr class="rule">
+      <p class="lead">查询一个 Nexa 地址。</p>
+      <form id="lookup">
+        <label for="addr">Nexa 地址</label>
+        <div class="urlrow">
+          <input id="addr" name="address" autocomplete="off" spellcheck="false">
+          <button type="submit">查询</button>
+        </div>
+      </form>
+      <div id="mine"></div>
+    </div>
+  </section>
+  <section id="terms">
+    <div class="wrap">
+      <h2>条款</h2>
+      <hr class="rule">
+      <ul>
+        <li>矿池手续费为 1%。</li>
+        <li>收益按 pay-per-last-N-shares 分配。窗口是最新的份额，其工作量合计相当于两个全网难度。</li>
+        <li>最低支付额为 1,000,000 NEX。</li>
+        <li>大约每小时支付一次，并且只在 coinbase 获得 5,000 个确认之后。</li>
+      </ul>
+    </div>
+  </section>
+  <section id="about">
+    <div class="wrap about">
+      <h2>透明度</h2>
+      <hr class="rule">
+      <p>这个矿池由 Nordic Crypto 运营。</p>
+      <p>手续费用于矿池托管，以及独立的北欧加密货币新闻。</p>
+      <p>矿机从矿池领取区块候选并寻找工作量证明。份额是达到矿池目标的证明。当份额也达到全网目标时，矿池把它作为区块提交。coinbase 成熟后，收益按窗口内的份额分配，手续费另行留出，然后从矿池钱包支付到每个地址。</p>
+    </div>
+  </section>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <ul class="social">
+      <li><a href="https://nordiccrypto.no/">Nordic Crypto</a></li>
+      <li><a href="https://nordiccrypto.no/budget/">手续费用在何处</a></li>
+      <li><a href="https://t.me/nordiccryptochat" rel="noopener">Telegram</a></li>
+      <li><a href="https://x.com/nordiccryptobot" rel="noopener">X @nordiccryptobot</a></li>
+      <li><a href="https://github.com/jQrgen/nordic-crypto" rel="noopener">GitHub</a></li>
+      <li><a href="https://nordiccrypto.no/newsletter/">新闻通讯</a></li>
+      <li><a href="https://nordiccrypto.no/rss.xml">RSS</a></li>
+      <li><a href="https://testflight.apple.com/join/nQ2fpjZn" rel="noopener">TestFlight</a></li>
+    </ul>
+  </div>
+</footer>
+<script src="pool-text.js"></script>
+<script src="../pool.js"></script>
+</body>
+</html>

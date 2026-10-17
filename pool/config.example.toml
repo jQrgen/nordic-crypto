@@ -1,0 +1,75 @@
+# Copy to /etc/nexapool/nexapool.toml and set fee_address before starting.
+# The pool refuses to start while fee_address is empty.
+# Do not put an RPC password or a wallet passphrase in this file.
+
+[pool]
+fee_percent = 1
+fee_address = ""
+# Address in the hot wallet that receives the coinbase. Required. The
+# pool will not start while this is empty, and block reward is only the
+# output that pays this address. It is not the miner payout address.
+coinbase_address = ""
+min_payout = "1000000.00"
+# nexad's wallet spends a coinbase at coinbaseMaturity+1. Mainnet that is 5001.
+maturity = 5001
+pplns_blocks = 2
+payout_interval = "1h"
+hashrate_window = "15m"
+# A payout is not marked sent until the wallet transaction has this many
+# confirmations. 1 is the default.
+payout_confirmations = 1
+# release -confirm none is refused until the reservation is at least this old.
+release_none_min_age = "24h"
+# A competing spend must have at least this many confirmations before
+# those coins can be paid again. The minimum is 6. Until then the pool
+# rebroadcasts the stored transaction and does not sign another one.
+# A reorg deeper than this is an accepted risk: the pool may already
+# have signed a second payout.
+release_conflict_depth = 10
+# Left in the wallet so a transaction fee cannot drain it.
+tx_reserve = "1.00"
+# The pool refuses to pay when getbalance is above this. Keep the hot
+# wallet under the cap and sweep the rest to a cold wallet this process
+# cannot sign for.
+hot_wallet_max = "5000000.00"
+public_stratum = "stratum+tcp://pool.nordiccrypto.no:3333"
+# auto follows getminingcandidate's previousBlockHash. on requires a
+# parent. off stays on the pre-fork hash. There is no wall-clock switch.
+tailstorm = "auto"
+# Optional unix time compared with the node's median time past, not the
+# machine clock. Leave it unset to follow the candidate.
+# tailstorm_activation = 0
+
+[stratum]
+listen = "0.0.0.0:3333"
+vardiff = true
+start_difficulty = 0.2
+min_difficulty = 0.05
+max_difficulty = 4096
+# One address cannot take every session. Raise this for a farm behind one NAT.
+max_per_ip = 16
+# Sustained mining.submit per session per second, and how many may arrive
+# at once. 128/s is about 110 GH/s at the 0.2 start difficulty. Faster
+# miners are limited but not banned during submit_grace, while variable
+# difficulty doubles every 10 seconds.
+submit_rate = 128
+submit_burst = 256
+submit_grace = "3m"
+# Bad shares, and rate-limit misses after the grace, ban the address.
+ban_after = 20
+
+[api]
+listen = "127.0.0.1:8080"
+web_root = ""
+
+[node]
+# Must be loopback. A public URL is rejected, and the client refuses redirects.
+url = "http://127.0.0.1:7227/"
+# Cookie of the hot-wallet nexad, mode 0600, owned by nexapool.
+# Do not point this at /var/lib/nexa. That datadir is the cold wallet.
+cookie_file = "/var/lib/nexapool/hotwallet/.cookie"
+# Optional file outside the repository, mode 0600, owned by nexapool.
+# passphrase_file = "/etc/nexapool/wallet.passphrase"
+
+[db]
+path = "/var/lib/nexapool/pool.sqlite"
