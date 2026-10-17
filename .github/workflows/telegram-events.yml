@@ -18,7 +18,7 @@ on:
         type: boolean
         default: false
       news_ids:
-        description: "Backfill: news ids to post now, comma-separated"
+        description: "Backfill: news ids to post now as one digest, comma-separated"
         type: string
         default: ""
 

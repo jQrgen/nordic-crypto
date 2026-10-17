@@ -75,29 +75,51 @@ class TelegramEvents(unittest.TestCase):
         online = te.message(ev("o1", "2026-10-14T00:00:00+02:00", place="", city="", online=True, country=None))
         self.assertIn("📍 Online", online); self.assertIn("Wed 14 Oct 2026\n", online)
 
-    def gonews(self, items, **kw):
+    def gonews(self, items, updated=None, **kw):
         self.sender = kw.pop("sender", None) or Sender()
-        return te.run({"preview": False, "items": items}, self.ledger, now=NOW, token="T0KEN", chat="@c", max_posts=5,
-                      dry=False, sender=self.sender, log=self.log.append, kind="news", **kw)
+        return te.run({"preview": False, "updated": updated, "items": items}, self.ledger, now=NOW, token="T0KEN", chat="@c",
+                      max_posts=5, dry=False, sender=self.sender, log=self.log.append, kind="news", **kw)
 
-    def test_news_posts_new_recent_stories_once(self):
-        story = lambda i, pub: {"id": i, "title": f"Sak {i}", "title_en": f"Story {i}", "published": pub, "country": "SE",
-                                "source_name": "Kaupr", "html_url": f"https://nordiccrypto.no/stories/{i}/"}
-        self.gonews([story("old", "2026-10-08T07:00:00+00:00")])
+    def story(self, i, pub, **kw):
+        s = {"id": i, "title": f"Sak {i}", "title_en": f"Story {i}", "published": pub, "country": "SE",
+             "source_name": "Kaupr", "html_url": f"https://nordiccrypto.no/stories/{i}/"}
+        s.update(kw); return s
+
+    def test_news_one_digest_per_round_oldest_first(self):
+        self.gonews([self.story("old", "2026-10-08T07:00:00+00:00")])
         self.assertEqual(self.sender.sent, [])
-        items = [story("old", "2026-10-08T07:00:00+00:00"), story("n2", "2026-10-08T09:00:00+00:00"),
-                 story("n1", "2026-10-07"), story("stale", "2026-09-01T00:00:00+00:00")]
+        items = [self.story("old", "2026-10-08T07:00:00+00:00"), self.story("n2", "2026-10-08T09:00:00+00:00"),
+                 self.story("n1", "2026-10-07", title_en="A & B"), self.story("stale", "2026-09-01T00:00:00+00:00")]
         self.gonews(items)
-        self.assertEqual([s[2].split("/stories/")[1][:2] for s in self.sender.sent], ["n1", "n2"])
-        self.assertIn("📰 <b>Story n1</b>\n🇸🇪 Kaupr", self.sender.sent[0][2])
+        self.assertEqual(len(self.sender.sent), 1)
+        self.assertEqual(self.sender.sent[0][2],
+                         "📰 <b>Nye saker på Nordic Crypto – 9.10.2026</b>\n\n"
+                         '🇸🇪 <a href="https://nordiccrypto.no/stories/n1/">A &amp; B</a> – Kaupr\n\n'
+                         '🇸🇪 <a href="https://nordiccrypto.no/stories/n2/">Story n2</a> – Kaupr')
         self.gonews(items); self.assertEqual(self.sender.sent, [], "never posted twice")
 
-    def test_news_backfill_posts_named_ids_even_when_seeded(self):
-        items = [{"id": "b1", "title": "B1", "published": "2026-10-08T07:00:00+00:00"},
-                 {"id": "b2", "title": "B2", "published": "2026-10-08T08:00:00+00:00"}]
+    def test_news_waits_for_the_round_to_settle(self):
+        self.gonews([])
+        items = [self.story("s1", "2026-10-08T07:00:00+00:00")]
+        self.gonews(items, updated="2026-10-09T07:55:00+00:00"); self.assertEqual(self.sender.sent, [])
+        self.gonews(items, updated="2026-10-09T07:45:00+00:00"); self.assertEqual(len(self.sender.sent), 1)
+
+    def test_news_digest_splits_only_past_the_limit(self):
+        self.gonews([])
+        items = [self.story(f"l{i:02}", f"2026-10-08T{i:02}:00:00+00:00", title_en="x" * 300) for i in range(20)]
         self.gonews(items)
-        self.gonews(items, force=["b2", "zz"])
-        self.assertEqual(len(self.sender.sent), 1); self.assertIn("B2", self.sender.sent[0][2])
+        self.assertEqual(len(self.sender.sent), 2)
+        self.assertTrue(all(len(s[2]) <= 4096 for s in self.sender.sent))
+        self.assertEqual(sorted(self.ids()), sorted(e["id"] for e in items))
+
+    def test_news_backfill_is_one_digest_even_when_seeded(self):
+        items = [self.story("b1", "2026-10-08T07:00:00+00:00"), self.story("b2", "2026-10-08T08:00:00+00:00"),
+                 self.story("b3", "2026-09-01T08:00:00+00:00")]
+        self.gonews(items)
+        self.gonews(items, updated="2026-10-09T07:59:00+00:00", force=["b2", "b3", "zz"])
+        self.assertEqual(len(self.sender.sent), 1)
+        self.assertTrue(self.sender.sent[0][2].index("b3") < self.sender.sent[0][2].index("b2"))
+        self.assertNotIn("b1", self.sender.sent[0][2])
         self.assertTrue(any("zz is not in the feed" in l for l in self.log))
 
 if __name__ == "__main__":

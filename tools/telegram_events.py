@@ -10,19 +10,21 @@ published by CI or by ./publish.sh on the box. A ledger file lists the event ids
   - Only events that have not ended are posted, earliest start first, at most --max per run. The rest wait for the next run.
   - An id goes into the ledger only after Telegram accepted the message. A failed send is retried next run.
   - A preview feed ("preview": true) is refused.
-  - --kind news reads /api/v1/news.json and posts stories not in its own ledger, published in the last --max-age-days.
-  - --post ID[,ID] posts those ids now, even if already in the ledger or old: a manual backfill.
+  - --kind news reads /api/v1/news.json and posts one digest of the stories not in its own ledger, published in the
+    last --max-age-days. It waits until the feed's "updated" is 10 minutes old, so one publish round is one post.
+  - --post ID[,ID] puts those ids in the digest now, even if already in the ledger or old: a manual backfill.
 
 Secrets: TELEGRAM_BOT_TOKEN (the existing bot; never printed) and TELEGRAM_CHAT_ID (e.g. @nordiccryptochat or -100…).
 Without both it is a dry run: it prints what it would post and does not change the ledger.
 
   python3 tools/telegram_events.py --ledger .telegram/ledger.json [--feed URL_OR_PATH] [--max 5] [--dry-run]
 """
-import argparse, datetime as dt, html, json, os, sys, urllib.parse, urllib.request
+import argparse, datetime as dt, html, json, os, sys, urllib.parse, urllib.request, zoneinfo
 
 FEED = "https://nordiccrypto.no/api/v1/events.json"
 NEWS_FEED = "https://nordiccrypto.no/api/v1/news.json"
 FLAGS = {"NO": "🇳🇴", "SE": "🇸🇪", "DK": "🇩🇰", "FI": "🇫🇮", "IS": "🇮🇸", "FO": "🇫🇴", "GL": "🇬🇱", "AX": "🇦🇽"}
+OSLO = zoneinfo.ZoneInfo("Europe/Oslo")
 UA = "nordic-crypto-telegram-events/1 (+https://nordiccrypto.no/)"
 
 
@@ -70,16 +72,22 @@ def fresh_news(items, now, max_age_days):
     return [e for _, _, e in sorted(out, key=lambda x: (x[0], x[1]))]
 
 
-def news_message(e):
+def news_digests(items, now, limit=4096):
+    """One HTML digest for the round, oldest first; split into more messages only past Telegram's limit."""
     E = lambda s: html.escape(str(s or ""), quote=False)
-    flag = FLAGS.get((e.get("country") or "").upper(), "")
-    lines = [f"📰 <b>{E(e.get('title_en') or e['title'])}</b>"]
-    if e.get("source_name"):
-        lines.append(f"{flag + ' ' if flag else ''}{E(e['source_name'])}")
-    link = e.get("html_url") or e.get("url")
-    if link:
-        lines.append(f'<a href="{html.escape(link, quote=True)}">Read on Nordic Crypto</a>')
-    return "\n".join(lines)
+    head = f"📰 <b>Nye saker på Nordic Crypto – {now.astimezone(OSLO).strftime('%-d.%-m.%Y')}</b>"
+    out, ids, text = [], [], head
+    for e in items:
+        flag = FLAGS.get((e.get("country") or "").upper(), "")
+        title = E(e.get("title_en") or e["title"])
+        link = e.get("html_url") or e.get("url")
+        line = (f"{flag} " if flag else "• ") + (f'<a href="{html.escape(link, quote=True)}">{title}</a>' if link else title)
+        if e.get("source_name"):
+            line += f" – {E(e['source_name'])}"
+        if ids and len(text) + 2 + len(line) > limit:
+            out.append((ids, text)); ids, text = [], head
+        ids.append(e["id"]); text += "\n\n" + line
+    return out + ([(ids, text)] if ids else [])
 
 
 def when(e):
@@ -136,7 +144,7 @@ def send(token, chat, text):
 
 
 def run(feed, ledger_path, *, now, token, chat, max_posts, dry, sender=send, log=print,
-        kind="events", force=(), max_age_days=7):
+        kind="events", force=(), max_age_days=7, settle_minutes=10):
     if feed.get("preview"):
         log(f"telegram {kind}: refusing a preview feed")
         return 2
@@ -154,32 +162,39 @@ def run(feed, ledger_path, *, now, token, chat, max_posts, dry, sender=send, log
             + (" (dry run, not saved)" if dry else ""))
         if not force:
             return 0
-    if kind == "news":
-        todo, fmt = fresh_news(events, now, max_age_days), news_message
-    else:
-        todo, fmt = postable(events, now), message
     byid = {e.get("id"): e for e in events}
-    todo = [byid[i] for i in dict.fromkeys(force) if i in byid] + [e for e in todo if e["id"] not in seen and e["id"] not in force]
     for i in force:
         if i not in byid:
             log(f"telegram {kind}: {i} is not in the feed")
+    if kind == "news":
+        updated = parse(feed.get("updated"))
+        if not force and updated and now - updated < dt.timedelta(minutes=settle_minutes):
+            log(f"telegram news: feed updated {updated.isoformat()}, waiting for the publish round to settle")
+            return 0
+        fresh = [e for e in fresh_news(events, now, max_age_days) if e["id"] not in seen]
+        forced = [byid[i] for i in dict.fromkeys(force) if i in byid]
+        todo = fresh_news(forced, now, 36500) + [e for e in fresh if e["id"] not in force]
+        todo.sort(key=lambda e: (parse(e["published"]), e["id"]))
+        msgs = news_digests(todo, now)
+    else:
+        todo = [e for e in postable(events, now) if e["id"] not in seen]
+        msgs = [([e["id"]], message(e)) for e in todo[:max_posts]]
     if not todo:
         log(f"telegram {kind}: nothing new")
         return 0
     posted = 0
-    for e in todo[:max_posts]:
-        text = fmt(e)
+    for ids, text in msgs:
         if dry:
-            log(f"--- would post {e['id']}:\n{text}")
+            log(f"--- would post {', '.join(ids)}:\n{text}")
             continue
         ok, why = sender(token, chat, text)
         if not ok:
-            log(f"telegram {kind}: send failed for {e['id']}: {why}")
+            log(f"telegram {kind}: send failed for {', '.join(ids)}: {why}")
             break
-        seen.add(e["id"]); posted += 1
+        seen.update(ids); posted += len(ids)
         save(ledger_path, sorted(seen))
-        log(f"telegram {kind}: posted {e['id']}")
-    left = len(todo) - min(len(todo), max_posts)
+        log(f"telegram {kind}: posted {', '.join(ids)}")
+    left = 0 if dry else len(todo) - posted
     log(f"telegram {kind}: {posted} posted, {left} left for the next run" + (" (dry run)" if dry else ""))
     return 0 if dry or posted or not todo else 1
 
@@ -210,7 +225,7 @@ def main(argv=None):
     feed = a.feed or (NEWS_FEED if a.kind == "news" else FEED)
     force = [i.strip() for i in a.post.replace(" ", ",").split(",") if i.strip()]
     return run(load_feed(feed), a.ledger, now=dt.datetime.now(dt.timezone.utc), token=token, chat=chat,
-               max_posts=max(1, a.max, len(force)), dry=dry, kind=a.kind, force=force, max_age_days=a.max_age_days)
+               max_posts=max(1, a.max), dry=dry, kind=a.kind, force=force, max_age_days=a.max_age_days)
 
 
 if __name__ == "__main__":
