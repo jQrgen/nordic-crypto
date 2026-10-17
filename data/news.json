@@ -24,14 +24,15 @@
     "\\bkrypto(?!graf)\\w*"
    ],
    "paywall": true,
-   "status": "pending",
-   "summary": null
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Price commentary whose only visible sources are Coinmotion, possibly Coinmotion partner content. Price reports and paid content are not published as news. Source check 2026-10-17."
   },
   {
    "id": "2cb0ee76f54a",
    "url": "https://sagat.no/avviser-krypto-pa-kammerset-pastand/19.60032",
    "title": "Avviser krypto-på-kammerset-påstand",
-   "title_en": null,
+   "title_en": "Industry body NDI rejects claim that data centres commonly start with crypto mining",
    "source": "sagat",
    "source_name": "Ságat",
    "country": "NO",
@@ -44,20 +45,32 @@
    "published": "2026-10-16T10:24:41+00:00",
    "fetched": "2026-10-17T01:45:06+00:00",
    "topics": [
-    "crypto"
+    "mining",
+    "policy"
    ],
    "matched": [
     "\\bkrypto(?!graf)\\w*"
    ],
    "paywall": true,
-   "status": "pending",
-   "summary": null
+   "status": "published",
+   "summary": "The industry association Norsk Datasenter Industri (NDI) rejects the claim that crypto mining is a well-known way for companies to get started in the data-centre business, Ságat reports. According to NDI's CEO Reynir Johannesson, it is not common in the Norwegian data-centre industry to start with crypto mining to fund a later shift to cloud services, storage or AI. The story is a follow-up to Ságat's earlier coverage of data-centre company Arctic Core's plans in Kautokeino; the rest of the article is behind a paywall.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-17T04:27:36+02:00",
+   "summary_i18n": {
+    "nn": "Bransjeorganisasjonen Norsk Datasenter Industri (NDI) avviser påstanden om at kryptoutvinning er ein velkjend måte for selskap å starte opp i datasenterbransjen på, melder Ságat. Ifølgje administrerande direktør Reynir Johannesson i NDI er det ikkje vanleg i den norske datasenterbransjen å starte med kryptoutvinning for å finansiere ein seinare overgang til skytenester, lagring eller KI. Saka følgjer opp Ságats tidlegare dekning av planane til dataselskapet Arctic Core i Kautokeino; resten av artikkelen ligg bak betalingsmur.",
+    "nb": "Bransjeorganisasjonen Norsk Datasenter Industri (NDI) avviser påstanden om at kryptoutvinning er en velkjent måte for selskaper å starte opp i datasenterbransjen på, melder Ságat. Ifølge administrerende direktør Reynir Johannesson i NDI er det ikke vanlig i den norske datasenterbransjen å starte med kryptoutvinning for å finansiere en senere overgang til skytjenester, lagring eller KI. Saken følger opp Ságats tidligere dekning av planene til dataselskapet Arctic Core i Kautokeino; resten av artikkelen ligger bak betalingsmur.",
+    "sv": "Branschorganisationen Norsk Datasenter Industri (NDI) tillbakavisar påståendet att kryptoutvinning är ett välkänt sätt för företag att komma igång i datacenterbranschen, rapporterar Ságat. Enligt NDI:s vd Reynir Johannesson är det inte vanligt i den norska datacenterbranschen att börja med kryptoutvinning för att finansiera en senare övergång till molntjänster, lagring eller AI. Artikeln följer upp Ságats tidigare bevakning av datacenterbolaget Arctic Cores planer i Kautokeino; resten av artikeln ligger bakom betalvägg.",
+    "da": "Brancheorganisationen Norsk Datasenter Industri (NDI) afviser påstanden om, at kryptomining er en velkendt måde for virksomheder at komme i gang i datacenterbranchen på, skriver Ságat. Ifølge NDI's administrerende direktør Reynir Johannesson er det ikke almindeligt i den norske datacenterbranche at starte med kryptomining for at finansiere en senere overgang til cloudtjenester, lagring eller AI. Artiklen følger op på Ságats tidligere dækning af datacentervirksomheden Arctic Cores planer i Kautokeino; resten af artiklen er bag betalingsmur.",
+    "fi": "Toimialajärjestö Norsk Datasenter Industri (NDI) kiistää väitteen, jonka mukaan kryptolouhinta olisi tunnettu tapa aloittaa datakeskusliiketoiminta, kertoo Ságat. NDI:n toimitusjohtajan Reynir Johannessonin mukaan Norjan datakeskusalalla ei ole tavallista aloittaa kryptolouhinnalla myöhemmän pilvipalveluihin, tallennukseen tai tekoälyyn siirtymisen rahoittamiseksi. Juttu on jatkoa Ságatin aiemmalle uutisoinnille datakeskusyhtiö Arctic Coren suunnitelmista Koutokeinossa; muu osa artikkelista on maksumuurin takana.",
+    "is": "Samtök iðnaðarins Norsk Datasenter Industri (NDI) hafna þeirri fullyrðingu að rafmyntanámugröftur sé þekkt leið fyrir fyrirtæki til að hefja starfsemi í gagnaversgeiranum, segir Ságat. Samkvæmt Reynir Johannesson, framkvæmdastjóra NDI, er ekki algengt í norska gagnaversgeiranum að byrja á námugreftri til að fjármagna síðari færslu yfir í skýjaþjónustu, gagnageymslu eða gervigreind. Fréttin er framhald af fyrri umfjöllun Ságat um áform gagnaversfyrirtækisins Arctic Core í Kautokeino; afgangur greinarinnar er á bak við greiðsluvegg."
+   },
+   "summary_i18n_review": "approved"
   },
   {
    "id": "e10c4ddf9f01",
    "url": "https://kryptovalutaguiden.se/2026/10/canton-gar-in-i-sydkorea-vill-tokenisera-landets-finansmarknad",
    "title": "Canton går in i Sydkorea – vill tokenisera landets finansmarknad",
-   "title_en": null,
+   "title_en": "Canton Foundation signs letter of intent with South Korea's Meritz Securities on tokenisation",
    "source": "kryptovalutaguiden",
    "source_name": "Kryptovalutaguiden",
    "country": "SE",
@@ -69,8 +82,8 @@
    "published": "2026-10-16T00:27:02+00:00",
    "fetched": "2026-10-17T01:45:06+00:00",
    "topics": [
-    "blockchain",
-    "crypto"
+    "tokenisation",
+    "business"
    ],
    "matched": [
     "\\bkrypto(?!graf)\\w*",
@@ -78,8 +91,19 @@
     "\\btokeni[sz]\\w*"
    ],
    "paywall": false,
-   "status": "pending",
-   "summary": null
+   "status": "published",
+   "summary": "The Canton Foundation has signed a cooperation agreement with South Korean securities firm Meritz Securities to explore how traditional financial assets such as bonds can be tokenised and made available to institutional investors internationally, Kryptovalutaguiden reports. According to the article, the agreement signed on 15 October is a declaration of intent, meaning the parties will evaluate possible use cases rather than launch a finished service. Kryptovalutaguiden notes that how far the cooperation can go depends partly on South Korea's rules for digital securities.",
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-17T04:27:36+02:00",
+   "summary_i18n": {
+    "nn": "Canton Foundation har inngått ein samarbeidsavtale med det sørkoreanske verdipapirselskapet Meritz Securities for å undersøkje korleis tradisjonelle finansielle eigedelar som obligasjonar kan tokeniserast og gjerast tilgjengelege for institusjonelle investorar internasjonalt, melder Kryptovalutaguiden. Ifølgje artikkelen er avtalen som vart signert 15. oktober ei intensjonsfråsegn, som tyder at partane skal vurdere moglege bruksområde i staden for å lansere ei ferdig teneste. Kryptovalutaguiden peikar på at kor langt samarbeidet kan gå, mellom anna avheng av Sør-Koreas reglar for digitale verdipapir.",
+    "nb": "Canton Foundation har inngått en samarbeidsavtale med det sørkoreanske verdipapirselskapet Meritz Securities for å undersøke hvordan tradisjonelle finansielle eiendeler som obligasjoner kan tokeniseres og gjøres tilgjengelige for institusjonelle investorer internasjonalt, melder Kryptovalutaguiden. Ifølge artikkelen er avtalen som ble signert 15. oktober en intensjonserklæring, som betyr at partene skal vurdere mulige bruksområder i stedet for å lansere en ferdig tjeneste. Kryptovalutaguiden påpeker at hvor langt samarbeidet kan gå, blant annet avhenger av Sør-Koreas regler for digitale verdipapirer.",
+    "sv": "Canton Foundation har ingått ett samarbetsavtal med det sydkoreanska värdepappersbolaget Meritz Securities för att undersöka hur traditionella finansiella tillgångar som obligationer kan tokeniseras och göras tillgängliga för institutionella investerare internationellt, rapporterar Kryptovalutaguiden. Enligt artikeln är avtalet som undertecknades den 15 oktober en avsiktsförklaring, vilket innebär att parterna ska utvärdera möjliga användningsområden snarare än lansera en färdig tjänst. Kryptovalutaguiden påpekar att hur långt samarbetet kan gå bland annat beror på Sydkoreas regelverk för digitala värdepapper.",
+    "da": "Canton Foundation har indgået en samarbejdsaftale med det sydkoreanske værdipapirselskab Meritz Securities om at undersøge, hvordan traditionelle finansielle aktiver som obligationer kan tokeniseres og gøres tilgængelige for institutionelle investorer internationalt, skriver Kryptovalutaguiden. Ifølge artiklen er aftalen, der blev underskrevet 15. oktober, en hensigtserklæring, hvilket betyder, at parterne skal vurdere mulige anvendelser frem for at lancere en færdig tjeneste. Kryptovalutaguiden påpeger, at hvor langt samarbejdet kan nå, blandt andet afhænger af Sydkoreas regler for digitale værdipapirer.",
+    "fi": "Canton Foundation on solminut yhteistyösopimuksen eteläkorealaisen arvopaperiyhtiö Meritz Securitiesin kanssa selvittääkseen, miten perinteisiä rahoitusvaroja, kuten joukkovelkakirjoja, voidaan tokenisoida ja tarjota institutionaalisille sijoittajille kansainvälisesti, kertoo Kryptovalutaguiden. Artikkelin mukaan 15. lokakuuta allekirjoitettu sopimus on aiejulistus, eli osapuolet arvioivat mahdollisia käyttökohteita eivätkä julkaise valmista palvelua. Kryptovalutaguiden huomauttaa, että yhteistyön laajuus riippuu osin Etelä-Korean digitaalisia arvopapereita koskevasta sääntelystä.",
+    "is": "Canton Foundation hefur gert samstarfssamning við suðurkóreska verðbréfafyrirtækið Meritz Securities um að kanna hvernig hefðbundnar fjáreignir á borð við skuldabréf geti verið táknvæddar og gerðar aðgengilegar fagfjárfestum á alþjóðavettvangi, segir Kryptovalutaguiden. Samkvæmt greininni er samningurinn, sem undirritaður var 15. október, viljayfirlýsing, sem þýðir að aðilar munu meta mögulega notkun frekar en að setja fullbúna þjónustu á markað. Kryptovalutaguiden bendir á að hversu langt samstarfið nær velti meðal annars á reglum Suður-Kóreu um stafræn verðbréf."
+   },
+   "summary_i18n_review": "approved"
   },
   {
    "id": "1ef937dc2654",
@@ -234,7 +258,7 @@
    "id": "ce72c9215962",
    "url": "https://kaupr.io/nyheter/den-svenske-riksbanken-ber-riksdagen-forberede-en-digital-krona",
    "title": "Den svenske Riksbanken ber Riksdagen forberede en digital krona",
-   "title_en": null,
+   "title_en": "Riksbank asks the Riksdag to start preparing legislation for a possible digital krona",
    "source": "kaupr",
    "source_name": "Kaupr",
    "country": "SE",
@@ -246,16 +270,32 @@
    "published": "2026-10-15",
    "fetched": "2026-10-17T01:45:06+00:00",
    "topics": [
-    "crypto",
-    "regulation"
+    "policy",
+    "stablecoins",
+    "banking"
    ],
    "matched": [
     "\\bstablecoin\\w*"
    ],
    "paywall": false,
-   "status": "pending",
-   "summary": null,
-   "published_date_only": true
+   "status": "published",
+   "summary": "In a letter to the Riksdag's Committee on Finance dated 7 October and published on 15 October, Sweden's Riksbank asks that work begin now on the legislation needed for a possible digital krona, Kaupr reports. The Riksbank cites the worsened security situation, plans for a digital euro and the growth of stablecoins, and estimates that an introduction would take at least five years on top of the legislative work. The Riksbank stresses that it has not taken a position on whether a digital krona should be introduced; it proposes that preparations start through a public inquiry, and any issuance would require the Riksdag's consent.",
+   "published_date_only": true,
+   "approved_by": "Nordic Crypto redaktør",
+   "approved_at": "2026-10-17T04:27:36+02:00",
+   "primary_source": {
+    "name": "Sveriges Riksbank – Skrivelse till finansutskottet: information om utveckling som aktualiserar frågan om en digital krona (dated 2026-10-07, published 2026-10-15)",
+    "url": "https://www.riksbank.se/globalassets/media/nyheter--pressmeddelanden/nyheter/2026/261015-skrivelse-till-fiu/skrivelse-till-finansutskottet--information-om-utveckling-som-aktualiserar-fragan-om-en-digital-krona.pdf"
+   },
+   "summary_i18n": {
+    "nn": "I eit brev til finansutskottet i Riksdagen, datert 7. oktober og offentleggjort 15. oktober, ber den svenske Riksbanken om at arbeidet med lovverket for ei mogleg digital krona startar no, melder Kaupr. Riksbanken viser til den forverra tryggingssituasjonen, planane for ein digital euro og veksten i stablecoins, og reknar med at ei innføring vil ta minst fem år i tillegg til lovarbeidet. Riksbanken understrekar at han ikkje har teke stilling til om ei digital krona bør innførast; banken føreslår at førebuingane startar med ei offentleg utgreiing, og ei eventuell utferding krev samtykke frå Riksdagen.",
+    "nb": "I et brev til finansutskottet i Riksdagen, datert 7. oktober og offentliggjort 15. oktober, ber den svenske Riksbanken om at arbeidet med lovverket for en mulig digital krona starter nå, melder Kaupr. Riksbanken viser til den forverrede sikkerhetssituasjonen, planene for en digital euro og veksten i stablecoins, og anslår at en innføring vil ta minst fem år i tillegg til lovarbeidet. Riksbanken understreker at den ikke har tatt stilling til om en digital krona bør innføres; banken foreslår at forberedelsene starter med en offentlig utredning, og en eventuell utstedelse krever Riksdagens samtykke.",
+    "sv": "I en skrivelse till riksdagens finansutskott, daterad den 7 oktober och publicerad den 15 oktober, ber Riksbanken att arbetet med lagstiftningen för en möjlig digital krona inleds redan nu, rapporterar Kaupr. Riksbanken hänvisar till det försämrade säkerhetsläget, planerna på en digital euro och stablecoins växande roll, och bedömer att ett införande skulle ta minst fem år utöver lagstiftningsarbetet. Riksbanken betonar att den inte har tagit ställning till om en digital krona ska införas; banken föreslår att förberedelserna inleds genom en offentlig utredning, och en eventuell utgivning kräver riksdagens medgivande.",
+    "da": "I et brev til Riksdagens finansudvalg, dateret 7. oktober og offentliggjort 15. oktober, beder den svenske Riksbank om, at arbejdet med lovgivningen for en mulig digital krone begynder nu, skriver Kaupr. Riksbanken peger på den forværrede sikkerhedssituation, planerne om en digital euro og væksten i stablecoins og vurderer, at en indførelse vil tage mindst fem år ud over lovarbejdet. Riksbanken understreger, at den ikke har taget stilling til, om en digital krone bør indføres; banken foreslår, at forberedelserne begynder med en offentlig udredning, og en eventuel udstedelse kræver Riksdagens samtykke.",
+    "fi": "Ruotsin keskuspankki Riksbank pyytää valtiopäivien valtiovarainvaliokunnalle 7. lokakuuta päivätyssä ja 15. lokakuuta julkaistussa kirjeessä, että mahdollista digitaalista kruunua koskevan lainsäädännön valmistelu aloitetaan jo nyt, kertoo Kaupr. Riksbank viittaa heikentyneeseen turvallisuustilanteeseen, digitaalisen euron suunnitelmiin ja stablecoinien kasvuun ja arvioi käyttöönoton vievän vähintään viisi vuotta lainsäädäntötyön lisäksi. Riksbank korostaa, ettei se ole ottanut kantaa siihen, pitäisikö digitaalinen kruunu ottaa käyttöön; se ehdottaa valmistelun aloittamista julkisella selvityksellä, ja mahdollinen liikkeeseenlasku edellyttää valtiopäivien suostumusta.",
+    "is": "Í bréfi til fjárlaganefndar sænska þingsins, dagsettu 7. október og birtu 15. október, fer sænski seðlabankinn Riksbanken fram á að vinna við löggjöf fyrir mögulega stafræna krónu hefjist nú þegar, segir Kaupr. Riksbanken vísar til versnandi öryggisástands, áforma um stafræna evru og vaxtar stöðugleikamynta, og metur að innleiðing tæki að minnsta kosti fimm ár til viðbótar við lagavinnuna. Riksbanken leggur áherslu á að hann hafi ekki tekið afstöðu til þess hvort taka eigi upp stafræna krónu; bankinn leggur til að undirbúningur hefjist með opinberri rannsókn, og útgáfa yrði háð samþykki þingsins."
+   },
+   "summary_i18n_review": "approved"
   },
   {
    "id": "63c4a7af3b37",
@@ -304,8 +344,10 @@
     "\\bkryptovaluta\\w*"
    ],
    "paywall": false,
-   "status": "pending",
-   "summary": null
+   "status": "rejected",
+   "summary": null,
+   "merged_into": "e7665f6b5021",
+   "reject_reason": "Duplicate of e7665f6b5021 (Kraken/Payward buying Saldo Bank), already published. Also held back: privacy gate hit on 2026-10-17."
   },
   {
    "id": "5285674a58d8",
@@ -420,8 +462,9 @@
     "\\bkryptovaluta\\w*"
    ],
    "paywall": false,
-   "status": "pending",
-   "summary": null
+   "status": "rejected",
+   "summary": null,
+   "reject_reason": "Price and inflation commentary, a three-day-old rewrite of Bitcoin.com, with political opinions. Not Nordic news. Source check 2026-10-17."
   },
   {
    "id": "e7665f6b5021",
@@ -459,7 +502,20 @@
     "fi": "Kryptopörssi Krakenin taustalla oleva yhdysvaltalainen Payward ostaa liettualaisen Saldo Bankin, jolla on ollut EU:n pankkitoimilupa vuodesta 2021 ja joka tarjoaa säästötilejä ja muita palveluja asiakkaille muun muassa Ruotsissa, kertoo Realtid Financial Timesiin viitaten. FT:n mukaan Paywardista tulee näin ensimmäinen digitaalisten varojen alan yhtiö, joka ostaa pankin Euroopasta, ja pankin on määrä auttaa sitä kehittämään luotonantoa ja maksukortteja. Kauppa edellyttää viranomaishyväksyntää, ja sen odotetaan toteutuvan vuonna 2027.",
     "is": "Payward, bandaríska félagið á bak við rafmyntakauphöllina Kraken, kaupir litháíska bankann Saldo Bank, sem hefur haft bankaleyfi í ESB frá 2021 og býður sparireikninga og aðra þjónustu viðskiptavinum m.a. í Svíþjóð, segir Realtid og vísar í Financial Times. Samkvæmt FT verður Payward þar með fyrsta fyrirtækið í geira stafrænna eigna til að kaupa banka í Evrópu, og bankinn á að hjálpa félaginu að þróa útlán og greiðslukort. Kaupin eru háð samþykki eftirlitsaðila og er gert ráð fyrir að þeim ljúki árið 2027."
    },
-   "summary_i18n_review": "approved"
+   "summary_i18n_review": "approved",
+   "also_covered_by": [
+    {
+     "outlet": "kryptovalutaguiden",
+     "outlet_name": "Kryptovalutaguiden",
+     "url": "https://kryptovalutaguiden.se/2026/10/kraken-koper-finskagda-saldo-bank-och-far-bankverksamhet-i-sverige",
+     "title": "Kraken köper finskägda Saldo Bank och får bankverksamhet i Sverige",
+     "published": "2026-10-14T20:50:05+00:00",
+     "lang": "Swedish",
+     "country": "SE",
+     "source_type": "national",
+     "paywall": false
+    }
+   ]
   },
   {
    "id": "e204b3951e5d",
@@ -874,8 +930,8 @@
    ],
    "matched": [],
    "paywall": false,
-   "status": "pending",
-   "summary": "Nordic Crypto has published a block explorer it runs itself, at https://explorer.nordiccrypto.no, and this item is an announcement about that product, not a report from another newsroom. Bitcoin Cash is the default and opens at /bch/, and Nexa is at /nexa/. The site is a static export: the browser reads live chain data from Nordic Crypto's own servers first, wss://electrum-bch.nordiccrypto.no:50004 (Fulcrum) for Bitcoin Cash and wss://electrum-nexa.nordiccrypto.no:20004 (Rostrum) for Nexa, then the same hosts on port 443, then the public servers bch.imaginary.cash, cashnode.bch.ninja and electrum.nexa.org, and if none answer the page says it could not reach chain servers. Live CoinGecko prices are shown in NOK, SEK, DKK, EUR and USD, a fee rate is shown in satoshis per byte and, when a price is known, as the approximate cost in the chosen fiat of a transaction of about 250 bytes, and if that request fails the amounts stay in the coin; there is no charge, no advertising and no tracking cookies, and the colour theme and the chosen fiat stay in the browser's local storage.",
+   "status": "rejected",
+   "summary": null,
    "approved_by": "Nordic Crypto redaktør",
    "approved_at": "2026-10-12T22:00:00+02:00",
    "summary_i18n": {
@@ -887,7 +943,8 @@
     "is": "Nordic Crypto hefur birt bálkaskoðara sem Nordic Crypto rekur sjálft, á https://explorer.nordiccrypto.no, og þetta er tilkynning um þá vöru, ekki frétt frá annarri ritstjórn. Bitcoin Cash er sjálfgefið og opnast á /bch/, og Nexa er á /nexa/. Vefurinn er kyrrstæður útflutningur: vafrinn les keðjugögn beint frá eigin netþjónum Nordic Crypto fyrst, wss://electrum-bch.nordiccrypto.no:50004 (Fulcrum) fyrir Bitcoin Cash og wss://electrum-nexa.nordiccrypto.no:20004 (Rostrum) fyrir Nexa, síðan sömu vélum á gátt 443, síðan opinberu netþjónunum bch.imaginary.cash, cashnode.bch.ninja og electrum.nexa.org, og ef enginn svarar segir síðan að hún hafi ekki náð keðjuþjónum. Verð frá CoinGecko birtast í NOK, SEK, DKK, EUR og USD, gjaldhlutfall birtist í satoshíum á bæti og, þegar verð er þekkt, sem áætlaður kostnaður í völdum fiat-gjaldmiðli fyrir færslu sem er um 250 bæti, og ef verðfyrirspurn mistekst standa upphæðirnar eftir í myntinni; það kostar ekkert, engar auglýsingar eru og engar rakningarkökur, og litastef og valinn fiat-gjaldmiðill geymast í staðbundinni vistun vafrans."
    },
    "summary_i18n_source": "Nordic Crypto has published a block explorer it runs itself, at https://explorer.nordiccrypto.no, and this item is an announcement about that product, not a report from another newsroom. Bitcoin Cash is the default and opens at /bch/, and Nexa is at /nexa/. The site is a static export: the browser reads live chain data from Nordic Crypto's own servers first, wss://electrum-bch.nordiccrypto.no:50004 (Fulcrum) for Bitcoin Cash and wss://electrum-nexa.nordiccrypto.no:20004 (Rostrum) for Nexa, then the same hosts on port 443, then the public servers bch.imaginary.cash, cashnode.bch.ninja and electrum.nexa.org, and if none answer the page says it could not reach chain servers. Live CoinGecko prices are shown in NOK, SEK, DKK, EUR and USD, a fee rate is shown in satoshis per byte and, when a price is known, as the approximate cost in the chosen fiat of a transaction of about 250 bytes, and if that request fails the amounts stay in the coin; there is no charge, no advertising and no tracking cookies, and the colour theme and the chosen fiat stay in the browser's local storage.",
-   "summary_i18n_review": "approved"
+   "summary_i18n_review": "approved",
+   "reject_reason": "Self-promotion of Nordic Crypto's own explorer, with no independent source. Not news. Source check 2026-10-17."
   },
   {
    "id": "601358bd24e5",
