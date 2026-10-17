@@ -129,9 +129,11 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
             <Link href={`/${resolved}/mempool`} aria-current={section === "mempool" ? "page" : undefined}>
               Mempool
             </Link>
-            <Link href={`/${resolved}/tokens`} aria-current={section === "tokens" ? "page" : undefined}>
-              Tokens
-            </Link>
+            {chains[resolved].tokens ? (
+              <Link href={`/${resolved}/tokens`} aria-current={section === "tokens" ? "page" : undefined}>
+                Tokens
+              </Link>
+            ) : null}
           </nav>
         </div>
       </header>
@@ -144,7 +146,10 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
             <p className="word">
               Nordic <span>Crypto</span>
             </p>
-            <p>A Bitcoin Cash and Nexa explorer, set in the same type as the news site.</p>
+            <p>A Bitcoin Cash, Nexa and Bitcoin explorer, set in the same type as the news site.</p>
+            <p>
+              Bitcoin data from <a href="https://mempool.space/">mempool.space</a>, read in your browser.
+            </p>
           </div>
           <div>
             <h2>Chains</h2>
@@ -155,7 +160,7 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
                 </li>
               ))}
               <li><Link href={`/${resolved}/mempool`}>Mempool</Link></li>
-              <li><Link href={`/${resolved}/tokens`}>Tokens</Link></li>
+              {chains[resolved].tokens ? <li><Link href={`/${resolved}/tokens`}>Tokens</Link></li> : null}
             </ul>
           </div>
           <div>
@@ -163,6 +168,7 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
             <ul>
               <li><a href="https://nordiccrypto.no/api/">Bitcoin Cash Fulcrum, port 50004</a></li>
               <li><a href="https://nordiccrypto.no/api/">Nexa Rostrum, port 20004</a></li>
+              <li><a href="https://mempool.space/docs/api/rest">Bitcoin: mempool.space API</a></li>
               <li><a href="https://nordiccrypto.no/">nordiccrypto.no</a></li>
               <li><a href="https://github.com/nordic-crypto-org/nordic-crypto">Source on GitHub</a></li>
             </ul>

@@ -70,7 +70,11 @@ export function Unreachable({ chainId, servers, onRetry }: { chainId: ChainId; s
     <>
       <p className="eyebrow">{chain.name}</p>
       <h1>Could not reach chain servers</h1>
-      <p className="lead">None of the {chain.name} servers answered, so this page has no figures in their place.</p>
+      <p className="lead">
+        {chain.backend === "mempool-space"
+          ? "The mempool.space API did not answer, so this page has no figures in their place. It limits how often one address may ask; wait a minute before trying again."
+          : `None of the ${chain.name} servers answered, so this page has no figures in their place.`}
+      </p>
       <ul>
         {servers.map((server) => (
           <li key={server} className="mono">

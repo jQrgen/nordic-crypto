@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { chains } from "@/lib/chains";
 import { loadAddress, loadBlock, loadFeeTable, loadTransaction, loadToken } from "@/lib/load";
+import { loadBtcAddress, loadBtcBlock, loadBtcFees, loadBtcTx, MEMPOOL_LABEL } from "@/lib/mempool-space";
 import { formatBytes, formatNumber } from "@/lib/format";
 import { addressHref, txHref } from "@/lib/routes";
 import type { ChainId } from "@/lib/types";
@@ -12,7 +13,7 @@ import { FeeRate } from "./money";
 import { ServerLine } from "./server-line";
 import { LoadingState, MissingItem, Unreachable } from "./states";
 import { TokenLookup, TokenView } from "./tokens";
-import { useChainLoad } from "./use-chain";
+import { useChainLoad, useSourceLoad } from "./use-chain";
 
 function LookupForm({ chainId, kind, name, placeholder }: { chainId: ChainId; kind: "tx" | "address"; name: string; placeholder: string }) {
   const router = useRouter();
@@ -42,14 +43,24 @@ function LookupForm({ chainId, kind, name, placeholder }: { chainId: ChainId; ki
 }
 
 export function BlockScreen({ chainId }: { chainId: ChainId }) {
-  const heightRaw = useSearchParams().get("height");
+  const params = useSearchParams();
+  const heightRaw = params.get("height");
+  const hashRaw = (params.get("hash") ?? "").trim();
+  const hash = hashRaw || (heightRaw && /^[0-9a-f]{64}$/i.test(heightRaw.trim()) ? heightRaw.trim() : "");
+  if (hash) {
+    if (chains[chainId].backend !== "mempool-space") return <MissingItem chainId={chainId} message="Look up a block on this chain by its height." />;
+    return <BlockLoader chainId={chainId} height={null} hash={hash} />;
+  }
   const height = heightRaw == null || heightRaw === "" ? null : Number(heightRaw);
   if (heightRaw && !Number.isInteger(height)) return <MissingItem chainId={chainId} message="That is not a block height." />;
   return <BlockLoader chainId={chainId} height={height} />;
 }
 
-function BlockLoader({ chainId, height }: { chainId: ChainId; height: number | null }) {
-  const { state, retry } = useChainLoad(chainId, height == null ? "tip" : String(height), (session) => loadBlock(session, height ?? session.tipHeight));
+function BlockLoader({ chainId, height, hash }: { chainId: ChainId; height: number | null; hash?: string }) {
+  const { state, retry } = useSourceLoad(chainId, hash ?? (height == null ? "tip" : String(height)), {
+    electrum: (session) => loadBlock(session, height ?? session.tipHeight),
+    mempool: () => loadBtcBlock(hash ? { hash } : { height }),
+  });
   if (state.status === "loading") return <LoadingState chainId={chainId} />;
   if (state.status === "unreachable") return <Unreachable chainId={chainId} servers={state.servers} onRetry={retry} />;
   if (state.status === "missing") return <MissingItem chainId={chainId} message={state.message} />;
@@ -63,7 +74,7 @@ export function TxScreen({ chainId }: { chainId: ChainId }) {
 }
 
 function TxLoader({ chainId, txid }: { chainId: ChainId; txid: string }) {
-  const { state, retry } = useChainLoad(chainId, txid, (session) => loadTransaction(session, txid));
+  const { state, retry } = useSourceLoad(chainId, txid, { electrum: (session) => loadTransaction(session, txid), mempool: () => loadBtcTx(txid) });
   if (state.status === "loading") return <LoadingState chainId={chainId} />;
   if (state.status === "unreachable") return <Unreachable chainId={chainId} servers={state.servers} onRetry={retry} />;
   if (state.status === "missing") return <MissingItem chainId={chainId} message={state.message} />;
@@ -77,7 +88,7 @@ export function AddressScreen({ chainId }: { chainId: ChainId }) {
 }
 
 function AddressLoader({ chainId, address }: { chainId: ChainId; address: string }) {
-  const { state, retry } = useChainLoad(chainId, address, (session) => loadAddress(session, address));
+  const { state, retry } = useSourceLoad(chainId, address, { electrum: (session) => loadAddress(session, address), mempool: () => loadBtcAddress(address) });
   if (state.status === "loading") return <LoadingState chainId={chainId} />;
   if (state.status === "unreachable") return <Unreachable chainId={chainId} servers={state.servers} onRetry={retry} />;
   if (state.status === "missing") return <MissingItem chainId={chainId} message={state.message} />;
@@ -85,11 +96,14 @@ function AddressLoader({ chainId, address }: { chainId: ChainId; address: string
 }
 
 export function MempoolScreen({ chainId }: { chainId: ChainId }) {
-  const { state, retry } = useChainLoad(chainId, "mempool", async (session) => ({ session, fees: await loadFeeTable(session) }));
+  const { state, retry } = useSourceLoad(chainId, "mempool", {
+    electrum: async (session) => ({ source: { label: session.server.label, version: session.version, fallback: !session.server.primary }, fees: await loadFeeTable(session) }),
+    mempool: async () => ({ source: { label: MEMPOOL_LABEL, version: "REST API", fallback: false }, fees: await loadBtcFees() }),
+  });
   if (state.status === "loading") return <LoadingState chainId={chainId} />;
   if (state.status === "unreachable") return <Unreachable chainId={chainId} servers={state.servers} onRetry={retry} />;
   if (state.status === "missing") return <MissingItem chainId={chainId} message={state.message} />;
-  const { fees, session } = state.data;
+  const { fees, source } = state.data;
   const chain = chains[chainId];
   const estimates = fees.rows.filter((row) => row.vsize == null);
   const histogram = fees.rows.filter((row) => row.vsize != null);
@@ -107,12 +121,14 @@ export function MempoolScreen({ chainId }: { chainId: ChainId }) {
           <h1 className="num">{fees.count != null ? `${formatNumber(fees.count)} waiting` : formatBytes(fees.vsize)}</h1>
           <p className="lead">
             {fees.count != null
-              ? "Transactions known to the server and not in a block yet."
+              ? chain.backend === "mempool-space"
+                ? "Transactions in the mempool.space mempool and not in a block yet. The histogram groups them by fee rate."
+                : "Transactions known to the server and not in a block yet."
               : "Bitcoin Cash servers report the mempool as a fee histogram, not a list of transactions. The size below is the virtual size waiting at each rate."}
           </p>
         </>
       )}
-      <ServerLine label={session.server.label} version={session.version} fallback={!session.server.primary} apiHref={chain.apiHref} />
+      <ServerLine label={source.label} version={source.version} fallback={source.fallback} apiHref={chain.apiHref} apiLabel={chain.apiLabel} />
       {estimates.length > 0 ? (
         <section className="sheet" aria-labelledby="est-h">
           <div className="sheethead">

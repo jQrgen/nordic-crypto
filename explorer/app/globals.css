@@ -190,6 +190,7 @@ header.top a:hover { text-decoration-color: var(--gold); }
 }
 .pip.nexa { background: var(--gold); }
 .pip.bch { background: var(--bch); }
+.pip.btc { background: #e8871e; }
 .socialbar {
   display: flex;
   flex-wrap: wrap;

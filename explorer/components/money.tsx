@@ -81,7 +81,7 @@ export function UsdPrice({ chainId }: { chainId: ChainId }) {
 export function FeeRate({ satPerByte, chainId }: { satPerByte: number; chainId: ChainId }) {
   const { fiat } = usePrefs();
   const price = useUnitPrice(chainId, fiat);
-  const rate = formatSatPerByte(satPerByte);
+  const rate = formatSatPerByte(satPerByte, chains[chainId].feeUnit);
   const { quote, note } = formatFeeRateLabel(rate, price ?? Number.NaN, fiat, undefined, chains[chainId].subunits);
   return (
     <span className="feerate">

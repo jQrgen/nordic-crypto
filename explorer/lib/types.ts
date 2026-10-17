@@ -1,4 +1,4 @@
-export type ChainId = "bch" | "nexa";
+export type ChainId = "bch" | "nexa" | "btc";
 
 export type Fiat = "NOK" | "SEK" | "DKK" | "EUR" | "USD";
 
@@ -23,7 +23,15 @@ export type ChainMeta = {
   target: string;
   servers: ServerEndpoint[];
   apiHref: string;
+  /** Link text for apiHref in the server line. Defaults to "API status". */
+  apiLabel?: string;
   about: string;
+  /** Where figures come from. Electrum chains open a WebSocket; Bitcoin reads the mempool.space REST API. */
+  backend: "electrum" | "mempool-space";
+  /** Fee rates are quoted per byte, or per virtual byte on segwit Bitcoin. */
+  feeUnit: "byte" | "vB";
+  /** CashTokens or Nexa groups. Bitcoin has neither, so its Tokens section is hidden. */
+  tokens: boolean;
 };
 
 export type TokenMove = {

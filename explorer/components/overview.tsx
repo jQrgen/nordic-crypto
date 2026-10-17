@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { chains } from "@/lib/chains";
 import { loadOverview } from "@/lib/load";
+import { loadBtcOverview } from "@/lib/mempool-space";
 import { formatBytes, formatChange, formatNumber } from "@/lib/format";
 import { blockHref } from "@/lib/routes";
 import type { ChainId, OverviewModel } from "@/lib/types";
@@ -11,7 +12,7 @@ import { FeeRate, UnitPrice, UsdPrice, useChange, usePriceStatus, useUnitPrice }
 import { usePrefs } from "./prefs";
 import { ServerLine } from "./server-line";
 import { LoadingState, MissingItem, Unreachable } from "./states";
-import { useChainLoad } from "./use-chain";
+import { useSourceLoad } from "./use-chain";
 
 function PriceStat({ chainId }: { chainId: ChainId }) {
   const { fiat } = usePrefs();
@@ -68,7 +69,7 @@ function OverviewView({ chainId, model }: { chainId: ChainId; model: OverviewMod
       </p>
       <h1>{chain.name}</h1>
       <p className="lead">{chain.about}</p>
-      <ServerLine label={model.serverLabel} version={model.serverVersion} fallback={model.fallback} apiHref={chain.apiHref} />
+      <ServerLine label={model.serverLabel} version={model.serverVersion} fallback={model.fallback} apiHref={chain.apiHref} apiLabel={chain.apiLabel} />
       {tip ? (
         <p className="tries">
           Open block <Link href={blockHref(chainId, tip.height)}>{formatNumber(tip.height)}</Link>
@@ -171,21 +172,32 @@ function OverviewView({ chainId, model }: { chainId: ChainId; model: OverviewMod
         </section>
       </div>
 
-      <section className="section" aria-labelledby="tokens-h">
-        <h2 id="tokens-h">{chainId === "nexa" ? "Group tokens" : "CashTokens"}</h2>
-        <p className="lead">
-          {chainId === "nexa"
-            ? "A token shows up on the transaction or address that holds it. There is no directory of every group in the Electrum replies."
-            : "A CashToken shows up on the transaction or address that holds it. There is no directory of every token in the Electrum replies."}{" "}
-          <Link href={`/${chainId}/tokens`}>Look up a token id</Link>.
-        </p>
-      </section>
+      {chain.tokens ? (
+        <section className="section" aria-labelledby="tokens-h">
+          <h2 id="tokens-h">{chainId === "nexa" ? "Group tokens" : "CashTokens"}</h2>
+          <p className="lead">
+            {chainId === "nexa"
+              ? "A token shows up on the transaction or address that holds it. There is no directory of every group in the Electrum replies."
+              : "A CashToken shows up on the transaction or address that holds it. There is no directory of every token in the Electrum replies."}{" "}
+            <Link href={`/${chainId}/tokens`}>Look up a token id</Link>.
+          </p>
+        </section>
+      ) : (
+        <section className="section" aria-labelledby="source-h">
+          <h2 id="source-h">Data from mempool.space</h2>
+          <p className="lead">
+            Bitcoin figures come from the public <a href="https://mempool.space/docs/api/rest">mempool.space REST API</a>, asked by this
+            browser. Nordic Crypto runs no Bitcoin node. Replies are kept for 30 seconds and pages do not refresh on their own. Thanks to{" "}
+            <a href="https://mempool.space/">mempool.space</a> for the open API.
+          </p>
+        </section>
+      )}
     </>
   );
 }
 
 export function Overview({ chainId }: { chainId: ChainId }) {
-  const { state, retry } = useChainLoad(chainId, "overview", (session) => loadOverview(session));
+  const { state, retry } = useSourceLoad(chainId, "overview", { electrum: (session) => loadOverview(session), mempool: () => loadBtcOverview() });
   if (state.status === "loading") return <LoadingState chainId={chainId} />;
   if (state.status === "unreachable") return <Unreachable chainId={chainId} servers={state.servers} onRetry={retry} />;
   if (state.status === "missing") return <MissingItem chainId={chainId} message={state.message} />;
