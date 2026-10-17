@@ -137,8 +137,8 @@ CSS = site_css.bundle().replace("__ROOT__", site_url.PATH)   # assets/css/*.css,
 # api is the human-readable docs: /api/ in English, /<lang>/api/ in the other site languages.
 # The first NAV_MAIN entries are the sections in the header (newsletter right after calendar). The rest (the pages
 # about the site) are in the footer columns, and all of them are in the phone menu. Chat is inserted by nav_items() only while enabled.
-NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("newsletter", "nav_newsletter"), ("markets", "nav_markets"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("books", "nav_books"), ("talks", "nav_talks"), ("archive", "nav_archive"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
-NAV_MAIN = 8
+NAV = [("", "nav_news"), ("calendar", "nav_calendar"), ("newsletter", "nav_newsletter"), ("markets", "nav_markets"), ("org-chart", "nav_org"), ("academia", "nav_academia"), ("books", "nav_books"), ("talks", "nav_talks"), ("podcasts", "nav_podcasts"), ("archive", "nav_archive"), ("sources", "nav_sources"), ("about", "nav_about"), ("tip", "nav_tip"), ("api", "nav_api")]
+NAV_MAIN = 9
 COOKIE_PATH = site_url.PATH   # "/" on the public domain; a path prefix if BASE ever has one
 def geo_endpoint():
     """Country lookup: GET <tipworker>/api/geo (Cloudflare request.cf.country). Only when the Worker is deployed,
@@ -2243,6 +2243,7 @@ def build_lang(ctx):
     build_archive()
     build_academia()
     build_books()
+    build_podcasts()
     build_developers()
     build_changelog()
     build_stats(ctx)
@@ -3743,6 +3744,30 @@ def _book_lang_label(code):
     if code in ("nn", "nb"):
         return f'{_talk_lang_label(code)} ({i18n.NATIVE[code]})'
     return _talk_lang_label(code)
+
+def build_podcasts():
+    """ /podcasts/ : Nordic crypto podcasts (data/podcasts.json, tools/podcasts.py). Links only; no audio is hosted."""
+    sys.path.insert(0, P("tools"))
+    import podcasts as pod
+    rows = pod.rows()
+    def item(r):
+        tl = r["language"] if r["language"] in i18n.ALL_LANGS else None
+        la = f' lang="{tl}"' if tl and tl != LANG else ""
+        tags = "".join(f' <span class="chip">{E(t("pod_flag_" + f.replace("-", "_")))}</span>' for f in r.get("flags") or [])
+        eps = "".join(f'<li{la}><a href="{E(e["link"])}" rel="noopener" target="_blank">{E(e["title"])}</a> <span class="meta">{E(e["date"])}</span></li>' for e in r.get("episodes") or [])
+        return (f'<li id="{E(r["id"])}" data-c="{E(r["country"])}"><div class="storybody"><h3><a href="{E(r["site"])}" rel="noopener" target="_blank"{la}>{E(r["name"])}</a>{tags}</h3>'
+                f'<div class="meta">{flag(r["country"])} {E(cname(r["country"]))} · {E(_book_lang_label(r["language"]))} · <a href="{E(r["feed"])}" rel="noopener">RSS</a></div>'
+                + (f'<ul class="sum">{eps}</ul>' if eps else "") + '</div></li>')
+    act = [r for r in rows if r.get("active")]
+    old = [r for r in rows if not r.get("active")]
+    body = f"""<h1>{E(t("podcasts_h1"))}</h1>
+<p class="lead">{E(t("podcasts_lead"))}</p>
+<h2>{E(t("podcasts_active"))} ({len(act)})</h2>
+<ol class="news books">{"".join(item(r) for r in act)}</ol>
+<details><summary>{E(t("podcasts_inactive"))} ({len(old)})</summary><ol class="news books">{"".join(item(r) for r in old)}</ol></details>
+<p class="notice">{t("podcasts_notice")}</p>"""
+    page("podcasts", t("podcasts_title"), "podcasts", body, t("podcasts_desc"))
+    if LANG == "en": print(f"podcasts: {len(rows)} ({len(act)} active)")
 
 def build_books():
     """ /books/ : published books on bitcoin, crypto and blockchain by Nordic authors or about the Nordics (data/books.json, tools/books.py).

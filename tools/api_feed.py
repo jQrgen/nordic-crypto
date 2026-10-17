@@ -41,6 +41,7 @@ import event_backfill  # noqa: E402
 import event_description  # noqa: E402
 import event_select  # noqa: E402
 import books as books_mod  # noqa: E402
+import podcasts as podcasts_mod  # noqa: E402
 import developers as dev_mod  # noqa: E402
 
 API = "1"
@@ -1066,6 +1067,7 @@ def _meta(feed):
         ("regulation-videos/", "Country explainer videos: how crypto rules are decided in each Nordic country"),
         ("academia/", "Courses, student groups, publications and research"),
         ("books/", "Published books on bitcoin, crypto and blockchain by Nordic authors or about the Nordics"),
+        ("podcasts/", "Nordic podcasts on bitcoin and crypto, with the latest episodes"),
         ("developers/", "Open-source developers: technical people in Nordic crypto with public crypto-related code"),
         ("sources/", "News and event sources"),
         ("newsletter/", "Newsletter issues"),
@@ -1500,6 +1502,11 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
                "language is a code (nn, nb, sv, da, fi, en). source is the library catalogue or publisher page where the row was checked. "
                "about is our one-line description in English. No cover images.",
                "BookList", feed.env(updated=books_mod.updated(), count=len(book_rows), books=book_rows))
+    pod_rows = [dict(r, html_url=feed.abs("podcasts/#" + r["id"])) for r in podcasts_mod.rows()]
+    collection("api/v1/podcasts.json",
+               "Nordic podcasts on bitcoin and crypto, active first. Metadata and links only; audio is never hosted. "
+               "flags are neutral labels for ownership, sponsorship or affiliate links. episodes are the latest five (title, date, link).",
+               "PodcastList", feed.env(updated=podcasts_mod.updated(), count=len(pod_rows), podcasts=pod_rows))
 
     dev_rows = []
     for row in dev_mod.rows(preview=preview):
@@ -1642,6 +1649,7 @@ def write(site, *, preview, base, items, events, entities, relations, org_update
             "sources": len(outlets),
             "academia": ac_counts,
             "books": len(book_rows),
+            "podcasts": len(pod_rows),
             "developers": len(dev_rows),
             "org_entities": len(ents),
             "org_relations": len(rels),
@@ -2066,6 +2074,18 @@ def schemas():
             },
         },
         "BookList": wrap("BookList", {"updated": {"type": "string", "nullable": True}, "count": {"type": "integer"}, "books": {"type": "array", "items": {"$ref": "#/components/schemas/Book"}}}),
+        "Podcast": {
+            "type": "object",
+            "required": ["id", "name", "country", "language", "feed", "site", "flags", "active", "episodes"],
+            "properties": {
+                "id": {"type": "string"}, "name": {"type": "string"}, "country": {"type": "string"}, "language": {"type": "string"},
+                "feed": {"type": "string"}, "site": {"type": "string"}, "added_at": {"type": "string"},
+                "flags": {"type": "array", "items": {"type": "string"}}, "active": {"type": "boolean"},
+                "episodes": {"type": "array", "items": {"type": "object", "properties": {"title": {"type": "string"}, "date": {"type": "string"}, "link": {"type": "string"}}}},
+                "html_url": {"type": "string"},
+            },
+        },
+        "PodcastList": wrap("PodcastList", {"updated": {"type": "string", "nullable": True}, "count": {"type": "integer"}, "podcasts": {"type": "array", "items": {"$ref": "#/components/schemas/Podcast"}}}),
         "Developer": {
             "type": "object",
             "required": ["id", "name", "country", "profiles", "notable", "nordic_source", "checked", "status"],

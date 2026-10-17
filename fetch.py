@@ -102,7 +102,9 @@ def robots_ok(url):
             rp = urllib.robotparser.RobotFileParser()
             try:
                 r = requests.get(base + "/robots.txt", headers={"User-Agent": UA}, timeout=15)
-                rp.parse(r.text.splitlines() if r.status_code == 200 else [])
+                # anchor.fm redirects to an HTML page on Spotify: not a robots file, so no rules.
+                plain = r.status_code == 200 and "html" not in r.headers.get("content-type", "")
+                rp.parse(r.text.splitlines() if plain else [])
             except Exception: rp.parse([])
             with _io:
                 _robots[base] = rp
@@ -1158,7 +1160,7 @@ def main():
                                "ok_requests": n_ok, "entries": n_items, "error": err, "method": "rss"}
         log(f"{s['id']:<22} ok={n_ok}/{len(urls)} entries={n_items} err={err}")
 
-    selected = [s for s in CFG["sources"] if s.get("enabled") and s.get("feed") and (not a.only or s["id"] in set(a.only.split(",")))]
+    selected = [s for s in CFG["sources"] if s.get("enabled") and s.get("feed") and not s.get("podcast") and (not a.only or s["id"] in set(a.only.split(",")))]
     workers = max(1, int(CFG.get("fetch_workers") or 6))
     log(f"fetching {len(selected)} feeds with {workers} workers, {DELAY}s per host")
     if workers == 1 or len(selected) <= 1:
@@ -1225,6 +1227,10 @@ def event_sources(cfg):
 
 if __name__ == "__main__":
     main()
+    if "--add" not in sys.argv and "--only" not in sys.argv:
+        sys.path.insert(0, P("tools")); import podcasts
+        err = guarded_call(lambda: podcasts.refresh(get, robots_ok, log))
+        if err: log("ERR podcasts", err)
     if "--add" not in sys.argv and "--no-events" not in sys.argv:  # events are searched in every run
         import events
         events.run(get, robots_ok, lambda t: bool(matches(t)), log, dict(CFG, event_sources=event_sources(CFG)))

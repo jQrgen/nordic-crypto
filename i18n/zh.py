@@ -706,3 +706,4 @@ S.update({'col_p2': '我们的编辑会根据 Nordic Crypto 的报道范围审�
  'col_turnstile': '反垃圾验证未通过，请重试。',
  'col_closed': '私密申请即将开放，请稍后再来。',
  'col_need_js': '此表单需要 JavaScript 进行反垃圾验证。'})  # private columnist form (tipworker /api/columnist)
+S.update({"nav_podcasts": "播客", "podcasts_title": "播客 – 北欧比特币与加密货币播客", "podcasts_desc": "来自挪威、瑞典、丹麦、芬兰和冰岛、以加密货币为主题的播客及最新节目。标签显示所有权、赞助或推广链接。我们链接到发布者；本站不托管音频。.", "podcasts_h1": "北欧比特币与加密货币播客", "podcasts_lead": "来自挪威、瑞典、丹麦、芬兰和冰岛、以加密货币为主题的播客及最新节目。标签显示所有权、赞助或推广链接。我们链接到发布者；本站不托管音频。", "podcasts_active": "活跃（近 90 天）", "podcasts_inactive": "不活跃", "podcasts_notice": "缺少播客或标签有误？请通过以下方式告诉我们： <a href=\"../about/#corrections\">更正</a>.", "pod_flag_exchange_owned": "交易所所有", "pod_flag_exchange_sponsored": "交易所赞助", "pod_flag_exchange_partner": "与交易所合作", "pod_flag_advertiser_paid": "广告商付费", "pod_flag_affiliate_links": "推广链接", "pod_flag_shop_owned": "商店所有", "pod_flag_altcoin_promotion": "山寨币推广", "pod_flag_advocacy_group": "倡导团体"})  # podcasts page (/podcasts/)
