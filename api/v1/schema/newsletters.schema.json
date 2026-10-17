@@ -199,6 +199,71 @@
      ],
      "description": "Shared English video. video.mp4 is not committed; the build copies or downloads it."
     },
+    "video_vertical": {
+     "type": "object",
+     "properties": {
+      "file": {
+       "type": "string",
+       "examples": [
+        "video-vertical.mp4"
+       ]
+      },
+      "poster": {
+       "type": "string",
+       "examples": [
+        "thumbnail-vertical.png"
+       ]
+      },
+      "duration": {
+       "type": "integer",
+       "examples": [
+        131
+       ]
+      },
+      "width": {
+       "type": "integer",
+       "examples": [
+        1080
+       ]
+      },
+      "height": {
+       "type": "integer",
+       "examples": [
+        1920
+       ]
+      },
+      "fps": {
+       "type": "integer",
+       "examples": [
+        30
+       ]
+      },
+      "bytes": {
+       "type": "integer",
+       "examples": [
+        1048576
+       ]
+      },
+      "sha256": {
+       "type": "string"
+      },
+      "url": {
+       "type": "string"
+      }
+     },
+     "additionalProperties": false,
+     "required": [
+      "file",
+      "duration",
+      "width",
+      "height",
+      "fps",
+      "bytes",
+      "sha256",
+      "url"
+     ],
+     "description": "Vertical 9:16 cut for Instagram Reels (H.264/AAC, 30 fps): same narration and timing as video. A release asset next to the landscape file; not committed and not on the site."
+    },
     "title_i18n": {
      "type": "object",
      "properties": {
