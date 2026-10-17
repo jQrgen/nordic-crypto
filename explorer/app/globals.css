@@ -107,19 +107,6 @@ img { max-width: 100%; }
   white-space: nowrap;
   border: 0;
 }
-.skip {
-  position: absolute;
-  inset-inline-start: 12px;
-  top: -80px;
-  z-index: 60;
-  padding: 10px 16px;
-  border-radius: var(--r-sm);
-  background: var(--gold);
-  color: var(--on-gold);
-  font-weight: 700;
-  text-decoration: none;
-}
-.skip:focus { top: 12px; }
 .wrap { max-width: 1180px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 36px); }
 .num { font-variant-numeric: tabular-nums lining-nums; }
 
@@ -191,6 +178,7 @@ header.top a:hover { text-decoration-color: var(--gold); }
 .pip.nexa { background: var(--gold); }
 .pip.bch { background: var(--bch); }
 .pip.btc { background: #e8871e; }
+.chains .coin { display: inline-block; width: 1.05em; height: 1.05em; margin-inline-end: 7px; vertical-align: -0.17em; }
 .socialbar {
   display: flex;
   flex-wrap: wrap;
@@ -198,10 +186,11 @@ header.top a:hover { text-decoration-color: var(--gold); }
   justify-content: flex-start;
   gap: 8px;
   width: 100%;
-  padding: 12px 0 0;
   text-align: start;
 }
-header.top .socialbar a.hdrsub {
+.footlinks { margin-top: 24px; }
+.footlinks .socialbar { padding-top: 18px; border-top: 1px solid var(--band-line); }
+footer.foot .socialbar a.hdrsub {
   display: inline-flex;
   align-items: center;
   min-height: 36px;
@@ -216,14 +205,14 @@ header.top .socialbar a.hdrsub {
   line-height: 1.3;
   white-space: nowrap;
 }
-header.top .socialbar a.hdrsub:hover,
-header.top .socialbar a.hdrsub:focus-visible {
+footer.foot .socialbar a.hdrsub:hover,
+footer.foot .socialbar a.hdrsub:focus-visible {
   background: var(--btn-hover);
   border-color: var(--btn-hover);
   color: var(--btn-ink);
   text-decoration: none;
 }
-header.top .socialbar a.soc {
+footer.foot .socialbar a.soc {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -240,12 +229,12 @@ header.top .socialbar a.soc {
   line-height: 1.3;
   white-space: nowrap;
 }
-header.top .socialbar a.soc:hover,
-header.top .socialbar a.soc:focus-visible {
+footer.foot .socialbar a.soc:hover,
+footer.foot .socialbar a.soc:focus-visible {
   border-color: var(--foam);
   text-decoration: none;
 }
-header.top .socialbar a.soc.text { white-space: normal; text-align: start; }
+footer.foot .socialbar a.soc.text { white-space: normal; text-align: start; }
 .socialbar .ico { display: block; flex: none; }
 .socialbar .socicons { display: inline-flex; flex-wrap: nowrap; gap: 6px; order: 2; }
 .socialbar a.back { order: 1; }
@@ -680,12 +669,16 @@ footer.foot h2 {
   .arrow { transform: rotate(90deg); height: 28px; }
 }
 @media (max-width: 720px) {
-  header.top .socialbar a.hdrsub,
-  header.top .socialbar a.soc { min-height: 44px; }
-  header.top .socialbar a.soc:not(.text) { min-width: 44px; padding: 0; justify-content: center; }
+  footer.foot .socialbar a.hdrsub,
+  footer.foot .socialbar a.soc { min-height: 44px; }
+  footer.foot .socialbar a.soc:not(.text) { min-width: 44px; padding: 0; justify-content: center; }
   .socialbar .app { flex-basis: 100%; }
-  .brandrow { gap: 12px 16px; }
-  .chains { order: 3; width: 100%; margin: 0; padding-top: 4px; }
+  .brandrow { gap: 10px 12px; padding: 12px 0 10px; flex-wrap: wrap; }
+  .shield { width: 27px; height: 32px; }
+  .brand { gap: 8px; }
+  .brand-name { font-size: 23px; }
+  .brand-sub { font-size: 9.5px; letter-spacing: 0.1em; }
+  .chains { order: 3; width: 100%; margin: 0; gap: 18px; overflow-x: auto; white-space: nowrap; }
   .hdrtools { margin-inline-start: auto; }
   .search { flex-direction: column; }
   .stats, .network, .tokengrid, .grid2, .footgrid, .facts { grid-template-columns: 1fr; }
@@ -717,10 +710,6 @@ footer.foot h2 {
 @media (prefers-reduced-motion: reduce) {
   .skel { animation: none; background: var(--soft); }
 }
-
-/* Social links sit in the header tools row, left of the fiat picker and theme toggle. */
-.hdrtools { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
-.hdrtools .socialbar { margin: 0; padding: 0; border: 0; }
 
 .token-title { display: flex; align-items: center; gap: 0.5em; }
 .token-title img { border-radius: 8px; flex: none; }

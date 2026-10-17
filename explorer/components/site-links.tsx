@@ -36,7 +36,7 @@ function Icon({ name }: { name: SiteIcon }) {
   );
 }
 
-/** Front-page social links, then a link back to the news site. Sits at the top of the explorer header. */
+/** Front-page social links, then a link back to the news site. Sits at the bottom of the explorer footer. */
 export function SiteLinks() {
   return (
     <nav className="socialbar" aria-label="Nordic Crypto on social media">

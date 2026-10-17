@@ -1,6 +1,10 @@
+/** The explorer's source, a folder in the site repo. */
+export const sourceHref = "https://github.com/nordic-crypto-org/nordic-crypto/tree/main/explorer";
+
 /**
  * Links from the nordiccrypto.no front page, in the order a reader meets them.
- * Header (build.header_buttons): Follow, Telegram, X, Facebook, YouTube, source code.
+ * The explorer shows them in its footer.
+ * Front page header (build.header_buttons): Follow, Telegram, X, Facebook, YouTube, source code.
  * Signup is off (newsletter/config.json), so the gold button says Follow and
  * opens /newsletter/#signup, the same as header_subscribe_button.
  * Footer follow column, after those: RSS.
@@ -59,7 +63,7 @@ export const siteLinks: readonly SiteLink[] = [
   },
   {
     id: "github",
-    href: "https://github.com/nordic-crypto-org/nordic-crypto",
+    href: sourceHref,
     label: "Source code",
     title: "Source code",
     icon: "github",
@@ -75,7 +79,7 @@ export const siteLinks: readonly SiteLink[] = [
   },
 ];
 
-/** The news site. The explorer header links back here. */
+/** The news site. The explorer footer links back here. */
 export const newsSite = {
   href: "https://nordiccrypto.no/",
   label: "nordiccrypto.no",

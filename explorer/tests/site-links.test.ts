@@ -2,7 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 import { newsSite, siteLinks } from "../lib/site-links";
 
-test("header links follow the front page, then the way back", () => {
+test("footer links follow the front page, then the way back", () => {
   assert.deepEqual(
     siteLinks.map((link) => [link.label, link.href, link.note ?? ""]),
     [
@@ -11,7 +11,7 @@ test("header links follow the front page, then the way back", () => {
       ["Follow on X", "https://x.com/nordiccryptobot", ""],
       ["Follow on Facebook", "https://www.facebook.com/profile.php?id=61595548315551", ""],
       ["Watch on YouTube", "https://www.youtube.com/@NordicCryptoTV", ""],
-      ["Source code", "https://github.com/nordic-crypto-org/nordic-crypto", ""],
+      ["Source code", "https://github.com/nordic-crypto-org/nordic-crypto/tree/main/explorer", ""],
       ["RSS", "https://nordiccrypto.no/rss.xml", ""],
     ],
   );
