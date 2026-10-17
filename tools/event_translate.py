@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fill data/event_description_i18n.json for event descriptions that have no current translation.
 
-Cloudflare Workers AI (CLOUDFLARE_API_TOKEN with Workers AI permission, CF_ACCOUNT_ID; model CF_AI_MODEL).
+Cloudflare Workers AI (CF_AI_TOKEN, CF_ACCOUNT_ID; model CF_AI_MODEL).
 Without them, or when a call fails, nothing is written for that event.
 An entry is replaced only when its source no longer matches the description; existing languages are kept.
 
@@ -28,11 +28,11 @@ def missing(event, catalogue):
 
 
 MODEL = "@cf/meta/llama-3.3-70b-instruct-fp8-fast"
-ENV = ("CLOUDFLARE_API_TOKEN", "CF_ACCOUNT_ID")
+ENV = ("CF_AI_TOKEN", "CF_ACCOUNT_ID")
 
 
 def call_model(text, src, langs):
-    account, token = os.environ["CF_ACCOUNT_ID"], os.environ["CLOUDFLARE_API_TOKEN"]
+    account, token = os.environ["CF_ACCOUNT_ID"], os.environ["CF_AI_TOKEN"]
     model = os.environ.get("CF_AI_MODEL") or MODEL
     body = {"temperature": 0.2, "max_tokens": 4096,
             "messages": [{"role": "system", "content": PROMPT.format(src=NAMES[src], codes=", ".join(f"{l} ({NAMES[l]})" for l in langs))},
@@ -75,7 +75,7 @@ def fill(events, catalogue, translate=call_model, log=print):
 def run(root=ROOT, log=print, translate=None, dry=False):
     if translate is None:
         if not all(os.environ.get(k) for k in ENV):
-            log("event-translate: CLOUDFLARE_API_TOKEN or CF_ACCOUNT_ID not set, skipped")
+            log("event-translate: CF_AI_TOKEN or CF_ACCOUNT_ID not set, skipped")
             return []
         translate = call_model
     path = os.path.join(root, "data", "event_description_i18n.json")
