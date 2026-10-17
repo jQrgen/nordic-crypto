@@ -5,14 +5,14 @@ import { formatCoin, formatCompact, formatFiat } from "../lib/format";
 import { interpretQuery } from "../lib/lookup";
 import { prettyRedirect } from "../lib/routes";
 
-test("Bitcoin Cash is the default chain and is listed first", () => {
-  assert.equal(defaultChain, "bch");
-  assert.equal(homePath, "/bch/");
-  assert.deepEqual(chainOrder, ["bch", "nexa", "btc"]);
-  assert.equal(resolveChain(undefined), "bch");
-  assert.equal(resolveChain(null), "bch");
-  assert.equal(resolveChain(""), "bch");
-  assert.equal(resolveChain("nope"), "bch");
+test("Bitcoin is the default chain and is listed first", () => {
+  assert.equal(defaultChain, "btc");
+  assert.equal(homePath, "/btc/");
+  assert.deepEqual(chainOrder, ["btc", "bch", "nexa"]);
+  assert.equal(resolveChain(undefined), "btc");
+  assert.equal(resolveChain(null), "btc");
+  assert.equal(resolveChain(""), "btc");
+  assert.equal(resolveChain("nope"), "btc");
   assert.equal(resolveChain("nexa"), "nexa");
   assert.equal(resolveChain("bch"), "bch");
 });

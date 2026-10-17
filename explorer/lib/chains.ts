@@ -67,8 +67,8 @@ export const chains: Record<ChainId, ChainMeta> = {
   },
 };
 
-/** Chain selector, nav, and static paths. Bitcoin Cash is the first choice; Bitcoin comes last. */
-export const chainOrder = ["bch", "nexa", "btc"] as const satisfies readonly ChainId[];
+/** Chain selector, nav, and static paths. Bitcoin is the first choice and the default. */
+export const chainOrder = ["btc", "bch", "nexa"] as const satisfies readonly ChainId[];
 
 export const defaultChain: ChainId = chainOrder[0];
 
@@ -79,7 +79,7 @@ export function isChainId(value: string): value is ChainId {
   return (chainOrder as readonly string[]).includes(value);
 }
 
-/** A chain id from a query or path segment, or Bitcoin Cash when it is missing or unknown. */
+/** A chain id from a query or path segment, or Bitcoin when it is missing or unknown. */
 export function resolveChain(value: string | null | undefined): ChainId {
   return value && isChainId(value) ? value : defaultChain;
 }

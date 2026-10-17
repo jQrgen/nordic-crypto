@@ -1,6 +1,6 @@
 /**
  * Confirm the static export carries Open Graph and Twitter cards.
- * npm runs this after `next build`. nginx sends `/` to `/bch/`; the root
+ * npm runs this after `next build`. nginx sends `/` to `/btc/`; the root
  * index.html still has the card, for crawlers that do not follow the redirect.
  */
 import { readFileSync } from "node:fs";
@@ -62,13 +62,15 @@ const shared = {
 const bchTitle = `Bitcoin Cash explorer ${DASH} Nordic Crypto`;
 const nexaTitle = `Nexa explorer ${DASH} Nordic Crypto`;
 const bchAbout = "Blocks, transactions and addresses, read in this browser from a Bitcoin Cash Electrum server.";
+const btcTitle = `Bitcoin explorer ${DASH} Nordic Crypto`;
+const btcAbout = "Blocks, transactions and addresses, read in this browser from the public mempool.space API.";
 
 const pages = [
   [
     "index.html",
     {
-      "og:title": bchTitle,
-      "og:description": bchAbout,
+      "og:title": btcTitle,
+      "og:description": btcAbout,
       "og:url": `${ORIGIN}/`,
     },
   ],
@@ -91,8 +93,8 @@ const pages = [
   [
     "btc/index.html",
     {
-      "og:title": `Bitcoin explorer ${DASH} Nordic Crypto`,
-      "og:description": "Blocks, transactions and addresses, read in this browser from the public mempool.space API.",
+      "og:title": btcTitle,
+      "og:description": btcAbout,
       "og:url": `${ORIGIN}/btc/`,
     },
   ],
