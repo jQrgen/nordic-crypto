@@ -110,7 +110,10 @@ export type TokenModel = {
   txid: string | null;
   documentUrl: string | null;
   icon: string | null;
+  group: string;
 };
+
+export type SubgroupRow = { group: string; txid: string | null; height: number | null };
 
 export type SearchHit = {
   href: string;

@@ -737,3 +737,7 @@ footer.foot h2 {
 
 .token-title { display: flex; align-items: center; gap: 0.5em; }
 .token-title img { border-radius: 8px; flex: none; }
+.subgroups { margin-top: 2rem; }
+.subgroups table { width: 100%; border-collapse: collapse; }
+.subgroups th, .subgroups td { text-align: left; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--rule, #ddd); }
+.subgroups button { margin-top: 0.75rem; }

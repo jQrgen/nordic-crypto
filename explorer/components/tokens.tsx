@@ -1,11 +1,14 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { getSession } from "@/lib/electrum";
+import { loadSubgroups } from "@/lib/load";
 import { useRouter } from "next/navigation";
 import { chains } from "@/lib/chains";
 import { formatNumber, shortId } from "@/lib/format";
 import { blockHref, tokenHref, txHref } from "@/lib/routes";
-import type { ChainId, TokenModel } from "@/lib/types";
+import type { ChainId, SubgroupRow, TokenModel } from "@/lib/types";
 
 export function TokenLookup({ chainId }: { chainId: ChainId }) {
   const chain = chains[chainId];
@@ -93,6 +96,69 @@ export function TokenView({ token }: { token: TokenModel }) {
           </dd>
         </div>
       </dl>
+      {token.chain === "nexa" ? <Subgroups chainId={token.chain} group={token.group} /> : null}
     </>
+  );
+}
+
+function Subgroups({ chainId, group }: { chainId: ChainId; group: string }) {
+  const [rows, setRows] = useState<SubgroupRow[]>([]);
+  const [cursor, setCursor] = useState<unknown>(null);
+  const [busy, setBusy] = useState(true);
+  const more = async (from: unknown, reset = false) => {
+    setBusy(true);
+    try {
+      const page = await loadSubgroups(await getSession(chainId), group, from);
+      setRows((old) => (reset ? page.rows : [...old, ...page.rows]));
+      setCursor(page.cursor);
+    } catch {
+      if (reset) setRows([]);
+      setCursor(null);
+    } finally {
+      setBusy(false);
+    }
+  };
+  useEffect(() => {
+    void more(null, true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [chainId, group]);
+  if (!rows.length) return null;
+  return (
+    <section className="subgroups">
+      <h2>Subgroups</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Subgroup</th>
+            <th>Minted in</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr key={row.group}>
+              <td>
+                <Link href={tokenHref(chainId, row.group)}>
+                  <code>{shortId(row.group, 14, 10)}</code>
+                </Link>
+              </td>
+              <td>
+                {row.txid ? <Link href={txHref(chainId, row.txid)}>{shortId(row.txid, 10, 6)}</Link> : "Not reported"}
+                {row.height != null ? (
+                  <>
+                    {" · "}
+                    <Link href={blockHref(chainId, row.height)}>{formatNumber(row.height)}</Link>
+                  </>
+                ) : null}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {cursor != null ? (
+        <button type="button" disabled={busy} onClick={() => void more(cursor)}>
+          {busy ? "Loading…" : "More subgroups"}
+        </button>
+      ) : null}
+    </section>
   );
 }

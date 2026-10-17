@@ -317,6 +317,7 @@ export function mapTokenInfo(chain: ChainId, id: string, raw: unknown): TokenMod
     txid: typeof row.txid === "string" ? row.txid : typeof row.tx_hash === "string" ? row.tx_hash : null,
     documentUrl: typeof row.document_url === "string" ? row.document_url : null,
     icon: null,
+    group: typeof row.group === "string" ? row.group : id,
   };
 }
 

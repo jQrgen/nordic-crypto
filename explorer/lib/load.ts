@@ -17,7 +17,7 @@ import {
   sideFrom,
 } from "./protocol";
 import { documentIcon, knownTokenIcon } from "./known-tokens";
-import type { AddressModel, BlockModel, ChainId, FeeRow, OverviewModel, TokenModel, TxModel, TxSide } from "./types";
+import type { SubgroupRow, AddressModel, BlockModel, ChainId, FeeRow, OverviewModel, TokenModel, TxModel, TxSide } from "./types";
 
 const HISTORY_LIMIT = 40;
 const TX_LIST_LIMIT = 12;
@@ -225,4 +225,26 @@ export async function loadToken(session: Session, id: string): Promise<TokenMode
   } catch {
     throw new MissingError("The server has no genesis record for that token.");
   }
+}
+
+// One page of NFT subgroups (Rostrum token.nft.list), each with its genesis (mint) tx.
+export async function loadSubgroups(
+  session: Session,
+  group: string,
+  cursor: unknown = null,
+): Promise<{ rows: SubgroupRow[]; cursor: unknown }> {
+  const raw = (await session.call("token.nft.list", cursor == null ? [group] : [group, cursor])) as {
+    nft?: { group?: unknown }[];
+    cursor?: unknown;
+  } | null;
+  const groups = (raw?.nft ?? []).map((n) => n.group).filter((g): g is string => typeof g === "string");
+  const rows = await Promise.all(
+    groups.map(async (g) => {
+      const info = await session.call("token.genesis.info", [g]).catch(() => null);
+      const t = info ? mapTokenInfo(session.chain, g, info) : null;
+      return { group: g, txid: t?.txid ?? null, height: t?.height ?? null };
+    }),
+  );
+  rows.sort((a, b) => (a.height ?? Infinity) - (b.height ?? Infinity));
+  return { rows, cursor: raw?.cursor ?? null };
 }
