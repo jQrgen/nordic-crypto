@@ -1,13 +1,13 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-17T17:55:47+00:00",
+ "generated_at": "2026-10-17T19:34:30+00:00",
  "title": "Nordic Crypto data model",
  "docs_url": "https://nordiccrypto.no/db/",
  "schema_version": "2026-10-17",
- "commit": "881a335",
- "committed_at": "2026-10-17T15:54:41+02:00",
- "commit_url": "https://github.com/nordic-crypto-org/nordic-crypto/commit/881a335105d216d559e5aa960453c34c1c2e0948",
+ "commit": "dd8e4d7",
+ "committed_at": "2026-10-17T21:29:20+02:00",
+ "commit_url": "https://github.com/nordic-crypto-org/nordic-crypto/commit/dd8e4d7bcf1cb5e44124fc34db9d6c5c139e774a",
  "changelog_url": "https://nordiccrypto.no/api/v1/schema/changelog.json",
  "erd_svg_url": "https://nordiccrypto.no/api/v1/schema/erd.svg",
  "erd_mermaid_url": "https://nordiccrypto.no/api/v1/schema/erd.mmd",
@@ -758,7 +758,7 @@
   {
    "id": "title-i18n",
    "title": "Headline translations",
-   "description": "Our headlines by story id, in data/title_i18n.json. The source headline stays on the story. Keys are nn, nb, sv, da, fi and is, and only for languages that are not already the source headline.",
+   "description": "Our headlines by story id, in data/title_i18n.json. The source headline stays on the story. Keys are every site language except English (English is title_en on the story), and only for languages that are not already the source headline.",
    "files": [
     "data/title_i18n.json"
    ],

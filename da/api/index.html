@@ -375,11 +375,11 @@ ol.news h3{font-size:23px;line-height:1.16;margin:0 0 4px}ol.news h3 a{text-deco
 .home-note{margin:40px 0 0;font-size:13.5px;max-width:90ch}
 /* The next six events stay visible at every width. A phone must not drop later rows. */
 /* Newsletter: signup form, the issue list, the video and the issue text. */
-.nlform{margin:14px 0;text-align:start}.nlform input[type=email]{padding:8px 10px;width:100%;max-width:320px}.nlform .hp{position:absolute;left:-9999px}
+.nlform{margin:14px 0;text-align:start}.nlform input[type=email]{padding:8px 10px;width:100%;max-width:320px}.nlform .hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 .nlform button{padding:9px 18px;font-size:15px;font-weight:600;border:1px solid var(--btn);border-radius:var(--r-sm);background:var(--btn);color:var(--btn-ink);cursor:pointer;transition:background .15s,transform .15s}
 .nlform button:hover,.nlform button:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover);transform:translateY(-1px)}
 .nlconsent{display:block;margin:10px 0;max-width:40rem;text-align:start;font-size:15px}
-.nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:var(--up)}.nlmsg.warn{color:var(--warm)}.nlc label:not(.nlconsent){position:absolute;left:-9999px}
+.nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:var(--up)}.nlmsg.warn{color:var(--warm)}.nlc label:not(.nlconsent){position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 .nlissues{list-style:none;margin:10px 0 20px;padding:0}.nlissues li{display:flex;gap:22px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--line)}
 .nlissues .th{flex:none;width:200px;max-width:40%}.nlissues img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
 .nlissues h3{font-size:25px;line-height:1.2;margin:0 0 4px}.nlissues h3 a{text-decoration:none}.nlissues h3 a:hover{text-decoration:underline;text-decoration-thickness:1px}.nlissues .sum{margin-top:4px}
@@ -419,7 +419,7 @@ ol.news h3{font-size:23px;line-height:1.16;margin:0 0 4px}ol.news h3 a{text-deco
 .shout-form button:hover,.shout-older:hover,.shout-toggle:hover{border-color:var(--fg)}
 .shout-form button{margin-top:8px;background:var(--btn);border-color:var(--btn);color:var(--btn-ink)}
 .shout-report{font-size:12px;font-weight:400;padding:2px 6px;color:var(--muted)}
-.shout-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.shout-hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 .shout-status{min-height:1.2em;font-size:14px;text-align:start}
 .shout-toggle{display:none;width:100%;justify-content:flex-start}
 @media(min-width:960px){
@@ -598,7 +598,7 @@ body.th-cbase{--bg:#05070D;--surface:rgb(14 22 40 / .86);--fg:#DCE8FF;--muted:#8
 </style>
 <h1>Data-API fra Nordic Crypto</h1>
 <p class="lead">Et åbent JSON-feed af sitet til apps og andre værktøjer. Ingen konto og ingen API-nøgle. Det genereres igen, hver gang sitet bygges.</p>
-<p class="meta">Version 1. 72 nyheder, 2 nyhedsbrevsudgaver, 19 arrangementer og 94 foredrag i denne version. Genereret 2026-10-17T17:55:47+00:00.</p>
+<p class="meta">Version 1. 72 nyheder, 2 nyhedsbrevsudgaver, 19 arrangementer og 94 foredrag i denne version. Genereret 2026-10-17T19:34:30+00:00.</p>
 </div><nav class="toc" aria-labelledby="toc-h"><h2 id="toc-h">På denne side</h2><ol><li><a href="#lightning">Bitcoin Lightning-node</a></li><li><a href="#electrum">Electrum-servere (BCH og Nexa)</a></li><li><a href="#start">Start her</a></li><li><a href="#fetch">Hent nyheder og et nyhedsbrev</a></li><li><a href="#latest">Spørg efter nye historier</a></li><li><a href="#markets">Markedspriser</a></li><li><a href="#stats">Besøgsstatistik</a></li><li><a href="#talks">Foredrag</a></li><li><a href="#archive">Historical archive</a></li><li><a href="#outlets">Flere medier, én historie</a></li><li><a href="#events">Arrangementer</a></li><li><a href="#languages">Sprog</a></li><li><a href="#logos">Kildelogoer</a></li><li><a href="#cors">CORS</a></li><li><a href="#editorial">Redaktionelt</a></li><li><a href="#brand">Brandets konti</a></li><li><a href="#notifications">Browsernotifikationer</a></li><li><a href="#endpoints">Endpoints</a></li><li><a href="#not-included">Ikke inkluderet</a></li></ol></nav><div class="tp-body"><div class="prose">
 <h2 id="lightning">Bitcoin Lightning-node<a class="hlink" href="#lightning" aria-label="Link to this section">#</a></h2>
 <p>Nordic Crypto driver en Bitcoin Lightning-node. Aliaset er Nordic Crypto. Implementeringen er LND, i letklienttilstand med Neutrino. Ingen konto og ingen API-nøgle.</p>

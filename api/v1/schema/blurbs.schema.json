@@ -80,6 +80,54 @@
     },
     "is": {
      "type": "string"
+    },
+    "zh": {
+     "type": "string"
+    },
+    "hi": {
+     "type": "string"
+    },
+    "es": {
+     "type": "string"
+    },
+    "fr": {
+     "type": "string"
+    },
+    "ar": {
+     "type": "string"
+    },
+    "bn": {
+     "type": "string"
+    },
+    "pt": {
+     "type": "string"
+    },
+    "ru": {
+     "type": "string"
+    },
+    "ur": {
+     "type": "string"
+    },
+    "id": {
+     "type": "string"
+    },
+    "de": {
+     "type": "string"
+    },
+    "ja": {
+     "type": "string"
+    },
+    "sw": {
+     "type": "string"
+    },
+    "mr": {
+     "type": "string"
+    },
+    "fa": {
+     "type": "string"
+    },
+    "uk": {
+     "type": "string"
     }
    },
    "additionalProperties": false,

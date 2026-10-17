@@ -375,11 +375,11 @@ ol.news h3{font-size:23px;line-height:1.16;margin:0 0 4px}ol.news h3 a{text-deco
 .home-note{margin:40px 0 0;font-size:13.5px;max-width:90ch}
 /* The next six events stay visible at every width. A phone must not drop later rows. */
 /* Newsletter: signup form, the issue list, the video and the issue text. */
-.nlform{margin:14px 0;text-align:start}.nlform input[type=email]{padding:8px 10px;width:100%;max-width:320px}.nlform .hp{position:absolute;left:-9999px}
+.nlform{margin:14px 0;text-align:start}.nlform input[type=email]{padding:8px 10px;width:100%;max-width:320px}.nlform .hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 .nlform button{padding:9px 18px;font-size:15px;font-weight:600;border:1px solid var(--btn);border-radius:var(--r-sm);background:var(--btn);color:var(--btn-ink);cursor:pointer;transition:background .15s,transform .15s}
 .nlform button:hover,.nlform button:focus-visible{background:var(--btn-hover);border-color:var(--btn-hover);transform:translateY(-1px)}
 .nlconsent{display:block;margin:10px 0;max-width:40rem;text-align:start;font-size:15px}
-.nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:var(--up)}.nlmsg.warn{color:var(--warm)}.nlc label:not(.nlconsent){position:absolute;left:-9999px}
+.nlmsg{display:block;margin-top:6px}.nlmsg.ok{color:var(--up)}.nlmsg.warn{color:var(--warm)}.nlc label:not(.nlconsent){position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 .nlissues{list-style:none;margin:10px 0 20px;padding:0}.nlissues li{display:flex;gap:22px;align-items:flex-start;padding:20px 0;border-bottom:1px solid var(--line)}
 .nlissues .th{flex:none;width:200px;max-width:40%}.nlissues img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
 .nlissues h3{font-size:25px;line-height:1.2;margin:0 0 4px}.nlissues h3 a{text-decoration:none}.nlissues h3 a:hover{text-decoration:underline;text-decoration-thickness:1px}.nlissues .sum{margin-top:4px}
@@ -419,7 +419,7 @@ ol.news h3{font-size:23px;line-height:1.16;margin:0 0 4px}ol.news h3 a{text-deco
 .shout-form button:hover,.shout-older:hover,.shout-toggle:hover{border-color:var(--fg)}
 .shout-form button{margin-top:8px;background:var(--btn);border-color:var(--btn);color:var(--btn-ink)}
 .shout-report{font-size:12px;font-weight:400;padding:2px 6px;color:var(--muted)}
-.shout-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.shout-hp{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
 .shout-status{min-height:1.2em;font-size:14px;text-align:start}
 .shout-toggle{display:none;width:100%;justify-content:flex-start}
 @media(min-width:960px){
@@ -598,7 +598,7 @@ body.th-cbase{--bg:#05070D;--surface:rgb(14 22 40 / .86);--fg:#DCE8FF;--muted:#8
 </style>
 <h1>Nordic Crypto डेटा API</h1>
 <p class="lead">ऐप और दूसरे टूल के लिए साइट का सार्वजनिक JSON फ़ीड। न खाता, न API कुंजी। साइट हर बार बनने पर यह फिर से तैयार होता है।</p>
-<p class="meta">संस्करण 1। इस बिल्ड में 72 ख़बरें, 2 न्यूज़लेटर अंक, 19 कार्यक्रम और 94 व्याख्यान हैं। 2026-10-17T17:55:47+00:00 को तैयार किया गया।</p>
+<p class="meta">संस्करण 1। इस बिल्ड में 72 ख़बरें, 2 न्यूज़लेटर अंक, 19 कार्यक्रम और 94 व्याख्यान हैं। 2026-10-17T19:34:30+00:00 को तैयार किया गया।</p>
 </div><nav class="toc" aria-labelledby="toc-h"><h2 id="toc-h">इस पेज पर</h2><ol><li><a href="#lightning">Bitcoin Lightning नोड</a></li><li><a href="#electrum">Electrum सर्वर (BCH और Nexa)</a></li><li><a href="#start">यहाँ से शुरू करें</a></li><li><a href="#fetch">ख़बरें और एक न्यूज़लेटर प्राप्त करें</a></li><li><a href="#latest">नई खबरों के लिए पूछताछ</a></li><li><a href="#markets">बाज़ार भाव</a></li><li><a href="#stats">विज़िटर आँकड़े</a></li><li><a href="#talks">व्याख्यान</a></li><li><a href="#archive">Historical archive</a></li><li><a href="#outlets">कई मीडिया, एक ख़बर</a></li><li><a href="#events">कार्यक्रम</a></li><li><a href="#languages">भाषाएँ</a></li><li><a href="#logos">स्रोत लोगो</a></li><li><a href="#cors">CORS</a></li><li><a href="#editorial">संपादकीय</a></li><li><a href="#brand">ब्रांड खाते</a></li><li><a href="#notifications">ब्राउज़र सूचनाएँ</a></li><li><a href="#endpoints">एंडपॉइंट</a></li><li><a href="#not-included">शामिल नहीं</a></li></ol></nav><div class="tp-body"><div class="prose">
 <h2 id="lightning">Bitcoin Lightning नोड<a class="hlink" href="#lightning" aria-label="Link to this section">#</a></h2>
 <p>Nordic Crypto एक Bitcoin Lightning नोड चलाता है। उपनाम Nordic Crypto है। कार्यान्वयन LND है, Neutrino लाइट-क्लाइंट मोड में। न खाता, न API कुंजी।</p>

@@ -181,6 +181,54 @@
       },
       "is": {
        "type": "string"
+      },
+      "zh": {
+       "type": "string"
+      },
+      "hi": {
+       "type": "string"
+      },
+      "es": {
+       "type": "string"
+      },
+      "fr": {
+       "type": "string"
+      },
+      "ar": {
+       "type": "string"
+      },
+      "bn": {
+       "type": "string"
+      },
+      "pt": {
+       "type": "string"
+      },
+      "ru": {
+       "type": "string"
+      },
+      "ur": {
+       "type": "string"
+      },
+      "id": {
+       "type": "string"
+      },
+      "de": {
+       "type": "string"
+      },
+      "ja": {
+       "type": "string"
+      },
+      "sw": {
+       "type": "string"
+      },
+      "mr": {
+       "type": "string"
+      },
+      "fa": {
+       "type": "string"
+      },
+      "uk": {
+       "type": "string"
       }
      },
      "additionalProperties": false,
@@ -209,6 +257,12 @@
         "Safello opnar for at andre selskap kan tilby kryptokjøp"
        ]
       },
+      "nb": {
+       "type": "string",
+       "examples": [
+        "Opplysninger: Tenåringer sølvteipet mann i jakt på kryptovaluta"
+       ]
+      },
       "sv": {
        "type": "string",
        "examples": [
@@ -233,11 +287,53 @@
         "Safello opnar á að önnur fyrirtæki geti boðið kaup á rafmyntum"
        ]
       },
-      "nb": {
-       "type": "string",
-       "examples": [
-        "Opplysninger: Tenåringer sølvteipet mann i jakt på kryptovaluta"
-       ]
+      "zh": {
+       "type": "string"
+      },
+      "hi": {
+       "type": "string"
+      },
+      "es": {
+       "type": "string"
+      },
+      "fr": {
+       "type": "string"
+      },
+      "ar": {
+       "type": "string"
+      },
+      "bn": {
+       "type": "string"
+      },
+      "pt": {
+       "type": "string"
+      },
+      "ru": {
+       "type": "string"
+      },
+      "ur": {
+       "type": "string"
+      },
+      "id": {
+       "type": "string"
+      },
+      "de": {
+       "type": "string"
+      },
+      "ja": {
+       "type": "string"
+      },
+      "sw": {
+       "type": "string"
+      },
+      "mr": {
+       "type": "string"
+      },
+      "fa": {
+       "type": "string"
+      },
+      "uk": {
+       "type": "string"
       }
      },
      "additionalProperties": false
