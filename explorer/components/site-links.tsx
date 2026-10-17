@@ -40,7 +40,7 @@ function Icon({ name }: { name: SiteIcon }) {
 export function SiteLinks() {
   return (
     <nav className="socialbar" aria-label="Nordic Crypto on social media">
-      {siteLinks.map((link) => {
+      {siteLinks.filter((l) => l.variant !== "icon").map((link) => {
         if (link.variant === "text") {
           return (
             <span className="app" key={link.id}>
@@ -60,13 +60,22 @@ export function SiteLinks() {
             title={link.title}
           >
             {link.icon ? <Icon name={link.icon} /> : null}
-            <span className={link.variant === "icon" ? "lbl" : undefined}>{link.label}</span>
+            <span>{link.label}</span>
           </a>
         );
       })}
       <a className="soc text back" href={newsSite.href} rel="noopener">
         {newsSite.label}
       </a>
+      <span className="socicons">
+        {siteLinks
+          .filter((l) => l.variant === "icon")
+          .map((link) => (
+            <a key={link.id} className="soc" href={link.href} rel="noopener" title={link.title} aria-label={link.label}>
+              {link.icon ? <Icon name={link.icon} /> : null}
+            </a>
+          ))}
+      </span>
     </nav>
   );
 }

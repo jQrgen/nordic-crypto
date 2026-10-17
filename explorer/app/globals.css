@@ -246,15 +246,7 @@ header.top .socialbar a.soc:focus-visible {
 }
 header.top .socialbar a.soc.text { white-space: normal; text-align: start; }
 .socialbar .ico { display: block; flex: none; }
-.socialbar .lbl {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-}
+.socialbar .socicons { display: inline-flex; flex-wrap: nowrap; gap: 6px; }
 .socialbar .app {
   display: inline-flex;
   flex-wrap: wrap;
@@ -686,16 +678,9 @@ footer.foot h2 {
   .arrow { transform: rotate(90deg); height: 28px; }
 }
 @media (max-width: 720px) {
-  .socialbar .lbl {
-    position: static;
-    width: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    clip: auto;
-  }
   header.top .socialbar a.hdrsub,
   header.top .socialbar a.soc { min-height: 44px; }
+  header.top .socialbar a.soc:not(.text) { min-width: 44px; padding: 0; justify-content: center; }
   .socialbar .app { flex-basis: 100%; }
   .brandrow { gap: 12px 16px; }
   .chains { order: 3; width: 100%; margin: 0; padding-top: 4px; }
@@ -734,3 +719,15 @@ footer.foot h2 {
 /* Social links sit in the header tools row, left of the fiat picker and theme toggle. */
 .hdrtools { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
 .hdrtools .socialbar { margin: 0; padding: 0; border: 0; }
+
+.token-title { display: flex; align-items: center; gap: 0.5em; }
+.token-title img { border-radius: 8px; flex: none; }
+.subgroups { margin-top: 2rem; }
+.subgroups table { width: 100%; border-collapse: collapse; }
+.subgroups th, .subgroups td { text-align: left; padding: 0.4rem 0.5rem; border-bottom: 1px solid var(--rule, #ddd); }
+.subgroups button { margin-top: 0.75rem; }
+.tokendoc { margin-top: 2rem; }
+.tokendoc .dochash.match { color: #2e7d4f; }
+.tokendoc .dochash.mismatch { color: #b3261e; }
+.tokendoc .docjson { max-height: 24rem; overflow: auto; white-space: pre-wrap; word-break: break-word; font-size: 13px; }
+.tokendoc dd, .tokendoc p { overflow-wrap: anywhere; }

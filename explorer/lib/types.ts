@@ -109,7 +109,12 @@ export type TokenModel = {
   height: number | null;
   txid: string | null;
   documentUrl: string | null;
+  documentHash: string | null;
+  icon: string | null;
+  group: string;
 };
+
+export type SubgroupRow = { group: string; txid: string | null; height: number | null };
 
 export type SearchHit = {
   href: string;
