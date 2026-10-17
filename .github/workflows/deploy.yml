@@ -23,9 +23,6 @@ on:
       - ".github/ISSUE_TEMPLATE/**"
       - "assets/logo-concepts/**"
       - "README.md"
-      # The explorer is deployed by deploy-explorer.yml to its own server, not to GitHub Pages.
-      - "explorer/**"
-      - ".github/workflows/deploy-explorer.yml"
   workflow_dispatch:
 
 permissions:
