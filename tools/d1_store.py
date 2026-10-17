@@ -642,18 +642,12 @@ def import_events(store, records, at, actor="import"):
         if existing and existing["content_hash"] == row["content_hash"] and existing["review_status"] == review:
             stats["skipped"] += 1
             continue
-        if existing and existing["review_status"] in ("approved", "rejected") and d1_is_newer(existing.get("reviewed_at"), None) and review == "pending":
-            stats["kept"] += 1
-            continue
-        if existing and existing["review_status"] in ("approved", "rejected") and review != existing["review_status"] and existing.get("reviewed_at") and review == "pending":
-            stats["kept"] += 1
-            continue
         if existing:
-            row["created_at"] = existing["created_at"]
-            if existing["review_status"] in ("approved", "rejected") and review == existing["review_status"]:
-                row["reviewed_by"] = existing.get("reviewed_by")
-                row["reviewed_at"] = existing.get("reviewed_at")
-                row["review_note"] = existing.get("review_note")
+            # D1 owns the event. The git snapshot may only settle a row that is still pending.
+            if existing["review_status"] != "pending" or review == "pending":
+                stats["kept"] += 1
+                continue
+            row = _event_row(json.loads(existing["payload"]), review, at, existing["created_at"])
             store.execute(
                 _EVENT_UPDATE,
                 (
@@ -1071,13 +1065,14 @@ def restore_root(store, root):
         added_stories += 1
         if payload.get("id"):
             seen_ids.add(payload["id"])
-    seen_events = {row.get("id") for row in rows}
+    index = {row.get("id"): i for i, row in enumerate(rows)}
     added_events = 0
     for row in store.query("SELECT payload, item_status FROM events", ()):
         payload = json.loads(row["payload"])
         if row.get("item_status") == "merged":
             continue  # a merged duplicate stays merged; the redirect points at the kept row
-        if payload.get("id") in seen_events:
+        if payload.get("id") in index:
+            rows[index[payload["id"]]] = payload  # D1 is newer than the committed snapshot
             continue
         rows.append(payload)
         added_events += 1
@@ -1450,6 +1445,66 @@ def review_event(store, event_id, action, actor=None, at=None, note=None, note_i
     plan = plan_event_review(row, action, actor, at, note, note_i18n, reason)
     apply_event_plan(store, plan, actor, at)
     return plan
+
+
+def manual_event_id(payload):
+    """Same id as events.eid, so a later fetch of the same event lands on this row."""
+    key = f"{(payload.get('url') or '').split('?')[0]}|{(payload.get('start') or '')[:10]}|{(payload.get('title') or '').lower()}"
+    return hashlib.sha1(key.encode()).hexdigest()[:12]
+
+
+def plan_event_edit(row, fields, actor, at, approve=False):
+    """Add an event (row is None) or change fields on one. Review is kept unless approve."""
+    if row is None:
+        missing = [k for k in ("title", "start", "organiser") if not fields.get(k)]
+        if missing or not (fields.get("place") or fields.get("online")):
+            raise D1Error("a new event needs title, start, organiser and place (or online): " + ", ".join(missing or ["place"]))
+        payload = {"online": False, "source": "manual", "found": at, "status": "pending"}
+        payload.update(fields)
+        payload["id"] = payload.get("id") or manual_event_id(payload)
+        review, by, when, note, created = "pending", None, None, None, at
+    else:
+        payload = dict(json.loads(row["payload"]), **fields)
+        payload["id"] = row["id"]
+        review, by, when, note, created = row["review_status"], row.get("reviewed_by"), row.get("reviewed_at"), row.get("review_note"), row["created_at"]
+    if approve:
+        review, by, when, note = "approved", actor, at, None
+        payload.pop("reject_reason", None)
+    plan = _event_row(payload, review, at, created, by, when, note)
+    plan.update(end_at=payload.get("end"), city=payload.get("city"), insert=row is None)
+    return plan
+
+
+def apply_event_edit(store, plan, actor, at):
+    if plan["insert"]:
+        _insert_event(store, plan)
+        _event_extra_columns(store, json.loads(plan["payload"]), "manual")
+    else:
+        store.execute(_EVENT_UPDATE, (
+            plan["url"], plan["title"], plan["country"], plan["start_at"], plan["item_status"],
+            plan["review_status"], plan["reviewed_by"], plan["reviewed_at"], plan["review_note"],
+            plan["payload"], plan["content_hash"], plan["updated_at"], plan["id"],
+        ))
+        _event_extra_columns(store, json.loads(plan["payload"]))
+    audit(store, "event", plan["id"], "add" if plan["insert"] else "edit", actor, at, plan["review_status"])
+
+
+def event_edit_sql(plan, actor):
+    q = sql_quote
+    cols = ("url", "title", "country", "start_at", "end_at", "city", "item_status", "review_status",
+            "reviewed_by", "reviewed_at", "review_note", "payload", "content_hash", "updated_at")
+    if plan["insert"]:
+        names = ("id",) + cols + ("created_at", "origin")
+        values = [plan["id"]] + [plan[c] for c in cols] + [plan["created_at"], "manual"]
+        write = f"INSERT INTO events ({', '.join(names)}) VALUES ({', '.join(q(v) for v in values)})"
+    else:
+        write = "UPDATE events SET " + ", ".join(f"{c} = {q(plan[c])}" for c in cols) + f" WHERE id = {q(plan['id'])}"
+    insert = (
+        "INSERT INTO review_audit (kind, item_id, action, actor, at, detail) VALUES ("
+        f"'event', {q(plan['id'])}, {q('add' if plan['insert'] else 'edit')}, {q(actor)}, "
+        f"{q(plan['updated_at'])}, {q(plan['review_status'])})"
+    )
+    return write + ";\n" + insert + ";\n"
 
 
 def pending_stories(store):

@@ -96,6 +96,42 @@ class EventsD1(unittest.TestCase):
         self.assertEqual(stats["events"]["inserted"], 1)
         self.assertEqual(stats["event_redirects"]["inserted"], 0)
 
+    def test_real_events_migrate_without_loss(self):
+        d1_store.import_root(self.store, ROOT, AT)
+        rows = {r["id"]: r for r in self.store.query("SELECT id, review_status FROM events")}
+        data = json.load(open(os.path.join(ROOT, "data", "events.json"), encoding="utf-8"))["events"]
+        archive = json.load(open(os.path.join(ROOT, "archive", "events.json"), encoding="utf-8"))["events"]
+        self.assertEqual({e["id"] for e in data + archive} - set(rows), set())
+        for e in archive:
+            if e.get("status") == "published":
+                self.assertEqual(rows[e["id"]]["review_status"], "approved", e["id"])
+
+    def test_add_and_update_event_without_git(self):
+        r = self.root([ev("dddddddddddd", "D")])
+        d1_store.import_root(self.store, r, AT)
+        fields = {"title": "Manual", "start": "2026-11-02T18:00:00+01:00", "place": "Vingtor",
+                  "organiser": "KÅKÅ", "url": "https://example.org/m", "country": "NO"}
+        plan = d1_store.plan_event_edit(None, fields, "Ed", AT, approve=True)
+        d1_store.apply_event_edit(self.store, plan, "Ed", AT)
+        row = d1_store.one(self.store, "SELECT * FROM events WHERE id = ?", (plan["id"],))
+        self.assertEqual((row["review_status"], row["origin"]), ("approved", "manual"))
+        upd = d1_store.plan_event_edit(row, {"end": "2026-11-02T19:00:00+01:00"}, "Ed", AT)
+        d1_store.apply_event_edit(self.store, upd, "Ed", AT)
+        row = d1_store.one(self.store, "SELECT * FROM events WHERE id = ?", (plan["id"],))
+        self.assertEqual((row["review_status"], row["end_at"]), ("approved", "2026-11-02T19:00:00+01:00"))
+        # an edit in D1 survives a re-import of the older git snapshot, and restore brings it back
+        d1_store.apply_event_edit(self.store, d1_store.plan_event_edit(
+            d1_store.one(self.store, "SELECT * FROM events WHERE id = 'dddddddddddd'"), {"title": "D edited"}, "Ed", AT), "Ed", AT)
+        d1_store.import_root(self.store, r, AT)
+        self.assertEqual(json.loads(d1_store.one(self.store, "SELECT payload FROM events WHERE id = 'dddddddddddd'")["payload"])["title"], "D edited")
+        d1_store.restore_root(self.store, r)
+        got = {e["id"]: e for e in json.load(open(os.path.join(r, "data", "events.json")))["events"]}
+        self.assertEqual(got["dddddddddddd"]["title"], "D edited")
+        self.assertIn(plan["id"], got)
+        sql = d1_store.event_edit_sql(d1_store.plan_event_edit(None, dict(fields, title="Other"), "Ed", AT), "Ed")
+        self.assertTrue(sql.startswith("INSERT INTO events"))
+        self.store.executescript(sql)
+
 
 if __name__ == "__main__":
     unittest.main()
