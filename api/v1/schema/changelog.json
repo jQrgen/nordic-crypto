@@ -1,8 +1,16 @@
 {
  "schema_version": "2026-10-17",
- "commit": "f8e61ec",
- "committed_at": "2026-10-17T15:40:08+02:00",
+ "commit": "0833960",
+ "committed_at": "2026-10-17T15:54:18+02:00",
  "entries": [
+  {
+   "sha": "0833960f396bc7bbea0d286a461040d373b9bf33",
+   "short": "0833960",
+   "committed_at": "2026-10-17T15:54:18+02:00",
+   "date": "2026-10-17",
+   "subject": "Add /podcasts/ page (#174)",
+   "url": "https://github.com/nordic-crypto-org/nordic-crypto/commit/0833960f396bc7bbea0d286a461040d373b9bf33"
+  },
   {
    "sha": "f8e61ec0201e12c1a8c930ee74f1a08075551e51",
    "short": "f8e61ec",

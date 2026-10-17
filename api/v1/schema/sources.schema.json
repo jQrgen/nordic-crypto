@@ -170,6 +170,13 @@
       true
      ]
     },
+    "podcast": {
+     "type": "boolean",
+     "description": "True for a podcast feed: listed on /podcasts/ and skipped by the news fetch.",
+     "examples": [
+      true
+     ]
+    },
     "enabled": {
      "type": "boolean",
      "description": "False when the feed is blocked, duplicated or not worth reading.",

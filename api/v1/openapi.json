@@ -624,6 +624,24 @@
     }
    }
   },
+  "/api/v1/podcasts.json": {
+   "get": {
+    "operationId": "api_v1_podcasts",
+    "summary": "Nordic podcasts on bitcoin and crypto, active first. Metadata and links only; audio is never hosted. flags are neutral labels for ownership, sponsorship or affiliate links. episodes are the latest five (title, date, link).",
+    "responses": {
+     "200": {
+      "description": "Nordic podcasts on bitcoin and crypto, active first. Metadata and links only; audio is never hosted. flags are neutral labels for ownership, sponsorship or affiliate links. episodes are the latest five (title, date, link).",
+      "content": {
+       "application/json": {
+        "schema": {
+         "$ref": "#/components/schemas/PodcastList"
+        }
+       }
+      }
+     }
+    }
+   }
+  },
   "/api/v1/developers.json": {
    "get": {
     "operationId": "api_v1_developers",
@@ -3280,6 +3298,103 @@
      }
     },
     "description": "BookList"
+   },
+   "Podcast": {
+    "type": "object",
+    "required": [
+     "id",
+     "name",
+     "country",
+     "language",
+     "feed",
+     "site",
+     "flags",
+     "active",
+     "episodes"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "country": {
+      "type": "string"
+     },
+     "language": {
+      "type": "string"
+     },
+     "feed": {
+      "type": "string"
+     },
+     "site": {
+      "type": "string"
+     },
+     "added_at": {
+      "type": "string"
+     },
+     "flags": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "active": {
+      "type": "boolean"
+     },
+     "episodes": {
+      "type": "array",
+      "items": {
+       "type": "object",
+       "properties": {
+        "title": {
+         "type": "string"
+        },
+        "date": {
+         "type": "string"
+        },
+        "link": {
+         "type": "string"
+        }
+       }
+      }
+     },
+     "html_url": {
+      "type": "string"
+     }
+    }
+   },
+   "PodcastList": {
+    "type": "object",
+    "properties": {
+     "api_version": {
+      "type": "string"
+     },
+     "name": {
+      "type": "string"
+     },
+     "generated_at": {
+      "type": "string"
+     },
+     "preview": {
+      "type": "boolean"
+     },
+     "updated": {
+      "type": "string",
+      "nullable": true
+     },
+     "count": {
+      "type": "integer"
+     },
+     "podcasts": {
+      "type": "array",
+      "items": {
+       "$ref": "#/components/schemas/Podcast"
+      }
+     }
+    },
+    "description": "PodcastList"
    },
    "Developer": {
     "type": "object",

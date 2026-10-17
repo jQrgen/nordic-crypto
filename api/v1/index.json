@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-17T14:26:43+00:00",
+ "generated_at": "2026-10-17T14:33:33+00:00",
  "preview": false,
  "title": "Nordic Crypto data API",
  "sign_off": "The Nordic Crypto team",
@@ -54,6 +54,7 @@
    "research": 3
   },
   "books": 25,
+  "podcasts": 25,
   "developers": 0,
   "org_entities": 404,
   "org_relations": 15,
@@ -299,6 +300,15 @@
    "url_custom_domain": "https://nordiccrypto.no/api/v1/books.json",
    "summary": "Published books on bitcoin, crypto and blockchain by Nordic authors or about the Nordic countries. title is the original title. authors are as printed; author_role is \"editors\" for an edited volume. language is a code (nn, nb, sv, da, fi, en). source is the library catalogue or publisher page where the row was checked. about is our one-line description in English. No cover images.",
    "schema": "BookList"
+  },
+  {
+   "id": "api-v1-podcasts",
+   "method": "GET",
+   "path": "/api/v1/podcasts.json",
+   "url": "https://nordiccrypto.no/api/v1/podcasts.json",
+   "url_custom_domain": "https://nordiccrypto.no/api/v1/podcasts.json",
+   "summary": "Nordic podcasts on bitcoin and crypto, active first. Metadata and links only; audio is never hosted. flags are neutral labels for ownership, sponsorship or affiliate links. episodes are the latest five (title, date, link).",
+   "schema": "PodcastList"
   },
   {
    "id": "api-v1-developers",

@@ -1,0 +1,982 @@
+{
+ "api_version": "1",
+ "name": "Nordic Crypto",
+ "generated_at": "2026-10-17T14:33:33+00:00",
+ "preview": false,
+ "updated": "2026-10-16T15:50:00+00:00",
+ "count": 25,
+ "podcasts": [
+  {
+   "id": "allt-om-bitcoin",
+   "name": "Allt om Bitcoin",
+   "country": "SE",
+   "language": "sv",
+   "feed": "https://anchor.fm/s/b16e47e8/podcast/rss",
+   "site": "https://alltombitcoin.se",
+   "flags": [],
+   "active": true,
+   "episodes": [
+    {
+     "title": "#32 Bitcoins ketchupeffekt",
+     "date": "2026-10-14",
+     "link": "https://podcasters.spotify.com/pod/show/alltombitcoin/episodes/32-Bitcoins-ketchupeffekt-e3qgvnf"
+    },
+    {
+     "title": "#31 World War III vs Bitcoin",
+     "date": "2026-03-28",
+     "link": "https://podcasters.spotify.com/pod/show/alltombitcoin/episodes/31-World-War-III-vs-Bitcoin-e3h3e0u"
+    },
+    {
+     "title": "#30 AI och Fiatsystemets Fall",
+     "date": "2025-10-04",
+     "link": "https://podcasters.spotify.com/pod/show/alltombitcoin/episodes/30-AI-och-Fiatsystemets-Fall-e3938f9"
+    },
+    {
+     "title": "#29 Myterna om Bitcoin",
+     "date": "2025-06-14",
+     "link": "https://podcasters.spotify.com/pod/show/alltombitcoin/episodes/29-Myterna-om-Bitcoin-e348de9"
+    },
+    {
+     "title": "#28 Trumps tariffer",
+     "date": "2025-04-22",
+     "link": "https://podcasters.spotify.com/pod/show/alltombitcoin/episodes/28-Trumps-tariffer-e31s5nf"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#allt-om-bitcoin"
+  },
+  {
+   "id": "en-og-tyve-tanker",
+   "name": "En og tyve tanker / Twenty One Thoughts",
+   "country": "NO",
+   "language": "nb",
+   "feed": "https://anchor.fm/s/e5a9acdc/podcast/rss",
+   "site": "https://podcasts.apple.com/se/podcast/en-og-tyve-tanker-twenty-one-thoughts/id1697054793",
+   "flags": [],
+   "active": true,
+   "episodes": [
+    {
+     "title": "#76 HÅKON REISVANG - Når samfunnet styres av sosiopater.",
+     "date": "2026-10-14",
+     "link": "https://podcasters.spotify.com/pod/show/andreas-harding2/episodes/76-HKON-REISVANG---Nr-samfunnet-styres-av-sosiopater-e3qh267"
+    },
+    {
+     "title": "#75 MAX HILLEBRAND - The unseen cost of fiat.",
+     "date": "2026-09-28",
+     "link": "https://podcasters.spotify.com/pod/show/andreas-harding2/episodes/75-MAX-HILLEBRAND---The-unseen-cost-of-fiat-e3ph9qh"
+    },
+    {
+     "title": "#74 GREGARD MIKKELBORG - Kommende generasjoner kan bare drømme om å ha råd til egen bolig.",
+     "date": "2026-09-16",
+     "link": "https://podcasters.spotify.com/pod/show/andreas-harding2/episodes/74-GREGARD-MIKKELBORG---Kommende-generasjoner-kan-bare-drmme-om--ha-rd-til-egen-bolig-e3ov0jg"
+    },
+    {
+     "title": "#73 MARTIN BECH HOLTE - Fiatpenger er et generasjonspyramidespill som vil kollapse.",
+     "date": "2026-08-27",
+     "link": "https://podcasters.spotify.com/pod/show/andreas-harding2/episodes/73-MARTIN-BECH-HOLTE---Fiatpenger-er-et-generasjonspyramidespill-som-vil-kollapse-e3nvf0t"
+    },
+    {
+     "title": "#72 BOB BURNETT - A Norwegian bitcoin mining ban could be dangerous.",
+     "date": "2026-08-18",
+     "link": "https://podcasters.spotify.com/pod/show/andreas-harding2/episodes/72-BOB-BURNETT---A-Norwegian-bitcoin-mining-ban-could-be-dangerous-e3nj345"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#en-og-tyve-tanker"
+  },
+  {
+   "id": "firi-ugens-kryptosnak",
+   "name": "Firi – Ugens Kryptosnak",
+   "country": "DK",
+   "language": "da",
+   "feed": "https://anchor.fm/s/e28ae304/podcast/rss",
+   "site": "https://firi.com/dk",
+   "flags": [
+    "exchange-owned"
+   ],
+   "active": true,
+   "episodes": [
+    {
+     "title": "Hvordan beskattes tokeniserede aktier?",
+     "date": "2026-10-14",
+     "link": "https://podcasters.spotify.com/pod/show/firi/episodes/Hvordan-beskattes-tokeniserede-aktier-e3qfvb9"
+    },
+    {
+     "title": "Tokeniserede aktiver vokser",
+     "date": "2026-10-09",
+     "link": "https://podcasters.spotify.com/pod/show/firi/episodes/Tokeniserede-aktiver-vokser-e3q7sqn"
+    },
+    {
+     "title": "Ingen stablecoin uden en kryptovaluta",
+     "date": "2026-10-01",
+     "link": "https://podcasters.spotify.com/pod/show/firi/episodes/Ingen-stablecoin-uden-en-kryptovaluta-e3pn496"
+    },
+    {
+     "title": "Nu snakker bankerne om krypto og AI",
+     "date": "2026-09-24",
+     "link": "https://podcasters.spotify.com/pod/show/firi/episodes/Nu-snakker-bankerne-om-krypto-og-AI-e3pb8bo"
+    },
+    {
+     "title": "CLARITY nedstemt, men krypto kører videre",
+     "date": "2026-09-18",
+     "link": "https://podcasters.spotify.com/pod/show/firi/episodes/CLARITY-nedstemt--men-krypto-krer-videre-e3p1s86"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#firi-ugens-kryptosnak"
+  },
+  {
+   "id": "shop21",
+   "name": "SHOP21.DK – Bitcoin • Samfund • Frihed",
+   "country": "DK",
+   "language": "da",
+   "feed": "https://shop21.dk/feed/podcast",
+   "site": "https://shop21.dk/podcast",
+   "flags": [
+    "shop-owned"
+   ],
+   "active": true,
+   "episodes": [
+    {
+     "title": "Lovlighed er ikke moral – med Lars Andersen #047",
+     "date": "2026-10-14",
+     "link": "https://shop21.dk/podcast-lovlighed-er-ikke-moral/"
+    },
+    {
+     "title": "Argumenter for demokrati – med Uffe Merrild #046",
+     "date": "2026-08-26",
+     "link": "https://shop21.dk/podcast-argumenter-for-demokrati/"
+    },
+    {
+     "title": "ChatControl er overvågning af dine private beskeder – med Claus Due #045",
+     "date": "2026-08-11",
+     "link": "https://shop21.dk/podcast-chatcontrol/"
+    },
+    {
+     "title": "Godt Bitcoin-skatteudspil fra LA – med Jacob fra DBPI #044",
+     "date": "2026-06-02",
+     "link": "https://shop21.dk/podcast-skatteudspil-fra-la/"
+    },
+    {
+     "title": "7 mill. i skattesmæk uden overskud – med Morten Green Hermansen #043",
+     "date": "2026-05-28",
+     "link": "https://shop21.dk/podcast-skats-slave/"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#shop21"
+  },
+  {
+   "id": "bitcoinpodden",
+   "name": "Bitcoinpodden",
+   "country": "SE",
+   "language": "sv",
+   "feed": "https://anchor.fm/s/3cb12d94/podcast/rss",
+   "site": "https://news.trijo.co",
+   "flags": [
+    "exchange-sponsored"
+   ],
+   "active": true,
+   "episodes": [
+    {
+     "title": "133. Bitcoin och ett längre liv – med Ioni Appelberg",
+     "date": "2026-10-09",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoinpodden/episodes/133--Bitcoin-och-ett-lngre-liv--med-Ioni-Appelberg-e3q5f7t"
+    },
+    {
+     "title": "132. H100 - Nordens största Bitcoin-treasury bolag",
+     "date": "2026-09-25",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoinpodden/episodes/132--H100---Nordens-strsta-Bitcoin-treasury-bolag-e3pco50"
+    },
+    {
+     "title": "131. Vad är pengar?",
+     "date": "2026-09-11",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoinpodden/episodes/131--Vad-r-pengar-e3olgvq"
+    },
+    {
+     "title": "130. KDU: \"Vi vill utreda en svensk bitcoinreserv\"",
+     "date": "2026-09-04",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoinpodden/episodes/130--KDU-Vi-vill-utreda-en-svensk-bitcoinreserv-e3obbih"
+    },
+    {
+     "title": "129. Är Trump ett problem för Bitcoin?",
+     "date": "2026-08-28",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoinpodden/episodes/129--r-Trump-ett-problem-fr-Bitcoin-e3nvdnm"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#bitcoinpodden"
+  },
+  {
+   "id": "bpi",
+   "name": "Bitcoinpolitisk institutt Norge",
+   "country": "NO",
+   "language": "no",
+   "feed": "https://anchor.fm/s/109ebeac4/podcast/rss",
+   "site": "https://bpinorge.no",
+   "flags": [
+    "advocacy-group"
+   ],
+   "active": true,
+   "episodes": [
+    {
+     "title": "Norway Wants to Ban Bitcoin Mining. The Miners Already Left | Rachel Geyer, EBEA",
+     "date": "2026-09-17",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Norway-Wants-to-Ban-Bitcoin-Mining--The-Miners-Already-Left--Rachel-Geyer--EBEA-e3p0bb8"
+    },
+    {
+     "title": "Er bitcoin vinnaren av krigen mot Iran? | Arendalsuka 2026",
+     "date": "2026-09-03",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Er-bitcoin-vinnaren-av-krigen-mot-Iran---Arendalsuka-2026-e3o9q3j"
+    },
+    {
+     "title": "Kan bitcoin bli penger i Palestina?",
+     "date": "2026-08-18",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Kan-bitcoin-bli-penger-i-Palestina-e3niksq"
+    },
+    {
+     "title": "Kan Bitcoin-utvinning bli en samfunnsnyttig tjeneste? – Anders Lie Brenna",
+     "date": "2026-07-14",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Kan-Bitcoin-utvinning-bli-en-samfunnsnyttig-tjeneste---Anders-Lie-Brenna-e3m2gst"
+    },
+    {
+     "title": "Pengetrykking og inflasjon Korleis påverkar pengesystemet vårt inflasjonen i riket? I kva grad er bitcoin eit \"alternativ\"?",
+     "date": "2026-06-19",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoinsnakk9/episodes/Pengetrykking-og-inflasjon-Korleis-pverkar-pengesystemet-vrt-inflasjonen-i-riket--I-kva-grad-er-bitcoin-eit-alternativ-e3l0c2t"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#bpi"
+  },
+  {
+   "id": "bitcoinsnakk",
+   "name": "Bitcoinsnakk",
+   "country": "NO",
+   "language": "no",
+   "feed": "https://anchor.fm/s/4a747814/podcast/rss",
+   "site": "https://www.bitcoinsnakk.no",
+   "flags": [],
+   "active": true,
+   "episodes": [
+    {
+     "title": "Nyvalgt styreleder i BPI - Håkon Sandbakken",
+     "date": "2026-08-20",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoinsnakk/episodes/Nyvalgt-styreleder-i-BPI---Hkon-Sandbakken-e3nl6mu"
+    },
+    {
+     "title": "Cold card-gate med Torkel Rogstad",
+     "date": "2026-08-05",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoinsnakk/episodes/Cold-card-gate-med-Torkel-Rogstad-e3n0tp8"
+    },
+    {
+     "title": "K33s Vetle Lunde: Oppdatert syn på Bitcoin i 2026",
+     "date": "2026-06-14",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoinsnakk/episodes/K33s-Vetle-Lunde-Oppdatert-syn-p-Bitcoin-i-2026-e3kntb8"
+    },
+    {
+     "title": "Er bitcoin kvantesikker? Torbjørn Bull Jensen og Peder Østbye (Norges Bank) diskuterer",
+     "date": "2026-03-28",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoinsnakk/episodes/Er-bitcoin-kvantesikker--Torbjrn-Bull-Jensen-og-Peder-stbye-Norges-Bank-diskuterer-e3h0f8j"
+    },
+    {
+     "title": "Bjørn Bjerke / Mr. Bitcoin – forteller sin historie del 2",
+     "date": "2026-02-14",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoinsnakk/episodes/Bjrn-Bjerke--Mr--Bitcoin--forteller-sin-historie-del-2-e3ebsu6"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#bitcoinsnakk"
+  },
+  {
+   "id": "kryptoskeptikerne",
+   "name": "Kryptoskeptikerne",
+   "country": "DK",
+   "language": "da",
+   "feed": "https://rss.buzzsprout.com/2456311.rss",
+   "site": "https://www.buzzsprout.com/2456311",
+   "flags": [
+    "advertiser-paid"
+   ],
+   "active": false,
+   "episodes": [
+    {
+     "title": "Episode 5: Svindel, sensation og skepsis: Har kryptovaluta selv skabt sin dårlige presse?",
+     "date": "2026-01-30",
+     "link": "https://www.buzzsprout.com/2456311"
+    },
+    {
+     "title": "Episode 4: Er krypto bare digitale fodboldkort – eller den næste andelsbevægelse?",
+     "date": "2026-01-30",
+     "link": "https://www.buzzsprout.com/2456311"
+    },
+    {
+     "title": "Episode 3: Er krypto forsat det vilde skattemæssige vesten?",
+     "date": "2026-01-30",
+     "link": "https://www.buzzsprout.com/2456311"
+    },
+    {
+     "title": "Episode 2: Ingen røg uden kryptosvindel?",
+     "date": "2026-01-30",
+     "link": "https://www.buzzsprout.com/2456311"
+    },
+    {
+     "title": "Episode 1: Er krypto en guldmine eller en sæbeboble?",
+     "date": "2026-01-30",
+     "link": "https://www.buzzsprout.com/2456311"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#kryptoskeptikerne"
+  },
+  {
+   "id": "okonomi-og-bitcoin",
+   "name": "Økonomi og Bitcoin – Enkelt Forklart",
+   "country": "NO",
+   "language": "no",
+   "feed": "https://anchor.fm/s/fc8dc21c/podcast/rss",
+   "site": "https://podcasters.spotify.com/pod/show/ole-emil-augland",
+   "flags": [],
+   "active": false,
+   "episodes": [
+    {
+     "title": "#15 Hvorfor konsumprisindeksen er et dårlig mål på inflasjon",
+     "date": "2026-01-23",
+     "link": "https://podcasters.spotify.com/pod/show/ole-emil-augland/episodes/15-Hvorfor-konsumprisindeksen-er-et-drlig-ml-p-inflasjon-e3e2lf6"
+    },
+    {
+     "title": "#14 Nei, bitcoin er ikke en boble (Vanlig kritikk 2)",
+     "date": "2025-11-30",
+     "link": "https://podcasters.spotify.com/pod/show/ole-emil-augland/episodes/14-Nei--bitcoin-er-ikke-en-boble-Vanlig-kritikk-2-e3bkucq"
+    },
+    {
+     "title": "#13 Bitcoin, energibruk og energi",
+     "date": "2025-11-16",
+     "link": "https://podcasters.spotify.com/pod/show/ole-emil-augland/episodes/13-Bitcoin--energibruk-og-energi-e3b0uu1"
+    },
+    {
+     "title": "#12 Nei, bitcoin er ikke for kriminelle (Vanlig kritikk 1)",
+     "date": "2025-10-05",
+     "link": "https://podcasters.spotify.com/pod/show/ole-emil-augland/episodes/12-Nei--bitcoin-er-ikke-for-kriminelle-Vanlig-kritikk-1-e3936h5"
+    },
+    {
+     "title": "#11 6 problemer skapt eller forverret av fiat-pengesystemet",
+     "date": "2025-09-06",
+     "link": "https://podcasters.spotify.com/pod/show/ole-emil-augland/episodes/11-6-problemer-skapt-eller-forverret-av-fiat-pengesystemet-e37re9p"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#okonomi-og-bitcoin"
+  },
+  {
+   "id": "kryptovennerne",
+   "name": "KryptoVennerne",
+   "country": "DK",
+   "language": "da",
+   "feed": "https://rss.buzzsprout.com/2406333.rss",
+   "site": "https://www.buzzsprout.com/2406333",
+   "flags": [],
+   "active": false,
+   "episodes": [
+    {
+     "title": "KryptoVennerne på pause",
+     "date": "2026-01-22",
+     "link": "https://www.buzzsprout.com/2406333"
+    },
+    {
+     "title": "Forstå Konsensus-mekanismer",
+     "date": "2026-01-15",
+     "link": "https://www.buzzsprout.com/2406333"
+    },
+    {
+     "title": "Jagten på Satoshi - Del 2",
+     "date": "2026-01-08",
+     "link": "https://www.buzzsprout.com/2406333"
+    },
+    {
+     "title": "Coin Dive: ZCash (ZEC)",
+     "date": "2026-01-01",
+     "link": "https://www.buzzsprout.com/2406333"
+    },
+    {
+     "title": "Markedsopdatering: Japan Carry Trade",
+     "date": "2025-12-25",
+     "link": "https://www.buzzsprout.com/2406333"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#kryptovennerne"
+  },
+  {
+   "id": "kjott-og-krypto",
+   "name": "Kjøtt & Krypto",
+   "country": "NO",
+   "language": "nb",
+   "feed": "https://feeds.acast.com/public/shows/69495acbf756711739c85d76",
+   "site": "https://shows.acast.com/kjtt-krypto",
+   "flags": [],
+   "active": false,
+   "episodes": [
+    {
+     "title": "Velkommen til garasjen!",
+     "date": "2025-12-22",
+     "link": "https://shows.acast.com/kjtt-krypto/episodes/velkommen-til-garasjen"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#kjott-og-krypto"
+  },
+  {
+   "id": "bitcoin-byltingin",
+   "name": "Bitcoin Byltingin",
+   "country": "IS",
+   "language": "is",
+   "feed": "https://feeds.soundcloud.com/users/soundcloud:users:987611209/sounds.rss",
+   "site": "https://soundcloud.com/user-813150650",
+   "flags": [],
+   "active": false,
+   "episodes": [
+    {
+     "title": "#49 - Endurkoman",
+     "date": "2025-10-26",
+     "link": "https://soundcloud.com/user-813150650/49-endurkoman"
+    },
+    {
+     "title": "#48 - Halldór Armand - Mikilvægt Rusl",
+     "date": "2024-11-26",
+     "link": "https://soundcloud.com/user-813150650/48-halldor-armand-mikilvaegt-rusl"
+    },
+    {
+     "title": "#47 - Vagn Margeir & Eirikur Magnússon - 2% talan og frumsendur",
+     "date": "2024-11-09",
+     "link": "https://soundcloud.com/user-813150650/47-vagn-margeir-eirikur"
+    },
+    {
+     "title": "#46 - Jeff Booth - Jedinn snýr aftur",
+     "date": "2024-09-16",
+     "link": "https://soundcloud.com/user-813150650/46-jeff-booth-jedinn-snyr-aftur"
+    },
+    {
+     "title": "#45 - Arkinox - Netheimar og vinnusönnun.",
+     "date": "2024-08-25",
+     "link": "https://soundcloud.com/user-813150650/45-arkinox-netheimar-og-vinnusonnun"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#bitcoin-byltingin"
+  },
+  {
+   "id": "bitcoin-lady",
+   "name": "Bitcoin Lady",
+   "country": "FI",
+   "language": "fi",
+   "feed": "https://anchor.fm/s/e7a713e4/podcast/rss",
+   "site": "https://bitcoinlady.fi",
+   "flags": [
+    "affiliate-links"
+   ],
+   "active": false,
+   "episodes": [
+    {
+     "title": "#37 Saylor-sarja, osa 1 | Raha, teknologia ja selviytyminen - Luolamiehestä huippupedoksi",
+     "date": "2025-08-14",
+     "link": "https://podcasters.spotify.com/pod/show/1112307475/episodes/37-Saylor-sarja--osa-1--Raha--teknologia-ja-selviytyminen---Luolamiehest-huippupedoksi-e36ffqh"
+    },
+    {
+     "title": "#36 BTCHEL pre-event fiilikset",
+     "date": "2025-08-06",
+     "link": "https://podcasters.spotify.com/pod/show/1112307475/episodes/36-BTCHEL-pre-event-fiilikset-e36hfoe"
+    },
+    {
+     "title": "#35 Rikkinäinen raha, rikkinäinen arki | Miksi bitcoin on myös äitien asia?",
+     "date": "2025-07-31",
+     "link": "https://podcasters.spotify.com/pod/show/1112307475/episodes/35-Rikkininen-raha--rikkininen-arki--Miksi-bitcoin-on-mys-itien-asia-e36331c"
+    },
+    {
+     "title": "#34 Rikkinäinen johto ja rikkinäinen talous – miksi laatu katoaa?",
+     "date": "2025-07-24",
+     "link": "https://podcasters.spotify.com/pod/show/1112307475/episodes/34-Rikkininen-johto-ja-rikkininen-talous--miksi-laatu-katoaa-e35dnn2"
+    },
+    {
+     "title": "#33 Voiko bitcoin olla avain vihreässä siirtymässä | Minisarja @sadantuhannentytto",
+     "date": "2025-07-17",
+     "link": "https://podcasters.spotify.com/pod/show/1112307475/episodes/33-Voiko-bitcoin-olla-avain-vihress-siirtymss--Minisarja-sadantuhannentytto-e35g2hl"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#bitcoin-lady"
+  },
+  {
+   "id": "kryptopodden",
+   "name": "Kryptopodden",
+   "country": "SE",
+   "language": "sv",
+   "feed": "https://anchor.fm/s/f29c1268/podcast/rss",
+   "site": "https://podcasters.spotify.com/pod/show/kryptopodden",
+   "flags": [
+    "exchange-partner"
+   ],
+   "active": false,
+   "episodes": [
+    {
+     "title": "#34 Sverige måste vakna",
+     "date": "2025-06-20",
+     "link": "https://podcasters.spotify.com/pod/show/kryptopodden/episodes/34-Sverige-mste-vakna-e34f51m"
+    },
+    {
+     "title": "#33 The great fallout",
+     "date": "2025-06-13",
+     "link": "https://podcasters.spotify.com/pod/show/kryptopodden/episodes/33-The-great-fallout-e345mq0"
+    },
+    {
+     "title": "#32 Cykelns stora trend",
+     "date": "2025-06-06",
+     "link": "https://podcasters.spotify.com/pod/show/kryptopodden/episodes/32-Cykelns-stora-trend-e33s3c2"
+    },
+    {
+     "title": "#31 Proffsinvesteraren",
+     "date": "2025-05-30",
+     "link": "https://podcasters.spotify.com/pod/show/kryptopodden/episodes/31-Proffsinvesteraren-e33fg2h"
+    },
+    {
+     "title": "#29 Sveriges Strategy",
+     "date": "2025-05-16",
+     "link": "https://podcasters.spotify.com/pod/show/kryptopodden/episodes/29-Sveriges-Strategy-e32smo2"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#kryptopodden"
+  },
+  {
+   "id": "kryptopodi",
+   "name": "Kryptopodi (Coinmotion)",
+   "country": "FI",
+   "language": "fi",
+   "feed": "https://anchor.fm/s/5bccdea8/podcast/rss",
+   "site": "https://coinmotion.com/fi/",
+   "flags": [
+    "exchange-owned"
+   ],
+   "active": false,
+   "episodes": [
+    {
+     "title": "Ethereum spot ETF-hakemusten hyväksyntä ja Mt. Goxin varojen palautukset lähestyvät | Kryptouutiset (viikko 22)",
+     "date": "2024-05-31",
+     "link": "https://podcasters.spotify.com/pod/show/coinmotion/episodes/Ethereum-spot-ETF-hakemusten-hyvksynt-ja-Mt--Goxin-varojen-palautukset-lhestyvt--Kryptouutiset-viikko-22-e2kba6j"
+    },
+    {
+     "title": "Bitcoin: 300 tuntia tietoa 20 minuutissa | Thomas Brand Sijoitusmessut 2024",
+     "date": "2024-05-30",
+     "link": "https://podcasters.spotify.com/pod/show/coinmotion/episodes/Bitcoin-300-tuntia-tietoa-20-minuutissa--Thomas-Brand-Sijoitusmessut-2024-e2jvsl5"
+    },
+    {
+     "title": "Yllätyspäätös SEC:ltä: Ethereum ETF:t hyväksytään | Kryptouutiset (viikko 21)",
+     "date": "2024-05-24",
+     "link": "https://podcasters.spotify.com/pod/show/coinmotion/episodes/Ylltyspts-SEClt-Ethereum-ETFt-hyvksytn--Kryptouutiset-viikko-21-e2k2bek"
+    },
+    {
+     "title": "Euroopan Unionin MiCa-asetus ja vaikutus kryptoalaan",
+     "date": "2024-05-23",
+     "link": "https://podcasters.spotify.com/pod/show/coinmotion/episodes/Euroopan-Unionin-MiCa-asetus-ja-vaikutus-kryptoalaan-e2jso4e"
+    },
+    {
+     "title": "Spot bitcoin ETF:iin on virrannut jo $3,5 miljardin edestä sijoituksia | Kryptouutiset (viikko 20)",
+     "date": "2024-05-17",
+     "link": "https://podcasters.spotify.com/pod/show/coinmotion/episodes/Spot-bitcoin-ETFiin-on-virrannut-jo-3-5-miljardin-edest-sijoituksia--Kryptouutiset-viikko-20-e2jpkdo"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#kryptopodi"
+  },
+  {
+   "id": "enogtyve",
+   "name": "ENOGTYVE – Dansk Bitcoin Podcast",
+   "country": "DK",
+   "language": "da",
+   "feed": "https://anchor.fm/s/eba82514/podcast/rss",
+   "site": "https://www.enogtyve.org/",
+   "flags": [],
+   "active": false,
+   "episodes": [
+    {
+     "title": "21 Lektioner | LAD OS SNAKKE OM BITCOIN #8",
+     "date": "2024-05-23",
+     "link": "https://podcasters.spotify.com/pod/show/enogtyve/episodes/21-Lektioner--LAD-OS-SNAKKE-OM-BITCOIN-8-e2k1hua"
+    },
+    {
+     "title": "Bitcoin Konferencer | LAD OS SNAKKE OM BITCOIN #7",
+     "date": "2024-03-28",
+     "link": "https://podcasters.spotify.com/pod/show/enogtyve/episodes/Bitcoin-Konferencer--LAD-OS-SNAKKE-OM-BITCOIN-7-e2hm7lu"
+    },
+    {
+     "title": "Et Begivenhedsrigt 2023 | LAD OS SNAKKE OM BITCOIN #6",
+     "date": "2023-12-31",
+     "link": "https://podcasters.spotify.com/pod/show/enogtyve/episodes/Et-Begivenhedsrigt-2023--LAD-OS-SNAKKE-OM-BITCOIN-6-e2drjk9"
+    },
+    {
+     "title": "Fra Byttehandel til Fiatpenge | LAD OS SNAKKE OM BITCOIN #5",
+     "date": "2023-11-13",
+     "link": "https://podcasters.spotify.com/pod/show/enogtyve/episodes/Fra-Byttehandel-til-Fiatpenge--LAD-OS-SNAKKE-OM-BITCOIN-5-e2bsps2"
+    },
+    {
+     "title": "Forskellen mellem Bitcoin & kryptovaluta | LAD OS SNAKKE OM BITCOIN #4",
+     "date": "2023-11-06",
+     "link": "https://podcasters.spotify.com/pod/show/enogtyve/episodes/Forskellen-mellem-Bitcoin--kryptovaluta--LAD-OS-SNAKKE-OM-BITCOIN-4-e2bhs68"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#enogtyve"
+  },
+  {
+   "id": "bitcoin-for-breakfast",
+   "name": "Bitcoin for Breakfast",
+   "country": "NO",
+   "language": "en",
+   "feed": "https://anchor.fm/s/aba262f4/podcast/rss",
+   "site": "https://www.kongerik.et/",
+   "flags": [],
+   "active": false,
+   "episodes": [
+    {
+     "title": "BfB #21: Bitcoin ETFs approved, what now? (Block 825415)",
+     "date": "2024-01-12",
+     "link": "https://podcasters.spotify.com/pod/show/northernlightning/episodes/BfB-21-Bitcoin-ETFs-approved--what-now--Block-825415-e2ebjh3"
+    },
+    {
+     "title": "BfB #20: Bitcoin's ETF debacle (Block 825106)",
+     "date": "2024-01-10",
+     "link": "https://podcasters.spotify.com/pod/show/northernlightning/episodes/BfB-20-Bitcoins-ETF-debacle-Block-825106-e2e8c1l"
+    },
+    {
+     "title": "#Bitcoin for Breakfast: Critical questions from a tradfi advisor (Block 822870)",
+     "date": "2023-12-26",
+     "link": "https://podcasters.spotify.com/pod/show/northernlightning/episodes/Bitcoin-for-Breakfast-Critical-questions-from-a-tradfi-advisor-Block-822870-e2dltk9"
+    },
+    {
+     "title": "#Bitcoin for Breakfast: Norwegian bitcoiners (Block 821264)",
+     "date": "2023-12-15",
+     "link": "https://podcasters.spotify.com/pod/show/northernlightning/episodes/Bitcoin-for-Breakfast-Norwegian-bitcoiners-Block-821264-e2d9e99"
+    },
+    {
+     "title": "#Bitcoin for Breakfast: Getting started with Bitcoin quickly (Block 819977)",
+     "date": "2023-12-06",
+     "link": "https://podcasters.spotify.com/pod/show/northernlightning/episodes/Bitcoin-for-Breakfast-Getting-started-with-Bitcoin-quickly-Block-819977-e2csqba"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#bitcoin-for-breakfast"
+  },
+  {
+   "id": "balki",
+   "name": "Bálki",
+   "country": "IS",
+   "language": "is",
+   "feed": "https://media.rss.com/balki/feed.xml",
+   "site": "https://www.balki.is/",
+   "flags": [],
+   "active": false,
+   "episodes": [
+    {
+     "title": "Liminal Market: Stocks and ETFs tokenized on blockchain - Ingi Gauti Ragnarsson",
+     "date": "2023-07-03",
+     "link": "https://rss.com/podcasts/balki/1022925"
+    },
+    {
+     "title": "IsMynt: Framsæknasta rafmyntakauphöll Íslands - Pétur Sigurðsson",
+     "date": "2023-05-29",
+     "link": "https://rss.com/podcasts/balki/972072"
+    },
+    {
+     "title": "Viska Digital Assets: Fyrsti íslenski rafmyntsjóðurinn - Daði Kristjánsson",
+     "date": "2023-03-26",
+     "link": "https://rss.com/podcasts/balki/880863"
+    },
+    {
+     "title": "Mintum: Úr ISK í rafmynt og aftur heim á allt öðrum hraða - Börkur I. Jónsson",
+     "date": "2023-03-12",
+     "link": "https://rss.com/podcasts/balki/861555"
+    },
+    {
+     "title": "Hvað er Bálki?",
+     "date": "2023-03-06",
+     "link": "https://rss.com/podcasts/balki/854019"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#balki"
+  },
+  {
+   "id": "kryptopia",
+   "name": "Kryptopia",
+   "country": "DK",
+   "language": "da",
+   "feed": "https://media.rss.com/kryptovaluta/feed.xml",
+   "site": "https://rss.com/podcasts/kryptovaluta",
+   "flags": [],
+   "active": false,
+   "episodes": [
+    {
+     "title": "En opdatering fra NFT-verdenen med Morten Rongaard",
+     "date": "2022-09-04",
+     "link": "https://rss.com/podcasts/kryptovaluta/605618"
+    },
+    {
+     "title": "Værtens Bedste Smalltalk",
+     "date": "2022-08-05",
+     "link": "https://rss.com/podcasts/kryptovaluta/574746"
+    },
+    {
+     "title": "Interview med Rune Christensen",
+     "date": "2022-02-05",
+     "link": "https://rss.com/podcasts/kryptovaluta/383226"
+    },
+    {
+     "title": "Interview med Dr. Merav Ozair (NYE Special)",
+     "date": "2022-01-01",
+     "link": "https://rss.com/podcasts/kryptovaluta/351349"
+    },
+    {
+     "title": "Sæsonafslutning",
+     "date": "2021-12-23",
+     "link": "https://rss.com/podcasts/kryptovaluta/347499"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#kryptopia"
+  },
+  {
+   "id": "morgendagens-krypto",
+   "name": "Morgendagens Krypto",
+   "country": "NO",
+   "language": "no",
+   "feed": "https://anchor.fm/s/9368791c/podcast/rss",
+   "site": "https://www.youtube.com/channel/UCw8UKGe7ECf9Y9AykddzOkA",
+   "flags": [
+    "altcoin-promotion"
+   ],
+   "active": false,
+   "episodes": [
+    {
+     "title": "WEF Møtet I Davos Viser Oss De Beste Kryptovalutaene / CSPR Har Gått Ned 97% Fra ATH",
+     "date": "2022-05-25",
+     "link": "https://podcasters.spotify.com/pod/show/svein-arne-volle/episodes/WEF-Mtet-I-Davos-Viser-Oss-De-Beste-Kryptovalutaene--CSPR-Har-Gtt-Ned-97-Fra-ATH-e1j2e4i"
+    },
+    {
+     "title": "Eliten Elsker XRP! Verdens Beste Investor Investerer I Bitcoin",
+     "date": "2022-05-25",
+     "link": "https://podcasters.spotify.com/pod/show/svein-arne-volle/episodes/Eliten-Elsker-XRP--Verdens-Beste-Investor-Investerer-I-Bitcoin-e1j1vf5"
+    },
+    {
+     "title": "Største Frykten I Kryptomarkedet Siden 2020",
+     "date": "2022-05-20",
+     "link": "https://podcasters.spotify.com/pod/show/svein-arne-volle/episodes/Strste-Frykten-I-Kryptomarkedet-Siden-2020-e1iqjdn"
+    },
+    {
+     "title": "Hva Skjer Med Kryptomarkedet? Hvor Langt Ned Kan Det Gå? Kryptobasis Er Gjest",
+     "date": "2022-05-13",
+     "link": "https://podcasters.spotify.com/pod/show/svein-arne-volle/episodes/Hva-Skjer-Med-Kryptomarkedet--Hvor-Langt-Ned-Kan-Det-G--Kryptobasis-Er-Gjest-e1ifno2"
+    },
+    {
+     "title": "Hvorfor Investere I Krypto? Podcast Episode Med Arko Ayobh",
+     "date": "2022-05-06",
+     "link": "https://podcasters.spotify.com/pod/show/svein-arne-volle/episodes/Hvorfor-Investere-I-Krypto--Podcast-Episode-Med-Arko-Ayobh-e1i5n54"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#morgendagens-krypto"
+  },
+  {
+   "id": "bitcoin-er-penger",
+   "name": "Bitcoin er penger",
+   "country": "NO",
+   "language": "nb",
+   "feed": "https://anchor.fm/s/53f15d58/podcast/rss",
+   "site": "https://podcasters.spotify.com/pod/show/bitcoin-er-penger",
+   "flags": [
+    "affiliate-links"
+   ],
+   "active": false,
+   "episodes": [
+    {
+     "title": "Bitcoin trenger bedre kritikere (Episode 4)",
+     "date": "2022-04-30",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoin-er-penger/episodes/Bitcoin-trenger-bedre-kritikere-Episode-4-e1hsgli"
+    },
+    {
+     "title": "Alt du trenger å vite om kryptovaluta! (episode 3)",
+     "date": "2022-03-13",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoin-er-penger/episodes/Alt-du-trenger--vite-om-kryptovaluta--episode-3-e1fgprd"
+    },
+    {
+     "title": "Bitcoin i et miljøperspektiv (episode 2)",
+     "date": "2022-02-06",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoin-er-penger/episodes/Bitcoin-i-et-miljperspektiv-episode-2-e1dvq78"
+    },
+    {
+     "title": "Hvorfor er Bitcoin bra for fattige? (Episode 1)",
+     "date": "2021-12-22",
+     "link": "https://podcasters.spotify.com/pod/show/bitcoin-er-penger/episodes/Hvorfor-er-Bitcoin-bra-for-fattige--Episode-1-e1c0v3s"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#bitcoin-er-penger"
+  },
+  {
+   "id": "bitcoin-bedraget",
+   "name": "Bitcoin-bedraget (DR P1)",
+   "country": "DK",
+   "language": "da",
+   "feed": "https://api.dr.dk/podcasts/v1/feeds/bitcoin-bedraget.xml?format=podcast",
+   "site": "https://www.dr.dk/lyd/p1/bitcoin-bedraget-3373764997000",
+   "flags": [],
+   "active": false,
+   "episodes": [
+    {
+     "title": "5:5 - Hvem er Phillip?",
+     "date": "2022-04-18",
+     "link": "https://www.dr.dk/lyd/p1/bitcoin-bedraget/bitcoin-bedraget-1/5-5-hvem-er-phillip-11802213006"
+    },
+    {
+     "title": "4:5 - Bunker hos politiet",
+     "date": "2022-04-18",
+     "link": "https://www.dr.dk/lyd/p1/bitcoin-bedraget/bitcoin-bedraget-1/4-5-bunker-hos-politiet-11802213005"
+    },
+    {
+     "title": "3:5 - Kunsten at manipulere",
+     "date": "2022-04-18",
+     "link": "https://www.dr.dk/lyd/p1/bitcoin-bedraget/bitcoin-bedraget-1/3-5-kunsten-at-manipulere-11802213004"
+    },
+    {
+     "title": "2:5 - De mange millioner",
+     "date": "2022-04-18",
+     "link": "https://www.dr.dk/lyd/p1/bitcoin-bedraget/bitcoin-bedraget-1/2-5-de-mange-millioner-11802213003"
+    },
+    {
+     "title": "1:5 - Forført af Phillip",
+     "date": "2022-04-18",
+     "link": "https://www.dr.dk/lyd/p1/bitcoin-bedraget/bitcoin-bedraget-1/1-5-forfoert-af-phillip-11802213002"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#bitcoin-bedraget"
+  },
+  {
+   "id": "mika-ihmeen-bitcoin",
+   "name": "Mikä ihmeen bitcoin",
+   "country": "FI",
+   "language": "fi",
+   "feed": "https://anchor.fm/s/591ff974/podcast/rss",
+   "site": "https://podcasters.spotify.com/pod/show/mikaihmeenbitcoin",
+   "flags": [],
+   "active": false,
+   "episodes": [
+    {
+     "title": "#30 Bitcoinaajien fyysinen turvallisuus - Tunturit",
+     "date": "2021-12-19",
+     "link": "https://podcasters.spotify.com/pod/show/mikaihmeenbitcoin/episodes/30-Bitcoinaajien-fyysinen-turvallisuus---Tunturit-e1bqcav"
+    },
+    {
+     "title": "#29 Bitcoin, kehittyvien maiden väestön turvasatama - BitcoinSampo",
+     "date": "2021-11-27",
+     "link": "https://podcasters.spotify.com/pod/show/mikaihmeenbitcoin/episodes/29-Bitcoin--kehittyvien-maiden-vestn-turvasatama---BitcoinSampo-e1armi0"
+    },
+    {
+     "title": "#28 Miksi Bitcoin - Joel Harkimo",
+     "date": "2021-11-01",
+     "link": "https://podcasters.spotify.com/pod/show/mikaihmeenbitcoin/episodes/28-Miksi-Bitcoin---Joel-Harkimo-e1987bp"
+    },
+    {
+     "title": "#27 Peliteoria - Niko ja Rafe",
+     "date": "2021-10-18",
+     "link": "https://podcasters.spotify.com/pod/show/mikaihmeenbitcoin/episodes/27-Peliteoria---Niko-ja-Rafe-e18v1up"
+    },
+    {
+     "title": "#26 Bitcoin-maksimalismi - Rautakansleri",
+     "date": "2021-10-11",
+     "link": "https://podcasters.spotify.com/pod/show/mikaihmeenbitcoin/episodes/26-Bitcoin-maksimalismi---Rautakansleri-e18kra7"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#mika-ihmeen-bitcoin"
+  },
+  {
+   "id": "konsensus",
+   "name": "Suomen Kryptovaluuttayhdistys Konsensus ry:n Podcast",
+   "country": "FI",
+   "language": "fi",
+   "feed": "https://feeds.soundcloud.com/users/soundcloud:users:430790448/sounds.rss",
+   "site": "https://soundcloud.com/user-99793346",
+   "flags": [
+    "advocacy-group"
+   ],
+   "active": false,
+   "episodes": [
+    {
+     "title": "Blockchain Afternoon #3 Introducing Konsensus",
+     "date": "2018-05-26",
+     "link": "https://soundcloud.com/user-99793346/bca3"
+    },
+    {
+     "title": "Blockchain Afternoon #4 Introducing Blockchain Forum",
+     "date": "2018-05-26",
+     "link": "https://soundcloud.com/user-99793346/bca4"
+    },
+    {
+     "title": "Blockchain Afternoon #5 Taxation of Cryptocurrencies",
+     "date": "2018-05-26",
+     "link": "https://soundcloud.com/user-99793346/bca5"
+    },
+    {
+     "title": "Blockchain Afternoon #6 Wallets and personal safety",
+     "date": "2018-05-26",
+     "link": "https://soundcloud.com/user-99793346/bca6"
+    },
+    {
+     "title": "Blockchain Afternoon #7 What's an ICO and how to approach it?",
+     "date": "2018-05-26",
+     "link": "https://soundcloud.com/user-99793346/bca7"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#konsensus"
+  },
+  {
+   "id": "kryptopraten",
+   "name": "Kryptopraten",
+   "country": "NO",
+   "language": "no",
+   "feed": "https://feeds.soundcloud.com/users/soundcloud:users:384776951/sounds.rss",
+   "site": "https://soundcloud.com/user-423758522",
+   "flags": [],
+   "active": false,
+   "episodes": [
+    {
+     "title": "Kryptopraten EP06 - Lovlighet",
+     "date": "2018-02-19",
+     "link": "https://soundcloud.com/user-423758522/kryptopraten-ep06-lovlighet"
+    },
+    {
+     "title": "Kryptopraten EP05 - Hjelpemidler",
+     "date": "2018-02-12",
+     "link": "https://soundcloud.com/user-423758522/kryptopraten-ep05-nyttige-apper-nettsider-og-uttrykk"
+    },
+    {
+     "title": "Kryptopraten EP04 - Altcoins",
+     "date": "2018-02-12",
+     "link": "https://soundcloud.com/user-423758522/kryptopraten-altcoins"
+    },
+    {
+     "title": "Kryptopraten EP03 - Transaksjoner og oppbevaring",
+     "date": "2018-01-31",
+     "link": "https://soundcloud.com/user-423758522/kryptoraten-ep03-sende-motta-og-oppbevare"
+    },
+    {
+     "title": "Kryptopraten EP02 - Handling",
+     "date": "2018-01-25",
+     "link": "https://soundcloud.com/user-423758522/kryptopraten-ep02-hvordan-handle-bitcoin"
+    }
+   ],
+   "added_at": "2026-10-16",
+   "html_url": "https://nordiccrypto.no/podcasts/#kryptopraten"
+  }
+ ]
+}
