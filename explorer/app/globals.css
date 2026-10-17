@@ -732,3 +732,17 @@ footer.foot h2 {
 .tokendoc .dochash.mismatch { color: #b3261e; }
 .tokendoc .docjson { max-height: 24rem; overflow: auto; white-space: pre-wrap; word-break: break-word; font-size: 13px; }
 .tokendoc dd, .tokendoc p { overflow-wrap: anywhere; }
+.toptokens { margin-top: 2rem; }
+.toptokens .toptoken { display: flex; align-items: center; gap: 0.5em; overflow-wrap: anywhere; }
+.toptokens .toptoken img, .toptokens .noicon { width: 24px; height: 24px; border-radius: 6px; flex: none; }
+.toptokens .noicon { background: var(--soft); }
+.toptokens button { margin-top: 0.75rem; }
+@media (max-width: 720px) {
+  .toptokens table.ledger { display: table; }
+  .toptokens table.ledger thead { display: table-header-group; }
+  .toptokens table.ledger tbody { display: table-row-group; }
+  .toptokens table.ledger tr { display: table-row; }
+  .toptokens table.ledger th, .toptokens table.ledger td { display: table-cell; width: auto; padding: 8px 4px; }
+  .toptokens table.ledger td::before { content: none; }
+  .toptokens table.ledger td:not(.r) { text-align: start; }
+}
