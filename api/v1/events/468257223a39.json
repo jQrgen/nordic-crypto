@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-17T08:34:55+00:00",
+ "generated_at": "2026-10-17T11:40:21+00:00",
  "preview": false,
  "item": {
   "id": "468257223a39",
@@ -26,7 +26,14 @@
    "source_url": "https://www.meetup.com/bitcoin-malmo/events/316993795/",
    "source_name": "Meetup.com search: bitcoin, Copenhagen",
    "retrieved": "2026-10-16T02:14:28+00:00",
-   "i18n": {}
+   "i18n": {
+    "nn": "Vi ønskjer å arrangere imøtekomande og inkluderande treff der folk kan diskutere bitcoin og rolla han har i dagens og morgondagens økonomi. Er du ny i bitcoin, er dette ein fin sjanse til å lære gjennom gode samtalar med røynde bitcoinarar og nysgjerrige nykomarar. Kjenner du feltet frå før, er dette sjansen til å gå i djupna og møte likesinna. Merk: dette er eit reint bitcoin-arrangement. Vi tek ikkje opp NFT-ar, altcoins eller generelle blokkjedeemne. Svar gjerne på invitasjonen viss du kjem.",
+    "nb": "Vi ønsker å arrangere imøtekommende og inkluderende treff der folk kan diskutere bitcoin og rollen den har i dagens og morgendagens økonomi. Er du ny i bitcoin, er dette en fin mulighet til å lære gjennom gode samtaler med erfarne bitcoinere og nysgjerrige nykommere. Kjenner du feltet fra før, er dette sjansen til å gå i dybden og møte likesinnede. Merk: dette er et rent bitcoin-arrangement. Vi tar ikke opp NFT-er, altcoins eller generelle blokkjedetemaer. Svar gjerne på invitasjonen hvis du kommer.",
+    "sv": "Vi vill ordna välkomnande och inkluderande träffar där man kan diskutera bitcoin och dess roll i dagens och morgondagens ekonomi. Är du ny inom bitcoin är detta ett bra tillfälle att lära dig genom givande samtal med erfarna bitcoinare och nyfikna nykomlingar. Känner du redan till området är detta chansen att gå på djupet och träffa likasinnade. Observera: detta är ett renodlat bitcoin-evenemang. Vi tar inte upp NFT:er, altcoins eller allmänna blockkedjeämnen. Anmäl dig gärna om du tänker komma.",
+    "da": "Vi vil gerne holde imødekommende og inkluderende møder, hvor folk kan diskutere bitcoin og dens rolle i dagens og morgendagens økonomi. Er du ny i bitcoin, er det en god mulighed for at lære gennem gode samtaler med erfarne bitcoinere og nysgerrige nytilkomne. Kender du feltet i forvejen, er det din chance for at gå i dybden og møde ligesindede. Bemærk: dette er et rent bitcoin-arrangement. Vi tager ikke NFT'er, altcoins eller generelle blockchain-emner op. Tilmeld dig gerne, hvis du kommer.",
+    "fi": "Haluamme järjestää lämpimiä ja avoimia tapaamisia, joissa voi keskustella bitcoinista ja sen roolista nykyisessä ja tulevassa taloudessa. Jos bitcoin on sinulle uusi, tämä on hyvä tilaisuus oppia keskustelemalla kokeneiden bitcoinaajien ja uteliaiden tulokkaiden kanssa. Jos tunnet alan jo, tämä on tilaisuutesi syventyä ja tavata samanhenkisiä. Huom: tämä on vain bitcoin-tapahtuma. Emme käsittele NFT:itä, altcoineja tai yleisiä lohkoketjuaiheita. Ilmoittaudu, jos aiot tulla.",
+    "is": "Við viljum halda vingjarnlega og opna hittinga þar sem fólk getur rætt bitcoin og hlutverk þess í efnahag dagsins í dag og morgundagsins. Ef þú ert nýr í bitcoin er þetta gott tækifæri til að læra í góðum samræðum við reynda bitcoinara og forvitna nýliða. Ef þú þekkir sviðið nú þegar er þetta tækifærið til að kafa dýpra og hitta fólk með sama áhuga. Athugið: þetta er eingöngu bitcoin-viðburður. Við fjöllum ekki um NFT, altcoins eða almenn bálkakeðjuefni. Vinsamlegast skráðu þig ef þú ætlar að mæta."
+   }
   },
   "past": false,
   "ongoing": false,

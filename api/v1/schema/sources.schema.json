@@ -514,6 +514,9 @@
      "examples": [
       40
      ]
+    },
+    "verified": {
+     "type": "string"
     }
    },
    "additionalProperties": false,

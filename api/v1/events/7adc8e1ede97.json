@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-17T08:34:55+00:00",
+ "generated_at": "2026-10-17T11:40:21+00:00",
  "preview": false,
  "item": {
   "id": "7adc8e1ede97",
@@ -26,7 +26,14 @@
    "source_url": "https://www.meetup.com/oslo-blockchain-meetup/events/316768461/",
    "source_name": "Oslo Blockchain Meetup (Meetup.com)",
    "retrieved": "2026-10-11T06:00:06+00:00",
-   "i18n": {}
+   "i18n": {
+    "en": "Crypto tax: Reese Legal comes to Oslo Blockchain Meetup! The tax rules for gains and losses when selling cryptocurrency, DeFi transactions, loans, gifts etc., and wealth held in cryptocurrency. How to calculate gains, losses and wealth correctly (even with many transactions). Tips on tools for calculation and documentation. How cryptocurrency should be entered in the tax return: practical guidance. What you actually risk if it is wrong or you do not report. The most common mistakes and how to avoid them. Examples from the Norwegian Tax Administration's practice.",
+    "nn": "Kryptoskatt: Reese Legal kjem til Oslo Blockchain Meetup! Skattereglane for gevinst og tap ved sal av kryptovaluta, DeFi-transaksjonar, lån, gåver osb., og formue i kryptovaluta. Korleis rekne ut gevinst, tap og formue rett (sjølv med mange transaksjonar). Tips om verktøy for utrekning og dokumentasjon. Korleis kryptovaluta skal førast i skattemeldinga: praktisk rettleiing. Kva ein konkret risikerer viss det blir feil eller ein ikkje rapporterer. Dei vanlegaste feila, og korleis unngå dei. Døme frå praksisen til Skatteetaten. Dokumentasjon av kvar midlane kjem frå.",
+    "sv": "Kryptoskatt: Reese Legal kommer till Oslo Blockchain Meetup! Skattereglerna för vinst och förlust vid försäljning av kryptovaluta, DeFi-transaktioner, lån, gåvor m.m., samt förmögenhet i kryptovaluta. Hur man beräknar vinst, förlust och förmögenhet korrekt (även med många transaktioner). Tips om verktyg för beräkning och dokumentation. Hur kryptovaluta ska redovisas i den norska skattedeklarationen: praktisk vägledning. Vad man konkret riskerar om det blir fel eller inte rapporteras. De vanligaste misstagen och hur man undviker dem. Exempel från Skatteetatens praxis.",
+    "da": "Kryptoskat: Reese Legal kommer til Oslo Blockchain Meetup! Skattereglerne for gevinst og tab ved salg af kryptovaluta, DeFi-transaktioner, lån, gaver osv., og formue i kryptovaluta. Hvordan man beregner gevinst, tab og formue korrekt (også med mange transaktioner). Tips til værktøjer til beregning og dokumentation. Hvordan kryptovaluta skal angives i den norske selvangivelse: praktisk vejledning. Hvad man konkret risikerer, hvis det bliver forkert eller ikke indberettes. De mest almindelige fejl, og hvordan man undgår dem. Eksempler fra Skatteetatens praksis.",
+    "fi": "Kryptoverotus: Reese Legal tulee Oslo Blockchain Meetupiin! Verosäännöt kryptovaluutan myynnin voitoille ja tappioille, DeFi-transaktioille, lainoille, lahjoille ym. sekä kryptovaluuttana olevalle varallisuudelle. Miten voitot, tappiot ja varallisuus lasketaan oikein (myös monien transaktioiden kanssa). Vinkkejä laskennan ja dokumentoinnin työkaluihin. Miten kryptovaluutta ilmoitetaan Norjan veroilmoituksessa: käytännön ohjeet. Mitä käytännössä riskeeraa, jos ilmoitus on väärin tai jää tekemättä. Yleisimmät virheet ja miten ne vältetään. Esimerkkejä Skatteetatenin käytännöstä.",
+    "is": "Rafmyntaskattur: Reese Legal kemur á Oslo Blockchain Meetup! Skattareglur um hagnað og tap við sölu rafmynta, DeFi-færslur, lán, gjafir o.fl., og eignir í rafmyntum. Hvernig á að reikna hagnað, tap og eignir rétt (líka með margar færslur). Ábendingar um verkfæri til útreiknings og skjölunar. Hvernig á að færa rafmyntir á norska skattframtalið: hagnýtar leiðbeiningar. Hvað maður á raunverulega á hættu ef það er rangt eða ekki tilkynnt. Algengustu mistökin og hvernig á að forðast þau. Dæmi úr framkvæmd Skatteetaten. Skjölun á uppruna fjármunanna."
+   }
   },
   "past": false,
   "ongoing": false,

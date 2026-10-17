@@ -366,6 +366,12 @@
      "examples": [
       "5285674a58d8"
      ]
+    },
+    "published_date_only": {
+     "type": "boolean"
+    },
+    "summary_i18n_source": {
+     "type": "string"
     }
    },
    "additionalProperties": false,

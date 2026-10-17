@@ -77,10 +77,7 @@
    },
    "additionalProperties": false,
    "required": [
-    "source",
-    "sv",
-    "da",
-    "fi"
+    "source"
    ]
   }
  }

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-17T08:34:55+00:00",
+ "generated_at": "2026-10-17T11:40:21+00:00",
  "preview": false,
  "item": {
   "id": "e8e2b767dca6",
@@ -33,7 +33,14 @@
    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/317015057/",
    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
    "retrieved": "2026-10-17T02:20:26+00:00",
-   "i18n": {}
+   "i18n": {
+    "nn": "Eit uformelt treff for bitcoinarar og alle som er nysgjerrige på bitcoin. Møt nye folk, del idear og snakk om alt frå bitcoin og Lightning til suverenitet, Nostr, teknologi og meir. Anten du har vore i bitcoin i årevis eller så vidt har byrja å utforske, er du velkomen. Berre bitcoin, ikkje krypto. Svar «Kjem» viss du planlegg å kome, så vi kan reservere nok plassar på restauranten, og oppdater svaret viss planane endrar seg.",
+    "nb": "Et uformelt treff for bitcoinere og alle som er nysgjerrige på bitcoin. Møt nye folk, del ideer og snakk om alt fra bitcoin og Lightning til suverenitet, Nostr, teknologi og mer. Enten du har vært i bitcoin i årevis eller så vidt har begynt å utforske, er du velkommen. Kun bitcoin, ikke krypto. Svar «Kommer» hvis du planlegger å komme, så vi kan reservere nok plasser på restauranten, og oppdater svaret hvis planene endrer seg.",
+    "sv": "En avslappnad träff för bitcoinare och alla som är nyfikna på bitcoin. Träffa nya människor, utbyt idéer och prata om allt från bitcoin och Lightning till suveränitet, Nostr, teknik med mera. Oavsett om du har hållit på med bitcoin i åratal eller precis börjat utforska är du välkommen. Bara bitcoin, ingen krypto. Svara ”Going” om du tänker komma så att vi kan boka tillräckligt med platser på restaurangen, och uppdatera svaret om dina planer ändras.",
+    "da": "Et uformelt træf for bitcoinere og alle, der er nysgerrige på bitcoin. Mød nye mennesker, udveksl idéer og tal om alt fra bitcoin og Lightning til suverænitet, Nostr, teknologi m.m. Uanset om du har været i bitcoin i årevis eller lige er begyndt at udforske det, er du velkommen. Kun bitcoin, ikke krypto. Svar »Going«, hvis du vil komme, så vi kan reservere nok pladser på restauranten, og opdater dit svar, hvis dine planer ændrer sig.",
+    "fi": "Rento tapaaminen bitcoinaajille ja kaikille bitcoinista kiinnostuneille. Tapaa uusia ihmisiä, vaihda ajatuksia ja keskustele kaikesta bitcoinista ja Lightningista suvereniteettiin, Nostriin, teknologiaan ym. Olitpa ollut bitcoinin parissa vuosia tai vasta aloittamassa, olet tervetullut. Vain bitcoin, ei kryptoa. Vastaa ”Going”, jos aiot tulla, jotta voimme varata ravintolasta tarpeeksi paikkoja, ja päivitä vastauksesi, jos suunnitelmasi muuttuvat.",
+    "is": "Óformlegur hittingur fyrir bitcoinara og alla sem eru forvitnir um bitcoin. Hittu nýtt fólk, skiptstu á hugmyndum og spjallaðu um allt frá bitcoin og Lightning til fullveldis, Nostr, tækni o.fl. Hvort sem þú hefur verið í bitcoin í mörg ár eða ert rétt að byrja ertu velkomin(n). Aðeins bitcoin, engar aðrar rafmyntir. Svaraðu „Going“ ef þú ætlar að mæta svo við getum tekið frá nóg sæti á veitingastaðnum, og uppfærðu svarið ef áætlanir breytast."
+   }
   },
   "past": false,
   "ongoing": false,

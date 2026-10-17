@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-17T08:34:55+00:00",
+ "generated_at": "2026-10-17T11:40:21+00:00",
  "preview": false,
  "country": "SE",
  "count": 8,
@@ -235,7 +235,14 @@
     "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316926193/",
     "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
     "retrieved": "2026-10-11T06:00:06+00:00",
-    "i18n": {}
+    "i18n": {
+     "en": "BitcoinWalk Slottskogen. Bitcoin Walk in Gothenburg. Please register via Satlantis. When: Sunday 18 October at 13:00. Where: Linnéplatsen through Slottsskogen down towards Långgatorna. We gather in front of Karamellbyrån at Linnéplatsen, easiest reached by tram lines 1, 2 and 6. From there we walk up through Slottskogen and then through Linné down towards Långgatorna. We expect a walk of about 6–8 km, and it is fine to leave along the way. Bitcoin is often the common thread, but the conversation goes wherever it goes.",
+     "nn": "BitcoinWalk Slottskogen. Bitcoin Walk i Göteborg. Meld deg gjerne på via Satlantis. Når: Sundag 18. oktober klokka 13:00. Kvar: Linnéplatsen via Slottsskogen ned mot Långgatorna. Oppmøte framfor Karamellbyrån på Linnéplatsen, enklast med linje 1, 2 og 6. Derifrå går vi opp gjennom Slottskogen og så gjennom Linné ned mot Långgatorna. Vi reknar med ein tur på ca. 6–8 km, og det går fint å gå av undervegs. Bitcoin er ofte fellesnemnaren, men praten går fritt.",
+     "nb": "BitcoinWalk Slottskogen. Bitcoin Walk i Göteborg. Meld gjerne på via Satlantis. Når: Søndag 18. oktober klokken 13:00. Hvor: Linnéplatsen via Slottsskogen ned mot Långgatorna. Oppmøte foran Karamellbyrån på Linnéplatsen, enklest med linje 1, 2 og 6. Derfra går vi opp gjennom Slottskogen og så gjennom Linné ned mot Långgatorna. Vi regner med en tur på ca. 6–8 km, og det går fint å gå av underveis. Bitcoin er ofte fellesnevneren, men praten går fritt.",
+     "da": "BitcoinWalk Slottskogen. Bitcoin Walk i Göteborg. Tilmeld dig gerne via Satlantis. Hvornår: Søndag den 18. oktober kl. 13:00. Hvor: Linnéplatsen via Slottsskogen ned mod Långgatorna. Vi mødes foran Karamellbyrån på Linnéplatsen, nemmest med linje 1, 2 og 6. Derfra går vi op gennem Slottskogen og så gennem Linné ned mod Långgatorna. Vi regner med en tur på ca. 6–8 km, og man kan sagtens stå af undervejs. Bitcoin er ofte fællesnævneren, men snakken går frit.",
+     "fi": "BitcoinWalk Slottskogen. Bitcoin Walk Göteborgissa. Ilmoittaudu mielellään Satlantiksen kautta. Milloin: sunnuntaina 18.10. klo 13.00. Missä: Linnéplatsenilta Slottsskogenin kautta alas Långgatornalle. Kokoontuminen Karamellbyrånin edessä Linnéplatsenilla, helpoiten linjoilla 1, 2 ja 6. Sieltä kävelemme ylös Slottskogenin läpi ja sitten Linnén kautta alas Långgatornalle. Kävelyä on noin 6–8 km, ja matkan varrella voi hyvin jäädä pois. Bitcoin on usein yhteinen nimittäjä, mutta keskustelu kulkee vapaasti.",
+     "is": "BitcoinWalk Slottskogen. Bitcoin-ganga í Gautaborg. Skráðu þig gjarnan í gegnum Satlantis. Hvenær: Sunnudaginn 18. október kl. 13:00. Hvar: Frá Linnéplatsen gegnum Slottsskogen niður að Långgatorna. Hist fyrir framan Karamellbyrån á Linnéplatsen, best að koma með línu 1, 2 og 6. Þaðan göngum við upp gegnum Slottskogen og síðan gegnum Linné niður að Långgatorna. Gangan er um 6–8 km og það er í lagi að fara út af leiðinni. Bitcoin er oft sameiginlegi þráðurinn, en spjallið fer um víðan völl."
+    }
    },
    "past": false,
    "ongoing": false,
@@ -297,7 +304,14 @@
     "source_url": "https://www.meetup.com/bitcoin-malmo/events/316993795/",
     "source_name": "Meetup.com search: bitcoin, Copenhagen",
     "retrieved": "2026-10-16T02:14:28+00:00",
-    "i18n": {}
+    "i18n": {
+     "nn": "Vi ønskjer å arrangere imøtekomande og inkluderande treff der folk kan diskutere bitcoin og rolla han har i dagens og morgondagens økonomi. Er du ny i bitcoin, er dette ein fin sjanse til å lære gjennom gode samtalar med røynde bitcoinarar og nysgjerrige nykomarar. Kjenner du feltet frå før, er dette sjansen til å gå i djupna og møte likesinna. Merk: dette er eit reint bitcoin-arrangement. Vi tek ikkje opp NFT-ar, altcoins eller generelle blokkjedeemne. Svar gjerne på invitasjonen viss du kjem.",
+     "nb": "Vi ønsker å arrangere imøtekommende og inkluderende treff der folk kan diskutere bitcoin og rollen den har i dagens og morgendagens økonomi. Er du ny i bitcoin, er dette en fin mulighet til å lære gjennom gode samtaler med erfarne bitcoinere og nysgjerrige nykommere. Kjenner du feltet fra før, er dette sjansen til å gå i dybden og møte likesinnede. Merk: dette er et rent bitcoin-arrangement. Vi tar ikke opp NFT-er, altcoins eller generelle blokkjedetemaer. Svar gjerne på invitasjonen hvis du kommer.",
+     "sv": "Vi vill ordna välkomnande och inkluderande träffar där man kan diskutera bitcoin och dess roll i dagens och morgondagens ekonomi. Är du ny inom bitcoin är detta ett bra tillfälle att lära dig genom givande samtal med erfarna bitcoinare och nyfikna nykomlingar. Känner du redan till området är detta chansen att gå på djupet och träffa likasinnade. Observera: detta är ett renodlat bitcoin-evenemang. Vi tar inte upp NFT:er, altcoins eller allmänna blockkedjeämnen. Anmäl dig gärna om du tänker komma.",
+     "da": "Vi vil gerne holde imødekommende og inkluderende møder, hvor folk kan diskutere bitcoin og dens rolle i dagens og morgendagens økonomi. Er du ny i bitcoin, er det en god mulighed for at lære gennem gode samtaler med erfarne bitcoinere og nysgerrige nytilkomne. Kender du feltet i forvejen, er det din chance for at gå i dybden og møde ligesindede. Bemærk: dette er et rent bitcoin-arrangement. Vi tager ikke NFT'er, altcoins eller generelle blockchain-emner op. Tilmeld dig gerne, hvis du kommer.",
+     "fi": "Haluamme järjestää lämpimiä ja avoimia tapaamisia, joissa voi keskustella bitcoinista ja sen roolista nykyisessä ja tulevassa taloudessa. Jos bitcoin on sinulle uusi, tämä on hyvä tilaisuus oppia keskustelemalla kokeneiden bitcoinaajien ja uteliaiden tulokkaiden kanssa. Jos tunnet alan jo, tämä on tilaisuutesi syventyä ja tavata samanhenkisiä. Huom: tämä on vain bitcoin-tapahtuma. Emme käsittele NFT:itä, altcoineja tai yleisiä lohkoketjuaiheita. Ilmoittaudu, jos aiot tulla.",
+     "is": "Við viljum halda vingjarnlega og opna hittinga þar sem fólk getur rætt bitcoin og hlutverk þess í efnahag dagsins í dag og morgundagsins. Ef þú ert nýr í bitcoin er þetta gott tækifæri til að læra í góðum samræðum við reynda bitcoinara og forvitna nýliða. Ef þú þekkir sviðið nú þegar er þetta tækifærið til að kafa dýpra og hitta fólk með sama áhuga. Athugið: þetta er eingöngu bitcoin-viðburður. Við fjöllum ekki um NFT, altcoins eða almenn bálkakeðjuefni. Vinsamlegast skráðu þig ef þú ætlar að mæta."
+    }
    },
    "past": false,
    "ongoing": false,
@@ -435,7 +449,14 @@
     "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/317015057/",
     "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
     "retrieved": "2026-10-17T02:20:26+00:00",
-    "i18n": {}
+    "i18n": {
+     "nn": "Eit uformelt treff for bitcoinarar og alle som er nysgjerrige på bitcoin. Møt nye folk, del idear og snakk om alt frå bitcoin og Lightning til suverenitet, Nostr, teknologi og meir. Anten du har vore i bitcoin i årevis eller så vidt har byrja å utforske, er du velkomen. Berre bitcoin, ikkje krypto. Svar «Kjem» viss du planlegg å kome, så vi kan reservere nok plassar på restauranten, og oppdater svaret viss planane endrar seg.",
+     "nb": "Et uformelt treff for bitcoinere og alle som er nysgjerrige på bitcoin. Møt nye folk, del ideer og snakk om alt fra bitcoin og Lightning til suverenitet, Nostr, teknologi og mer. Enten du har vært i bitcoin i årevis eller så vidt har begynt å utforske, er du velkommen. Kun bitcoin, ikke krypto. Svar «Kommer» hvis du planlegger å komme, så vi kan reservere nok plasser på restauranten, og oppdater svaret hvis planene endrer seg.",
+     "sv": "En avslappnad träff för bitcoinare och alla som är nyfikna på bitcoin. Träffa nya människor, utbyt idéer och prata om allt från bitcoin och Lightning till suveränitet, Nostr, teknik med mera. Oavsett om du har hållit på med bitcoin i åratal eller precis börjat utforska är du välkommen. Bara bitcoin, ingen krypto. Svara ”Going” om du tänker komma så att vi kan boka tillräckligt med platser på restaurangen, och uppdatera svaret om dina planer ändras.",
+     "da": "Et uformelt træf for bitcoinere og alle, der er nysgerrige på bitcoin. Mød nye mennesker, udveksl idéer og tal om alt fra bitcoin og Lightning til suverænitet, Nostr, teknologi m.m. Uanset om du har været i bitcoin i årevis eller lige er begyndt at udforske det, er du velkommen. Kun bitcoin, ikke krypto. Svar »Going«, hvis du vil komme, så vi kan reservere nok pladser på restauranten, og opdater dit svar, hvis dine planer ændrer sig.",
+     "fi": "Rento tapaaminen bitcoinaajille ja kaikille bitcoinista kiinnostuneille. Tapaa uusia ihmisiä, vaihda ajatuksia ja keskustele kaikesta bitcoinista ja Lightningista suvereniteettiin, Nostriin, teknologiaan ym. Olitpa ollut bitcoinin parissa vuosia tai vasta aloittamassa, olet tervetullut. Vain bitcoin, ei kryptoa. Vastaa ”Going”, jos aiot tulla, jotta voimme varata ravintolasta tarpeeksi paikkoja, ja päivitä vastauksesi, jos suunnitelmasi muuttuvat.",
+     "is": "Óformlegur hittingur fyrir bitcoinara og alla sem eru forvitnir um bitcoin. Hittu nýtt fólk, skiptstu á hugmyndum og spjallaðu um allt frá bitcoin og Lightning til fullveldis, Nostr, tækni o.fl. Hvort sem þú hefur verið í bitcoin í mörg ár eða ert rétt að byrja ertu velkomin(n). Aðeins bitcoin, engar aðrar rafmyntir. Svaraðu „Going“ ef þú ætlar að mæta svo við getum tekið frá nóg sæti á veitingastaðnum, og uppfærðu svarið ef áætlanir breytast."
+    }
    },
    "past": false,
    "ongoing": false,

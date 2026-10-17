@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-17T08:34:55+00:00",
+ "generated_at": "2026-10-17T11:40:21+00:00",
  "preview": false,
  "item": {
   "id": "16b9aa68f972",
@@ -26,7 +26,14 @@
    "source_url": "https://www.meetup.com/swedish-bitcoin-meetups/events/316926193/",
    "source_name": "Swedish Bitcoin Meetups (Meetup.com)",
    "retrieved": "2026-10-11T06:00:06+00:00",
-   "i18n": {}
+   "i18n": {
+    "en": "BitcoinWalk Slottskogen. Bitcoin Walk in Gothenburg. Please register via Satlantis. When: Sunday 18 October at 13:00. Where: Linnéplatsen through Slottsskogen down towards Långgatorna. We gather in front of Karamellbyrån at Linnéplatsen, easiest reached by tram lines 1, 2 and 6. From there we walk up through Slottskogen and then through Linné down towards Långgatorna. We expect a walk of about 6–8 km, and it is fine to leave along the way. Bitcoin is often the common thread, but the conversation goes wherever it goes.",
+    "nn": "BitcoinWalk Slottskogen. Bitcoin Walk i Göteborg. Meld deg gjerne på via Satlantis. Når: Sundag 18. oktober klokka 13:00. Kvar: Linnéplatsen via Slottsskogen ned mot Långgatorna. Oppmøte framfor Karamellbyrån på Linnéplatsen, enklast med linje 1, 2 og 6. Derifrå går vi opp gjennom Slottskogen og så gjennom Linné ned mot Långgatorna. Vi reknar med ein tur på ca. 6–8 km, og det går fint å gå av undervegs. Bitcoin er ofte fellesnemnaren, men praten går fritt.",
+    "nb": "BitcoinWalk Slottskogen. Bitcoin Walk i Göteborg. Meld gjerne på via Satlantis. Når: Søndag 18. oktober klokken 13:00. Hvor: Linnéplatsen via Slottsskogen ned mot Långgatorna. Oppmøte foran Karamellbyrån på Linnéplatsen, enklest med linje 1, 2 og 6. Derfra går vi opp gjennom Slottskogen og så gjennom Linné ned mot Långgatorna. Vi regner med en tur på ca. 6–8 km, og det går fint å gå av underveis. Bitcoin er ofte fellesnevneren, men praten går fritt.",
+    "da": "BitcoinWalk Slottskogen. Bitcoin Walk i Göteborg. Tilmeld dig gerne via Satlantis. Hvornår: Søndag den 18. oktober kl. 13:00. Hvor: Linnéplatsen via Slottsskogen ned mod Långgatorna. Vi mødes foran Karamellbyrån på Linnéplatsen, nemmest med linje 1, 2 og 6. Derfra går vi op gennem Slottskogen og så gennem Linné ned mod Långgatorna. Vi regner med en tur på ca. 6–8 km, og man kan sagtens stå af undervejs. Bitcoin er ofte fællesnævneren, men snakken går frit.",
+    "fi": "BitcoinWalk Slottskogen. Bitcoin Walk Göteborgissa. Ilmoittaudu mielellään Satlantiksen kautta. Milloin: sunnuntaina 18.10. klo 13.00. Missä: Linnéplatsenilta Slottsskogenin kautta alas Långgatornalle. Kokoontuminen Karamellbyrånin edessä Linnéplatsenilla, helpoiten linjoilla 1, 2 ja 6. Sieltä kävelemme ylös Slottskogenin läpi ja sitten Linnén kautta alas Långgatornalle. Kävelyä on noin 6–8 km, ja matkan varrella voi hyvin jäädä pois. Bitcoin on usein yhteinen nimittäjä, mutta keskustelu kulkee vapaasti.",
+    "is": "BitcoinWalk Slottskogen. Bitcoin-ganga í Gautaborg. Skráðu þig gjarnan í gegnum Satlantis. Hvenær: Sunnudaginn 18. október kl. 13:00. Hvar: Frá Linnéplatsen gegnum Slottsskogen niður að Långgatorna. Hist fyrir framan Karamellbyrån á Linnéplatsen, best að koma með línu 1, 2 og 6. Þaðan göngum við upp gegnum Slottskogen og síðan gegnum Linné niður að Långgatorna. Gangan er um 6–8 km og það er í lagi að fara út af leiðinni. Bitcoin er oft sameiginlegi þráðurinn, en spjallið fer um víðan völl."
+   }
   },
   "past": false,
   "ongoing": false,

@@ -1,7 +1,7 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-17T08:34:55+00:00",
+ "generated_at": "2026-10-17T11:40:21+00:00",
  "preview": false,
  "item": {
   "id": "dde3d01aa7af",
@@ -26,7 +26,14 @@
    "source_url": "https://www.kaakaa.no/program/har-bankene-kuppet-kryptorevolusjonen",
    "source_name": "KÅKÅ",
    "retrieved": "2026-10-16T10:56:23+00:00",
-   "i18n": {}
+   "i18n": {
+    "en": "When banks embrace cryptocurrency, who gets power over the money of the future? Morten Søberg, Peder Østbye and Kyrre Martinius Knudsen. Bitcoin and cryptocurrency were born out of distrust of the banks, the central banks and the established monetary system. Now the story is taking a strange turn. The world's largest banks are starting to create their own crypto-based money, while stablecoins, tokenisation and blockchain technology move ever further into traditional finance. Have the banks hijacked the crypto revolution, or is this instead proof that the crypto revolution has won?",
+    "nn": "Når bankane omfamnar kryptovaluta, kven får makta over framtidas pengar? Morten Søberg, Peder Østbye og Kyrre Martinius Knudsen. Bitcoin og kryptovaluta vart fødde ut av mistillit til bankane, sentralbankane og det etablerte pengesystemet. No er utviklinga i ferd med å ta ei merkeleg vending. Dei største bankane i verda byrjar å lage sine eigne kryptobaserte pengar, medan stablecoins, tokenisering og blokkjedeteknologi flyttar stadig lenger inn i den tradisjonelle finansverda. Har bankane kuppa kryptorevolusjonen, eller er dette tvert om provet på at kryptorevolusjonen har vunne?",
+    "sv": "När bankerna omfamnar kryptovalutor, vem får makten över framtidens pengar? Morten Søberg, Peder Østbye och Kyrre Martinius Knudsen. Bitcoin och kryptovalutor föddes ur misstro mot bankerna, centralbankerna och det etablerade penningsystemet. Nu håller utvecklingen på att ta en märklig vändning. Världens största banker börjar skapa egna kryptobaserade pengar, medan stablecoins, tokenisering och blockkedjeteknik flyttar allt längre in i den traditionella finansvärlden. Har bankerna kapat kryptorevolutionen, eller är detta tvärtom beviset på att kryptorevolutionen har vunnit?",
+    "da": "Når bankerne omfavner kryptovaluta, hvem får så magten over fremtidens penge? Morten Søberg, Peder Østbye og Kyrre Martinius Knudsen. Bitcoin og kryptovaluta blev født ud af mistillid til bankerne, centralbankerne og det etablerede pengesystem. Nu er udviklingen ved at tage en mærkelig drejning. Verdens største banker begynder at lave deres egne kryptobaserede penge, mens stablecoins, tokenisering og blockchainteknologi rykker stadig længere ind i den traditionelle finansverden. Har bankerne kuppet kryptorevolutionen, eller er det tværtimod beviset på, at kryptorevolutionen har vundet?",
+    "fi": "Kun pankit omaksuvat kryptovaluutat, kenellä on valta tulevaisuuden rahaan? Morten Søberg, Peder Østbye ja Kyrre Martinius Knudsen. Bitcoin ja kryptovaluutat syntyivät epäluottamuksesta pankkeihin, keskuspankkeihin ja vakiintuneeseen rahajärjestelmään. Nyt kehitys on saamassa oudon käänteen. Maailman suurimmat pankit alkavat luoda omaa kryptopohjaista rahaansa, ja stablecoinit, tokenisointi ja lohkoketjuteknologia siirtyvät yhä syvemmälle perinteiseen rahoitusmaailmaan.",
+    "is": "Þegar bankarnir taka rafmyntir upp á arma sína, hver fær þá völdin yfir peningum framtíðarinnar? Morten Søberg, Peder Østbye og Kyrre Martinius Knudsen. Bitcoin og rafmyntir urðu til úr vantrausti á bönkum, seðlabönkum og hinu rótgróna peningakerfi. Nú er þróunin að taka undarlega stefnu. Stærstu bankar heims eru farnir að búa til sína eigin rafmyntapeninga, á meðan stöðugleikamyntir, táknvæðing og bálkakeðjutækni færast sífellt lengra inn í hefðbundinn fjármálaheim. Hafa bankarnir rænt rafmyntabyltingunni, eða er þetta þvert á móti sönnun þess að rafmyntabyltingin hafi sigrað?"
+   }
   },
   "past": false,
   "ongoing": false,
