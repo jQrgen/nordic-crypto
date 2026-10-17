@@ -174,17 +174,17 @@ for (const [file, checks] of pages) {
   if (!tags.get("og:description")?.[0]) errors.push(`${file} missing og:description`);
 }
 
-const headerHrefs = [
+const footerHrefs = [
   "https://nordiccrypto.no/newsletter/#signup",
   "https://t.me/nordiccryptochat",
   "https://x.com/nordiccryptobot",
   "https://www.facebook.com/profile.php?id=61595548315551",
   "https://www.youtube.com/@NordicCryptoTV",
-  "https://github.com/nordic-crypto-org/nordic-crypto",
+  "https://github.com/nordic-crypto-org/nordic-crypto/tree/main/explorer",
   "https://nordiccrypto.no/rss.xml",
   "https://nordiccrypto.no/",
 ];
-const headerLabels = [
+const footerLabels = [
   "Follow",
   "Join on Telegram",
   "Follow on X",
@@ -202,10 +202,10 @@ for (const file of ["bch/index.html", "nexa/index.html", "btc/index.html", "bch/
     continue;
   }
   const hrefs = [...bar[0].matchAll(/href="([^"]+)"/g)].map((m) => m[1]);
-  if (hrefs.join("\n") !== headerHrefs.join("\n")) {
-    errors.push(`${file} social links: expected ${headerHrefs.join(", ")}, got ${hrefs.join(", ")}`);
+  if (hrefs.join("\n") !== footerHrefs.join("\n")) {
+    errors.push(`${file} social links: expected ${footerHrefs.join(", ")}, got ${hrefs.join(", ")}`);
   }
-  for (const label of headerLabels) {
+  for (const label of footerLabels) {
     if (!bar[0].includes(label)) errors.push(`${file} social bar missing ${JSON.stringify(label)}`);
   }
 }

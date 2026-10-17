@@ -8,6 +8,7 @@ import type { ChainId, Fiat } from "@/lib/types";
 import { PricesProvider } from "./money";
 import { PrefsProvider, usePrefs } from "./prefs";
 import { SiteLinks } from "./site-links";
+import { sourceHref } from "@/lib/site-links";
 
 const FIATS: Fiat[] = ["NOK", "SEK", "DKK", "EUR", "USD"];
 
@@ -46,9 +47,6 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
 
   return (
     <>
-      <a className="skip" href="#content">
-        Skip to content
-      </a>
       <header className="top">
         <div className="wrap">
           <div className="brandrow">
@@ -66,13 +64,12 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
             <nav className="chains" aria-label="Chain">
               {chainOrder.map((id) => (
                 <Link key={id} href={`/${id}`} aria-current={id === resolved ? "page" : undefined}>
-                  <span className={`pip ${id}`} aria-hidden="true" />
+                  <img className="coin" src={`/coins/${id}.svg`} alt="" width={16} height={16} />
                   {chains[id].name}
                 </Link>
               ))}
             </nav>
             <div className="hdrtools">
-              <SiteLinks />
               <label className="fiat">
                 <span className="vh">Fiat currency</span>
                 <select value={fiat} onChange={(event) => setFiat(event.target.value as Fiat)} aria-label="Fiat currency">
@@ -170,7 +167,7 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
               <li><a href="https://nordiccrypto.no/api/">Nexa Rostrum, port 20004</a></li>
               <li><a href="https://mempool.space/docs/api/rest">Bitcoin: mempool.space API</a></li>
               <li><a href="https://nordiccrypto.no/">nordiccrypto.no</a></li>
-              <li><a href="https://github.com/nordic-crypto-org/nordic-crypto">Source on GitHub</a></li>
+              <li><a href={sourceHref}>Source on GitHub</a></li>
             </ul>
           </div>
           <div>
@@ -183,6 +180,9 @@ function Shell({ chain, children }: { chain?: ChainId; children: ReactNode }) {
               <li><Link href="/design/fault">Could not load</Link></li>
             </ul>
           </div>
+        </div>
+        <div className="wrap footlinks">
+          <SiteLinks />
         </div>
       </footer>
     </>
