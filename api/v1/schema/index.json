@@ -1,13 +1,13 @@
 {
  "api_version": "1",
  "name": "Nordic Crypto",
- "generated_at": "2026-10-17T14:33:33+00:00",
+ "generated_at": "2026-10-17T14:41:01+00:00",
  "title": "Nordic Crypto data model",
  "docs_url": "https://nordiccrypto.no/db/",
  "schema_version": "2026-10-17",
- "commit": "0833960",
- "committed_at": "2026-10-17T15:54:18+02:00",
- "commit_url": "https://github.com/nordic-crypto-org/nordic-crypto/commit/0833960f396bc7bbea0d286a461040d373b9bf33",
+ "commit": "110b2ff",
+ "committed_at": "2026-10-17T15:54:26+02:00",
+ "commit_url": "https://github.com/nordic-crypto-org/nordic-crypto/commit/110b2ff08b30c16471d73866004756e74bca578b",
  "changelog_url": "https://nordiccrypto.no/api/v1/schema/changelog.json",
  "erd_svg_url": "https://nordiccrypto.no/api/v1/schema/erd.svg",
  "erd_mermaid_url": "https://nordiccrypto.no/api/v1/schema/erd.mmd",
@@ -32,6 +32,7 @@
    "files": [
     "data/news.json"
    ],
+   "store": null,
    "pages": [
     "/"
    ],
@@ -107,12 +108,13 @@
   {
    "id": "events",
    "title": "Events",
-   "description": "Calendar events. data/events.json is the working list, archive/events.json is what the public calendar keeps, and data/events_backfill.json is the previous-events backfill. sponsored is null, false, true, or the sponsor's name, and is never Kaupr. The calendar status upcoming, ongoing or past is computed from start and end and is not stored.",
+   "description": "Calendar events. Stored in the events table in Cloudflare D1, one row per event: the nightly fetch and editor additions write there, and the build reads approved rows from it. data/events.json and archive/events.json are the JSON snapshot of that table, and data/events_backfill.json is the previous-events backfill. sponsored is null, false, true, or the sponsor's name, and is never Kaupr. The calendar status upcoming, ongoing or past is computed from start and end and is not stored.",
    "files": [
     "data/events.json",
     "archive/events.json",
     "data/events_backfill.json"
    ],
+   "store": "Cloudflare D1: events",
    "pages": [
     "/calendar/",
     "/calendar/previous/"
@@ -190,6 +192,7 @@
    "files": [
     "sources.json"
    ],
+   "store": null,
    "pages": [
     "/sources/"
    ],
@@ -218,6 +221,7 @@
    "files": [
     "newsletter/published/issues.json"
    ],
+   "store": null,
    "pages": [
     "/newsletter/"
    ],
@@ -241,6 +245,7 @@
    "title": "Sponsors",
    "description": "There is no sponsors file. A sponsor is the sponsored field on an event: null or false when there is no sponsor, true when it is sponsored without a named sponsor, or the sponsor's name. Kaupr is never a sponsor.",
    "files": [],
+   "store": null,
    "pages": [
     "/calendar/"
    ],
@@ -269,6 +274,7 @@
    "files": [
     "data/academia.json"
    ],
+   "store": null,
    "pages": [
     "/academia/"
    ],
@@ -298,6 +304,7 @@
    "files": [
     "data/books.json"
    ],
+   "store": null,
    "pages": [
     "/books/"
    ],
@@ -321,6 +328,7 @@
    "title": "Markets",
    "description": "Nordic exchange prices written at build time to /api/v1/markets.json. This is not a file in data/. Market data, not investment advice. quote is NOK, SEK, DKK or EUR. Nothing is converted between currencies.",
    "files": [],
+   "store": null,
    "pages": [
     "/markets/"
    ],
@@ -358,6 +366,7 @@
    "files": [
     "data/profiles.json"
    ],
+   "store": null,
    "pages": [
     "/org-chart/"
    ],
@@ -389,6 +398,7 @@
    "files": [
     "data/orgchart.json"
    ],
+   "store": null,
    "pages": [
     "/org-chart/"
    ],
@@ -449,6 +459,7 @@
    "files": [
     "data/talks.json"
    ],
+   "store": null,
    "pages": [
     "/talks/"
    ],
@@ -490,6 +501,7 @@
    "files": [
     "data/developers.json"
    ],
+   "store": null,
    "pages": [
     "/developers/"
    ],
@@ -526,6 +538,7 @@
    "files": [
     "data/illustrations.json"
    ],
+   "store": null,
    "pages": [
     "/media/"
    ],
@@ -554,6 +567,7 @@
    "files": [
     "data/images.json"
    ],
+   "store": null,
    "pages": [
     "/org-chart/"
    ],
@@ -581,6 +595,7 @@
    "files": [
     "assets/img/logos/logos.json"
    ],
+   "store": null,
    "pages": [],
    "api": [
     {
@@ -610,6 +625,7 @@
    "files": [
     "changelog.json"
    ],
+   "store": null,
    "pages": [
     "/changelog/"
    ],
@@ -635,6 +651,7 @@
    "files": [
     "rules.json"
    ],
+   "store": null,
    "pages": [
     "/rules/"
    ],
@@ -656,6 +673,7 @@
    "files": [
     "data/stats.json"
    ],
+   "store": null,
    "pages": [
     "/stats/"
    ],
@@ -677,6 +695,7 @@
    "files": [
     "data/crowdfunding.json"
    ],
+   "store": null,
    "pages": [
     "/crowdfunding/"
    ],
@@ -698,6 +717,7 @@
    "files": [
     "data/budget.json"
    ],
+   "store": null,
    "pages": [
     "/budget/"
    ],
@@ -714,6 +734,7 @@
    "files": [
     "archive/articles.json"
    ],
+   "store": null,
    "pages": [],
    "api": [
     {
@@ -741,6 +762,7 @@
    "files": [
     "data/title_i18n.json"
    ],
+   "store": null,
    "pages": [],
    "api": [],
    "relations": [
@@ -761,6 +783,7 @@
    "files": [
     "data/frontpage_blurbs.json"
    ],
+   "store": null,
    "pages": [],
    "api": [],
    "relations": [
@@ -777,10 +800,11 @@
   {
    "id": "event-descriptions",
    "title": "Event descriptions",
-   "description": "Organiser descriptions and our translations, by event id, in data/event_description_i18n.json. source is the original wording. A language key is present only when that translation is written.",
+   "description": "Organiser descriptions and our translations, by event id. Stored in the event_translations table in Cloudflare D1; data/event_description_i18n.json is the snapshot. source is the original wording. A language key is present only when that translation is written.",
    "files": [
     "data/event_description_i18n.json"
    ],
+   "store": "Cloudflare D1: event_translations",
    "pages": [],
    "api": [],
    "relations": [
@@ -797,10 +821,11 @@
   {
    "id": "event-redirects",
    "title": "Event redirects",
-   "description": "Merged duplicate events in data/event_redirects.json. Each key is a removed id and each value is the id that was kept. The old calendar URL refreshes to the kept event.",
+   "description": "Merged duplicate events, stored in the event_redirects table in Cloudflare D1 (snapshot: data/event_redirects.json). Each key is a removed id and each value is the id that was kept. The old calendar URL refreshes to the kept event.",
    "files": [
     "data/event_redirects.json"
    ],
+   "store": "Cloudflare D1: event_redirects",
    "pages": [
     "/calendar/"
    ],
@@ -829,6 +854,7 @@
    "files": [
     "data/regulation-videos.json"
    ],
+   "store": null,
    "pages": [
     "/regulation-videos/"
    ],
