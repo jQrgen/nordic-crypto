@@ -164,3 +164,48 @@ Weekly digest from approved stories (still does not send by itself):
 - [ ] Set `MAIL_PROVIDER`, `MAIL_SEND_ENABLED=1`, the API key, and `MAIL_FROM_NORDIC_CRYPTO` on the Worker.
 - [ ] Set `newsletter/config.json` `enabled` to true and publish the site.
 - [ ] Dry-run `newsletter/send_issue.py --issue 001`, then send.
+
+## Admin page (`/admin/`)
+
+A private page at `https://nordiccrypto.no/admin/` lists every subscriber (email, language, status, signup and confirm
+dates, which issue numbers each has received, last issue) with search, sort and totals. It is `noindex`, not in any
+menu or `sitemap.xml`, and `robots.txt` has `Disallow: /admin/`. The page holds no data. It reads the Worker API in
+`tipworker/src/admin.js`.
+
+**Sign-in.** Passwordless. Type an address at exactly `@nordiccrypto.no` (Worker var `ADMIN_EMAIL_DOMAIN`, compared
+case-insensitively; subdomains and lookalikes are refused). The Worker always gives the same answer, so the form cannot
+be used to find out which addresses exist. Allowed addresses get a one-time link `https://nordiccrypto.no/admin/#t=…` by
+Resend (same `RESEND_API_KEY` / `MAIL_FROM_NORDIC_CRYPTO` as the newsletter). The link works once, for 15 minutes. The
+token is in the `#fragment`, so it never reaches a server log, and the page posts it to `POST /api/admin/verify`, so mail
+scanners that open links cannot use it up. Rate limits: 5 requests per IP per 10 minutes (plus the shared global cap),
+and 3 links per address per 15 minutes.
+
+**Session.** A random bearer token, valid 7 days, kept in the browser's `localStorage` and sent as
+`Authorization: Bearer …`. A cookie would not work here: the page is on nordiccrypto.no and the Worker on workers.dev,
+and browsers drop cross-site cookies. CORS for `/api/admin/*` allows only `https://nordiccrypto.no`. D1 stores only
+SHA-256 hashes of link and session tokens. "Sign out" deletes the session. Each sign-in is logged in `admin_logins`
+(email, time; no IP).
+
+**Deliveries.** `send_issue.py --issue 001` writes one row per successful send to `newsletter_deliveries`
+(subscriber id, issue number, time) with `wrangler d1 execute`, the same way it reads the list. With `--from-json`, it
+posts to `POST /api/admin/deliveries` instead, but only if `NEWSLETTER_WORKER_ORIGIN` and `ADMIN_DELIVERY_TOKEN` (the
+same Worker secret, at least 32 characters) are set. Otherwise nothing is recorded. Dry runs record nothing. `--html`
+file sends have no issue number and are not recorded. No issue has been mailed yet, so the table starts empty.
+
+### Go live
+
+From `tipworker/`, with `CLOUDFLARE_API_TOKEN` set:
+
+```
+npx wrangler d1 migrations apply nordic-crypto-tips --remote   # adds 0007_admin.sql (deploy.sh also does this)
+npx wrangler deploy                                            # or ../tipworker/deploy.sh
+# optional, only for send_issue.py --from-json:
+openssl rand -hex 32 > "$HOME/.nordic-crypto-admin-delivery"; chmod 600 "$HOME/.nordic-crypto-admin-delivery"
+npx wrangler secret put ADMIN_DELIVERY_TOKEN < "$HOME/.nordic-crypto-admin-delivery"
+```
+
+`RESEND_API_KEY` and `MAIL_FROM_NORDIC_CRYPTO` are already set for the newsletter. `ADMIN_EMAIL_DOMAIN` is in
+`wrangler.toml`. Then merge and publish the site so that `/admin/` and the new `robots.txt` go out. Open `/admin/`, type
+your `@nordiccrypto.no` address, and click the link in the email.
+
+To sign everyone out: `npx wrangler d1 execute nordic-crypto-tips --remote --command "DELETE FROM admin_sessions"`.

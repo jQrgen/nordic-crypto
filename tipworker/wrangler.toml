@@ -17,11 +17,14 @@ enabled = false
 #   wrangler secret put TIP_WEBHOOK_URL / TIP_WEBHOOK_BEARER   (optional, https only)
 #   wrangler secret put ONION_INGEST_TOKEN          (Tor forwarder in onion/; must differ from the read token)
 
+# Admin page (/admin/, src/admin.js): ADMIN_EMAIL_DOMAIN below; optional secret for send_issue.py --from-json:
+#   wrangler secret put ADMIN_DELIVERY_TOKEN        (>= 32 chars; only needed for POST /api/admin/deliveries)
 # Newsletter mail ON (jQrgen, 2026-10-16). Sender MAIL_FROM_NORDIC_CRYPTO is a wrangler secret.
 [vars]
 MAIL_PROVIDER = "resend"
 MAIL_SEND_ENABLED = "1"
 COLUMNIST_TO = "jqrgen@nordiccrypto.no"   # private columnist applications are forwarded here (Reply-To = applicant)
+ADMIN_EMAIL_DOMAIN = "nordiccrypto.no"   # any address at exactly this domain may get an admin sign-in link
 
 [[d1_databases]]
 binding = "DB"

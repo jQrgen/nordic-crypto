@@ -113,6 +113,19 @@ class SendIssue(unittest.TestCase):
         rc, out = self.run_main("--dry-run")
         self.assertTrue(rc == 0 and len(box) == 2 and out.startswith("send: dry-run"), "dry-run sends nothing")
 
+    def test_records_deliveries(self):
+        got = []
+        buf = io.StringIO()
+        with contextlib.redirect_stdout(buf):
+            S.main(["--issue", "001", "--from-json", self.src, "--sleep", "0"], sender=self.fake, env=ENV, record=lambda i, n: got.append((i, n)) or True)
+        self.assertEqual(len(got), 2, "one delivery row per sent mail")
+        self.assertTrue(all(n == 1 for _, n in got), "issue 001 is recorded as #1")
+        os.remove(self.led); got.clear()
+        with contextlib.redirect_stdout(buf):
+            S.main(["--issue", "001", "--from-json", self.src, "--dry-run"], sender=self.fake, env=ENV, record=lambda i, n: got.append((i, n)) or True)
+        self.assertEqual(got, [], "dry run records nothing")
+        self.assertEqual((S.issue_number("001"), S.issue_number("x"), S.issue_number("0")), (1, None, None))
+
     def test_refuses_without_secret(self):
         with self.assertRaises(SystemExit) as e:
             self.run_main("--sleep", "0", env={"MAIL_SEND_ENABLED": "1"})
