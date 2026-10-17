@@ -40,6 +40,7 @@ S = {
 "site_desc_suffix": "kryptonyheder fra Norden",
 "preview_banner": "<b>Lokal forhåndsvisning – ikke offentliggjort.</b> Alt, der er markeret »Afventer redaktøren«, er ikke kontrolleret af redaktøren endnu, og resuméerne er ikke skrevet. Kun godkendt indhold kommer med i den offentlige version.",
 "footer": "{site} dækker Norge, Sverige, Danmark, Finland og Island. Drives af Jørgen S. Notland (jQrgen), Oslo, Lavet med hjælp fra kunstig intelligens, med menneskelige redaktører (jQrgen og Nordic Crypto-redaktøren). Ikke investeringsrådgivning. Cloudflare Web Analytics tæller besøg samlet, uden cookies, og vi sælger ikke de data. <a href=\"{rel}stats/#data-policy\">Databeskyttelse for besøgsstatistikken</a>. Én cookie, kun hvis du vælger sprog. <a href=\"{rel}about/\">Om os, privatliv, rettelser og fjernelse</a>.",
+"logo_disclaimer": "Logoer og varemærker tilhører de respektive ejere og bruges kun til at vise kilden. Nordic Crypto har ingen tilknytning til og er ikke sponsoreret eller godkendt af disse mediehuse.",
 "moved": "Siden er flyttet til",
 "time_local": "{city}, lokal tid", "at_time": "{t}",
 "pending": "Afventer redaktøren", "owner": "Godkendt af redaktøren · afventer jQrgens endelige godkendelse", "our_story": "Vores artikel",

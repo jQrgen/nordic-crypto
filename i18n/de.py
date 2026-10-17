@@ -149,6 +149,7 @@ S.update({
 "site_desc_suffix": "Nordische Krypto-Nachrichten",
 "preview_banner": "<b>Lokale Vorschau – nicht veröffentlicht.</b> Alles, was mit „Redaktionsprüfung ausstehend“ markiert ist, wurde noch nicht vom Redakteur geprüft; Zusammenfassungen sind noch nicht geschrieben. Nur freigegebene Beiträge gelangen in die öffentliche Version.",
 "footer": "{site} berichtet über Norwegen, Schweden, Dänemark, Finnland und Island. Betrieben von Jørgen S. Notland (jQrgen), Oslo. Erstellt mit Hilfe künstlicher Intelligenz, mit menschlichen Redakteuren (jQrgen und der Nordic-Crypto-Redakteur). Keine Anlageberatung. Cloudflare Web Analytics zählt Besuche aggregiert und ohne Cookies, und wir verkaufen diese Daten nicht. Ein Cookie, nur wenn Sie eine Sprache wählen. <a href=\"{rel}about/\">Über uns, Datenschutz, Korrekturen und Entfernung</a>.",
+"logo_disclaimer": "Logos und Marken gehören ihren jeweiligen Inhabern und dienen nur zur Angabe der Quelle. Nordic Crypto ist mit diesen Medienhäusern nicht verbunden und wird von ihnen weder gesponsert noch unterstützt.",
 "moved": "Diese Seite ist umgezogen nach",
 "time_local": "{city}, Ortszeit",
 "at_time": "{t}",

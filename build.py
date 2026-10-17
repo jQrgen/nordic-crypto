@@ -685,6 +685,7 @@ def site_footer(rel, root, slug=""):
             f'<nav class="foot-col" aria-labelledby="ft-site"><h2 id="ft-site">{E(t("foot_site"))}</h2><ul>{site}</ul></nav>'
             f'<div class="foot-col"><h2>{E(t("foot_follow"))}</h2><ul>{follow}</ul></div></div>'
             f'{nlfoot}{pushfoot}<p class="colophon">{t("footer", site=SITE_NAME, rel=rel, root=root, ios_tv=t("ios_tv"), contributors=contributors_link())}</p>'
+            f'<p class="colophon">{E(t("logo_disclaimer"))}</p>'
             f'<p class="colophon">{E(t("contact_us"))}: <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></p>'
             f'{source_footer_line()}</div></footer>')
 def page(slug, title, nav, body, desc, extra_script="", langs=None, head_extra="", hero="", og=None, share_text=None):
@@ -960,14 +961,15 @@ if(mode==='time'&&c&&tm&&!tm.firstChild){var ul=document.createElement('ul');ul.
 if(c)c.hidden=mode!=='country';if(tm)tm.hidden=mode!=='time';});})();
 </script>"""
 def source_mark(i, root=""):
-    """Outlet logo, then the source name, in one left-aligned (or RTL start-aligned) row. Text only when there is no logo."""
+    """«Source:», the outlet logo, then the source name, in one left-aligned (or RTL start-aligned) row. Text only when there is no logo."""
     name = i.get("source_name") or ""
     lg = i.get("source_logo")
     if lg is None and i.get("source"):
         lg = _source_logos().for_source(i.get("source"), preview=PREVIEW)
     if lg and lg.get("file"):
         pend = f' title="{E(t("pending"))}"' if lg.get("pending") else ""
-        img = f'<img class="src-logo" src="{root}{E(lg["file"])}" alt="" height="18" loading="lazy" decoding="async"{pend}>'
+        img = (f'<span class="src-label">{E(t("source"))}:</span>'
+               f'<img class="src-logo" src="{root}{E(lg["file"])}" alt="" height="18" loading="lazy" decoding="async"{pend}>')
         home = i.get("source_url") or _source_logos().homepage(i.get("source"))
         if home:   # one link holding the logo and the name, so it has a name and is one tab stop
             return f'<span class="src"><a class="src-logo-link" href="{E(home)}" rel="noopener">{img}<b>{E(name)}</b></a></span>'

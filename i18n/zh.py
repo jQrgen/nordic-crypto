@@ -149,6 +149,7 @@ S.update({
 "site_desc_suffix": "北欧加密货币新闻",
 "preview_banner": "<b>本地预览，未发布。</b>所有标注“待编辑审核”的内容尚未经编辑检查，摘要也尚未撰写。只有已批准的内容才会进入公开版本。",
 "footer": "{site} 报道挪威、瑞典、丹麦、芬兰和冰岛。由 Jørgen S. Notland（jQrgen）运营，位于奥斯陆，借助人工智能制作，并由人工编辑（jQrgen 和 Nordic Crypto 编辑）把关。不构成投资建议。Cloudflare Web Analytics 以不使用 Cookie 的方式汇总统计访问量，我们不出售这些数据。仅在您选择语言时才会设置一个 Cookie。<a href=\"{rel}about/\">关于、隐私、更正与删除</a>。",
+"logo_disclaimer": "标志和商标归其各自所有者所有，仅用于标明来源。Nordic Crypto 与这些媒体机构没有任何关联，也未获得其赞助或认可。",
 "moved": "此页面已移至",
 "time_local": "{city}当地时间",
 "at_time": "{t}",
