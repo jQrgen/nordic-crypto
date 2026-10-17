@@ -268,9 +268,33 @@ def make_lt(st):
     for i, ln in enumerate(lines): d.text((40, 10 + i * (f.size + 6)), ln, font=f, fill=TAR)
     d.rectangle((0, 0, 12, hh), fill=GOLD)
     tf = F('cx', 32); tag = Image.new('RGB', (int(spaced_w(st['section'], tf, 3)) + 44, 56), GOLD); spaced(ImageDraw.Draw(tag), (22, 9), st['section'], tf, TAR, 3)
-    sf = fit('SOURCE  ' + st['src'], 'cs', 26, W - 220, 18) if V else F('cs', 26); src = Image.new('RGB', (int(tw(DUMMY, 'SOURCE  ' + st['src'], sf)) + 60, 46), SEA); ds = ImageDraw.Draw(src)
-    ds.text((22, 8), 'SOURCE', font=F('cx', 26), fill=GOLD); ds.text((22 + tw(ds, 'SOURCE  ', F('cx', 26)), 8), st['src'], font=sf, fill=SAIL)
-    return tag, head, src
+    return tag, head, make_src(st)
+# Source logos (legal note 17 Oct 2026): only on the story's own source chip, after the «Kilde:»/'Source:' label,
+# unchanged (scaled only, on a white plate as on the site), at most 10% of the frame width. Never in thumbnails,
+# title cards, the intro or the outro, and the Nordic Crypto bug stays the larger mark.
+LOGO_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', '..', 'assets', 'img', 'logos') + os.sep
+LOGO_MAX_W = int(W * 0.10); LOGO_H = 32
+SRC_LABEL = 'Source:' if getattr(C, 'LANG', 'en') == 'en' else 'Kilde:'
+def src_logo(key):
+    if not key: return None
+    meta = json.load(open(LOGO_DIR + 'logos.json', encoding='utf-8')).get(key) or {}
+    if meta.get('review') != 'ok' or meta.get('pending') or not meta.get('file'): return None
+    path = os.path.join(LOGO_DIR, '..', '..', '..', meta['file'])
+    if path.endswith('.svg'): path = path[:-4] + '.png'
+    if not os.path.exists(path): return None
+    lg = Image.open(path).convert('RGBA'); k = min(LOGO_H / lg.height, (LOGO_MAX_W - 8) / lg.width)
+    lg = lg.resize((max(1, round(lg.width * k)), max(1, round(lg.height * k))), Image.LANCZOS)
+    plate = Image.new('RGBA', (lg.width + 8, LOGO_H + 6), (255, 255, 255, 255)); plate.alpha_composite(lg, (4, (plate.height - lg.height) // 2))
+    assert plate.width <= LOGO_MAX_W, (key, plate.width)
+    return plate
+def make_src(st):
+    lf = F('cx', 26); lw = tw(DUMMY, SRC_LABEL, lf); plate = src_logo(st.get('logo')); x = 22 + lw + 12
+    if plate: x += plate.width + 12
+    sf = fit(st['src'], 'cs', 26, W - 160 - x - 60, 18) if V else F('cs', 26)
+    src = Image.new('RGB', (int(x + tw(DUMMY, st['src'], sf)) + 30, 46), SEA); ds = ImageDraw.Draw(src)
+    ds.text((22, 8), SRC_LABEL, font=lf, fill=GOLD); ds.text((x, 8), st['src'], font=sf, fill=SAIL)
+    if plate: src.paste(plate, (22 + lw + 12, 4), plate)
+    src.has_logo = bool(plate); return src
 def draw_lt(base, lt, t, dur):
     tag, head, src = lt; x0, ybot = (80, 1460) if V else (90, 994); ys = ybot - src.height; yh = ys - head.height; yt = yh - tag.height
     out = clamp((t - (dur - 0.5)) / 0.35)  # slide out before the wipe
@@ -281,6 +305,7 @@ def draw_lt(base, lt, t, dur):
         wv = int(head.width * b)
         if wv > 0: base.paste(head.crop((0, 0, wv, head.height)), (x0, yh))
     c = eo((t - 0.95) / 0.4) * (1 - eio(out))
+    if getattr(src, 'has_logo', False): c = 1 if c >= .5 else 0  # a logo is cut in and out whole, never wiped
     if c > 0: base.paste(src.crop((0, 0, src.width, int(src.height * c)) if c < 1 else (0, 0, src.width, src.height)), (x0, ys))
 
 # ---------- segment renderers ----------
@@ -671,8 +696,8 @@ def main():
         raise SystemExit(f'ffmpeg failed on {name} rc={rc}\n{err}')
     print('done', name, s['frames'], 'frames', flush=True)
 
-def thumb():
-    st = dict(C.STORIES['s1']); st['big'] = 'HALT'; st['kicker'] = 'NORWAY · ISSUE #2'
+def thumb():  # no source logos on covers
+    st = dict(C.STORIES['s1'], logo=None); st['big'] = 'HALT'; st['kicker'] = 'NORWAY · ISSUE #2'
     if V: st['big'] = ''; return thumb_vertical(st)
     im = art_bg(st).resize((W, H), Image.LANCZOS, box=(96, 54, 96 + 1920, 54 + 1080)); d = ImageDraw.Draw(im)
     d.rectangle((90, 680, 1830, 900), fill=SAIL); d.rectangle((90, 680, 104, 900), fill=GOLD)
