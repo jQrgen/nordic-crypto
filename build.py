@@ -2106,6 +2106,8 @@ def front_card(i, blurbs, asset, lead=False):
         else:
             lang = f' · {E(t("lang_" + lname))}' if foreign else ""
             summ = f'<p class="sum"{lang_attr(tl)}>{E(txt)}</p>'
+    # The summary also opens the story; hidden from keyboard and screen readers, which use the headline link.
+    summ = summ.replace('>', f'><a class="sumlink" href="{E(href)}" tabindex="-1" aria-hidden="true">', 1).replace('</p>', '</a></p>', 1)
     ext_attr = ""   # the headline goes to our story page (same tab); "Read at" there opens the source
     title_tag = "h2" if lead else "h3"
     klass = "leadstory" if lead else "storycard"
