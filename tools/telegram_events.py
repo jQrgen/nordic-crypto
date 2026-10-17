@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Post each new upcoming event on nordiccrypto.no to the Nordic Crypto Telegram chat, once.
+"""Post each new upcoming event (or, with --kind news, each new story) on nordiccrypto.no to the Telegram chat, once.
 
 Reads the published feed (https://nordiccrypto.no/api/v1/events.json by default), so it sees events whether they were
 published by CI or by ./publish.sh on the box. A ledger file lists the event ids already posted (or seen). Run from
@@ -10,6 +10,8 @@ published by CI or by ./publish.sh on the box. A ledger file lists the event ids
   - Only events that have not ended are posted, earliest start first, at most --max per run. The rest wait for the next run.
   - An id goes into the ledger only after Telegram accepted the message. A failed send is retried next run.
   - A preview feed ("preview": true) is refused.
+  - --kind news reads /api/v1/news.json and posts stories not in its own ledger, published in the last --max-age-days.
+  - --post ID[,ID] posts those ids now, even if already in the ledger or old: a manual backfill.
 
 Secrets: TELEGRAM_BOT_TOKEN (the existing bot; never printed) and TELEGRAM_CHAT_ID (e.g. @nordiccryptochat or -100…).
 Without both it is a dry run: it prints what it would post and does not change the ledger.
@@ -19,6 +21,7 @@ Without both it is a dry run: it prints what it would post and does not change t
 import argparse, datetime as dt, html, json, os, sys, urllib.parse, urllib.request
 
 FEED = "https://nordiccrypto.no/api/v1/events.json"
+NEWS_FEED = "https://nordiccrypto.no/api/v1/news.json"
 FLAGS = {"NO": "🇳🇴", "SE": "🇸🇪", "DK": "🇩🇰", "FI": "🇫🇮", "IS": "🇮🇸", "FO": "🇫🇴", "GL": "🇬🇱", "AX": "🇦🇽"}
 UA = "nordic-crypto-telegram-events/1 (+https://nordiccrypto.no/)"
 
@@ -52,6 +55,31 @@ def postable(events, now):
             continue
         out.append((start, e["id"], e))
     return [e for _, _, e in sorted(out, key=lambda x: (x[0], x[1]))]
+
+
+def fresh_news(items, now, max_age_days):
+    """Stories with an id and title published in the last max_age_days, oldest first."""
+    out = []
+    for e in items:
+        pub = parse(e.get("published"))
+        if not e.get("id") or not pub or not (e.get("title_en") or e.get("title")):
+            continue
+        if pub < now - dt.timedelta(days=max_age_days):
+            continue
+        out.append((pub, e["id"], e))
+    return [e for _, _, e in sorted(out, key=lambda x: (x[0], x[1]))]
+
+
+def news_message(e):
+    E = lambda s: html.escape(str(s or ""), quote=False)
+    flag = FLAGS.get((e.get("country") or "").upper(), "")
+    lines = [f"📰 <b>{E(e.get('title_en') or e['title'])}</b>"]
+    if e.get("source_name"):
+        lines.append(f"{flag + ' ' if flag else ''}{E(e['source_name'])}")
+    link = e.get("html_url") or e.get("url")
+    if link:
+        lines.append(f'<a href="{html.escape(link, quote=True)}">Read on Nordic Crypto</a>')
+    return "\n".join(lines)
 
 
 def when(e):
@@ -107,40 +135,52 @@ def send(token, chat, text):
     return bool(body.get("ok")), body.get("description", "")
 
 
-def run(feed, ledger_path, *, now, token, chat, max_posts, dry, sender=send, log=print):
+def run(feed, ledger_path, *, now, token, chat, max_posts, dry, sender=send, log=print,
+        kind="events", force=(), max_age_days=7):
     if feed.get("preview"):
-        log("telegram events: refusing a preview feed")
+        log(f"telegram {kind}: refusing a preview feed")
         return 2
-    events = feed.get("events") or []
+    events = (feed.get("items") if kind == "news" else feed.get("events")) or []
     have = os.path.exists(ledger_path)
     ledger = json.load(open(ledger_path, encoding="utf-8")) if have else {"posted": []}
     seen = set(ledger.get("posted") or [])
+    force = [i for i in force if i]
     if not have:
         ids = sorted({e["id"] for e in events if e.get("id")})
+        seen = set(ids)
         if not dry:
             save(ledger_path, ids)
-        log(f"telegram events: no ledger yet; recorded {len(ids)} current events, posted nothing"
+        log(f"telegram {kind}: no ledger yet; recorded {len(ids)} current {kind}" + ("" if force else ", posted nothing")
             + (" (dry run, not saved)" if dry else ""))
-        return 0
-    todo = [e for e in postable(events, now) if e["id"] not in seen]
+        if not force:
+            return 0
+    if kind == "news":
+        todo, fmt = fresh_news(events, now, max_age_days), news_message
+    else:
+        todo, fmt = postable(events, now), message
+    byid = {e.get("id"): e for e in events}
+    todo = [byid[i] for i in dict.fromkeys(force) if i in byid] + [e for e in todo if e["id"] not in seen and e["id"] not in force]
+    for i in force:
+        if i not in byid:
+            log(f"telegram {kind}: {i} is not in the feed")
     if not todo:
-        log("telegram events: nothing new")
+        log(f"telegram {kind}: nothing new")
         return 0
     posted = 0
     for e in todo[:max_posts]:
-        text = message(e)
+        text = fmt(e)
         if dry:
             log(f"--- would post {e['id']}:\n{text}")
             continue
         ok, why = sender(token, chat, text)
         if not ok:
-            log(f"telegram events: send failed for {e['id']}: {why}")
+            log(f"telegram {kind}: send failed for {e['id']}: {why}")
             break
         seen.add(e["id"]); posted += 1
         save(ledger_path, sorted(seen))
-        log(f"telegram events: posted {e['id']}")
+        log(f"telegram {kind}: posted {e['id']}")
     left = len(todo) - min(len(todo), max_posts)
-    log(f"telegram events: {posted} posted, {left} left for the next run" + (" (dry run)" if dry else ""))
+    log(f"telegram {kind}: {posted} posted, {left} left for the next run" + (" (dry run)" if dry else ""))
     return 0 if dry or posted or not todo else 1
 
 
@@ -156,16 +196,21 @@ def save(path, ids):
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--ledger", required=True)
-    ap.add_argument("--feed", default=FEED)
+    ap.add_argument("--kind", choices=("events", "news"), default="events")
+    ap.add_argument("--feed")
+    ap.add_argument("--post", default="", help="comma-separated ids to post now (backfill)")
+    ap.add_argument("--max-age-days", type=int, default=7)
     ap.add_argument("--max", type=int, default=5)
     ap.add_argument("--dry-run", action="store_true")
     a = ap.parse_args(argv)
     token, chat = os.environ.get("TELEGRAM_BOT_TOKEN", ""), os.environ.get("TELEGRAM_CHAT_ID", "")
     dry = a.dry_run or not (token and chat)
     if dry and not a.dry_run:
-        print("telegram events: TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID not set; dry run")
-    return run(load_feed(a.feed), a.ledger, now=dt.datetime.now(dt.timezone.utc), token=token, chat=chat,
-               max_posts=max(1, a.max), dry=dry)
+        print(f"telegram {a.kind}: TELEGRAM_BOT_TOKEN or TELEGRAM_CHAT_ID not set; dry run")
+    feed = a.feed or (NEWS_FEED if a.kind == "news" else FEED)
+    force = [i.strip() for i in a.post.replace(" ", ",").split(",") if i.strip()]
+    return run(load_feed(feed), a.ledger, now=dt.datetime.now(dt.timezone.utc), token=token, chat=chat,
+               max_posts=max(1, a.max, len(force)), dry=dry, kind=a.kind, force=force, max_age_days=a.max_age_days)
 
 
 if __name__ == "__main__":

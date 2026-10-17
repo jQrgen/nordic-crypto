@@ -75,5 +75,30 @@ class TelegramEvents(unittest.TestCase):
         online = te.message(ev("o1", "2026-10-14T00:00:00+02:00", place="", city="", online=True, country=None))
         self.assertIn("📍 Online", online); self.assertIn("Wed 14 Oct 2026\n", online)
 
+    def gonews(self, items, **kw):
+        self.sender = kw.pop("sender", None) or Sender()
+        return te.run({"preview": False, "items": items}, self.ledger, now=NOW, token="T0KEN", chat="@c", max_posts=5,
+                      dry=False, sender=self.sender, log=self.log.append, kind="news", **kw)
+
+    def test_news_posts_new_recent_stories_once(self):
+        story = lambda i, pub: {"id": i, "title": f"Sak {i}", "title_en": f"Story {i}", "published": pub, "country": "SE",
+                                "source_name": "Kaupr", "html_url": f"https://nordiccrypto.no/stories/{i}/"}
+        self.gonews([story("old", "2026-10-08T07:00:00+00:00")])
+        self.assertEqual(self.sender.sent, [])
+        items = [story("old", "2026-10-08T07:00:00+00:00"), story("n2", "2026-10-08T09:00:00+00:00"),
+                 story("n1", "2026-10-07"), story("stale", "2026-09-01T00:00:00+00:00")]
+        self.gonews(items)
+        self.assertEqual([s[2].split("/stories/")[1][:2] for s in self.sender.sent], ["n1", "n2"])
+        self.assertIn("📰 <b>Story n1</b>\n🇸🇪 Kaupr", self.sender.sent[0][2])
+        self.gonews(items); self.assertEqual(self.sender.sent, [], "never posted twice")
+
+    def test_news_backfill_posts_named_ids_even_when_seeded(self):
+        items = [{"id": "b1", "title": "B1", "published": "2026-10-08T07:00:00+00:00"},
+                 {"id": "b2", "title": "B2", "published": "2026-10-08T08:00:00+00:00"}]
+        self.gonews(items)
+        self.gonews(items, force=["b2", "zz"])
+        self.assertEqual(len(self.sender.sent), 1); self.assertIn("B2", self.sender.sent[0][2])
+        self.assertTrue(any("zz is not in the feed" in l for l in self.log))
+
 if __name__ == "__main__":
     unittest.main()
