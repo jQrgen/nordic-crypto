@@ -1,7 +1,5 @@
-Barlow and Barlow Condensed
-Copyright 2017 The Barlow Project Authors (https://github.com/jpt/barlow)
-Licensed under the SIL Open Font License, Version 1.1
-https://openfontlicense.org
-
-These files are the latin static TTFs used by the newsreel renderer.
-They are redistributed so the video can be rebuilt without a network fetch.
+Cormorant Garamond and Schibsted Grotesk, the fonts of nordiccrypto.no and its media kit.
+Copyright 2015 The Cormorant Project Authors (https://github.com/CatharsisFonts/Cormorant)
+Copyright 2023 The Schibsted Grotesk Project Authors (https://github.com/schibsted/schibsted-grotesk)
+Licensed under the SIL Open Font License, Version 1.1 (https://openfontlicense.org/).
+Static instances of the Google Fonts variable fonts; Cormorant is subset to Latin and Latin Extended.

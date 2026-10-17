@@ -71,6 +71,19 @@ def mark(d, x, y, s):
             if not fill:
                 continue
             d.rectangle((x + col * cell, y + row * cell, x + (col + 1) * cell - 0.2, y + (row + 1) * cell - 0.2), fill=fill)
+# Nordic cross flags in their official units: (width, height, field, cross bands as (colour, x0, x1, y0, y1)).
+FLAGS = {'NO': (22, 16, (186, 12, 47), [((255, 255, 255), 6, 10, 6, 10), ((0, 32, 91), 7, 9, 7, 9)]),
+         'SE': (16, 10, (0, 106, 167), [((254, 204, 2), 5, 7, 4, 6)]),
+         'DK': (37, 28, (200, 16, 46), [((255, 255, 255), 12, 16, 12, 16)]),
+         'FI': (18, 11, (255, 255, 255), [((0, 47, 108), 5, 8, 4, 7)]),
+         'IS': (25, 18, (2, 82, 156), [((255, 255, 255), 7, 11, 7, 11), ((220, 30, 53), 8, 10, 8, 10)])}
+def flag_w(code, h): fw, fh = FLAGS[code][:2]; return fw * h / fh
+def flag(d, code, x, y, h):
+    fw, fh, field, bands = FLAGS[code]; k = h / fh; w = fw * k
+    d.rectangle((x, y, x + w - 1, y + h - 1), fill=field)
+    for c, x0, x1, y0, y1 in bands:
+        d.rectangle((x + x0 * k, y, x + x1 * k - 1, y + h - 1), fill=c); d.rectangle((x, y + y0 * k, x + w - 1, y + y1 * k - 1), fill=c)
+COUNTRIES = [('NO', 'NORWAY'), ('SE', 'SWEDEN'), ('DK', 'DENMARK'), ('FI', 'FINLAND'), ('IS', 'ICELAND')]
 def grad(w, h, top, bot):
     g = Image.linear_gradient('L').resize((w, h)); return Image.composite(Image.new('RGB', (w, h), bot), Image.new('RGB', (w, h), top), g)
 def star(d, cx, cy, r, fill):
@@ -298,7 +311,6 @@ def seg_tonight(s):
     heads = ["Binance under scrutiny over Europe's new crypto rules", "Sweden's financial watchdog issues a crypto sanctions warning", "The meetups coming up across the region"]
     tags = ['TOP STORY', 'REGULATION', 'ON THE CALENDAR']
     st = [vo + x[0] for x in sents] + [99] * 6
-    countries = ['NORWAY', 'SWEDEN', 'DENMARK', 'FINLAND', 'ICELAND']
     def frame(t, T):
         im = kb(bg, t / s['dur'], -1); d = ImageDraw.Draw(im)
         phase2 = t >= st[3] - 0.2
@@ -316,13 +328,13 @@ def seg_tonight(s):
             t2 = t - (st[3] - 0.2)
             d.text((140, 200), 'NEWS FROM FIVE COUNTRIES', font=F('cb', 90), fill=WHITE)
             d.text((140, 310), 'Crypto, bitcoin and blockchain news, with a link to every original source', font=F('m', 40), fill=GREY)
-            for i, c in enumerate(countries):
+            for i, (cc, c) in enumerate(COUNTRIES):
                 a = eback((t2 - 0.6 - i * 0.55) / 0.4)
                 if a <= 0: continue
                 x = 140 + i * 330; y = 470; hgt = 230 * a
                 d.rectangle((x, y + 230 - hgt, x + 300, y + 230), fill=BLUE)
                 if a > .7:
-                    mark(d, x + 110, y + 30, 80); cw = tw(d, c, F('cb', 54)); d.text((x + 150 - cw / 2, y + 140), c, font=F('cb', 54), fill=WHITE)
+                    flag(d, cc, x + 150 - flag_w(cc, 80) / 2, y + 30, 80); cw = tw(d, c, F('cb', 54)); d.text((x + 150 - cw / 2, y + 140), c, font=F('cb', 54), fill=WHITE)
         return im
     return frame, {}
 def seg_section(s):
