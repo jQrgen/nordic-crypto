@@ -40,6 +40,7 @@ S = {
 "site_desc_suffix": "rafmyntafréttir frá Norðurlöndunum",
 "preview_banner": "<b>Staðbundin forskoðun – ekki birt.</b> Ritstjóri hefur ekki enn farið yfir neitt sem merkt er „Bíður yfirferðar ritstjóra“ og samantektir hafa ekki enn verið skrifaðar. Aðeins samþykkt efni fer í opinberu útgáfuna.",
 "footer": "{site} fylgist með Noregi, Svíþjóð, Danmörku, Finnlandi og Íslandi. Síðunni er haldið úti af Jørgen S. Notland (jQrgen), Ósló, Unnið með aðstoð gervigreindar, með mannlegum ritstjórum (jQrgen og ritstjóra Nordic Crypto). Ekki fjárfestingarráðgjöf. Cloudflare Web Analytics telur heimsóknir saman, án vafrakaka, og við seljum ekki þau gögn. <a href=\"{rel}stats/#data-policy\">Persónuvernd fyrir heimsóknartölfræði</a>. Ein vafrakaka, aðeins ef þú velur tungumál. <a href=\"{rel}about/\">Um okkur, persónuvernd, leiðréttingar og fjarlægingar</a>.",
+"logo_disclaimer": "Merki og vörumerki tilheyra viðkomandi eigendum og eru aðeins notuð til að sýna heimildina. Nordic Crypto tengist ekki þessum fjölmiðlum og er hvorki styrkt né samþykkt af þeim.",
 "moved": "Síðan hefur verið flutt á",
 "time_local": "{city}, staðartími", "at_time": "kl. {t}",
 "pending": "Bíður yfirferðar ritstjóra", "owner": "Samþykkt af ritstjóra · bíður lokasamþykkis jQrgen", "our_story": "Okkar frétt",

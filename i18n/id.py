@@ -149,6 +149,7 @@ S.update({
 "site_desc_suffix": "Berita kripto Nordik",
 "preview_banner": "<b>Pratinjau lokal – belum dipublikasikan.</b> Semua yang bertanda “Menunggu tinjauan editor” belum diperiksa oleh editor; ringkasan belum ditulis. Hanya item yang disetujui yang masuk ke versi publik.",
 "footer": "{site} meliput Norwegia, Swedia, Denmark, Finlandia, dan Islandia. Dikelola oleh Jørgen S. Notland (jQrgen), Oslo. Dibuat dengan bantuan kecerdasan buatan, dengan editor manusia (jQrgen dan editor Nordic Crypto). Bukan nasihat investasi. Cloudflare Web Analytics menghitung kunjungan secara agregat, tanpa cookie, dan kami tidak menjual data tersebut. Satu cookie, hanya jika Anda memilih bahasa. <a href=\"{rel}about/\">Tentang, privasi, koreksi, dan penghapusan</a>.",
+"logo_disclaimer": "Logo dan merek dagang adalah milik pemiliknya masing-masing dan hanya digunakan untuk menunjukkan sumber. Nordic Crypto tidak berafiliasi dengan, disponsori, atau didukung oleh media-media ini.",
 "moved": "Halaman ini telah dipindahkan ke",
 "time_local": "{city}, waktu setempat",
 "at_time": "{t}",

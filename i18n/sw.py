@@ -149,6 +149,7 @@ S.update({
 "site_desc_suffix": "Habari za sarafu fiche za Nordic",
 "preview_banner": "<b>Onyesho la ndani – halijachapishwa.</b> Kila kitu kilichowekwa alama “Kinasubiri ukaguzi wa mhariri” bado hakijakaguliwa na mhariri; muhtasari haujaandikwa bado. Ni vipengele vilivyoidhinishwa pekee vinavyoingia kwenye toleo la umma.",
 "footer": "{site} inaangazia Norway, Sweden, Denmark, Finland na Iceland. Inaendeshwa na Jørgen S. Notland (jQrgen), Oslo, Imetengenezwa kwa msaada wa akili bandia, pamoja na wahariri binadamu (jQrgen na mhariri wa Nordic Crypto). Si ushauri wa uwekezaji. Cloudflare Web Analytics huhesabu ziara kwa jumla, bila vidakuzi, na hatuuzi data hiyo. Kidakuzi kimoja, ikiwa tu utachagua lugha. <a href=\"{rel}about/\">Kuhusu, faragha, masahihisho na kuondolewa</a>.",
+"logo_disclaimer": "Nembo na alama za biashara ni mali ya wamiliki wake na zinatumika tu kuonyesha chanzo. Nordic Crypto haihusiani na vyombo hivi vya habari, wala haidhaminiwi au kuidhinishwa navyo.",
 "moved": "Ukurasa huu umehamishiwa",
 "time_local": "{city}, saa za huko",
 "at_time": "{t}",

@@ -149,6 +149,7 @@ S.update({
 "site_desc_suffix": "Noticias cripto nórdicas",
 "preview_banner": "<b>Vista previa local – no publicada.</b> Todo lo marcado como “Pendiente de revisión editorial” aún no ha sido revisado por el editor; los resúmenes todavía no están redactados. Solo los elementos aprobados pasan a la versión pública.",
 "footer": "{site} cubre Noruega, Suecia, Dinamarca, Finlandia e Islandia. Dirigido por Jørgen S. Notland (jQrgen), Oslo. Elaborado con ayuda de inteligencia artificial, con editores humanos (jQrgen y el editor de Nordic Crypto). No es asesoramiento de inversión. Cloudflare Web Analytics cuenta las visitas de forma agregada, sin cookies, y no vendemos esos datos. Una cookie, solo si eliges un idioma. <a href=\"{rel}about/\">Acerca de, privacidad, correcciones y retirada de contenido</a>.",
+"logo_disclaimer": "Los logotipos y las marcas pertenecen a sus respectivos propietarios y se usan solo para identificar la fuente. Nordic Crypto no está afiliado a estos medios ni patrocinado o respaldado por ellos.",
 "moved": "Esta página se ha trasladado a",
 "time_local": "{city}, hora local",
 "at_time": "{t}",

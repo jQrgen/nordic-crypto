@@ -40,6 +40,7 @@ S = {
 "site_desc_suffix": "kryptouutisia Pohjoismaista",
 "preview_banner": "<b>Paikallinen esikatselu – ei julkaistu.</b> Toimittaja ei ole vielä tarkistanut mitään, mikä on merkitty ”Odottaa toimittajan tarkistusta”, eikä tiivistelmiä ole vielä kirjoitettu. Julkiseen versioon tulee vain hyväksytty sisältö.",
 "footer": "{site} seuraa Norjaa, Ruotsia, Tanskaa, Suomea ja Islantia. Sivustoa ylläpitää Jørgen S. Notland (jQrgen), Oslo, Tehty tekoälyn avulla, ihmistoimittajina jQrgen ja Nordic Crypton toimittaja. Ei sijoitusneuvontaa. Cloudflare Web Analytics laskee käynnit kootusti, ilman evästeitä, emmekä myy näitä tietoja. <a href=\"{rel}stats/#data-policy\">Kävijätilastojen tietosuoja</a>. Yksi eväste, vain jos valitset kielen. <a href=\"{rel}about/\">Tietoa meistä, tietosuoja, korjaukset ja poistot</a>.",
+"logo_disclaimer": "Logot ja tavaramerkit kuuluvat omistajilleen, ja niitä käytetään vain lähteen osoittamiseen. Nordic Crypto ei ole sidoksissa näihin mediataloihin, eivätkä ne sponsoroi tai ole hyväksyneet sitä.",
 "moved": "Sivu on siirretty osoitteeseen",
 "time_local": "{city}, paikallista aikaa", "at_time": "{t}",
 "pending": "Odottaa toimittajan tarkistusta", "owner": "Toimittajan hyväksymä · odottaa jQrgenin lopullista hyväksyntää", "our_story": "Oma juttumme",

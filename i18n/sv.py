@@ -40,6 +40,7 @@ S = {
 "site_desc_suffix": "kryptonyheter från Norden",
 "preview_banner": "<b>Lokal förhandsvisning – inte publicerad.</b> Allt som är märkt ”Väntar på redaktören” har inte granskats av redaktören än, och sammanfattningarna är inte skrivna. Bara godkänt innehåll kommer med i den publika versionen.",
 "footer": "{site} bevakar Norge, Sverige, Danmark, Finland och Island. Drivs av Jørgen S. Notland (jQrgen), Oslo, Gjort med hjälp av artificiell intelligens, med mänskliga redaktörer (jQrgen och Nordic Crypto-redaktören). Inte investeringsrådgivning. Cloudflare Web Analytics räknar besök samlat, utan kakor, och vi säljer inte de uppgifterna. <a href=\"{rel}stats/#data-policy\">Dataskydd för besöksstatistiken</a>. En kaka, bara om du väljer språk. <a href=\"{rel}about/\">Om oss, integritet, rättelser och borttagning</a>.",
+"logo_disclaimer": "Logotyper och varumärken tillhör respektive ägare och används bara för att visa källan. Nordic Crypto har ingen koppling till, och är inte sponsrat eller godkänt av, dessa mediehus.",
 "moved": "Sidan har flyttats till",
 "time_local": "{city}, lokal tid", "at_time": "{t}",
 "pending": "Väntar på redaktören", "owner": "Godkänd av redaktören · väntar på jQrgens slutliga godkännande", "our_story": "Vår artikel",

@@ -41,6 +41,7 @@ S = {
 "site_desc_suffix": "Nordic crypto news",
 "preview_banner": "<b>Local preview – not published.</b> Everything marked “Pending editor review” has not been checked by the editor yet; summaries are not written yet. Only approved items go into the public build.",
 "footer": "{site} covers Norway, Sweden, Denmark, Finland and Iceland. Run by Jørgen S. Notland (jQrgen), Oslo, Made with the help of artificial intelligence, with human editors (jQrgen and the Nordic Crypto editor). Not investment advice. Cloudflare Web Analytics counts visits in aggregate, without cookies, and we do not sell that data. <a href=\"{rel}stats/#data-policy\">Data policy for the visitor stats</a>. One cookie, only if you choose a language. <a href=\"{rel}about/\">About, privacy, corrections and removal</a>.",
+"logo_disclaimer": "Logos and trademarks belong to their respective owners and are used only to identify the source. Nordic Crypto is not affiliated with, sponsored by or endorsed by these media outlets.",
 "moved": "This page has moved to",
 # dates
 "time_local": "{city}, local time", "at_time": "{t}",
