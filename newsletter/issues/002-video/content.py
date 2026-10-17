@@ -81,5 +81,5 @@ TIMELINE = [
 SIGNOFF_CARD = "The Nordic Crypto team"
 END_HEAD = "THAT'S ALL FOR ISSUE NUMBER TWO"
 # Newsreel bumper matches the 5.5s jingle. Section stings are about 2.0s.
-BUMPER_LEN = {"bumper": 5.5, "section": 2.0}
+BUMPER_LEN = {"bumper": 5.5, "section": 2.0, "countries": 4.0}
 THUMB_HEAD = "Data-centre halt proposals and new fraud warnings in Sweden"

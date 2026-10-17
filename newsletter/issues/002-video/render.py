@@ -99,6 +99,19 @@ def mark(im, x, y, s):  # shield s px tall, centred on an s x s box
     sh = shield(s); im.paste(sh, (int(x + s / 2 - sh.width / 2), int(y)), sh)
 def wordmark(d, x, y, f):  # "Nordic" in Sailcloth, "Crypto" in Shield Gold, as on the band lockup
     d.text((x, y), 'Nordic', font=f, fill=SAIL); d.text((x + tw(d, 'Nordic ', f), y), 'Crypto', font=f, fill=GOLD)
+# Nordic cross flags in their official units: (width, height, field, cross bands as (colour, x0, x1, y0, y1)).
+FLAGS = {'NO': (22, 16, (186, 12, 47), [((255, 255, 255), 6, 10, 6, 10), ((0, 32, 91), 7, 9, 7, 9)]),
+         'SE': (16, 10, (0, 106, 167), [((254, 204, 2), 5, 7, 4, 6)]),
+         'DK': (37, 28, (200, 16, 46), [((255, 255, 255), 12, 16, 12, 16)]),
+         'FI': (18, 11, (255, 255, 255), [((0, 47, 108), 5, 8, 4, 7)]),
+         'IS': (25, 18, (2, 82, 156), [((255, 255, 255), 7, 11, 7, 11), ((220, 30, 53), 8, 10, 8, 10)])}
+def flag_w(code, h): fw, fh = FLAGS[code][:2]; return fw * h / fh
+def flag(d, code, x, y, h):
+    fw, fh, field, bands = FLAGS[code]; k = h / fh; w = fw * k
+    d.rectangle((x, y, x + w - 1, y + h - 1), fill=field)
+    for c, x0, x1, y0, y1 in bands:
+        d.rectangle((x + x0 * k, y, x + x1 * k - 1, y + h - 1), fill=c); d.rectangle((x, y + y0 * k, x + w - 1, y + y1 * k - 1), fill=c)
+COUNTRIES = [('NO', 'NORWAY'), ('SE', 'SWEDEN'), ('DK', 'DENMARK'), ('FI', 'FINLAND'), ('IS', 'ICELAND')]
 def grad(w, h, top, bot):
     g = Image.linear_gradient('L').resize((w, h)); return Image.composite(Image.new('RGB', (w, h), bot), Image.new('RGB', (w, h), top), g)
 def star(d, cx, cy, r, fill):
@@ -344,6 +357,22 @@ def seg_tonight(s):
             d.text((x + 44, y + 70), heads[i], font=hf, fill=SAIL)
         return im
     return frame, {}
+def seg_countries(s):
+    bg = bokeh_bg(7)
+    def frame(t, T):
+        im = kb(bg, t / s['dur'], 1); d = ImageDraw.Draw(im)
+        a = eo(t / 0.5); d.text((140 - (1 - a) * 900, 180), 'News from five countries', font=F('cb', 104), fill=SAIL)
+        if a > .5: d.text((144, 320), 'Crypto, bitcoin and blockchain news, with a link to every original source', font=F('m', 36), fill=FOAM)
+        for i, (cc, c) in enumerate(COUNTRIES):
+            u = eback((t - 0.6 - i * 0.4) / 0.4)
+            if u <= 0: continue
+            x = 140 + i * 336; y = 450; hgt = 300 * min(u, 1)
+            d.rectangle((x, y + 300 - hgt, x + 300, y + 300), fill=SEA); d.rectangle((x, y + 300 - hgt, x + 300, y + 300 - hgt + 8), fill=GOLD)
+            if u > .7:
+                fh = 110; flag(d, cc, x + 150 - flag_w(cc, fh) / 2, y + 60, fh)
+                cw = spaced_w(c, F('cx', 34), 3); spaced(d, (x + 150 - cw / 2, y + 210), c, F('cx', 34), SAIL, 3)
+        return im
+    return frame, {}
 def seg_section(s):
     def frame(t, T):
         im = Image.new('RGB', (W, H), NIGHT); d = ImageDraw.Draw(im)
@@ -436,7 +465,7 @@ def seg_end(s):
         if fade > 0: im = Image.blend(im, Image.new('RGB', (W, H), (0, 0, 0)), fade)
         return im
     return frame, dict(ticker_out=True, last=True)
-KINDS = dict(bumper=seg_bumper, title=seg_title, tonight=seg_tonight, section=seg_section, story=seg_story, calendar=seg_calendar, end=seg_end)
+KINDS = dict(bumper=seg_bumper, title=seg_title, tonight=seg_tonight, countries=seg_countries, section=seg_section, story=seg_story, calendar=seg_calendar, end=seg_end)
 
 def compose(s, frame, opts, i, bug, tick):
     t = i / FPS; T = (s['start_f'] + i) / FPS; dur = s['frames'] / FPS
